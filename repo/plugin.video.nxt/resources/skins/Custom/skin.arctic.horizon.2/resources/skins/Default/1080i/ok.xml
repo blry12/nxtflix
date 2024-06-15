@@ -31,7 +31,7 @@
                 <align>left</align>
                 <aligny>top</aligny>
                 <aspectratio aligny="top">keep</aspectratio>
-                <texture colordiffuse="dialog_fg_70">common/nxt.png</texture>
+                <texture colordiffuse="dialog_fg_70">common/afm.png</texture>
             </control>
             <control type="label">
                 <width max="560">auto</width>

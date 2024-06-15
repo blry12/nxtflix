@@ -30,7 +30,7 @@
                 <align>left</align>
                 <aligny>top</aligny>
                 <aspectratio aligny="top">keep</aspectratio>
-                <texture colordiffuse="dialog_fg_70">common/nxt.png</texture>
+                <texture colordiffuse="dialog_fg_70">common/afm.png</texture>
             </control>
             <control type="image">
                 <top>70</top>

@@ -33,7 +33,7 @@
 			</group>
 			<!-- General -->
 			<group id="2" label="32001">
-				<setting id="auto_start_fen" type="boolean" label="32017" help="">
+				<setting id="auto_start_nxt" type="boolean" label="32017" help="">
 					<level>0</level>
 					<default>false</default>
 					<control type="toggle"/>
@@ -2721,7 +2721,7 @@
 		<category id="hidden" label="32513" help="">
 			<!-- Misc -->
 			<group id="1" label="32513">
-				<setting id="tools.make_afm_work" type="boolean" label="33144" help="">
+				<setting id="tools.make_nxt_work" type="boolean" label="33144" help="">
 					<level>0</level>
 					<default>false</default>
 					<control type="toggle"/>

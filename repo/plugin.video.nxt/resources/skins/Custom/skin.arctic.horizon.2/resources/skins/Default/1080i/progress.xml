@@ -30,7 +30,7 @@
                 <align>left</align>
                 <aligny>top</aligny>
                 <aspectratio aligny="top">keep</aspectratio>
-                <texture colordiffuse="dialog_fg_70">common/nxt.png</texture>
+                <texture colordiffuse="dialog_fg_70">common/afm.png</texture>
             </control>
             <control type="group">
                 <left>5</left>
@@ -43,7 +43,7 @@
                     <font>font_tiny</font>
                     <align>left</align>
                     <aligny>bottom</aligny>
-                    <label>[COLOR B3CCCCCC]$ADDON[plugin.video.nxt 33138][/COLOR]</label>
+                    <label>[COLOR B3CCCCCC]$ADDON[plugin.video.afm 33138][/COLOR]</label>
                 </control>
                 <control type="image" id="200">
                     <left>640</left>

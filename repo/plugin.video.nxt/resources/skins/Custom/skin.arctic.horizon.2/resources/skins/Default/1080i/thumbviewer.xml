@@ -29,7 +29,7 @@
                     <width>60</width>
                     <height>60</height>
                     <aspectratio aligny="top">keep</aspectratio>
-                    <texture>common/nxt.png</texture>
+                    <texture>common/afm.png</texture>
                 </control>
                 <control type="label">
                     <top>20</top>
@@ -62,7 +62,7 @@
                     <textcolor>FFFFFFFF</textcolor>
                     <align>left</align>
                     <aligny>center</aligny>
-                    <label>[UPPERCASE]$ADDON[plugin.video.nxt 32022] $INFO[Window.Property(page_no)][B][COLOR $VAR[ColorHighlight]] | [/COLOR]$INFO[Container(2000).ListItem.Property(name)][/B][/UPPERCASE]</label>
+                    <label>[UPPERCASE]$ADDON[plugin.video.afm 32022] $INFO[Window.Property(page_no)][B][COLOR $VAR[ColorHighlight]] | [/COLOR]$INFO[Container(2000).ListItem.Property(name)][/B][/UPPERCASE]</label>
                 </control>
             </control>
             <control type="panel" id="2000">
