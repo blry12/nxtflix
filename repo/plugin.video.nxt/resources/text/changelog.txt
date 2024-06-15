@@ -1,8 +1,0 @@
-[B]Please utilize NXTFlix Tips (Tools->Tips for A Use) to catch up on any important new features. New features will be highlighted with a [COLOR chartreuse]NEW!!![/COLOR] label.[/B]
-
-
-
-[COLOR lightbluesky][B]Version 1.0[/B][/COLOR]
-1.0 - Initial Release
-
-++
