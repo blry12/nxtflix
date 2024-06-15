@@ -16,7 +16,7 @@ home_addons_dir = translate_path('special://home/addons/')
 destination_check = translate_path('special://home/addons/plugin.video.nxt/')
 
 def get_versions():
-	result = requests.get('https://raw.githubusercontent.com/blry12/nxtflix/master/repo/plugin.video.nxt/resources/text/changelog.txt')
+	result = requests.get('https://raw.githubusercontent.com/blry12/nxtflix/master/repo/plugin.video.nxt/resources/text/nxt_version.txt')
 	if result.status_code != 200: return
 	online_version = result.text.replace('\n', '')
 	current_version = addon_info('version')
