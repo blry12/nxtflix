@@ -47,13 +47,13 @@ class three_d:
                 pass
                 
         try:
-            addon = xbmcvfs.translatePath('special://home/addons/plugin.video.nxt/')
-            file = xbmcvfs.translatePath('special://userdata/addon_data/plugin.video.nxt/settings.xml')
+            addon = xbmcvfs.translatePath('special://home/addons/plugin.video.NXTFlix/')
+            file = xbmcvfs.translatePath('special://userdata/addon_data/plugin.video.NXTFlix/settings.xml')
 
             if xbmcvfs.exists(addon) and xbmcvfs.exists(file):
 
                 ftr = 'false'
-                addon = xbmcaddon.Addon("plugin.video.nxt")
+                addon = xbmcaddon.Addon("plugin.video.NXTFlix")
                 addon.setSetting("include_3d_results", ftr)
         except:
                 pass                

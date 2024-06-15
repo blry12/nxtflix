@@ -30,11 +30,11 @@ class ap_enable:
                 pass
                 
         try:
-            addon = xbmcvfs.translatePath('special://home/addons/plugin.video.nxt/')
-            file = xbmcvfs.translatePath('special://userdata/addon_data/plugin.video.nxt/settings.xml')
+            addon = xbmcvfs.translatePath('special://home/addons/plugin.video.NXTFlix/')
+            file = xbmcvfs.translatePath('special://userdata/addon_data/plugin.video.NXTFlix/settings.xml')
 
             if xbmcvfs.exists(addon) and xbmcvfs.exists(file):
-                addon = xbmcaddon.Addon("plugin.video.nxt")
+                addon = xbmcaddon.Addon("plugin.video.NXTFlix")
                 addon.setSetting("auto_play_movie", 'true')
                 addon.setSetting("auto_play_episode", 'true')
         except:
