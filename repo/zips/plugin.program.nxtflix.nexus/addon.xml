@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.program.nxtflix.nexus" name="[COLOR lightskyblue]NXTFlix[/COLOR] Wizard [COLOR blue]Kodi 21 Nexus[/COLOR]" version="1.0" provider-name="BLRY">
+<addon id="plugin.program.nxtflix.nexus" name="[COLOR lightskyblue]NXTFlix[/COLOR] Wizard [COLOR blue]Kodi 20 Nexus[/COLOR]" version="1.0" provider-name="BLRY">
 	<requires>
 		<import addon="xbmc.python" version="3.0.1"/>
 	</requires>
@@ -8,8 +8,8 @@
 	</extension>
 	<extension point="xbmc.service" library="service.py" />
 	<extension point="xbmc.addon.metadata">
-		<summary lang="en_GB">Simple Nexus Wizard is a lightweight template for installing builds on Kodi 21 Nexus. Has some code from Aftermath Wizard by Surfacingx. Skin Switch by OpenELEQ. Base code by BYB. Credits to them and all others who contributed. Please report any bugs to @slamious on Telegram/Twitter.</summary>
-		<description lang="en_GB">Kodi 21 Nexus Wizard</description>
+		<summary lang="en_GB">Simple Nexus Wizard is a lightweight template for installing builds on Kodi 20 Nexus. Has some code from Aftermath Wizard by Surfacingx. Skin Switch by OpenELEQ. Base code by BYB. Credits to them and all others who contributed. Please report any bugs to @slamious on Telegram/Twitter.</summary>
+		<description lang="en_GB">Kodi 20 Nexus Wizard</description>
 		<disclaimer lang="en_GB">This Addon contains no content</disclaimer>
 		<language>en</language>
 		<platform>all</platform>
