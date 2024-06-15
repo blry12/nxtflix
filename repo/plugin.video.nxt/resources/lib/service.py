@@ -36,3 +36,9 @@ class FenMonitor(xbmc_monitor):
 
 	def onNotification(self, sender, method, data):
 		on_notification_actions.run(sender, method, data)
+
+logger(fen_str, 'Main Monitor Service Starting')
+logger(fen_str, 'Settings Monitor Service Starting')
+FenMonitor().waitForAbort()
+logger(fen_str, 'Settings Monitor Service Finished')
+logger(fen_str, 'Main Monitor Service Finished')
