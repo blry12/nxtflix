@@ -39,7 +39,7 @@ def update_addon(new_version, action):
 	close_all_dialog()
 	execute_builtin('ActivateWindow(Home)', True)
 	zip_name = 'plugin.video.NXTFlix-%s.zip' % new_version
-	url = 'https://raw.githubusercontent.com/blry12/NXTFlixflix/master/repo/zips/plugin.video.NXTFlix/%s' % zip_name
+	url = 'https://raw.githubusercontent.com/blry12/NXTFlix/master/repo/zips/plugin.video.NXTFlix/%s' % zip_name
 	result = requests.get(url, stream=True)
 	if result.status_code != 200: return ok_dialog(heading=33176, text=33183)
 	zip_location = osPath.join(packages_dir, zip_name)
