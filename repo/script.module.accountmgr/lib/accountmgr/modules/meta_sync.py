@@ -56,32 +56,32 @@ class Auth:
                         pass
                 
 
-        #afm
+        #nxt
                 try:
-                        if xbmcvfs.exists(var.chk_afm) and xbmcvfs.exists(var.chkset_afm):
+                        if xbmcvfs.exists(var.chk_nxt) and xbmcvfs.exists(var.chkset_nxt):
 
-                                chk_fanart_api = xbmcaddon.Addon('plugin.video.afm').getSetting("fanart_client_key")
-                                chk_omdb_api = xbmcaddon.Addon('plugin.video.afm').getSetting("omdb_api")
-                                chk_imdb_api = xbmcaddon.Addon('plugin.video.afm').getSetting("imdb_user")    
-                                chk_tmdb_api = xbmcaddon.Addon('plugin.video.afm').getSetting("tmdb_api")
+                                chk_fanart_api = xbmcaddon.Addon('plugin.video.nxt').getSetting("fanart_client_key")
+                                chk_omdb_api = xbmcaddon.Addon('plugin.video.nxt').getSetting("omdb_api")
+                                chk_imdb_api = xbmcaddon.Addon('plugin.video.nxt').getSetting("imdb_user")    
+                                chk_tmdb_api = xbmcaddon.Addon('plugin.video.nxt').getSetting("tmdb_api")
                                 
                                 if not str(var.chk_accountmgr_fanart) == str(chk_fanart_api) or str(chk_fanart_api) == '':
-                                        addon = xbmcaddon.Addon("plugin.video.afm")
+                                        addon = xbmcaddon.Addon("plugin.video.nxt")
                                         addon.setSetting("fanart_client_key", your_fanart_api)
 
                                 if not str(var.chk_accountmgr_omdb) == str(chk_omdb_api) or str(chk_omdb_api) == '':
-                                        addon = xbmcaddon.Addon("plugin.video.afm")
+                                        addon = xbmcaddon.Addon("plugin.video.nxt")
                                         addon.setSetting("omdb_api", your_omdb_api)
 
                                 if not str(var.chk_accountmgr_imdb) == str(chk_imdb_api) or str(chk_imdb_api) == '':
-                                        addon = xbmcaddon.Addon("plugin.video.afm")
+                                        addon = xbmcaddon.Addon("plugin.video.nxt")
                                         addon.setSetting("imdb_user", your_imdb_api)
                                         
                                 if not str(var.chk_accountmgr_tmdb) == str(chk_tmdb_api) or str(chk_tmdb_api) == '':
-                                        addon = xbmcaddon.Addon("plugin.video.afm")
+                                        addon = xbmcaddon.Addon("plugin.video.nxt")
                                         addon.setSetting("tmdb_api", your_tmdb_api)
                 except:
-                        xbmc.log('%s: afm Metadata Failed!' % var.amgr, xbmc.LOGINFO)
+                        xbmc.log('%s: nxt Metadata Failed!' % var.amgr, xbmc.LOGINFO)
                         pass
 
 

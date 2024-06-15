@@ -19,14 +19,14 @@ class hd:
                 pass
                 
         try:
-            addon = xbmcvfs.translatePath('special://home/addons/plugin.video.afm/')
-            file = xbmcvfs.translatePath('special://userdata/addon_data/plugin.video.afm/settings.xml')
+            addon = xbmcvfs.translatePath('special://home/addons/plugin.video.nxt/')
+            file = xbmcvfs.translatePath('special://userdata/addon_data/plugin.video.nxt/settings.xml')
 
             if xbmcvfs.exists(addon) and xbmcvfs.exists(file):
 
                 res = 'SD, 720p, 1080p'
                 hd = '1080p' 
-                addon = xbmcaddon.Addon("plugin.video.afm")
+                addon = xbmcaddon.Addon("plugin.video.nxt")
                 addon.setSetting("results_quality_movie", res)
                 addon.setSetting("results_quality_episode", res)
                 addon.setSetting("autoplay_quality_movie", res)
@@ -34,10 +34,10 @@ class hd:
                 addon.setSetting("filter_hevc.max_quality", hd)
                 addon.setSetting("filter_hevc.max_autoplay_quality", hd)   
                 ftr = 'ATMOS, TRUEHD, DTS-HD MA, DTS-HD, 8CH, 7CH'
-                addon = xbmcaddon.Addon("plugin.video.afm")
+                addon = xbmcaddon.Addon("plugin.video.nxt")
                 addon.setSetting("filter_audio", ftr)
                 ftr = '1'
-                addon = xbmcaddon.Addon("plugin.video.afm")
+                addon = xbmcaddon.Addon("plugin.video.nxt")
                 addon.setSetting("filter_dv", ftr)           
         except:
                 pass                

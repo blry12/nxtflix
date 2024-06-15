@@ -45,13 +45,13 @@ class at:
                 pass
                 
         try:
-            addon = xbmcvfs.translatePath('special://home/addons/plugin.video.afm/')
-            file = xbmcvfs.translatePath('special://userdata/addon_data/plugin.video.afm/settings.xml')
+            addon = xbmcvfs.translatePath('special://home/addons/plugin.video.nxt/')
+            file = xbmcvfs.translatePath('special://userdata/addon_data/plugin.video.nxt/settings.xml')
 
             if xbmcvfs.exists(addon) and xbmcvfs.exists(file):
 
                 ftr = 'ATMOS, TRUEHD, DTS-HD MA, DTS-HD, 8CH, 7CH'
-                addon = xbmcaddon.Addon("plugin.video.afm")
+                addon = xbmcaddon.Addon("plugin.video.nxt")
                 addon.setSetting("filter_audio", ftr)
         except:
                 pass                

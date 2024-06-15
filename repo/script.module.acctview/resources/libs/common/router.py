@@ -166,17 +166,17 @@ class Router:
                     xbmc.log('%s: Traktit.py Revoke API Seren Failed!' % var.amgr, xbmc.LOGINFO)
                     pass
                     
-            if xbmcvfs.exists(var.chk_afm):
+            if xbmcvfs.exists(var.chk_nxt):
                 try:
-                    with open(var.path_afm,'r') as f:
+                    with open(var.path_nxt,'r') as f:
                         data = f.read()
 
-                    client = data.replace(var.client_am,var.afm_client).replace(var.secret_am,var.afm_secret)
+                    client = data.replace(var.client_am,var.nxt_client).replace(var.secret_am,var.nxt_secret)
 
-                    with open(var.path_afm,'w') as f:
+                    with open(var.path_nxt,'w') as f:
                         f.write(client)
                 except:
-                    xbmc.log('%s: Traktit.py Revoke API afm Failed!' % var.amgr, xbmc.LOGINFO)
+                    xbmc.log('%s: Traktit.py Revoke API nxt Failed!' % var.amgr, xbmc.LOGINFO)
                     pass        
 
             if xbmcvfs.exists(var.chk_fen):

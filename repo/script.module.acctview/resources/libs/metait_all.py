@@ -15,7 +15,7 @@ from resources.libs.common import tools
 from resources.libs.common import var
 
 ORDER = ['seren',
-         'afm',
+         'nxt',
          'fen',
          'fenlt',
          'affen',
@@ -67,15 +67,15 @@ DEBRIDID = {
         'default_tmdb_session'  : '',
         'data'     : ['tmdb.apikey', 'tvdb.apikey', 'omdb.apikey', 'fanart.apikey'],
         'activate' : 'Addon.OpenSettings(plugin.video.seren)'},
-    'afm': {
-        'name'     : 'afm',
-        'plugin'   : 'plugin.video.afm',
-        'saved'    : 'afm',
-        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.afm'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.afm/resources/media/', 'afm_icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.afm/resources/media/', 'afm_fanart.png'),
-        'file'     : os.path.join(CONFIG.METAFOLD, 'afm_meta'),
-        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.afm', 'settings.xml'),
+    'nxt': {
+        'name'     : 'nxt',
+        'plugin'   : 'plugin.video.nxt',
+        'saved'    : 'nxt',
+        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxt'),
+        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxt/resources/media/', 'nxt_icon.png'),
+        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.nxt/resources/media/', 'nxt_fanart.png'),
+        'file'     : os.path.join(CONFIG.METAFOLD, 'nxt_meta'),
+        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.nxt', 'settings.xml'),
         'default'  : '',
         'default_fanart'  : 'fanart_client_key',
         'default_omdb'  : '',
@@ -87,7 +87,7 @@ DEBRIDID = {
         'default_tmdb_pass'  : '',
         'default_tmdb_session'  : '',
         'data'     : ['tmdb_api', 'imdb_user', 'fanart_client_key'],
-        'activate' : 'Addon.OpenSettings(plugin.video.afm)'},        
+        'activate' : 'Addon.OpenSettings(plugin.video.nxt)'},        
     'fen': {
         'name'     : 'Fen',
         'plugin'   : 'plugin.video.fen',

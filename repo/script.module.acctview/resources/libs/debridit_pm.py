@@ -15,7 +15,7 @@ from resources.libs.common import tools
 from resources.libs.common import var
 
 ORDER = ['serenpm',
-         'afmpm',
+         'nxtpm',
          'fenpm',
          'fenltpm',
          'affenpm',
@@ -58,18 +58,18 @@ DEBRIDID = {
         'default'  : 'premiumize.username',
         'data'     : ['premiumize.enabled', 'premiumize.username', 'premiumize.token'],
         'activate' : 'Addon.OpenSettings(plugin.video.seren)'},
-    'afmpm': {
-        'name'     : 'afm',
-        'plugin'   : 'plugin.video.afm',
-        'saved'    : 'afmpm',
-        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.afm'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.afm/resources/media/', 'afm_icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.afm/resources/media/', 'afm_fanart.png'),
-        'file'     : os.path.join(CONFIG.DEBRIDFOLD_PM, 'afm_pm'),
-        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.afm', 'settings.xml'),
+    'nxtpm': {
+        'name'     : 'nxt',
+        'plugin'   : 'plugin.video.nxt',
+        'saved'    : 'nxtpm',
+        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxt'),
+        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxt/resources/media/', 'nxt_icon.png'),
+        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.nxt/resources/media/', 'nxt_fanart.png'),
+        'file'     : os.path.join(CONFIG.DEBRIDFOLD_PM, 'nxt_pm'),
+        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.nxt', 'settings.xml'),
         'default'  : 'pm.account_id',
         'data'     : ['pm.token', 'pm.account_id', 'pm.enabled'],
-        'activate' : 'Addon.OpenSettings(plugin.video.afm)'},        
+        'activate' : 'Addon.OpenSettings(plugin.video.nxt)'},        
     'fenpm': {
         'name'     : 'Fen',
         'plugin'   : 'plugin.video.fen',

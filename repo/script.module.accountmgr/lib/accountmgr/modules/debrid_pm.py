@@ -55,36 +55,36 @@ class Auth:
                 pass
                 
 
-    #AFM PM
+    #nxt PM
         try:
-                if xbmcvfs.exists(var.chk_afm) and xbmcvfs.exists(var.chkset_afm):
-                        chk_auth_afm = xbmcaddon.Addon('plugin.video.afm').getSetting("pm.token")
-                        chk_auth_afm_rd = xbmcaddon.Addon('plugin.video.afm').getSetting("rd.token")
-                        chk_auth_afm_ad = xbmcaddon.Addon('plugin.video.afm').getSetting("ad.token")
-                        if not str(var.chk_accountmgr_tk_pm) == str(chk_auth_afm) or str(chk_auth_afm) == '':
+                if xbmcvfs.exists(var.chk_nxt) and xbmcvfs.exists(var.chkset_nxt):
+                        chk_auth_nxt = xbmcaddon.Addon('plugin.video.nxt').getSetting("pm.token")
+                        chk_auth_nxt_rd = xbmcaddon.Addon('plugin.video.nxt').getSetting("rd.token")
+                        chk_auth_nxt_ad = xbmcaddon.Addon('plugin.video.nxt').getSetting("ad.token")
+                        if not str(var.chk_accountmgr_tk_pm) == str(chk_auth_nxt) or str(chk_auth_nxt) == '':
                                 
-                                addon = xbmcaddon.Addon("plugin.video.afm")
+                                addon = xbmcaddon.Addon("plugin.video.nxt")
                                 addon.setSetting("pm.account_id", your_pm_username)
                                 addon.setSetting("pm.token", your_pm_token)
 
                                 enabled_pm = ("true")
                                 addon.setSetting("pm.enabled", enabled_pm)
 
-                                if str(chk_auth_afm_rd) != '':
+                                if str(chk_auth_nxt_rd) != '':
                                         enabled_rd = ("true")
                                         addon.setSetting("rd.enabled", enabled_rd)
                                 else:
                                         enabled_rd = ("false")
                                         addon.setSetting("rd.enabled", enabled_rd)
 
-                                if str(chk_auth_afm_ad) != '':
+                                if str(chk_auth_nxt_ad) != '':
                                         enabled_ad = ("true")
                                         addon.setSetting("ad.enabled", enabled_ad)
                                 else:
                                         enabled_ad = ("false")
                                         addon.setSetting("ad.enabled", enabled_ad)
         except:
-                xbmc.log('%s: afm Premiumize Failed!' % var.amgr, xbmc.LOGINFO)
+                xbmc.log('%s: nxt Premiumize Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
                 
 

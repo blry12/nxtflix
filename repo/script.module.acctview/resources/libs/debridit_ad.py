@@ -15,7 +15,7 @@ from resources.libs.common import tools
 from resources.libs.common import var
 
 ORDER = ['serenad',
-         'afmad',
+         'nxtad',
          'fenad',
          'fenltad',
          'affenad',
@@ -57,18 +57,18 @@ DEBRIDID = {
         'default'  : 'alldebrid.username',
         'data'     : ['alldebrid.enabled', 'alldebrid.username', 'alldebrid.apikey'],
         'activate' : 'Addon.OpenSettings(plugin.video.seren)'},
-    'afmad': {
-        'name'     : 'afm',
-        'plugin'   : 'plugin.video.afm',
-        'saved'    : 'afmad',
-        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.afm'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.afm/resources/media/', 'afm_icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.afm/resources/media/', 'afm_fanart.png'),
-        'file'     : os.path.join(CONFIG.DEBRIDFOLD_AD, 'afm_ad'),
-        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.afm', 'settings.xml'),
+    'nxtad': {
+        'name'     : 'nxt',
+        'plugin'   : 'plugin.video.nxt',
+        'saved'    : 'nxtad',
+        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxt'),
+        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxt/resources/media/', 'nxt_icon.png'),
+        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.nxt/resources/media/', 'nxt_fanart.png'),
+        'file'     : os.path.join(CONFIG.DEBRIDFOLD_AD, 'nxt_ad'),
+        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.nxt', 'settings.xml'),
         'default'  : 'ad.account_id',
         'data'     : ['ad.token', 'ad.enabled', 'ad.account_id'],
-        'activate' : 'Addon.OpenSettings(plugin.video.afm)'},        
+        'activate' : 'Addon.OpenSettings(plugin.video.nxt)'},        
     'fenad': {
         'name'     : 'Fen',
         'plugin'   : 'plugin.video.fen',

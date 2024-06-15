@@ -18,7 +18,7 @@
         <license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
         <assets>
             <icon>resources/media/nxt_icon.png</icon>
-            <fanart>resources/media/nxt_fanart.png</fanart>
+            <fanart>resources/media/nxt_fanart.jpg</fanart>
         </assets>
         <news>INFO: For latest changes see Changelog within Tools of add-on.</news>
     </extension>
