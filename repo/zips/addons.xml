@@ -147,8 +147,8 @@
 	</extension>
 	<extension point="xbmc.service" library="service.py" />
 	<extension point="xbmc.addon.metadata">
-		<summary lang="en_GB">Simple nexus Wizard is a lightweight template for installing builds on Kodi 21 nexus. Has some code from Aftermath Wizard by Surfacingx. Skin Switch by OpenELEQ. Base code by BYB. Credits to them and all others who contributed. Please report any bugs to @slamious on Telegram/Twitter.</summary>
-		<description lang="en_GB">Kodi 21 nexus Wizard</description>
+		<summary lang="en_GB">Simple nexus Wizard is a lightweight template for installing builds on Kodi 20 nexus. Has some code from Aftermath Wizard by Surfacingx. Skin Switch by OpenELEQ. Base code by BYB. Credits to them and all others who contributed. Please report any bugs to @slamious on Telegram/Twitter.</summary>
+		<description lang="en_GB">Kodi 20 nexus Wizard</description>
 		<disclaimer lang="en_GB">This Addon contains no content</disclaimer>
 		<language>en</language>
 		<platform>all</platform>
@@ -168,7 +168,7 @@
 				<screenshot />
 		</assets>
 	</extension>
-</addon><addon id="plugin.program.nxtflix.omega" name="[COLOR lightskyblue]NXTFlix[/COLOR] Wizard [COLOR darkblue]Kodi 21 Omega[/COLOR]" version="1.1" provider-name="BLRY">
+</addon><addon id="plugin.program.nxtflix.omega" name="[COLOR lightskyblue]NXTFlix[/COLOR] Wizard [COLOR deepskyblue]Kodi 21 Omega[/COLOR]" version="1.1" provider-name="BLRY">
 	<requires>
 		<import addon="xbmc.python" version="3.0.1" />
 	</requires>
