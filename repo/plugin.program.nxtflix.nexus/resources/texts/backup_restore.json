@@ -9,7 +9,7 @@
         "setting": "saveadvanced",
         "path": "user_path"
     },
-    "plugin.program.NXTFlix.omega": {
+    "plugin.program.NXTFlix.nexus": {
         "name": "NXTFlix Wizard",
         "setting": "savedata",
         "path": "data_path"
