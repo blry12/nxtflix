@@ -16,7 +16,7 @@ from resources.libs.common import tools
 from resources.libs.common import var
 
 ORDER = ['serenrd',
-         'nxtrd',
+         'NXTFlixrd',
          'fenrd',
          'fenltrd',
          'affenrd',
@@ -59,18 +59,18 @@ DEBRIDID = {
         'default'  : 'rd.username',
         'data'     : ['rd.auth', 'rd.client_id', 'rd.expiry', 'rd.refresh', 'rd.secret', 'rd.username', 'realdebrid.enabled'],
         'activate' : 'Addon.OpenSettings(plugin.video.seren)'},
-    'nxtrd': {
-        'name'     : 'nxt',
-        'plugin'   : 'plugin.video.nxt',
-        'saved'    : 'nxtrd',
-        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxt'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxt/resources/media/', 'nxt_icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.nxt/resources/media/', 'nxt_fanart.png'),
-        'file'     : os.path.join(CONFIG.DEBRIDFOLD_RD, 'nxt_rd'),
-        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.nxt', 'settings.xml'),
+    'NXTFlixrd': {
+        'name'     : 'NXTFlix',
+        'plugin'   : 'plugin.video.NXTFlix',
+        'saved'    : 'NXTFlixrd',
+        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.NXTFlix'),
+        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.NXTFlix/resources/media/', 'NXTFlix_icon.png'),
+        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.NXTFlix/resources/media/', 'NXTFlix_fanart.png'),
+        'file'     : os.path.join(CONFIG.DEBRIDFOLD_RD, 'NXTFlix_rd'),
+        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.NXTFlix', 'settings.xml'),
         'default'  : 'rd.account_id',
         'data'     : ['rd.client_id', 'rd.refresh', 'rd.secret', 'rd.token', 'rd.account_id', 'rd.enabled'],
-        'activate' : 'Addon.OpenSettings(plugin.video.nxt)'},        
+        'activate' : 'Addon.OpenSettings(plugin.video.NXTFlix)'},        
     'fenrd': {
         'name'     : 'Fen',
         'plugin'   : 'plugin.video.fen',

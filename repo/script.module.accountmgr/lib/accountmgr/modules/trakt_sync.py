@@ -47,21 +47,21 @@ class Auth:
                 xbmc.log('%s: Seren Trakt Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
 
-    #nxt
+    #NXTFlix
         try:
-                if xbmcvfs.exists(var.chk_nxt) and xbmcvfs.exists(var.chkset_nxt):
-                        chk_auth_nxt = xbmcaddon.Addon('plugin.video.nxt').getSetting("trakt.token")
-                        if not str(var.chk_accountmgr_tk) == str(chk_auth_nxt) or str(chk_auth_nxt) == '':
+                if xbmcvfs.exists(var.chk_NXTFlix) and xbmcvfs.exists(var.chkset_NXTFlix):
+                        chk_auth_NXTFlix = xbmcaddon.Addon('plugin.video.NXTFlix').getSetting("trakt.token")
+                        if not str(var.chk_accountmgr_tk) == str(chk_auth_NXTFlix) or str(chk_auth_NXTFlix) == '':
                         
-                                    with open(var.path_nxt,'r') as f:
+                                    with open(var.path_NXTFlix,'r') as f:
                                         data = f.read()
 
-                                    client = data.replace(var.nxt_client,var.client_am).replace(var.nxt_secret,var.secret_am)
+                                    client = data.replace(var.NXTFlix_client,var.client_am).replace(var.NXTFlix_secret,var.secret_am)
 
-                                    with open(var.path_nxt,'w') as f:
+                                    with open(var.path_NXTFlix,'w') as f:
                                         f.write(client) 
 
-                                    addon = xbmcaddon.Addon("plugin.video.nxt")
+                                    addon = xbmcaddon.Addon("plugin.video.NXTFlix")
                                     addon.setSetting("trakt.token", your_token)
                                     addon.setSetting("trakt.user", your_username)
                                     addon.setSetting("trakt.refresh", your_refresh)
@@ -69,7 +69,7 @@ class Auth:
                                     addon.setSetting("trakt.indicators_active", 'true')
                                     addon.setSetting("watched_indicators", '1')
         except:
-                xbmc.log('%s: nxt Trakt Failed!' % var.amgr, xbmc.LOGINFO)
+                xbmc.log('%s: NXTFlix Trakt Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
                 
     #Fen

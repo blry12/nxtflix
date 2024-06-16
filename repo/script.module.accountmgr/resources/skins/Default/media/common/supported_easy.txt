@@ -1,5 +1,5 @@
 
-1.  AURAMediaFlix
+1.  NXTFlix
 2.  FEN
 3.  Fen Light
 4.  afFENity

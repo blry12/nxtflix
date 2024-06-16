@@ -55,36 +55,36 @@ class Auth:
                 pass
                 
 
-    #nxt PM
+    #NXTFlix PM
         try:
-                if xbmcvfs.exists(var.chk_nxt) and xbmcvfs.exists(var.chkset_nxt):
-                        chk_auth_nxt = xbmcaddon.Addon('plugin.video.nxt').getSetting("pm.token")
-                        chk_auth_nxt_rd = xbmcaddon.Addon('plugin.video.nxt').getSetting("rd.token")
-                        chk_auth_nxt_ad = xbmcaddon.Addon('plugin.video.nxt').getSetting("ad.token")
-                        if not str(var.chk_accountmgr_tk_pm) == str(chk_auth_nxt) or str(chk_auth_nxt) == '':
+                if xbmcvfs.exists(var.chk_NXTFlix) and xbmcvfs.exists(var.chkset_NXTFlix):
+                        chk_auth_NXTFlix = xbmcaddon.Addon('plugin.video.NXTFlix').getSetting("pm.token")
+                        chk_auth_NXTFlix_rd = xbmcaddon.Addon('plugin.video.NXTFlix').getSetting("rd.token")
+                        chk_auth_NXTFlix_ad = xbmcaddon.Addon('plugin.video.NXTFlix').getSetting("ad.token")
+                        if not str(var.chk_accountmgr_tk_pm) == str(chk_auth_NXTFlix) or str(chk_auth_NXTFlix) == '':
                                 
-                                addon = xbmcaddon.Addon("plugin.video.nxt")
+                                addon = xbmcaddon.Addon("plugin.video.NXTFlix")
                                 addon.setSetting("pm.account_id", your_pm_username)
                                 addon.setSetting("pm.token", your_pm_token)
 
                                 enabled_pm = ("true")
                                 addon.setSetting("pm.enabled", enabled_pm)
 
-                                if str(chk_auth_nxt_rd) != '':
+                                if str(chk_auth_NXTFlix_rd) != '':
                                         enabled_rd = ("true")
                                         addon.setSetting("rd.enabled", enabled_rd)
                                 else:
                                         enabled_rd = ("false")
                                         addon.setSetting("rd.enabled", enabled_rd)
 
-                                if str(chk_auth_nxt_ad) != '':
+                                if str(chk_auth_NXTFlix_ad) != '':
                                         enabled_ad = ("true")
                                         addon.setSetting("ad.enabled", enabled_ad)
                                 else:
                                         enabled_ad = ("false")
                                         addon.setSetting("ad.enabled", enabled_ad)
         except:
-                xbmc.log('%s: nxt Premiumize Failed!' % var.amgr, xbmc.LOGINFO)
+                xbmc.log('%s: NXTFlix Premiumize Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
                 
 

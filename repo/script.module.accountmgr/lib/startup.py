@@ -179,21 +179,21 @@ def check_api():
                                 xbmc.log('%s: Seren API Failed!' % var.amgr, xbmc.LOGINFO)
                                 pass
                                 
-                if var.setting('api.service')=='true' and xbmcvfs.exists(var.chk_nxt) and xbmcvfs.exists(var.chkset_nxt) and str(var.chk_accountmgr_tk) != '':
+                if var.setting('api.service')=='true' and xbmcvfs.exists(var.chk_NXTFlix) and xbmcvfs.exists(var.chkset_NXTFlix) and str(var.chk_accountmgr_tk) != '':
                         try:
-                                with open(var.path_nxt) as f:
+                                with open(var.path_NXTFlix) as f:
                                         if var.chk_api in f.read():
                                                 pass
                                         else:   
-                                                with open(var.path_nxt,'r') as f:
+                                                with open(var.path_NXTFlix,'r') as f:
                                                     data = f.read()
 
-                                                client = data.replace(var.nxt_client,var.client_am).replace(var.nxt_secret,var.secret_am)
+                                                client = data.replace(var.NXTFlix_client,var.client_am).replace(var.NXTFlix_secret,var.secret_am)
 
-                                                with open(var.path_nxt,'w') as f:
+                                                with open(var.path_NXTFlix,'w') as f:
                                                     f.write(client) 
                         except:
-                                xbmc.log('%s: nxt API Failed!' % var.amgr, xbmc.LOGINFO)
+                                xbmc.log('%s: NXTFlix API Failed!' % var.amgr, xbmc.LOGINFO)
                                 pass
                                 
                 if var.setting('api.service')=='true' and xbmcvfs.exists(var.chk_fen) and xbmcvfs.exists(var.chkset_fen) and str(var.chk_accountmgr_tk) != '':
@@ -617,17 +617,17 @@ def restore_api():
                 xbmc.log('%s: Restore API Seren Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
                 
-        if xbmcvfs.exists(var.chk_nxt):
+        if xbmcvfs.exists(var.chk_NXTFlix):
             try:
-                with open(var.path_nxt,'r') as f:
+                with open(var.path_NXTFlix,'r') as f:
                     data = f.read()
 
-                client = data.replace(var.nxt_client,var.client_am).replace(var.nxt_secret,var.secret_am)
+                client = data.replace(var.NXTFlix_client,var.client_am).replace(var.NXTFlix_secret,var.secret_am)
 
-                with open(var.path_nxt,'w') as f:
+                with open(var.path_NXTFlix,'w') as f:
                     f.write(client)
             except:
-                xbmc.log('%s: Restore API nxt Failed!' % var.amgr, xbmc.LOGINFO)
+                xbmc.log('%s: Restore API NXTFlix Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
 
         if xbmcvfs.exists(var.chk_fen):
