@@ -369,7 +369,7 @@ class Discover:
 		return self.value_names.get(value, '')
 
 	def help(self):
-		text_file = translate_path('special://home/addons/plugin.video.NXTFlix/resources/text/tips/135. Discover.txt')
+		text_file = translate_path('special://home/addons/plugin.video.nxtflix/resources/text/tips/135. Discover.txt')
 		return show_text(heading_base % ls(32487), file=text_file, font_size='large')
 
 	def _set_default_params(self):

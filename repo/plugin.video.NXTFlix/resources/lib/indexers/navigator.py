@@ -259,7 +259,7 @@ class Navigator:
 		self.end_directory()
 
 	def changelog_utils(self):
-		NXTFlix_clogpath = tp(log_path % 'plugin.video.NXTFlix/resources/text')
+		NXTFlix_clogpath = tp(log_path % 'plugin.video.nxtflix/resources/text')
 		mh_str = '[B]%s[/B]: %s  [I](v.%s)[/I]' % (changelog_str.upper(), NXTFlix_str, addon().getAddonInfo('version'))
 		self.add({'mode': 'show_text', 'heading': mh_str, 'file': NXTFlix_clogpath, 'font_size': 'large', 'isFolder': 'false'}, mh_str, 'lists', False)
 		self.add({'mode': 'show_text', 'heading': klv_h_str, 'file': kl_loc, 'kodi_log': 'true', 'isFolder': 'false'}, klv_h_str, 'lists', False)
@@ -452,7 +452,7 @@ class Navigator:
 		if params: return container_refresh_input(params)
 
 	def tips(self):
-		tips_location = 'special://home/addons/plugin.video.NXTFlix/resources/text/tips'
+		tips_location = 'special://home/addons/plugin.video.nxtflix/resources/text/tips'
 		files = sorted(list_dirs(tips_location)[1])
 		tips_location = tips_location + '/%s'
 		tips_list = []

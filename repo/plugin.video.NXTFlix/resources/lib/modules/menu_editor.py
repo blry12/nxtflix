@@ -18,14 +18,14 @@ eedelete_str, eeremove_str, eeclear_str, eefadd_str, eefadde_str, eesets_str, tr
 trunlike_str, trnew_str, trdel_str, eerem_disc_str, down_str, furk_add_str, furk_remove_str = ls(32783), ls(32780), ls(32781), ls(32698), ls(32747), ls(32769), ls(32766)
 furk_p_str, furk_up_str, cloud_link_str, cloud_unlink_str, choose_icon_str = ls(32767), ls(32768), ls(33078), ls(33079), ls(33137)
 tools_str, settings_str = '%s %s' % (ls(32641), ls(32456)), '%s %s' % (ls(32641), ls(32247))
-default_path = 'plugin://plugin.video.NXTFlix'
+default_path = 'plugin://plugin.video.nxtflix'
 
 class MenuEditor:
 	def __init__(self, params):
 		self.params = params
 		self.params_get = self.params.get
 		if 'menu_item' in self.params: self.menu_item = json.loads(self.params.get('menu_item'))
-		else: self.menu_item = dict(parse_qsl(get_infolabel('ListItem.FileNameAndPath').replace('plugin://plugin.video.NXTFlix/?','')))
+		else: self.menu_item = dict(parse_qsl(get_infolabel('ListItem.FileNameAndPath').replace('plugin://plugin.video.nxtflix/?','')))
 		self.menu_item_get = self.menu_item.get
 		self.window_function = activate_window if external() else container_update
 
@@ -334,7 +334,7 @@ class MenuEditor:
 		choice_name, list_items = list_name, navigator_cache.get_shortcut_folder_contents(list_name)
 		browsed_result = self._path_browser()
 		if browsed_result == None: return
-		self.menu_item = dict(parse_qsl(browsed_result['file'].replace('plugin://plugin.video.NXTFlix/?','')))
+		self.menu_item = dict(parse_qsl(browsed_result['file'].replace('plugin://plugin.video.nxtflix/?','')))
 		name, icon = self._remove_bold(browsed_result['label']), self._get_icon_var(browsed_result['thumbnail'])
 		menu_name = self._get_external_name_input(name) or name
 		icon_choice = self._icon_select(default_icon=icon)

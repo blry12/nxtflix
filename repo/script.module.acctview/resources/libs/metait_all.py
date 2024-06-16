@@ -15,7 +15,7 @@ from resources.libs.common import tools
 from resources.libs.common import var
 
 ORDER = ['seren',
-         'NXTFlix',
+         'nxtflix',
          'fen',
          'fenlt',
          'affen',
@@ -67,15 +67,15 @@ DEBRIDID = {
         'default_tmdb_session'  : '',
         'data'     : ['tmdb.apikey', 'tvdb.apikey', 'omdb.apikey', 'fanart.apikey'],
         'activate' : 'Addon.OpenSettings(plugin.video.seren)'},
-    'NXTFlix': {
+    'nxtflix': {
         'name'     : 'NXTFlix',
-        'plugin'   : 'plugin.video.NXTFlix',
-        'saved'    : 'NXTFlix',
-        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.NXTFlix'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.NXTFlix/resources/media/', 'NXTFlix_icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.NXTFlix/resources/media/', 'NXTFlix_fanart.png'),
-        'file'     : os.path.join(CONFIG.METAFOLD, 'NXTFlix_meta'),
-        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.NXTFlix', 'settings.xml'),
+        'plugin'   : 'plugin.video.nxtflix',
+        'saved'    : 'nxtflix',
+        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix'),
+        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix/resources/media/', 'nxtflix_icon.png'),
+        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix/resources/media/', 'nxtflix_fanart.png'),
+        'file'     : os.path.join(CONFIG.METAFOLD, 'nxtflix_meta'),
+        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.nxtflix', 'settings.xml'),
         'default'  : '',
         'default_fanart'  : 'fanart_client_key',
         'default_omdb'  : '',
@@ -87,7 +87,7 @@ DEBRIDID = {
         'default_tmdb_pass'  : '',
         'default_tmdb_session'  : '',
         'data'     : ['tmdb_api', 'imdb_user', 'fanart_client_key'],
-        'activate' : 'Addon.OpenSettings(plugin.video.NXTFlix)'},        
+        'activate' : 'Addon.OpenSettings(plugin.video.nxtflix)'},        
     'fen': {
         'name'     : 'Fen',
         'plugin'   : 'plugin.video.fen',

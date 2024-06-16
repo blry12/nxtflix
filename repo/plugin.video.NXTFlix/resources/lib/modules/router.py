@@ -241,7 +241,7 @@ def routing(sys):
 		return Sources().debridPacks(_get('provider'), _get('name'), _get('magnet_url'), _get('info_hash'))
 	if mode == 'open_settings':
 		from modules.kodi_utils import open_settings
-		return open_settings(_get('query', '0.0'), _get('addon', 'plugin.video.NXTFlix'))
+		return open_settings(_get('query', '0.0'), _get('addon', 'plugin.video.nxtflix'))
 	if mode == 'hide_unhide_progress_items':
 		from modules.watched_status import hide_unhide_progress_items
 		return hide_unhide_progress_items(params)

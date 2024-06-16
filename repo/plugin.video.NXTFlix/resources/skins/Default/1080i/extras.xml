@@ -72,7 +72,7 @@
                         <textcolor>FFCCCCCC</textcolor>
                         <align>right</align>
                         <aligny>top</aligny>
-                        <label>[I]$ADDON[plugin.video.NXTFlix 32695][/I]</label>
+                        <label>[I]$ADDON[plugin.video.nxtflix 32695][/I]</label>
                         <visible>Control.HasFocus(2050)</visible>
                     </control>
                     <control type="label">
@@ -82,7 +82,7 @@
                         <textcolor>FFCCCCCC</textcolor>
                         <align>right</align>
                         <aligny>top</aligny>
-                        <label>[I]$ADDON[plugin.video.NXTFlix 32049][/I]</label>
+                        <label>[I]$ADDON[plugin.video.nxtflix 32049][/I]</label>
                         <visible>Control.HasFocus(2058) | Control.HasFocus(2059)</visible>
                     </control>
                     <control type="label">
@@ -92,7 +92,7 @@
                         <textcolor>FFCCCCCC</textcolor>
                         <align>right</align>
                         <aligny>top</aligny>
-                        <label>[I]$ADDON[plugin.video.NXTFlix 33129][/I]</label>
+                        <label>[I]$ADDON[plugin.video.nxtflix 33129][/I]</label>
                         <visible>Control.HasFocus(2051) | Control.HasFocus(2060) | Control.HasFocus(2061) | Control.HasFocus(2062) | Control.HasFocus(2063)</visible>
                     </control>
                 </control>
@@ -442,7 +442,7 @@
                             <textcolor>FFCCCCCC</textcolor>
                             <align>left</align>
                             <aligny>bottom</aligny>
-                            <label>[B]$ADDON[plugin.video.NXTFlix 32842][/B]</label>
+                            <label>[B]$ADDON[plugin.video.nxtflix 32842][/B]</label>
                         </control>
                         <control type="button" id="50">
                             <top>50</top>
@@ -491,7 +491,7 @@
                             <height>20</height>
                             <font>category_widget_title</font> <!-- NXTFlix_33 -->
                             <textcolor>FFCCCCCC</textcolor>
-                            <label>[B]$ADDON[plugin.video.NXTFlix 32664][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] $INFO[Window.Property(cast.number)][/COLOR][/B]</label>
+                            <label>[B]$ADDON[plugin.video.nxtflix 32664][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] $INFO[Window.Property(cast.number)][/COLOR][/B]</label>
                             <visible>!Control.HasFocus(2050)</visible>
                         </control>
                         <control type="label">
@@ -499,7 +499,7 @@
                             <height>20</height>
                             <font>category_widget_title</font> <!-- NXTFlix_33 -->
                             <textcolor>FFCCCCCC</textcolor>
-                            <label>[B]$ADDON[plugin.video.NXTFlix 32664][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] | [/COLOR][/B]$INFO[Container(2050).ListItem.Property(name)][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] • [/COLOR]$INFO[Container(2050).ListItem.Property(role)]</label>
+                            <label>[B]$ADDON[plugin.video.nxtflix 32664][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] | [/COLOR][/B]$INFO[Container(2050).ListItem.Property(name)][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] • [/COLOR]$INFO[Container(2050).ListItem.Property(role)]</label>
                             <visible>Control.HasFocus(2050)</visible>
                         </control>
                         <control type="fixedlist" id="2050">
@@ -593,7 +593,7 @@
                             <height>20</height>
                             <font>category_widget_title</font> <!-- NXTFlix_33 -->
                             <textcolor>FFCCCCCC</textcolor>
-                            <label>[B]$ADDON[plugin.video.NXTFlix 32503][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] $INFO[Window.Property(recommended.number)][/COLOR][/B]</label>
+                            <label>[B]$ADDON[plugin.video.nxtflix 32503][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] $INFO[Window.Property(recommended.number)][/COLOR][/B]</label>
                             <visible>!Control.HasFocus(2051)</visible>
                         </control>
                         <control type="label">
@@ -601,7 +601,7 @@
                             <height>20</height>
                             <font>category_widget_title</font> <!-- NXTFlix_33 -->
                             <textcolor>FFCCCCCC</textcolor>
-                            <label>[B]$ADDON[plugin.video.NXTFlix 32503][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] | [/COLOR][/B]$INFO[Container(2051).ListItem.Property(name)][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] • [/COLOR]$INFO[Container(2051).ListItem.Property(release_date)][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] • [/COLOR]$INFO[Container(2051).ListItem.Property(vote_average)]</label>
+                            <label>[B]$ADDON[plugin.video.nxtflix 32503][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] | [/COLOR][/B]$INFO[Container(2051).ListItem.Property(name)][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] • [/COLOR]$INFO[Container(2051).ListItem.Property(release_date)][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] • [/COLOR]$INFO[Container(2051).ListItem.Property(vote_average)]</label>
                             <visible>Control.HasFocus(2051)</visible>
                         </control>
                         <control type="fixedlist" id="2051">
@@ -697,7 +697,7 @@
                             <textcolor>FFCCCCCC</textcolor>
                             <align>left</align>
                             <aligny>bottom</aligny>
-                            <label>[B]$ADDON[plugin.video.NXTFlix 32607][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] $INFO[Window.Property(imdb_reviews.number)][/COLOR][/B]</label>
+                            <label>[B]$ADDON[plugin.video.nxtflix 32607][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] $INFO[Window.Property(imdb_reviews.number)][/COLOR][/B]</label>
                         </control>
                         <control type="panel" id="2052">
                             <pagecontrol>4052</pagecontrol>
@@ -789,7 +789,7 @@
                             <textcolor>FFCCCCCC</textcolor>
                             <align>left</align>
                             <aligny>bottom</aligny>
-                            <label>[B]$ADDON[plugin.video.NXTFlix 33158][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] $INFO[Window.Property(trakt_comments.number)][/COLOR][/B]</label>
+                            <label>[B]$ADDON[plugin.video.nxtflix 33158][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] $INFO[Window.Property(trakt_comments.number)][/COLOR][/B]</label>
                         </control>
                         <control type="panel" id="2053">
                             <pagecontrol>4053</pagecontrol>
@@ -881,7 +881,7 @@
                             <textcolor>FFCCCCCC</textcolor>
                             <align>left</align>
                             <aligny>bottom</aligny>
-                            <label>[B]$ADDON[plugin.video.NXTFlix 32984][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] $INFO[Window.Property(imdb_trivia.number)][/COLOR][/B]</label>
+                            <label>[B]$ADDON[plugin.video.nxtflix 32984][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] $INFO[Window.Property(imdb_trivia.number)][/COLOR][/B]</label>
                         </control>
                         <control type="panel" id="2054">
                             <pagecontrol>4054</pagecontrol>
@@ -973,7 +973,7 @@
                             <textcolor>FFCCCCCC</textcolor>
                             <align>left</align>
                             <aligny>bottom</aligny>
-                            <label>[B]$ADDON[plugin.video.NXTFlix 32986][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] $INFO[Window.Property(imdb_blunders.number)][/COLOR][/B]</label>
+                            <label>[B]$ADDON[plugin.video.nxtflix 32986][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] $INFO[Window.Property(imdb_blunders.number)][/COLOR][/B]</label>
                         </control>
                         <control type="panel" id="2055">
                             <pagecontrol>40055</pagecontrol>
@@ -1065,7 +1065,7 @@
                             <textcolor>FFCCCCCC</textcolor>
                             <align>left</align>
                             <aligny>bottom</aligny>
-                            <label>[B]$ADDON[plugin.video.NXTFlix 32989][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] $INFO[Window.Property(imdb_parentsguide.number)][/COLOR][/B]</label>
+                            <label>[B]$ADDON[plugin.video.nxtflix 32989][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] $INFO[Window.Property(imdb_parentsguide.number)][/COLOR][/B]</label>
                         </control>
                         <control type="panel" id="2056">
                             <top>60</top>
@@ -1166,7 +1166,7 @@
                             <height>20</height>
                             <font>category_widget_title</font> <!-- NXTFlix_33 -->
                             <textcolor>FFCCCCCC</textcolor>
-                            <label>[B]$ADDON[plugin.video.NXTFlix 33032][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] $INFO[Window.Property(imdb_videos.number)][/COLOR][/B]</label>
+                            <label>[B]$ADDON[plugin.video.nxtflix 33032][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] $INFO[Window.Property(imdb_videos.number)][/COLOR][/B]</label>
                             <visible>!Control.HasFocus(2057)</visible>
                         </control>
                         <control type="label">
@@ -1174,7 +1174,7 @@
                             <height>20</height>
                             <font>category_widget_title</font> <!-- NXTFlix_33 -->
                             <textcolor>FFCCCCCC</textcolor>
-                            <label>[B]$ADDON[plugin.video.NXTFlix 33032][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] | [/COLOR][/B]$INFO[Container(2057).ListItem.Property(name)]</label>
+                            <label>[B]$ADDON[plugin.video.nxtflix 33032][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] | [/COLOR][/B]$INFO[Container(2057).ListItem.Property(name)]</label>
                             <visible>Control.HasFocus(2057)</visible>
                         </control>
                         <control type="fixedlist" id="2057">
@@ -1269,7 +1269,7 @@
                             <textcolor>FFCCCCCC</textcolor>
                             <align>left</align>
                             <aligny>bottom</aligny>
-                            <label>[B]$ADDON[plugin.video.NXTFlix 32616][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] $INFO[Window.Property(tmdb_artwork.poster.number)][/COLOR][/B]</label>
+                            <label>[B]$ADDON[plugin.video.nxtflix 32616][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] $INFO[Window.Property(tmdb_artwork.poster.number)][/COLOR][/B]</label>
                         </control>
                         <control type="fixedlist" id="2058">
                             <animation effect="slide" end="-472,0" time="0" condition="Integer.IsEqual(Container(2058).NumItems,1) | Integer.IsEqual(Container(2058).NumItems,2)">Conditional</animation>
@@ -1364,7 +1364,7 @@
                             <textcolor>FFCCCCCC</textcolor>
                             <align>left</align>
                             <aligny>bottom</aligny>
-                            <label>[B]$ADDON[plugin.video.NXTFlix 32617][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] $INFO[Window.Property(tmdb_artwork.fanart.number)][/COLOR][/B]</label>
+                            <label>[B]$ADDON[plugin.video.nxtflix 32617][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] $INFO[Window.Property(tmdb_artwork.fanart.number)][/COLOR][/B]</label>
                         </control>
                         <control type="fixedlist" id="2059">
                             <pagecontrol>4059</pagecontrol>
@@ -1455,7 +1455,7 @@
                             <height>20</height>
                             <font>category_widget_title</font> <!-- NXTFlix_33 -->
                             <textcolor>FFCCCCCC</textcolor>
-                            <label>[B]$ADDON[plugin.video.NXTFlix 32612] $ADDON[plugin.video.NXTFlix 32543][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] $INFO[Window.Property(more_from_year.number)][/COLOR][/B]</label>
+                            <label>[B]$ADDON[plugin.video.nxtflix 32612] $ADDON[plugin.video.nxtflix 32543][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] $INFO[Window.Property(more_from_year.number)][/COLOR][/B]</label>
                             <visible>!Control.HasFocus(2060)</visible>
                         </control>
                         <control type="label">
@@ -1463,7 +1463,7 @@
                             <height>20</height>
                             <font>category_widget_title</font> <!-- NXTFlix_33 -->
                             <textcolor>FFCCCCCC</textcolor>
-                            <label>[B]$ADDON[plugin.video.NXTFlix 32612] $ADDON[plugin.video.NXTFlix 32543][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] | [/COLOR][/B]$INFO[Container(2060).ListItem.Property(name)][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] • [/COLOR]$INFO[Container(2060).ListItem.Property(release_date)][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] • [/COLOR]$INFO[Container(2060).ListItem.Property(vote_average)]</label>
+                            <label>[B]$ADDON[plugin.video.nxtflix 32612] $ADDON[plugin.video.nxtflix 32543][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] | [/COLOR][/B]$INFO[Container(2060).ListItem.Property(name)][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] • [/COLOR]$INFO[Container(2060).ListItem.Property(release_date)][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] • [/COLOR]$INFO[Container(2060).ListItem.Property(vote_average)]</label>
                             <visible>Control.HasFocus(2060)</visible>
                         </control>
                         <control type="fixedlist" id="2060">
@@ -1557,7 +1557,7 @@
                             <height>20</height>
                             <font>category_widget_title</font> <!-- NXTFlix_33 -->
                             <textcolor>FFCCCCCC</textcolor>
-                            <label>[B]$ADDON[plugin.video.NXTFlix 32612] $ADDON[plugin.video.NXTFlix 32470][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] $INFO[Window.Property(more_from_genres.number)][/COLOR][/B]</label>
+                            <label>[B]$ADDON[plugin.video.nxtflix 32612] $ADDON[plugin.video.nxtflix 32470][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] $INFO[Window.Property(more_from_genres.number)][/COLOR][/B]</label>
                             <visible>!Control.HasFocus(2061)</visible>
                         </control>
                         <control type="label">
@@ -1565,7 +1565,7 @@
                             <height>20</height>
                             <font>category_widget_title</font> <!-- NXTFlix_33 -->
                             <textcolor>FFCCCCCC</textcolor>
-                            <label>[B]$ADDON[plugin.video.NXTFlix 32612] $ADDON[plugin.video.NXTFlix 32470][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] | [/COLOR][/B]$INFO[Container(2061).ListItem.Property(name)][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] • [/COLOR]$INFO[Container(2061).ListItem.Property(release_date)][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] • [/COLOR]$INFO[Container(2061).ListItem.Property(vote_average)]</label>
+                            <label>[B]$ADDON[plugin.video.nxtflix 32612] $ADDON[plugin.video.nxtflix 32470][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] | [/COLOR][/B]$INFO[Container(2061).ListItem.Property(name)][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] • [/COLOR]$INFO[Container(2061).ListItem.Property(release_date)][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] • [/COLOR]$INFO[Container(2061).ListItem.Property(vote_average)]</label>
                             <visible>Control.HasFocus(2061)</visible>
                         </control>
                         <control type="fixedlist" id="2061">
@@ -1659,7 +1659,7 @@
                             <height>20</height>
                             <font>category_widget_title</font> <!-- NXTFlix_33 -->
                             <textcolor>FFCCCCCC</textcolor>
-                            <label>[B]$ADDON[plugin.video.NXTFlix 32612] $ADDON[plugin.video.NXTFlix 32480][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] $INFO[Window.Property(more_from_networks.number)][/COLOR][/B]</label>
+                            <label>[B]$ADDON[plugin.video.nxtflix 32612] $ADDON[plugin.video.nxtflix 32480][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] $INFO[Window.Property(more_from_networks.number)][/COLOR][/B]</label>
                             <visible>!Control.HasFocus(2062)</visible>
                         </control>
                         <control type="label">
@@ -1667,7 +1667,7 @@
                             <height>20</height>
                             <font>category_widget_title</font> <!-- NXTFlix_33 -->
                             <textcolor>FFCCCCCC</textcolor>
-                            <label>[B]$ADDON[plugin.video.NXTFlix 32612] $ADDON[plugin.video.NXTFlix 32480][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] | [/COLOR][/B]$INFO[Container(2062).ListItem.Property(name)][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] • [/COLOR]$INFO[Container(2062).ListItem.Property(release_date)][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] • [/COLOR]$INFO[Container(2062).ListItem.Property(vote_average)]</label>
+                            <label>[B]$ADDON[plugin.video.nxtflix 32612] $ADDON[plugin.video.nxtflix 32480][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] | [/COLOR][/B]$INFO[Container(2062).ListItem.Property(name)][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] • [/COLOR]$INFO[Container(2062).ListItem.Property(release_date)][COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]] • [/COLOR]$INFO[Container(2062).ListItem.Property(vote_average)]</label>
                             <visible>Control.HasFocus(2062)</visible>
                         </control>
                         <control type="fixedlist" id="2062">

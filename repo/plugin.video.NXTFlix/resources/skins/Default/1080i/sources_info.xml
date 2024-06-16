@@ -71,7 +71,7 @@
                     <textcolor>FFCCCCCC</textcolor>
                     <align>left</align>
                     <aligny>center</aligny>
-                    <label>[UPPERCASE][COLOR $INFO[Window.Property(highlight)]][B]$ADDON[plugin.video.NXTFlix 32583]: [/B][/COLOR]$INFO[Window.Property(provider)][/UPPERCASE]</label>
+                    <label>[UPPERCASE][COLOR $INFO[Window.Property(highlight)]][B]$ADDON[plugin.video.nxtflix 32583]: [/B][/COLOR]$INFO[Window.Property(provider)][/UPPERCASE]</label>
                 </control>
                 <control type="label">
                     <top>50</top>
@@ -81,7 +81,7 @@
                     <textcolor>FFCCCCCC</textcolor>
                     <align>left</align>
                     <aligny>center</aligny>
-                    <label>[UPPERCASE][COLOR $INFO[Window.Property(highlight)]][B]$ADDON[plugin.video.NXTFlix 33031]: [/B][/COLOR]$INFO[Window.Property(source_type)][/UPPERCASE]</label>
+                    <label>[UPPERCASE][COLOR $INFO[Window.Property(highlight)]][B]$ADDON[plugin.video.nxtflix 33031]: [/B][/COLOR]$INFO[Window.Property(source_type)][/UPPERCASE]</label>
                 </control>
                 <control type="label">
                     <top>100</top>
@@ -91,7 +91,7 @@
                     <textcolor>FFCCCCCC</textcolor>
                     <align>left</align>
                     <aligny>center</aligny>
-                    <label>[UPPERCASE][COLOR $INFO[Window.Property(highlight)]][B]$ADDON[plugin.video.NXTFlix 32100]: [/B][/COLOR]$INFO[Window.Property(source_site)][/UPPERCASE]</label>
+                    <label>[UPPERCASE][COLOR $INFO[Window.Property(highlight)]][B]$ADDON[plugin.video.nxtflix 32100]: [/B][/COLOR]$INFO[Window.Property(source_site)][/UPPERCASE]</label>
                 </control>
                 <control type="label">
                     <top>150</top>
@@ -101,7 +101,7 @@
                     <textcolor>FFCCCCCC</textcolor>
                     <align>left</align>
                     <aligny>center</aligny>
-                    <label>[UPPERCASE][COLOR $INFO[Window.Property(highlight)]][B]$ADDON[plugin.video.NXTFlix 32241]: [/B][/COLOR]$INFO[Window.Property(quality)][/UPPERCASE]</label>
+                    <label>[UPPERCASE][COLOR $INFO[Window.Property(highlight)]][B]$ADDON[plugin.video.nxtflix 32241]: [/B][/COLOR]$INFO[Window.Property(quality)][/UPPERCASE]</label>
                 </control>
                 <control type="label">
                     <top>200</top>
@@ -111,7 +111,7 @@
                     <textcolor>FFCCCCCC</textcolor>
                     <align>left</align>
                     <aligny>center</aligny>
-                    <label>[UPPERCASE][COLOR $INFO[Window.Property(highlight)]][B]$ADDON[plugin.video.NXTFlix 32584]: [/B][/COLOR]$INFO[Window.Property(size_label)][/UPPERCASE]</label>
+                    <label>[UPPERCASE][COLOR $INFO[Window.Property(highlight)]][B]$ADDON[plugin.video.nxtflix 32584]: [/B][/COLOR]$INFO[Window.Property(size_label)][/UPPERCASE]</label>
                 </control>
                 <control type="label">
                     <top>250</top>
@@ -121,7 +121,7 @@
                     <textcolor>FFCCCCCC</textcolor>
                     <align>left</align>
                     <aligny>center</aligny>
-                    <label>[UPPERCASE][COLOR $INFO[Window.Property(highlight)]][B]$ADDON[plugin.video.NXTFlix 32106]: [/B][/COLOR]$INFO[Window.Property(hash)][/UPPERCASE]</label>
+                    <label>[UPPERCASE][COLOR $INFO[Window.Property(highlight)]][B]$ADDON[plugin.video.nxtflix 32106]: [/B][/COLOR]$INFO[Window.Property(hash)][/UPPERCASE]</label>
                 </control>
                 <control type="label">
                     <top>300</top>
@@ -131,7 +131,7 @@
                     <textcolor>FFCCCCCC</textcolor>
                     <align>left</align>
                     <aligny>center</aligny>
-                    <label>[UPPERCASE][COLOR $INFO[Window.Property(highlight)]][B]$ADDON[plugin.video.NXTFlix 32987]: [/B][/COLOR]$INFO[Window.Property(extraInfo)][/UPPERCASE]</label>
+                    <label>[UPPERCASE][COLOR $INFO[Window.Property(highlight)]][B]$ADDON[plugin.video.nxtflix 32987]: [/B][/COLOR]$INFO[Window.Property(extraInfo)][/UPPERCASE]</label>
                 </control>
                 <control type="textbox">
                     <top>340</top>
@@ -142,7 +142,7 @@
                     <textcolor>FFCCCCCC</textcolor>
                     <align>left</align>
                     <aligny>top</aligny>
-                    <label>[UPPERCASE][COLOR $INFO[Window.Property(highlight)]][B]$ADDON[plugin.video.NXTFlix 32228]: [/B][/COLOR]$INFO[Window.Property(name)][/UPPERCASE]</label>
+                    <label>[UPPERCASE][COLOR $INFO[Window.Property(highlight)]][B]$ADDON[plugin.video.nxtflix 32228]: [/B][/COLOR]$INFO[Window.Property(name)][/UPPERCASE]</label>
                 </control>
             </control>
         </control>

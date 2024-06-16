@@ -15,7 +15,7 @@ from resources.libs.common import tools
 from resources.libs.common import var
 
 ORDER = ['serenpm',
-         'NXTFlixpm',
+         'nxtflixpm',
          'fenpm',
          'fenltpm',
          'affenpm',
@@ -58,18 +58,18 @@ DEBRIDID = {
         'default'  : 'premiumize.username',
         'data'     : ['premiumize.enabled', 'premiumize.username', 'premiumize.token'],
         'activate' : 'Addon.OpenSettings(plugin.video.seren)'},
-    'NXTFlixpm': {
+    'nxtflixpm': {
         'name'     : 'NXTFlix',
-        'plugin'   : 'plugin.video.NXTFlix',
-        'saved'    : 'NXTFlixpm',
-        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.NXTFlix'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.NXTFlix/resources/media/', 'NXTFlix_icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.NXTFlix/resources/media/', 'NXTFlix_fanart.png'),
-        'file'     : os.path.join(CONFIG.DEBRIDFOLD_PM, 'NXTFlix_pm'),
-        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.NXTFlix', 'settings.xml'),
+        'plugin'   : 'plugin.video.nxtflix',
+        'saved'    : 'nxtflixpm',
+        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix'),
+        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix/resources/media/', 'nxtflix_icon.png'),
+        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix/resources/media/', 'nxtflix_fanart.png'),
+        'file'     : os.path.join(CONFIG.DEBRIDFOLD_PM, 'nxtflix_pm'),
+        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.nxtflix', 'settings.xml'),
         'default'  : 'pm.account_id',
         'data'     : ['pm.token', 'pm.account_id', 'pm.enabled'],
-        'activate' : 'Addon.OpenSettings(plugin.video.NXTFlix)'},        
+        'activate' : 'Addon.OpenSettings(plugin.video.nxtflix)'},        
     'fenpm': {
         'name'     : 'Fen',
         'plugin'   : 'plugin.video.fen',

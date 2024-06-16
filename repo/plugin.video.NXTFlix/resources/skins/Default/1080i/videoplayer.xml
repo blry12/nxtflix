@@ -29,7 +29,7 @@
                     <height>20</height>
                     <font>font10</font> <!-- NXTFlix_21 -->
                     <textcolor>B3CCCCCC</textcolor>
-                    <label>[UPPERCASE]$ADDON[plugin.video.NXTFlix 33138][/UPPERCASE]</label>
+                    <label>[UPPERCASE]$ADDON[plugin.video.nxtflix 33138][/UPPERCASE]</label>
                 </control>
             </control>
             <control type="group">

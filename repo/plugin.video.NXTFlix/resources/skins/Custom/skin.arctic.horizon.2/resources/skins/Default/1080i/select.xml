@@ -46,7 +46,7 @@
                     <align>left</align>
                     <aligny>top</aligny>
                     <aspectratio aligny="top">keep</aspectratio>
-                    <texture colordiffuse="dialog_fg_70">common/NXTFlix.png</texture>
+                    <texture colordiffuse="dialog_fg_70">common/nxtflix.png</texture>
                 </control>
                 <control type="label">
                     <visible>!String.IsEqual(Window().Property(narrow_window),true)</visible>
@@ -222,7 +222,7 @@
                     <ondown>11</ondown>
                     <onleft>2025</onleft>
                     <onright>2025</onright>
-                    <label>$ADDON[plugin.video.NXTFlix 32839]</label>
+                    <label>$ADDON[plugin.video.nxtflix 32839]</label>
                     <font>font_mini</font>
                     <textcolor>dialog_fg_70</textcolor>
                     <focusedcolor>$VAR[ColorSelected]</focusedcolor>
@@ -240,7 +240,7 @@
                     <ondown>12</ondown>
                     <onleft>2025</onleft>
                     <onright>2025</onright>
-                    <label>$ADDON[plugin.video.NXTFlix 32840]</label>
+                    <label>$ADDON[plugin.video.nxtflix 32840]</label>
                     <font>font_mini</font>
                     <textcolor>dialog_fg_70</textcolor>
                     <focusedcolor>$VAR[ColorSelected]</focusedcolor>
@@ -258,7 +258,7 @@
                     <ondown>13</ondown>
                     <onleft>2025</onleft>
                     <onright>2025</onright>
-                    <label>$ADDON[plugin.video.NXTFlix 33149]</label>
+                    <label>$ADDON[plugin.video.nxtflix 33149]</label>
                     <font>font_mini</font>
                     <textcolor>dialog_fg_70</textcolor>
                     <focusedcolor>$VAR[ColorSelected]</focusedcolor>
@@ -277,7 +277,7 @@
                     <ondown>10</ondown>
                     <onleft>2025</onleft>
                     <onright>2025</onright>
-                    <label>$ADDON[plugin.video.NXTFlix 33150]</label>
+                    <label>$ADDON[plugin.video.nxtflix 33150]</label>
                     <font>font_mini</font>
                     <textcolor>dialog_fg_70</textcolor>
                     <focusedcolor>$VAR[ColorSelected]</focusedcolor>

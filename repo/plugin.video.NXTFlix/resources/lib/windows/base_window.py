@@ -18,7 +18,7 @@ left_action, right_action, info_action = kodi_utils.window_xml_left_action, kodi
 current_skin_prop, current_font_prop = kodi_utils.current_skin_prop, kodi_utils.current_font_prop
 extras_keys, folder_options = ('upper', 'uppercase', 'italic', 'capitalize', 'black', 'mono', 'symbol'), ('xml', '1080', '720', '1080p', '720p', '1080i', '720i', '16x9')
 needed_font_values = ((21, False, 'font10'), (26, False, 'font12'), (30, False, 'font13'), (33, False, 'font14'), (38, False, 'font16'), (60, True, 'font60'))
-addon_skins_folder = 'special://home/addons/plugin.video.NXTFlix/resources/skins/Default/1080i/'
+addon_skins_folder = 'special://home/addons/plugin.video.nxtflix/resources/skins/Default/1080i/'
 highlight_var_dict = {'skin.arctic.horizon.2': '$VAR[ColorHighlight]'}
 
 def open_window(import_info, skin_xml, **kwargs):

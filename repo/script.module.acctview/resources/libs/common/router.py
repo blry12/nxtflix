@@ -166,17 +166,17 @@ class Router:
                     xbmc.log('%s: Traktit.py Revoke API Seren Failed!' % var.amgr, xbmc.LOGINFO)
                     pass
                     
-            if xbmcvfs.exists(var.chk_NXTFlix):
+            if xbmcvfs.exists(var.chk_nxtflix):
                 try:
-                    with open(var.path_NXTFlix,'r') as f:
+                    with open(var.path_nxtflix,'r') as f:
                         data = f.read()
 
-                    client = data.replace(var.client_am,var.NXTFlix_client).replace(var.secret_am,var.NXTFlix_secret)
+                    client = data.replace(var.client_am,var.nxtflix_client).replace(var.secret_am,var.nxtflix_secret)
 
-                    with open(var.path_NXTFlix,'w') as f:
+                    with open(var.path_nxtflix,'w') as f:
                         f.write(client)
                 except:
-                    xbmc.log('%s: Traktit.py Revoke API NXTFlix Failed!' % var.amgr, xbmc.LOGINFO)
+                    xbmc.log('%s: Traktit.py Revoke API nxtflix Failed!' % var.amgr, xbmc.LOGINFO)
                     pass        
 
             if xbmcvfs.exists(var.chk_fen):

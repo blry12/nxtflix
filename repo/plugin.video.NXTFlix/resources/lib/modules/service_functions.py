@@ -97,7 +97,7 @@ class FirstRunActions:
 class ReuseLanguageInvokerCheck:
 	def run(self):
 		logger(NXTFlix_str, 'ReuseLanguageInvokerCheck Service Starting')
-		addon_xml = translate_path('special://home/addons/plugin.video.NXTFlix/addon.xml')
+		addon_xml = translate_path('special://home/addons/plugin.video.nxtflix/addon.xml')
 		current_addon_setting = get_setting('NXTFlix.reuse_language_invoker', None)
 		if current_addon_setting is None: return logger(NXTFlix_str, 'ReuseLanguageInvokerCheck Service Error. No current setting detected. Finished')
 		root = mdParse(addon_xml)

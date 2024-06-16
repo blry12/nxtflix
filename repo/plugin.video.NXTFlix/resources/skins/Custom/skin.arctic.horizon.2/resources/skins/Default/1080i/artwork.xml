@@ -33,7 +33,7 @@
                     <align>left</align>
                     <aligny>top</aligny>
                     <aspectratio aligny="top">keep</aspectratio>
-                    <texture colordiffuse="dialog_fg_70">common/NXTFlix.png</texture>
+                    <texture colordiffuse="dialog_fg_70">common/nxtflix.png</texture>
                 </control>
                 <control type="label">
                     <width max="1700">auto</width>
@@ -44,7 +44,7 @@
                     <textcolor>dialog_fg_70</textcolor>
                     <align>center</align>
                     <aligny>center</aligny>
-                    <label>[UPPERCASE][B]$ADDON[plugin.video.NXTFlix 33043][/B][/UPPERCASE]</label>
+                    <label>[UPPERCASE][B]$ADDON[plugin.video.nxtflix 33043][/B][/UPPERCASE]</label>
                 </control>
             </control>
             <!-- Body -->
@@ -70,7 +70,7 @@
                                 <textcolor>dialog_fg_70</textcolor>
                                 <align>left</align>
                                 <aligny>bottom</aligny>
-                                <label>[B]$ADDON[plugin.video.NXTFlix 32616][COLOR $VAR[ColorHighlight]] $INFO[Window.Property(poster.number)][/COLOR][/B]</label>
+                                <label>[B]$ADDON[plugin.video.nxtflix 32616][COLOR $VAR[ColorHighlight]] $INFO[Window.Property(poster.number)][/COLOR][/B]</label>
                                 <visible>!Control.HasFocus(2020)</visible>
                             </control>
                             <control type="label">
@@ -80,7 +80,7 @@
                                 <textcolor>dialog_fg_70</textcolor>
                                 <align>left</align>
                                 <aligny>bottom</aligny>
-                                <label>[B]$ADDON[plugin.video.NXTFlix 32616][COLOR $VAR[ColorHighlight]] | [/COLOR][/B]$INFO[Container(2020).ListItem.Property(provider)]</label>
+                                <label>[B]$ADDON[plugin.video.nxtflix 32616][COLOR $VAR[ColorHighlight]] | [/COLOR][/B]$INFO[Container(2020).ListItem.Property(provider)]</label>
                                 <visible>Control.HasFocus(2020)</visible>
                             </control>
                             <control type="fixedlist" id="2020">
@@ -180,7 +180,7 @@
                                 <textcolor>dialog_fg_70</textcolor>
                                 <align>left</align>
                                 <aligny>bottom</aligny>
-                                <label>[B]$ADDON[plugin.video.NXTFlix 32617][COLOR $VAR[ColorHighlight]] $INFO[Window.Property(fanart.number)][/COLOR][/B]</label>
+                                <label>[B]$ADDON[plugin.video.nxtflix 32617][COLOR $VAR[ColorHighlight]] $INFO[Window.Property(fanart.number)][/COLOR][/B]</label>
                                 <visible>!Control.HasFocus(2021)</visible>
                             </control>
                             <control type="label">
@@ -190,7 +190,7 @@
                                 <textcolor>dialog_fg_70</textcolor>
                                 <align>left</align>
                                 <aligny>bottom</aligny>
-                                <label>[B]$ADDON[plugin.video.NXTFlix 32617][COLOR $VAR[ColorHighlight]] | [/COLOR][/B]$INFO[Container(2021).ListItem.Property(provider)]</label>
+                                <label>[B]$ADDON[plugin.video.nxtflix 32617][COLOR $VAR[ColorHighlight]] | [/COLOR][/B]$INFO[Container(2021).ListItem.Property(provider)]</label>
                                 <visible>Control.HasFocus(2021)</visible>
                             </control>
                             <control type="fixedlist" id="2021">
@@ -286,7 +286,7 @@
                                 <textcolor>dialog_fg_70</textcolor>
                                 <align>left</align>
                                 <aligny>bottom</aligny>
-                                <label>[B]$ADDON[plugin.video.NXTFlix 33068][COLOR $VAR[ColorHighlight]] $INFO[Window.Property(clearlogo.number)][/COLOR][/B]</label>
+                                <label>[B]$ADDON[plugin.video.nxtflix 33068][COLOR $VAR[ColorHighlight]] $INFO[Window.Property(clearlogo.number)][/COLOR][/B]</label>
                                 <visible>!Control.HasFocus(2022)</visible>
                             </control>
                             <control type="label">
@@ -296,7 +296,7 @@
                                 <textcolor>dialog_fg_70</textcolor>
                                 <align>left</align>
                                 <aligny>bottom</aligny>
-                                <label>[B]$ADDON[plugin.video.NXTFlix 33068][COLOR $VAR[ColorHighlight]] | [/COLOR][/B]$INFO[Container(2022).ListItem.Property(provider)]</label>
+                                <label>[B]$ADDON[plugin.video.nxtflix 33068][COLOR $VAR[ColorHighlight]] | [/COLOR][/B]$INFO[Container(2022).ListItem.Property(provider)]</label>
                                 <visible>Control.HasFocus(2022)</visible>
                             </control>
                             <control type="fixedlist" id="2022">

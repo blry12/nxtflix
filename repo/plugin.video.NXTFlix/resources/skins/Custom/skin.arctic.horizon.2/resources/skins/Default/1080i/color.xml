@@ -44,7 +44,7 @@
                     <textcolor>dialog_fg_70</textcolor>
                     <align>center</align>
                     <aligny>center</aligny>
-                    <label>[B]$ADDON[plugin.video.NXTFlix 33106][/B]</label>
+                    <label>[B]$ADDON[plugin.video.nxtflix 33106][/B]</label>
                 </control>
             </control>
             <!-- Color picker panel -->
@@ -153,7 +153,7 @@
                     <ondown>11</ondown>
                     <onleft>2000</onleft>
                     <onright>2000</onright>
-                    <label>$ADDON[plugin.video.NXTFlix 32839]</label>
+                    <label>$ADDON[plugin.video.nxtflix 32839]</label>
                     <font>font_mini</font>
                     <textcolor>dialog_fg_70</textcolor>
                     <focusedcolor>$VAR[ColorSelected]</focusedcolor>
@@ -170,7 +170,7 @@
                     <ondown>12</ondown>
                     <onleft>2000</onleft>
                     <onright>2000</onright>
-                    <label>$ADDON[plugin.video.NXTFlix 32840]</label>
+                    <label>$ADDON[plugin.video.nxtflix 32840]</label>
                     <font>font_mini</font>
                     <textcolor>dialog_fg_70</textcolor>
                     <focusedcolor>$VAR[ColorSelected]</focusedcolor>
@@ -186,7 +186,7 @@
                     <aligny>bottom</aligny>
                     <textcolor>dialog_fg_70</textcolor>
                     <font>font_mini</font>
-                    <label>[B]$ADDON[plugin.video.NXTFlix 33156][/B]</label>
+                    <label>[B]$ADDON[plugin.video.nxtflix 33156][/B]</label>
                 </control>
                 <control type="button" id="12">
                     <description>Input Value Choice</description>
@@ -221,7 +221,7 @@
                     <aligny>bottom</aligny>
                     <textcolor>dialog_fg_70</textcolor>
                     <font>font_mini</font> <!-- NXTFlix_26 -->
-                    <label>[B]$ADDON[plugin.video.NXTFlix 33157][/B]</label>
+                    <label>[B]$ADDON[plugin.video.nxtflix 33157][/B]</label>
                 </control>
                 <control type="button" id="13">
                     <description>Color Palette Choice</description>
@@ -266,7 +266,7 @@
                 <aligny>center</aligny>
                 <font>font_midi</font>
                 <textcolor>dialog_fg_70</textcolor>
-                <label>[B]$ADDON[plugin.video.NXTFlix 33110][/B]</label>
+                <label>[B]$ADDON[plugin.video.nxtflix 33110][/B]</label>
             </control>
         </control>
     </controls>

@@ -15,7 +15,7 @@ from modules import icons
 
 try: xbmc_actor = xbmc.Actor
 except: xbmc_actor = None
-addon_object = xbmcaddon.Addon('plugin.video.NXTFlix')
+addon_object = xbmcaddon.Addon('plugin.video.nxtflix')
 getLocalizedString = addon_object.getLocalizedString
 player, xbmc_player, numeric_input, xbmc_monitor, translatePath = xbmc.Player(), xbmc.Player, 1, xbmc.Monitor, xbmcvfs.translatePath
 ListItem, getSkinDir, log, getCurrentWindowId, Window = xbmcgui.ListItem, xbmc.getSkinDir, xbmc.log, xbmcgui.getCurrentWindowId, xbmcgui.Window
@@ -108,7 +108,7 @@ def local_string(string):
 	return getLocalizedString(string)
 
 def build_url(url_params):
-	return 'plugin://plugin.video.NXTFlix/?%s' % urlencode(url_params)
+	return 'plugin://plugin.video.nxtflix/?%s' % urlencode(url_params)
 
 def remove_keys(dict_item, dict_removals):
 	for k in dict_removals: dict_item.pop(k, None)
@@ -174,7 +174,7 @@ def set_property(prop, value):
 def clear_property(prop):
 	return window.clearProperty(prop)
 
-def addon(addon_id='plugin.video.NXTFlix'):
+def addon(addon_id='plugin.video.nxtflix'):
 	return xbmcaddon.Addon(id=addon_id)
 
 def addon_installed(addon_id):
@@ -267,7 +267,7 @@ def close_dialog(dialog, block=False):
 def close_all_dialog():
 	execute_builtin('Dialog.Close(all,true)')
 
-def run_addon(addon='plugin.video.NXTFlix', block=False):
+def run_addon(addon='plugin.video.nxtflix', block=False):
 	return execute_builtin('RunAddon(%s)' % addon, block)
 
 def external():
@@ -311,7 +311,7 @@ def replace_window(params, block=False):
 	if isinstance(params, dict): params = build_url(params)
 	return execute_builtin('ReplaceWindow(Videos,%s)' % params, block)
 
-def disable_enable_addon(addon_name='plugin.video.NXTFlix'):
+def disable_enable_addon(addon_name='plugin.video.nxtflix'):
 	try:
 		execute_JSON(json.dumps({'jsonrpc': '2.0', 'id': 1, 'method': 'Addons.SetAddonEnabled', 'params': {'addonid': addon_name, 'enabled': False}}))
 		execute_JSON(json.dumps({'jsonrpc': '2.0', 'id': 1, 'method': 'Addons.SetAddonEnabled', 'params': {'addonid': addon_name, 'enabled': True}}))
@@ -326,7 +326,7 @@ def update_local_addons():
 	execute_builtin('UpdateLocalAddons', True)
 	sleep(2500)
  
-def update_kodi_addons_db(addon_name='plugin.video.NXTFlix'):
+def update_kodi_addons_db(addon_name='plugin.video.nxtflix'):
 	import time
 	import sqlite3 as database
 	try:
@@ -487,7 +487,7 @@ def get_all_icon_vars(include_values=False):
 def toggle_language_invoker():
 	close_all_dialog()
 	sleep(100)
-	addon_xml = translate_path('special://home/addons/plugin.video.NXTFlix/addon.xml')
+	addon_xml = translate_path('special://home/addons/plugin.video.nxtflix/addon.xml')
 	current_addon_setting = get_setting('NXTFlix.reuse_language_invoker', 'true')
 	new_value = invoker_switch_dict[current_addon_setting]
 	if not confirm_dialog(text=local_string(33018) % (current_addon_setting.upper(), new_value.upper())): return
@@ -541,7 +541,7 @@ def upload_logfile(params):
 	except: ok_dialog(text=33039)
 	hide_busy_dialog()
 
-def open_settings(query, addon='plugin.video.NXTFlix'):
+def open_settings(query, addon='plugin.video.nxtflix'):
 	hide_busy_dialog()
 	if query:
 		try:

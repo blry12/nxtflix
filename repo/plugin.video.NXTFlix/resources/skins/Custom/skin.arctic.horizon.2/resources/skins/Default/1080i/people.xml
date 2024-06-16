@@ -18,7 +18,7 @@
             <animation type="WindowOpen" reversible="false">
                 <effect type="fade" end="100" time="400" delay="500" />
             </animation>
-            <!-- NXTFlix Logo and Clock & Date -->
+            <!-- nxtflix Logo and Clock & Date -->
             <control type="group">
                 <control type="image">
                     <top>5</top>
@@ -26,7 +26,7 @@
                     <width>60</width>
                     <height>60</height>
                     <aspectratio aligny="top">keep</aspectratio>
-                    <texture>common/NXTFlix.png</texture>
+                    <texture>common/nxtflix.png</texture>
                 </control>
                 <control type="group">
                     <visible>!Control.HasFocus(2050) + !Control.HasFocus(2051) + !Control.HasFocus(2054)</visible>
@@ -35,7 +35,7 @@
                         <left>1590</left>
                         <width max="300">auto</width>
                         <height>20</height>
-                        <font>font_midi</font> <!-- NXTFlix_38 -->
+                        <font>font_midi</font> <!-- nxtflix_38 -->
                         <textcolor>FFCCCCCC</textcolor>
                         <align>right</align>
                         <aligny>center</aligny>
@@ -46,7 +46,7 @@
                         <left>1540</left>
                         <width max="350">auto</width>
                         <height>20</height>
-                        <font>font_tiny</font> <!-- NXTFlix_21 -->
+                        <font>font_tiny</font> <!-- nxtflix_21 -->
                         <textcolor>FFCCCCCC</textcolor>
                         <align>right</align>
                         <aligny>center</aligny>
@@ -68,11 +68,11 @@
                     <control type="label">
                         <width max="500">auto</width>
                         <height>20</height>
-                        <font>font_mini</font> <!-- NXTFlix_26 -->
+                        <font>font_mini</font> <!-- nxtflix_26 -->
                         <textcolor>FFCCCCCC</textcolor>
                         <align>right</align>
                         <aligny>top</aligny>
-                        <label>$ADDON[plugin.video.NXTFlix 33129]</label>
+                        <label>$ADDON[plugin.video.nxtflix 33129]</label>
                         <visible>Control.HasFocus(2050) | Control.HasFocus(2051) | Control.HasFocus(2054)</visible>
                     </control>
                 </control>
@@ -148,7 +148,7 @@
                             <onright>11</onright>
                             <onup>2054</onup>
                             <ondown>50</ondown>
-                            <label>$ADDON[plugin.video.NXTFlix 32798]</label>
+                            <label>$ADDON[plugin.video.nxtflix 32798]</label>
                             <font>font_mini</font>
                             <textcolor>dialog_fg_70</textcolor>
                             <focusedcolor>$VAR[ColorSelected]</focusedcolor>
@@ -165,7 +165,7 @@
                             <onright>10</onright>
                             <onup>2054</onup>
                             <ondown>50</ondown>
-                            <label>$ADDON[plugin.video.NXTFlix 33045] $ADDON[plugin.video.NXTFlix 32798]</label>
+                            <label>$ADDON[plugin.video.nxtflix 33045] $ADDON[plugin.video.nxtflix 32798]</label>
                             <font>font_mini</font>
                             <textcolor>dialog_fg_70</textcolor>
                             <focusedcolor>$VAR[ColorSelected]</focusedcolor>
@@ -187,7 +187,7 @@
                             <textcolor>FFCCCCCC</textcolor>
                             <align>left</align>
                             <aligny>bottom</aligny>
-                            <label>[B]$ADDON[plugin.video.NXTFlix 32797][/B]</label>
+                            <label>[B]$ADDON[plugin.video.nxtflix 32797][/B]</label>
                         </control>
                         <control type="button" id="50">
                             <top>50</top>
@@ -236,7 +236,7 @@
                             <height>20</height>
                             <font>font_midi</font>
                             <textcolor>FFCCCCCC</textcolor>
-                            <label>[B]$ADDON[plugin.video.NXTFlix 32028][COLOR $VAR[ColorHighlight]] $INFO[Window.Property(more_from_movie.number)][/COLOR][/B]</label>
+                            <label>[B]$ADDON[plugin.video.nxtflix 32028][COLOR $VAR[ColorHighlight]] $INFO[Window.Property(more_from_movie.number)][/COLOR][/B]</label>
                             <visible>!Control.HasFocus(2050)</visible>
                         </control>
                         <control type="label">
@@ -244,7 +244,7 @@
                             <height>20</height>
                             <font>font_midi</font>
                             <textcolor>FFCCCCCC</textcolor>
-                            <label>[B]$ADDON[plugin.video.NXTFlix 32028][COLOR $VAR[ColorHighlight]] | [/COLOR][/B]$INFO[Container(2050).ListItem.Property(name)][COLOR $VAR[ColorHighlight]] • [/COLOR]$INFO[Container(2050).ListItem.Property(release_date)][COLOR $VAR[ColorHighlight]] • [/COLOR]$INFO[Container(2050).ListItem.Property(vote_average)]</label>
+                            <label>[B]$ADDON[plugin.video.nxtflix 32028][COLOR $VAR[ColorHighlight]] | [/COLOR][/B]$INFO[Container(2050).ListItem.Property(name)][COLOR $VAR[ColorHighlight]] • [/COLOR]$INFO[Container(2050).ListItem.Property(release_date)][COLOR $VAR[ColorHighlight]] • [/COLOR]$INFO[Container(2050).ListItem.Property(vote_average)]</label>
                             <visible>Control.HasFocus(2050)</visible>
                         </control>
                         <control type="fixedlist" id="2050">
@@ -337,7 +337,7 @@
                             <height>20</height>
                             <font>font_midi</font>
                             <textcolor>FFCCCCCC</textcolor>
-                            <label>[B]$ADDON[plugin.video.NXTFlix 32029][COLOR $VAR[ColorHighlight]] $INFO[Window.Property(more_from_tvshow.number)][/COLOR][/B]</label>
+                            <label>[B]$ADDON[plugin.video.nxtflix 32029][COLOR $VAR[ColorHighlight]] $INFO[Window.Property(more_from_tvshow.number)][/COLOR][/B]</label>
                             <visible>!Control.HasFocus(2051)</visible>
                         </control>
                         <control type="label">
@@ -345,7 +345,7 @@
                             <height>20</height>
                             <font>font_midi</font>
                             <textcolor>FFCCCCCC</textcolor>
-                            <label>[B]$ADDON[plugin.video.NXTFlix 32029][COLOR $VAR[ColorHighlight]] | [/COLOR][/B]$INFO[Container(2050).ListItem.Property(name)][COLOR $VAR[ColorHighlight]] • [/COLOR]$INFO[Container(2050).ListItem.Property(release_date)][COLOR $VAR[ColorHighlight]] • [/COLOR]$INFO[Container(2050).ListItem.Property(vote_average)]</label>
+                            <label>[B]$ADDON[plugin.video.nxtflix 32029][COLOR $VAR[ColorHighlight]] | [/COLOR][/B]$INFO[Container(2050).ListItem.Property(name)][COLOR $VAR[ColorHighlight]] • [/COLOR]$INFO[Container(2050).ListItem.Property(release_date)][COLOR $VAR[ColorHighlight]] • [/COLOR]$INFO[Container(2050).ListItem.Property(vote_average)]</label>
                             <visible>Control.HasFocus(2051)</visible>
                         </control>
                         <control type="fixedlist" id="2051">
@@ -440,7 +440,7 @@
                             <textcolor>FFCCCCCC</textcolor>
                             <align>left</align>
                             <aligny>bottom</aligny>
-                            <label>[B]$ADDON[plugin.video.NXTFlix 32984][COLOR $VAR[ColorHighlight]] $INFO[Window.Property(imdb_trivia.number)][/COLOR][/B]</label>
+                            <label>[B]$ADDON[plugin.video.nxtflix 32984][COLOR $VAR[ColorHighlight]] $INFO[Window.Property(imdb_trivia.number)][/COLOR][/B]</label>
                         </control>
                         <control type="panel" id="2052">
                             <pagecontrol>4052</pagecontrol>
@@ -530,7 +530,7 @@
                             <height>20</height>
                             <font>font_midi</font>
                             <textcolor>FFCCCCCC</textcolor>
-                            <label>[B]$ADDON[plugin.video.NXTFlix 33032][COLOR $VAR[ColorHighlight]] $INFO[Window.Property(imdb_videos.number)][/COLOR][/B]</label>
+                            <label>[B]$ADDON[plugin.video.nxtflix 33032][COLOR $VAR[ColorHighlight]] $INFO[Window.Property(imdb_videos.number)][/COLOR][/B]</label>
                             <visible>!Control.HasFocus(2053)</visible>
                         </control>
                         <control type="label">
@@ -538,7 +538,7 @@
                             <height>20</height>
                             <font>font_midi</font>
                             <textcolor>FFCCCCCC</textcolor>
-                            <label>[B]$ADDON[plugin.video.NXTFlix 33032][COLOR $VAR[ColorHighlight]] | [/COLOR][/B]$INFO[Container(2053).ListItem.Property(name)]</label>
+                            <label>[B]$ADDON[plugin.video.nxtflix 33032][COLOR $VAR[ColorHighlight]] | [/COLOR][/B]$INFO[Container(2053).ListItem.Property(name)]</label>
                             <visible>Control.HasFocus(2053)</visible>
                         </control>
                         <control type="fixedlist" id="2053">
@@ -630,7 +630,7 @@
                             <height>20</height>
                             <font>font_midi</font>
                             <textcolor>FFCCCCCC</textcolor>
-                            <label>[B]$ADDON[plugin.video.NXTFlix 32028] $ADDON[plugin.video.NXTFlix 32796][COLOR $VAR[ColorHighlight]] $INFO[Window.Property(more_from_director.number)][/COLOR][/B]</label>
+                            <label>[B]$ADDON[plugin.video.nxtflix 32028] $ADDON[plugin.video.nxtflix 32796][COLOR $VAR[ColorHighlight]] $INFO[Window.Property(more_from_director.number)][/COLOR][/B]</label>
                             <visible>!Control.HasFocus(2054)</visible>
                         </control>
                         <control type="label">
@@ -638,7 +638,7 @@
                             <height>20</height>
                             <font>font_midi</font>
                             <textcolor>FFCCCCCC</textcolor>
-                            <label>[B]$ADDON[plugin.video.NXTFlix 32028] $ADDON[plugin.video.NXTFlix 32796][COLOR $VAR[ColorHighlight]] | [/COLOR][/B]$INFO[Container(2050).ListItem.Property(name)][COLOR $VAR[ColorHighlight]] • [/COLOR]$INFO[Container(2050).ListItem.Property(release_date)][COLOR $VAR[ColorHighlight]] • [/COLOR]$INFO[Container(2050).ListItem.Property(vote_average)]</label>
+                            <label>[B]$ADDON[plugin.video.nxtflix 32028] $ADDON[plugin.video.nxtflix 32796][COLOR $VAR[ColorHighlight]] | [/COLOR][/B]$INFO[Container(2050).ListItem.Property(name)][COLOR $VAR[ColorHighlight]] • [/COLOR]$INFO[Container(2050).ListItem.Property(release_date)][COLOR $VAR[ColorHighlight]] • [/COLOR]$INFO[Container(2050).ListItem.Property(vote_average)]</label>
                             <visible>Control.HasFocus(2054)</visible>
                         </control>
                         <control type="fixedlist" id="2054">

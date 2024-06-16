@@ -1,4 +1,4 @@
-<addon id="plugin.video.NXTFlix" name="NXTFlix Media" provider-name="BLRY12" version="1.0">
+<addon id="plugin.video.nxtflix" name="NXTFlix Media" provider-name="BLRY12" version="1.0">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
         <import addon="script.module.requests" version="0.0.1"/>

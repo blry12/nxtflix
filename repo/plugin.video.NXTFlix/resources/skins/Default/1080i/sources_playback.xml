@@ -37,7 +37,7 @@
                     <textcolor>FFFFFFFF</textcolor>
                     <align>left</align>
                     <aligny>center</aligny>
-                    <label>[UPPERCASE]$ADDON[plugin.video.NXTFlix 33138][/UPPERCASE]</label>
+                    <label>[UPPERCASE]$ADDON[plugin.video.nxtflix 33138][/UPPERCASE]</label>
                     <visible>String.IsEqual(Window.Property(window_mode),scraper)</visible>
                 </control>
                 <control type="label">
@@ -49,7 +49,7 @@
                     <textcolor>FFFFFFFF</textcolor>
                     <align>left</align>
                     <aligny>center</aligny>
-                    <label>[UPPERCASE]$ADDON[plugin.video.NXTFlix 33138] [B][COLOR $INFO[Window().Property(highlight_var)]]|[/COLOR][/B] $ADDON[plugin.video.NXTFlix 33139][/UPPERCASE]</label>
+                    <label>[UPPERCASE]$ADDON[plugin.video.nxtflix 33138] [B][COLOR $INFO[Window().Property(highlight_var)]]|[/COLOR][/B] $ADDON[plugin.video.nxtflix 33139][/UPPERCASE]</label>
                     <visible>String.IsEqual(Window.Property(window_mode),resolver) + !String.IsEqual(Window.Property(enable_busy_spinner),true)</visible>
                 </control>
             </control>
@@ -575,7 +575,7 @@
                     <height>60</height>
                     <onleft>12</onleft>
                     <onright>11</onright>
-                    <label>$ADDON[plugin.video.NXTFlix 32832] $INFO[Window.Property(resume_percent)]%</label>
+                    <label>$ADDON[plugin.video.nxtflix 32832] $INFO[Window.Property(resume_percent)]%</label>
                     <font>font12</font> <!-- NXTFlix_26 -->
                     <textcolor>FFCCCCCC</textcolor>
                     <focusedcolor>FF1F2020</focusedcolor>
@@ -589,7 +589,7 @@
                     <height>60</height>
                     <onleft>10</onleft>
                     <onright>12</onright>
-                    <label>$ADDON[plugin.video.NXTFlix 32833]</label>
+                    <label>$ADDON[plugin.video.nxtflix 32833]</label>
                     <font>font12</font> <!-- NXTFlix_26 -->
                     <textcolor>FFCCCCCC</textcolor>
                     <focusedcolor>FF1F2020</focusedcolor>
@@ -603,7 +603,7 @@
                     <height>60</height>
                     <onleft>11</onleft>
                     <onright>10</onright>
-                    <label>$ADDON[plugin.video.NXTFlix 32840]</label>
+                    <label>$ADDON[plugin.video.nxtflix 32840]</label>
                     <font>font12</font> <!-- NXTFlix_26 -->
                     <textcolor>FFCCCCCC</textcolor>
                     <focusedcolor>FF1F2020</focusedcolor>
