@@ -9,7 +9,7 @@
             "type": ""
         },
         {
-            "name": "Authorize AURAMediaFlix Trakt",
+            "name": "Authorize NXTFlixMedia Trakt",
             "url": "RunPlugin(plugin://plugin.video.nxt/?mode=trakt.trakt_authenticate)",
             "icon": "https://techwiser.com/wp-content/uploads/2020/09/trakt-logo.png",
             "fanart": "https://techwiser.com/wp-content/uploads/2020/09/trakt-logo.png",
@@ -113,7 +113,7 @@
             "type": ""
         },	
         {
-            "name": "Revoke AURAMediaFlix Trakt",
+            "name": "Revoke NXTFlixMedia Trakt",
             "url": "RunPlugin(plugin://plugin.video.nxt/?mode=trakt.trakt_revoke_authentication)",
             "icon": "https://techwiser.com/wp-content/uploads/2020/09/trakt-logo.png",
             "fanart": "https://techwiser.com/wp-content/uploads/2020/09/trakt-logo.png",
