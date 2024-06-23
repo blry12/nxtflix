@@ -47,13 +47,13 @@ class dv:
                 pass
                 
         try:
-            addon = xbmcvfs.translatePath('special://home/addons/plugin.video.NXTFlix/')
-            file = xbmcvfs.translatePath('special://userdata/addon_data/plugin.video.NXTFlix/settings.xml')
+            addon = xbmcvfs.translatePath('special://home/addons/plugin.video.nxtflix/')
+            file = xbmcvfs.translatePath('special://userdata/addon_data/plugin.video.nxtflix/settings.xml')
 
             if xbmcvfs.exists(addon) and xbmcvfs.exists(file):
 
                 ftr = '1'
-                addon = xbmcaddon.Addon("plugin.video.NXTFlix")
+                addon = xbmcaddon.Addon("plugin.video.nxtflix")
                 addon.setSetting("filter_dv", ftr)
         except:
                 pass                

@@ -19,14 +19,14 @@ class hd:
                 pass
                 
         try:
-            addon = xbmcvfs.translatePath('special://home/addons/plugin.video.NXTFlix/')
-            file = xbmcvfs.translatePath('special://userdata/addon_data/plugin.video.NXTFlix/settings.xml')
+            addon = xbmcvfs.translatePath('special://home/addons/plugin.video.nxtflix/')
+            file = xbmcvfs.translatePath('special://userdata/addon_data/plugin.video.nxtflix/settings.xml')
 
             if xbmcvfs.exists(addon) and xbmcvfs.exists(file):
 
                 res = 'SD, 720p, 1080p'
                 hd = '1080p' 
-                addon = xbmcaddon.Addon("plugin.video.NXTFlix")
+                addon = xbmcaddon.Addon("plugin.video.nxtflix")
                 addon.setSetting("results_quality_movie", res)
                 addon.setSetting("results_quality_episode", res)
                 addon.setSetting("autoplay_quality_movie", res)
@@ -34,12 +34,12 @@ class hd:
                 addon.setSetting("filter_hevc.max_quality", hd)
                 addon.setSetting("filter_hevc.max_autoplay_quality", hd)   
                 ftr = 'ATMOS, TRUEHD, DTS-HD MA, DTS-HD, 8CH, 7CH'
-                addon = xbmcaddon.Addon("plugin.video.NXTFlix")
+                addon = xbmcaddon.Addon("plugin.video.nxtflix")
                 addon.setSetting("filter_audio", ftr)
                 ftr = '1'
-                addon = xbmcaddon.Addon("plugin.video.NXTFlix")
+                addon = xbmcaddon.Addon("plugin.video.nxtflix")
                 addon.setSetting("filter_dv", ftr)           
         except:
                 pass                
             
-        xbmcgui.Dialog().notification('MaxQL', 'Firestick Edition Enabled!', addon_icon, 3000)
+        xbmcgui.Dialog().notification('MaxQL', '1080P Edition Enabled!', addon_icon, 3000)

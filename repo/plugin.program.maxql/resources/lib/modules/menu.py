@@ -20,11 +20,11 @@ handle = int(sys.argv[1])
 def main_menu():
     xbmcplugin.setPluginCategory(handle, 'Main Menu')
 
-    add_dir('1080P Edition - Best for Firestick Devices','',1,HD_icon,addon_fanart,isFolder=True)
+    add_dir('1080P Edition - Best for Firestick/GoogleTV cast 1080p Devices','',1,HD_icon,addon_fanart,isFolder=True)
     
-    add_dir('4K Edition - Best for FireCube/GoogleTV/4K Devices','',2,UHD1_icon,addon_fanart,isFolder=True)
+    add_dir('4K Edition - Best for GoogleTV Cast 4K/Firestick 4K/4K Devices','',2,UHD1_icon,addon_fanart,isFolder=True)
 
-    add_dir('Dolby Vision/Atmos Edition - Best for Shield Pro/High-end Devices','',3,DVA_icon,addon_fanart,isFolder=True)
+    add_dir('Dolby Vision/Atmos Edition - Best for Shield Pro/Fire Cube/High-end Devices','',3,DVA_icon,addon_fanart,isFolder=True)
     
     add_dir('Disable Dolby Vision Only','',4,dvoff_icon,addon_fanart,isFolder=True)
     
