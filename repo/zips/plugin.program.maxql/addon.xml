@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.program.maxql" name="MaxQL" version="1.1.6" provider-name="Zaxxon709">
+<addon id="plugin.program.maxql" name="MaxQL" version="1.1.7" provider-name="Zaxxon709">
 	<requires>
 		<import addon="xbmc.python" version="3.0.0"/>
 	</requires>
@@ -18,7 +18,10 @@
 		<email></email>
 		<source></source>
 		<news>
-			1.1.6- Icon update and Name changes
+			1.1.7 - Unofficial - Made Adjustments to Device resolution 
+					- added file size limi on HD
+					- disable HDR results for HD					
+			1.1.6 - Unofficial - Icon update and Name changes
 			1.1.5 - Added Devices Info
 			1.1.4 - Added support for enabling Auto-Play.
 			1.1.3 - Added afFENity

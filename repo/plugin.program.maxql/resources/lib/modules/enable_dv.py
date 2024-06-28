@@ -59,6 +59,11 @@ class dv:
                 ftr = '0'
                 addon = xbmcaddon.Addon("plugin.video.nxtflix")
                 addon.setSetting("filter_dv", ftr)
+                fsen= '0'
+                addon.setSetting("results.filter_size_method", fsen)
+                hdr= '0'
+                addon.setSetting("filter_hdr", hdr) 
+                
         except:
                 pass                
 

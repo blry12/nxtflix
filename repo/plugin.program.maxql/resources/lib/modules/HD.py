@@ -25,7 +25,7 @@ class hd:
             if xbmcvfs.exists(addon) and xbmcvfs.exists(file):
 
                 res = 'SD, 720p, 1080p'
-                hd = '1080p' 
+                hd = '1080p'
                 addon = xbmcaddon.Addon("plugin.video.nxtflix")
                 addon.setSetting("results_quality_movie", res)
                 addon.setSetting("results_quality_episode", res)
@@ -38,7 +38,12 @@ class hd:
                 addon.setSetting("filter_audio", ftr)
                 ftr = '1'
                 addon = xbmcaddon.Addon("plugin.video.nxtflix")
-                addon.setSetting("filter_dv", ftr)           
+                addon.setSetting("filter_dv", ftr)   
+                fsen= '2'
+                addon.setSetting("results.filter_size_method", fsen)
+                hdr= '1'
+                addon.setSetting("filter_hdr", hdr)                   
+                
         except:
                 pass                
             

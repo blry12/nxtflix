@@ -53,7 +53,12 @@ class full_hd:
                 addon.setSetting("filter_audio", ftr)
                 ftr = '1'
                 addon = xbmcaddon.Addon("plugin.video.nxtflix")
-                addon.setSetting("filter_dv", ftr)  
+                addon.setSetting("filter_dv", ftr) 
+                fsen= '0'
+                addon.setSetting("results.filter_size_method", fsen) 
+                hdr= '0'
+                addon.setSetting("filter_hdr", hdr)                 
+                
         except:
                 pass               
             
