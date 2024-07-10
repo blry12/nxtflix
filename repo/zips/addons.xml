@@ -143,6 +143,36 @@
 			<fanart>fanart.jpg</fanart>
 		</assets>
 	</extension>
+</addon><addon id="plugin.program.nxtflix" name="[COLOR lightskyblue]NXTFlix[/COLOR] Wizard " version="1.0" provider-name="BLRY">
+	<requires>
+		<import addon="xbmc.python" version="3.0.1" />
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="addon.py">
+		<provides>executable</provides>
+	</extension>
+	<extension point="xbmc.service" library="service.py" />
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en_GB">Simple Wizard is a lightweight template for installing builds on Kodi 21 Omega. Has some code from Aftermath Wizard by Surfacingx. Skin Switch by OpenELEQ. Base code by BYB. Credits to them and all others who contributed. Please report any bugs to @slamious on Telegram/Twitter.</summary>
+		<description lang="en_GB">Kodi Wizard</description>
+		<disclaimer lang="en_GB">This Addon contains no content</disclaimer>
+		<language>en</language>
+		<platform>all</platform>
+		<license>GPL-2.0-or-later</license>
+		<forum />
+		<website /> 
+		<email />
+		<source />
+		<news>
+		1.0 - Initial Release
+		</news>
+		<assets>
+				<icon>resources/icon.png</icon>
+				<fanart>resources/fanart.jpg</fanart>
+				<banner />
+				<clearlogo />
+				<screenshot />
+		</assets>
+	</extension>
 </addon><addon id="plugin.program.nxtflix.nexus" name="[COLOR lightskyblue]NXTFlix[/COLOR] Wizard [COLOR blue]Kodi 20 Nexus[/COLOR]" version="1.0" provider-name="BLRY">
 	<requires>
 		<import addon="xbmc.python" version="3.0.1" />
