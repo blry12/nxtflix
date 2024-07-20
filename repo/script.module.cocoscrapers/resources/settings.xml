@@ -237,11 +237,6 @@
 					<default>false</default>
 					<control type="toggle"/>
 				</setting>
-				<setting id="provider.magnetdl" type="boolean" label="32114" help="">
-					<level>0</level>
-					<default>true</default>
-					<control type="toggle"/>
-				</setting>
 				<setting id="provider.nyaa" type="boolean" label="32116" help="">
 					<level>0</level>
 					<default>false</default>
