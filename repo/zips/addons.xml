@@ -173,66 +173,6 @@
 				<screenshot />
 		</assets>
 	</extension>
-</addon><addon id="plugin.program.nxtflix.nexus" name="[COLOR lightskyblue]NXTFlix[/COLOR] Wizard [COLOR blue]Kodi 20 Nexus[/COLOR]" version="1.0" provider-name="BLRY">
-	<requires>
-		<import addon="xbmc.python" version="3.0.1" />
-	</requires>
-	<extension point="xbmc.python.pluginsource" library="addon.py">
-		<provides>executable</provides>
-	</extension>
-	<extension point="xbmc.service" library="service.py" />
-	<extension point="xbmc.addon.metadata">
-		<summary lang="en_GB">Simple nexus Wizard is a lightweight template for installing builds on Kodi 20 nexus. Has some code from Aftermath Wizard by Surfacingx. Skin Switch by OpenELEQ. Base code by BYB. Credits to them and all others who contributed. Please report any bugs to @slamious on Telegram/Twitter.</summary>
-		<description lang="en_GB">Kodi 20 nexus Wizard</description>
-		<disclaimer lang="en_GB">This Addon contains no content</disclaimer>
-		<language>en</language>
-		<platform>all</platform>
-		<license>GPL-2.0-or-later</license>
-		<forum />
-		<website /> 
-		<email />
-		<source />
-		<news>
-		1.0 - Initial Release
-		</news>
-		<assets>
-				<icon>resources/icon.png</icon>
-				<fanart>resources/fanart.jpg</fanart>
-				<banner />
-				<clearlogo />
-				<screenshot />
-		</assets>
-	</extension>
-</addon><addon id="plugin.program.nxtflix.omega" name="[COLOR lightskyblue]NXTFlix[/COLOR] Wizard [COLOR deepskyblue]Kodi 21 Omega[/COLOR]" version="1.1" provider-name="BLRY">
-	<requires>
-		<import addon="xbmc.python" version="3.0.1" />
-	</requires>
-	<extension point="xbmc.python.pluginsource" library="addon.py">
-		<provides>executable</provides>
-	</extension>
-	<extension point="xbmc.service" library="service.py" />
-	<extension point="xbmc.addon.metadata">
-		<summary lang="en_GB">Simple Omega Wizard is a lightweight template for installing builds on Kodi 21 Omega. Has some code from Aftermath Wizard by Surfacingx. Skin Switch by OpenELEQ. Base code by BYB. Credits to them and all others who contributed. Please report any bugs to @slamious on Telegram/Twitter.</summary>
-		<description lang="en_GB">Kodi 21 Omega Wizard</description>
-		<disclaimer lang="en_GB">This Addon contains no content</disclaimer>
-		<language>en</language>
-		<platform>all</platform>
-		<license>GPL-2.0-or-later</license>
-		<forum />
-		<website /> 
-		<email />
-		<source />
-		<news>
-		1.1 - Initial Release
-		</news>
-		<assets>
-				<icon>resources/icon.png</icon>
-				<fanart>resources/fanart.jpg</fanart>
-				<banner />
-				<clearlogo />
-				<screenshot />
-		</assets>
-	</extension>
 </addon><addon id="plugin.video.nxtflix" name="NXTFlix Media" provider-name="BLRY12" version="1.0">
     <requires>
         <import addon="xbmc.python" version="3.0.0" />
@@ -804,7 +744,7 @@
             Debrid account status now visible from Seren settings
         </news>
     </extension>
-</addon><addon id="repository.nxtflix" name="[COLOR lightskyblue]NXTFlix[/COLOR]" version="1.0" provider-name="blry">
+</addon><addon id="repository.nxtflix" name="[COLOR lightskyblue]NXTFlix[/COLOR]" version="1.1" provider-name="blry">
     <extension point="xbmc.addon.repository" name="Example Repository">
         <dir>
             <info compressed="false">https://raw.githubusercontent.com/blry12/nxtflix/master/repo/zips/addons.xml</info>
