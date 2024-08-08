@@ -4,7 +4,7 @@
 		<setting type="lsep" label="30054"/>
 		<setting id="buildname" type="text" label="30055" enable="false" default="No Build Installed"/>
 		<setting id="buildversion" type="text" label="30056" enable="false" default="0"/>
-		<setting id="firstrun" type="bool" label="First Run" visible="true"/>
+		<setting id="firstrun" type="bool" label="First Run" visible="false"/>
 		<setting id="firstrunNotify" type="bool" label="First Run" visible="false"/>
 		<setting id="notifyversion" type="text" label="Notify Version: " visible="false" default="0"/>
 		<setting id="autoclearpackages" type="bool" label="30057" visible="true" default = "false"/>
