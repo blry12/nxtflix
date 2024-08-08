@@ -68,14 +68,14 @@
 
 	<category label="Install Settings">
 		<setting type="lsep" label="Keep Settings When Installing Build:"/>
-		<setting id="keepfavourites" type="bool" label="Keep My Favourites" default="false"/>
-		<setting id="favouriteslastsave" type="text" label="Last Time Favourites Saved: " enable="false" default=""/>
-		<setting id="keepsources" type="bool" label="Keep My Sources" default="false"/>
-		<setting id="keepprofiles" type="bool" label="Keep My Profiles" default="false"/>
-		<setting id="keepadvanced" type="bool" label="Keep My AdvancedSettings.xml" default="false"/>
-		<setting id="keeprepos" type="bool" label="Keep Installed Repositories" default="false"/>
-		<setting id="keepsuper" type="bool" label="Keep Super Favourites" default="false"/>
-		<setting id="keepwhitelist" type="bool" label="Keep My Whitelist Addons" default="false"/>
+		<setting id="keepfavourites" type="bool" label="Keep My Favourites" default="true"/>
+		<setting id="favouriteslastsave" type="text" label="Last Time Favourites Saved: " enable="true" default=""/>
+		<setting id="keepsources" type="bool" label="Keep My Sources" default="true"/>
+		<setting id="keepprofiles" type="bool" label="Keep My Profiles" default="true"/>
+		<setting id="keepadvanced" type="bool" label="Keep My AdvancedSettings.xml" default="true"/>
+		<setting id="keeprepos" type="bool" label="Keep Installed Repositories" default="true"/>
+		<setting id="keepsuper" type="bool" label="Keep Super Favourites" default="true"/>
+		<setting id="keepwhitelist" type="bool" label="Keep My Whitelist Addons" default="true"/>
 		<setting type="lsep" label="Third Party Wizard Support:"/>
 		<setting id="enable3rd" type="bool" label="Enable 3rd Party Wizards" default="false"/>
 		<setting id="wizard1name" type="text" label="Wizard 1 Name: " enable="true" visible="!eq(-1,false)" default=""/>
@@ -88,7 +88,7 @@
 
 	<category label="Trakt Settings">
 		<setting type="lsep" label="Save Trakt Data:"/>
-		<setting id="keeptrakt" type="bool" label="Keep My Trakt Data" default="false"/>
+		<setting id="keeptrakt" type="bool" label="Keep My Trakt Data" default="true"/>
 		<setting id="exodus" type="text" label="Exodus: " enable="false" default=""/>
 		<setting id="metalliq" type="text" label="Metalliq: " enable="false" default=""/>
 		<setting id="meta" type="text" label="Meta: " enable="false" default=""/>
@@ -98,17 +98,17 @@
 		<setting id="royalwe" type="text" label="The Royal We: " enable="false" default=""/>
 		<setting id="velocitykids" type="text" label="Velocity Kids: " enable="false" default=""/>
 		<setting id="specto" type="text" label="Specto: " enable="false" default=""/>
-		<setting id="trakt" type="text" label="Trakt: " enable="false" default=""/>
-		<setting id="traktlastsave" type="text" label="Last Time Trakt Saved: " enable="false" default=""/>
+		<setting id="trakt" type="text" label="Trakt: " enable="true" default=""/>
+		<setting id="traktlastsave" type="text" label="Last Time Trakt Saved: " enable="true" default=""/>
 	</category>
 
 	<category label="Real Debrid Settings">
 		<setting type="lsep" label="Save Real Debrid Data:"/>
-		<setting id="keepdebrid" type="bool" label="Keep My Real Debrid Data" default="false"/>
-		<setting id="realspecto" type="text" label="Specto: " enable="false" default=""/>
-		<setting id="urlresolver" type="text" label="Url Resolver: " enable="false" default=""/>
-		<setting id="mrknowresolver" type="text" label="Mr Known Url Resolver: " enable="false" default=""/>
-		<setting id="debridlastsave" type="text" label="Last Time Real Debrid Saved: " enable="false" default=""/>
+		<setting id="keepdebrid" type="bool" label="Keep My Real Debrid Data" default="true"/>
+		<setting id="realspecto" type="text" label="Specto: " enable="true" default=""/>
+		<setting id="urlresolver" type="text" label="Url Resolver: " enable="true" default=""/>
+		<setting id="mrknowresolver" type="text" label="Mr Known Url Resolver: " enable="true" default=""/>
+		<setting id="debridlastsave" type="text" label="Last Time Real Debrid Saved: " enable="true" default=""/>
 	</category>
 	
 	<category label="Alluc Settings">
@@ -123,7 +123,7 @@
 
 	<category label="Login Settings">
 		<setting type="lsep" label="Save Login Data:"/>
-		<setting id="keeplogin" type="bool" label="Keep My Login Data" default="false"/>
+		<setting id="keeplogin" type="bool" label="Keep My Login Data" default="true"/>
 		<setting type="lsep" label="IPTV:"/>
 		<setting id="loginsportsaccess" type="text" label="SportsAccess: " enable="false" default=""/>
 		<setting id="loginsmoothstreams" type="text" label="Smooth Streams: " enable="false" default=""/>
