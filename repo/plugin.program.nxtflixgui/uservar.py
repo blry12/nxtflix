@@ -11,16 +11,16 @@ ADDONTITLE     = 'NXTFlix GUI WIZARD'
 BUILDERNAME    = 'NXTFlix'
 #########################Make sure to change the repo to yours!!!!
 EXCLUDES       = [ADDON_ID, 'roms', 'My_Builds', 'backupdir', 'script.module.kodi-six', 'script.module.six']
-BUILDFILE      = 'https://auraflix.io/nxtflix/texts/Builds.xml'
+BUILDFILE      = 'https://auraflix.io/nxtflix/texts/gui_builds.txt'
 UPDATECHECK    = 0
 APKFILE        = 'https://'
 YOUTUBETITLE   = 'FTG Help Videos' 
-YOUTUBEFILE    = 'http://'
-ADDONFILE      = 'http://'
-ADVANCEDFILE   = 'http://'
-ROMPACK        = 'http://'
-EMUAPKS        = 'http://'
-ADDONPACK      = 'http://'
+YOUTUBEFILE    = 'https://'
+ADDONFILE      = 'https://'
+ADVANCEDFILE   = 'https://'
+ROMPACK        = 'https://'
+EMUAPKS        = 'https://'
+ADDONPACK      = 'https://'
 PATH           = xbmcaddon.Addon().getAddonInfo('path')
 ART            = os.path.join(PATH, 'resources', 'art')
 
@@ -95,19 +95,19 @@ THEME6         = '[COLOR '+COLOR3+'][B]%s[/B][/COLOR]'
 # folder of the wizard then use os.path.join(ART, 'imagename.png')
 # do not place quotes around os.path.join
 # Example:  ICONMAINT     = os.path.join(ART, 'mainticon.png')
-#           ICONSETTINGS  = 'http://aftermathwizard.net/repo/wizard/settings.png'
-# Leave as http:// for default icon
-ICONBUILDS     = 'http://i.imgur.com/E7oBc7x.png'
-ICONMAINT      = 'http://i.imgur.com/E7oBc7x.png'
-ICONAPK        = 'http://i.imgur.com/E7oBc7x.png'
-ICONADDONS     = 'http://i.imgur.com/E7oBc7x.png'
-ICONYOUTUBE    = 'http://i.imgur.com/E7oBc7x.png'
-ICONSAVE       = 'http://i.imgur.com/E7oBc7x.png'
-ICONTRAKT      = 'http://i.imgur.com/E7oBc7x.png'
-ICONREAL       = 'http://i.imgur.com/E7oBc7x.png'
-ICONLOGIN      = 'http://i.imgur.com/E7oBc7x.png'
-ICONCONTACT    = 'http://i.imgur.com/E7oBc7x.png'
-ICONSETTINGS   = 'http://i.imgur.com/E7oBc7x.png'
+#           ICONSETTINGS  = 'https://'
+# Leave as https:// for default icon
+ICONBUILDS     = 'https://'
+ICONMAINT      = 'https://'
+ICONAPK        = 'https://'
+ICONADDONS     = 'https://'
+ICONYOUTUBE    = 'https://'
+ICONSAVE       = 'https://'
+ICONTRAKT      = 'https://'
+ICONREAL       = 'https://'
+ICONLOGIN      = 'https://'
+ICONCONTACT    = 'https://'
+ICONSETTINGS   = 'https://'
 # Hide the ====== seperators 'Yes' or 'No'
 HIDESPACERS    = 'No'
 # Character used in seperator
@@ -118,9 +118,9 @@ SPACER         = '~'
 HIDECONTACT    = 'No'
 # You can add \n to do line breaks
 CONTACT        = ''
-#Images used for the contact window.  http:// for default icon and fanart
+#Images used for the contact window.  https:// for default icon and fanart
 CONTACTICON    = os.path.join(ART, 'icon.png')
-CONTACTFANART  = 'http://'
+CONTACTFANART  = 'https://'
 #########################################################
 
 #########################################################
@@ -129,7 +129,7 @@ CONTACTFANART  = 'http://'
 # Enable Auto Update 'Yes' or 'No'
 AUTOUPDATE     = 'yes'
 # Url to wizard version
-WIZARDFILE     = 'https://the666mafia.com/builds/plugin.program.the666mafia.zip'
+WIZARDFILE     = 'https://'
 #########################################################
 
 #########################################################
@@ -140,9 +140,9 @@ AUTOINSTALL    = 'No'
 # Addon ID for the repository
 REPOID         = ''
 # Url to Addons.xml file in your repo folder(this is so we can get the latest version)
-REPOADDONXML   = 'http://'
+REPOADDONXML   = 'https://'
 # Url to folder zip is located in
-REPOZIPURL     =  'http://'
+REPOZIPURL     =  'https://'
 #########################################################
 
 #########################################################
@@ -151,7 +151,7 @@ REPOZIPURL     =  'http://'
 # Enable Notification screen Yes or No
 ENABLE         = 'Yes'
 # Url to notification file
-NOTIFICATION   = 'https://the666mafia.com/txt/nxt_notify.txt'
+NOTIFICATION   = 'https://auraflix.io/nxtflix/texts/wizard_notify.txt'
 # Use either 'Text' or 'Image'
 HEADERTYPE     = 'Text'
 # Font size of header
