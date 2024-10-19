@@ -99,7 +99,7 @@
                             <aligny>center</aligny>
                             <height>40</height>
                             <label>[B]$ADDON[plugin.video.nxtflix 32811] $INFO[Player.TimeRemaining()][/B]</label>
-                            <font>category_widget_title</font> <!-- NXTFlix_33 -->
+                            <font>Name1</font> <!-- NXTFlix_33 -->
                             <textcolor>FFB7B4BB</textcolor>
                         </control>
                         <control type="label">
@@ -108,7 +108,7 @@
                             <aligny>center</aligny>
                             <height>40</height>
                             <label>[B]$ADDON[plugin.video.nxtflix 33086]?[/B]</label>
-                            <font>category_widget_title</font> <!-- NXTFlix_33 -->
+                            <font>Name1</font> <!-- NXTFlix_33 -->
                             <textcolor>FFB7B4BB</textcolor>
                         </control>
                     </control>
@@ -119,7 +119,7 @@
                         <aligny>center</aligny>
                         <height>40</height>
                         <label>[B]$ADDON[plugin.video.nxtflix 33163] $INFO[Window.Property(pause_timer)][/B]</label>
-                        <font>category_widget_title</font> <!-- NXTFlix_33 -->
+                        <font>Name1</font> <!-- NXTFlix_33 -->
                         <textcolor>FFB7B4BB</textcolor>
                     </control>
                 </control>
@@ -132,7 +132,7 @@
                     <align>center</align>
                     <aligny>center</aligny>
                     <label>$INFO[Window.Property(next_ep_title)][B] | [/B]$INFO[Window.Property(next_ep_season)]x$INFO[Window.Property(next_ep_episode)][B] | [/B]$INFO[Window.Property(next_ep_ep_name)]</label>
-                    <font>font10</font> <!-- NXTFlix_21 -->
+                    <font>Tiny44</font> <!-- NXTFlix_21 -->
                     <textcolor>FFB7B4BB</textcolor>
                 </control>
                 <!-- Buttons Autoplay -->
@@ -151,7 +151,7 @@
                         <onleft>12</onleft>
                         <onright>11</onright>
                         <label>$ADDON[plugin.video.nxtflix 32614]</label>
-                        <font>font10</font> <!-- NXTFlix_21 -->
+                        <font>Tiny44</font> <!-- NXTFlix_21 -->
                         <textcolor>FFCCCCCC</textcolor>
                         <focusedcolor>FF1F2020</focusedcolor>
                         <texturefocus colordiffuse="FFCCCCCC" border="30">NXTFlix_common/circle.png</texturefocus>
@@ -165,7 +165,7 @@
                         <onleft>10</onleft>
                         <onright>12</onright>
                         <label>$ADDON[plugin.video.nxtflix 32764]</label>
-                        <font>font10</font> <!-- NXTFlix_21 -->
+                        <font>Tiny44</font> <!-- NXTFlix_21 -->
                         <textcolor>FFCCCCCC</textcolor>
                         <focusedcolor>FF1F2020</focusedcolor>
                         <texturefocus colordiffuse="FFCCCCCC" border="30">NXTFlix_common/circle.png</texturefocus>
@@ -179,7 +179,7 @@
                         <onleft>11</onleft>
                         <onright>10</onright>
                         <label>$ADDON[plugin.video.nxtflix 32840]</label>
-                        <font>font10</font> <!-- NXTFlix_21 -->
+                        <font>Tiny44</font> <!-- NXTFlix_21 -->
                         <textcolor>FFCCCCCC</textcolor>
                         <focusedcolor>FF1F2020</focusedcolor>
                         <texturefocus colordiffuse="FFCCCCCC" border="30">NXTFlix_common/circle.png</texturefocus>
@@ -203,7 +203,7 @@
                         <onleft>12</onleft>
                         <onright>11</onright>
                         <label>$ADDON[plugin.video.nxtflix 33090]</label>
-                        <font>font10</font> <!-- NXTFlix_21 -->
+                        <font>Tiny44</font> <!-- NXTFlix_21 -->
                         <textcolor>FFCCCCCC</textcolor>
                         <focusedcolor>FF1F2020</focusedcolor>
                         <texturefocus colordiffuse="FFCCCCCC" border="30">NXTFlix_common/circle.png</texturefocus>
@@ -217,7 +217,7 @@
                         <onleft>12</onleft>
                         <onright>11</onright>
                         <label>$ADDON[plugin.video.nxtflix 32824]</label>
-                        <font>font10</font> <!-- NXTFlix_21 -->
+                        <font>Tiny44</font> <!-- NXTFlix_21 -->
                         <textcolor>FFCCCCCC</textcolor>
                         <focusedcolor>FF1F2020</focusedcolor>
                         <texturefocus colordiffuse="FFCCCCCC" border="30">NXTFlix_common/circle.png</texturefocus>
@@ -231,7 +231,7 @@
                         <onleft>11</onleft>
                         <onright>10</onright>
                         <label>$ADDON[plugin.video.nxtflix 32828]</label>
-                        <font>font10</font> <!-- NXTFlix_21 -->
+                        <font>Tiny44</font> <!-- NXTFlix_21 -->
                         <textcolor>FFCCCCCC</textcolor>
                         <focusedcolor>FF1F2020</focusedcolor>
                         <texturefocus colordiffuse="FFCCCCCC" border="30">NXTFlix_common/circle.png</texturefocus>

@@ -182,7 +182,7 @@ networks = [
 watch_providers = [
 {'name': 'Netflix', 'id': 8, 'logo': 't2yyOv40HZeVlLjYsCsPHnWLk4W.jpg'},                     {'name': 'Amazon Prime Video', 'id': 9, 'logo': 'emthp39XA2YScoYL1p0sdbAH2WA.jpg'},
 {'name': 'Disney Plus', 'id': 337, 'logo': '7rwgEs15tFwyR9NPQ5vpzxTj19Q.jpg'},               {'name': 'Google Play Movies', 'id': 3, 'logo': 'tbEdFQDwx5LEVr8WpSeXQSIirVq.jpg'},
-{'name': 'Sun NXTFlix', 'id': 309, 'logo': 'uW4dPCcbXaaFTyfL5HwhuDt5akK.jpg'},                   {'name': 'Apple TV', 'id': 2, 'logo': 'peURlLlr8jggOwK53fJ5wdQl05y.jpg'},
+{'name': 'Sun Nxt', 'id': 309, 'logo': 'uW4dPCcbXaaFTyfL5HwhuDt5akK.jpg'},                   {'name': 'Apple TV', 'id': 2, 'logo': 'peURlLlr8jggOwK53fJ5wdQl05y.jpg'},
 {'name': 'MUBI', 'id': 11, 'logo': 'bVR4Z1LCHY7gidXAJF5pMa4QrDS.jpg'},                       {'name': 'Apple TV Plus', 'id': 350, 'logo': '6uhKBfmtzFqOcLousHwZuzcrScK.jpg'},
 {'name': 'fuboTV', 'id': 257, 'logo': 'jPXksae158ukMLFhhlNvzsvaEyt.jpg'},                    {'name': 'Classix', 'id': 445, 'logo': 'iaMw6nOyxUzXSacrLQ0Au6CfZkc.jpg'},
 {'name': 'Hulu', 'id': 15, 'logo': 'zxrVdFjIjLqkfnwyghnfywTn3Lh.jpg'},                       {'name': 'Curiosity Stream', 'id': 190, 'logo': '67Ee4E6qOkQGHeUTArdJ1qRxzR2.jpg'},
