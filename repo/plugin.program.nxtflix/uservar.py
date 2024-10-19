@@ -1,10 +1,10 @@
 import xbmcaddon
 
 '''#####-----Build File-----#####'''
-buildfile = 'https://auraflix.io/nxtflix/texts/Builds.xml'
+buildfile = 'https://the666mafia.com/nxtflix/txt/maintance.xml'
 
 '''#####-----Notifications File-----#####'''
-notify_url  = 'https://auraflix.io/nxtflix/texts/Builds.xml'
+notify_url  = 'https://the666mafia.com/nxtflix/txt/maintance.xml'
 
 '''#####-----Excludes-----#####'''
 excludes  = ['plugin.video.whatever']

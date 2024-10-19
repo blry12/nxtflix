@@ -143,7 +143,7 @@
 			<fanart>fanart.jpg</fanart>
 		</assets>
 	</extension>
-</addon><addon id="plugin.program.nxtflix" name="[COLOR lightskyblue]NXTFlix[/COLOR] Maintanance " version="1.0" provider-name="BLRY">
+</addon><addon id="plugin.program.nxtflix" name="[COLOR lightskyblue]NXTFlix[/COLOR] Maintanance " version="1.1" provider-name="BLRY">
 	<requires>
 		<import addon="xbmc.python" version="3.0.1" />
 	</requires>
@@ -163,6 +163,7 @@
 		<email />
 		<source />
 		<news>
+		1.1 - URL Fixes		
 		1.0 - Initial Release
 		</news>
 		<assets>
