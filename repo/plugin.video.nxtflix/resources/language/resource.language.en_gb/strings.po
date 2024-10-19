@@ -1,6 +1,6 @@
 # Kodi Media Center language file
 # Addon Name: NXTFlix
-# Addon id: plugin.video.nxtflix
+# Addon id: plugin.video.plugin.video.nxtflix
 # Addon Provider: Tiki
 # Translator English: Tiki
 msgid ""

@@ -77,7 +77,7 @@ class VideoPlayer(BaseDialog):
 		self.close()
 
 	def progress_display_toggle(self, toggle, incl_info=False):
-		if incl_info: self.setProperty('display_fen_hint', toggle)
+		if incl_info: self.setProperty('display_NXTFlix_hint', toggle)
 		self.setProperty('display_progress', toggle)
 
 	def progress_display_status(self):

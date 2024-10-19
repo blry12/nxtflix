@@ -47,7 +47,7 @@
                     <left>5</left>
                     <width max="1650">auto</width>
                     <height>20</height>
-                    <font>category_widget_title</font> <!-- NXTFlix_33 -->
+                    <font>font14</font> <!-- NXTFlix_33 -->
                     <textcolor>FFCCCCCC</textcolor>
                     <align>center</align>
                     <aligny>center</aligny>
@@ -274,7 +274,7 @@
                 <aligny>center</aligny>
                 <textcolor>white</textcolor>
                 <shadowcolor>black</shadowcolor>
-                <font>category_widget_title</font> <!-- NXTFlix_33 -->
+                <font>font14</font> <!-- NXTFlix_33 -->
                 <label>[B]$ADDON[plugin.video.nxtflix 33110][/B]</label>
             </control>
         </control>

@@ -45,7 +45,7 @@
                     <left>105</left>
                     <width max="1115">auto</width>
                     <height>20</height>
-                    <font>category_widget_title</font> <!-- NXTFlix_33 -->
+                    <font>font14</font> <!-- NXTFlix_33 -->
                     <textcolor>FFCCCCCC</textcolor>
                     <shadowcolor>FF000000</shadowcolor>
                     <align>center</align>
@@ -69,7 +69,7 @@
                     <top>114</top>
                     <width>1254</width>
                     <height>826</height>
-                    <font>category_widget_title</font> <!-- NXTFlix_33 -->
+                    <font>font14</font> <!-- NXTFlix_33 -->
                     <textcolor>FFCCCCCC</textcolor>
                     <label>$INFO[Window.Property(text)]</label>
                     <pagecontrol>2061</pagecontrol>
