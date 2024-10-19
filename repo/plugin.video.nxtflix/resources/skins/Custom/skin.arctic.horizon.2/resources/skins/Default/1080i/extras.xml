@@ -17,7 +17,7 @@
             <animation type="WindowOpen" reversible="false">
                 <effect type="fade" end="100" time="400" delay="500" />
             </animation>
-            <!-- NXTFlix Logo and Tips/Clock & Date --> 
+            <!-- nxtflix Logo and Tips/Clock & Date --> 
             <control type="group">
                 <left>5</left>
                 <control type="image">
@@ -25,7 +25,7 @@
                     <width>60</width>
                     <height>60</height>
                     <aspectratio aligny="top">keep</aspectratio>
-                    <texture>common/NXTFlix.png</texture>
+                    <texture>common/nxtflix.png</texture>
                 </control>
                 <control type="group">
                     <visible>!Control.HasFocus(2050) + !Control.HasFocus(2051) + !Control.HasFocus(2057) + !Control.HasFocus(2058) + !Control.HasFocus(2059) + !Control.HasFocus(2060) + !Control.HasFocus(2061) + !Control.HasFocus(2062)</visible>
@@ -87,7 +87,7 @@
                     <control type="label">
                         <width max="500">auto</width>
                         <height>20</height>
-                        <font>font_mini</font> <!-- NXTFlix_26 -->
+                        <font>font_mini</font> <!-- nxtflix_26 -->
                         <textcolor>FFCCCCCC</textcolor>
                         <align>right</align>
                         <aligny>top</aligny>

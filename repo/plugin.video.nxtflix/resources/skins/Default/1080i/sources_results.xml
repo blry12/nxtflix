@@ -76,7 +76,7 @@
                     <left>355</left>
                     <width max="1210">auto</width>
                     <height>30</height>
-                    <font>font60</font> <!-- NXTFlix_60_BOLD -->
+                    <font>lyr15b</font> <!-- NXTFlix_60_BOLD -->
                     <textcolor>FFCCCCCC</textcolor>
                     <align>center</align>
                     <aligny>top</aligny>
@@ -87,7 +87,7 @@
                     <top>105</top>
                     <left>1250</left>
                     <width>650</width>
-                    <height>950</height>
+                    <height>750</height>
                     <aspectratio aligny="top">stretch</aspectratio>
                     <texture diffuse="NXTFlix_diffuse/poster_w217_h320.png" />
                 </control>
@@ -120,7 +120,7 @@
                             <left>20</left>
                             <visible>String.IsEmpty(ListItem.Property(perform_full_search))</visible>
                             <control type="label">
-                                <font>font14</font> <!-- NXTFlix_33 -->
+                                <font>category_widget_title</font> <!-- NXTFlix_33 -->
                                 <align>left</align>
                                 <aligny>bottom</aligny>
                                 <label>[COLOR $INFO[ListItem.Property(highlight)]][B]$INFO[ListItem.Property(quality)][/B][/COLOR]</label>
@@ -190,7 +190,7 @@
                                 <left>230</left>
                                 <width max="860">auto</width>
                                 <height>40</height>
-                                <font>font14</font> <!-- NXTFlix_33 -->
+                                <font>category_widget_title</font> <!-- NXTFlix_33 -->
                                 <textcolor>FF9c9a9b</textcolor>
                                 <align>center</align>
                                 <aligny>center</aligny>
@@ -223,7 +223,7 @@
                                     <top>35</top>
                                     <left>20</left>
                                     <control type="label">
-                                        <font>font14</font> <!-- NXTFlix_33 -->
+                                        <font>category_widget_title</font> <!-- NXTFlix_33 -->
                                         <textcolor>FF1F2020</textcolor>
                                         <align>left</align>
                                         <aligny>bottom</aligny>
@@ -291,7 +291,7 @@
                                     <left>210</left>
                                     <width max="860">auto</width>
                                     <height>40</height>
-                                    <font>font14</font> <!-- NXTFlix_33 -->
+                                    <font>category_widget_title</font> <!-- NXTFlix_33 -->
                                     <textcolor>FF1F2020</textcolor>
                                     <align>center</align>
                                     <aligny>center</aligny>
@@ -326,7 +326,7 @@
                                     <top>35</top>
                                     <left>20</left>
                                     <control type="label">
-                                        <font>font14</font> <!-- NXTFlix_33 -->
+                                        <font>category_widget_title</font> <!-- NXTFlix_33 -->
                                         <align>left</align>
                                         <aligny>bottom</aligny>
                                         <label>[COLOR $INFO[ListItem.Property(highlight)]][B]$INFO[ListItem.Property(quality)][/B][/COLOR]</label>
@@ -392,7 +392,7 @@
                                     <left>210</left>
                                     <width max="860">auto</width>
                                     <height>40</height>
-                                    <font>font14</font> <!-- NXTFlix_33 -->
+                                    <font>category_widget_title</font> <!-- NXTFlix_33 -->
                                     <textcolor>FFFFFFFF</textcolor>
                                     <align>center</align>
                                     <aligny>center</aligny>
@@ -442,23 +442,12 @@
             <!-- Info List -->
             <control type="group">
                 <visible>String.IsEqual(Window.Property(window_format),infolist)</visible>
-                <control type="image">
-                    <aspectratio align="center" aligny="center">keep</aspectratio>
-                    <top>20</top>
-                    <left>640</left>
-                    <height max="110">auto</height>
-                    <width max="600">auto</width>
-                    <align>center</align>
-                    <aligny>top</aligny>
-                    <texture background="true">$INFO[Window.Property(clearlogo)]</texture>
-                    <visible>!String.IsEmpty(Window.Property(clearlogo))</visible>
-                </control>
                 <control type="label">
                     <top>60</top>
                     <left>355</left>
                     <width max="1210">auto</width>
                     <height>30</height>
-                    <font>font60</font> <!-- NXTFlix_60_BOLD -->
+                    <font>lyr15b</font> <!-- NXTFlix_60_BOLD -->
                     <textcolor>FFCCCCCC</textcolor>
                     <align>center</align>
                     <aligny>bottom</aligny>
@@ -469,11 +458,6 @@
                     <left>1110</left>
                     <top>220</top>
                     <control type="group">
-                        <control type="image">
-                            <width>770</width>
-                            <height>825</height>
-                            <texture colordiffuse="FF1F2020" border="30">NXTFlix_common/circle.png</texture>
-                        </control>
                         <control type="image">
                             <left>-40</left>
                             <top>-50</top>
@@ -495,6 +479,26 @@
                             <texture colordiffuse="$INFO[Container(2001).ListItem().Property(highlight)]">$INFO[Container(2001).ListItem().Property(quality_icon)]</texture>
                         </control>
                     </control>
+                <control type="image" id="201">
+                    <top>-225</top>
+                    <left>-720</left>
+                    <aspectratio>keep</aspectratio>
+                    <align>top</align>
+                    <aligny>center</aligny>
+                    <aspectratio aligny="top">stretch</aspectratio>
+                    <texture diffuse="NXTFlix_diffuse/poster_w217_h320.png" />
+                </control>     
+                <control type="image">
+                    <top>-225</top>
+                    <left>-720</left>
+                    <height max="250">auto</height>
+                    <width max="1130">auto</width>
+                    <aspectratio>keep</aspectratio>
+                    <align>top</align>
+                    <aligny>center</aligny>
+                    <texture background="true">$INFO[Window.Property(clearlogo)]</texture>
+                    <visible>!String.IsEmpty(Window.Property(clearlogo))</visible>
+                </control>                   
                     <control type="group">
                         <visible>String.IsEmpty(ListItem.Property(perform_full_search))</visible>
                         <left>10</left>
@@ -618,7 +622,7 @@
                             <top>15</top>
                             <width>1030</width>
                             <height>110</height>
-                            <texture colordiffuse="FF1F2020" border="30">NXTFlix_common/circle.png</texture>
+                            <texture colordiffuse="501F2020" border="30">NXTFlix_common/circle.png</texture>
                         </control>
                         <control type="group">
                             <visible>String.IsEmpty(ListItem.Property(perform_full_search))</visible>
@@ -628,7 +632,7 @@
                                 <top>35</top>
                                 <left>20</left>
                                 <control type="label">
-                                    <font>font14</font> <!-- NXTFlix_33 -->
+                                    <font>category_widget_title</font> <!-- NXTFlix_33 -->
                                     <align>left</align>
                                     <aligny>bottom</aligny>
                                     <label>[COLOR $INFO[ListItem.Property(highlight)]][B]$INFO[ListItem.Property(quality)][/B][/COLOR]</label>
@@ -696,7 +700,7 @@
                                 <left>60</left>
                                 <width max="860">auto</width>
                                 <height>40</height>
-                                <font>font14</font> <!-- NXTFlix_33 -->
+                                <font>category_widget_title</font> <!-- NXTFlix_33 -->
                                 <textcolor>FF9c9a9b</textcolor>
                                 <align>center</align>
                                 <aligny>center</aligny>
@@ -727,7 +731,7 @@
                                     <top>35</top>
                                     <left>20</left>
                                     <control type="label">
-                                        <font>font14</font> <!-- NXTFlix_33 -->
+                                        <font>category_widget_title</font> <!-- NXTFlix_33 -->
                                         <textcolor>FF1F2020</textcolor>
                                         <align>left</align>
                                         <aligny>bottom</aligny>
@@ -795,7 +799,7 @@
                                     <left>60</left>
                                     <width max="860">auto</width>
                                     <height>40</height>
-                                    <font>font14</font> <!-- NXTFlix_33 -->
+                                    <font>category_widget_title</font> <!-- NXTFlix_33 -->
                                     <textcolor>FF1F2020</textcolor>
                                     <align>center</align>
                                     <aligny>center</aligny>
@@ -830,7 +834,7 @@
                                     <top>35</top>
                                     <left>20</left>
                                     <control type="label">
-                                        <font>font14</font> <!-- NXTFlix_33 -->
+                                        <font>category_widget_title</font> <!-- NXTFlix_33 -->
                                         <align>left</align>
                                         <aligny>bottom</aligny>
                                         <label>[COLOR $INFO[ListItem.Property(highlight)]][B]$INFO[ListItem.Property(quality)][/B][/COLOR]</label>
@@ -896,7 +900,7 @@
                                     <left>60</left>
                                     <width max="860">auto</width>
                                     <height>40</height>
-                                    <font>font14</font> <!-- NXTFlix_33 -->
+                                    <font>category_widget_title</font> <!-- NXTFlix_33 -->
                                     <textcolor>FFFFFFFF</textcolor>
                                     <align>center</align>
                                     <aligny>center</aligny>
@@ -962,7 +966,7 @@
                     <left>70</left>
                     <width max="1130">auto</width>
                     <height>30</height>
-                    <font>font60</font> <!-- NXTFlix_60_BOLD -->
+                    <font>lyr15b</font> <!-- NXTFlix_60_BOLD -->
                     <textcolor>FFCCCCCC</textcolor>
                     <align>center</align>
                     <aligny>bottom</aligny>
@@ -1006,7 +1010,7 @@
                             <left>20</left>
                             <visible>String.IsEmpty(ListItem.Property(perform_full_search))</visible>
                             <control type="label">
-                                <font>font14</font> <!-- NXTFlix_33 -->
+                                <font>category_widget_title</font> <!-- NXTFlix_33 -->
                                 <align>left</align>
                                 <aligny>bottom</aligny>
                                 <label>[COLOR $INFO[ListItem.Property(highlight)]][B]$INFO[ListItem.Property(quality)][/B][/COLOR]</label>
@@ -1076,7 +1080,7 @@
                                 <left>230</left>
                                 <width max="860">auto</width>
                                 <height>40</height>
-                                <font>font14</font> <!-- NXTFlix_33 -->
+                                <font>category_widget_title</font> <!-- NXTFlix_33 -->
                                 <textcolor>FF9c9a9b</textcolor>
                                 <align>center</align>
                                 <aligny>center</aligny>
@@ -1109,7 +1113,7 @@
                                     <top>35</top>
                                     <left>20</left>
                                     <control type="label">
-                                        <font>font14</font> <!-- NXTFlix_33 -->
+                                        <font>category_widget_title</font> <!-- NXTFlix_33 -->
                                         <textcolor>FF1F2020</textcolor>
                                         <align>left</align>
                                         <aligny>bottom</aligny>
@@ -1177,7 +1181,7 @@
                                     <left>210</left>
                                     <width max="860">auto</width>
                                     <height>40</height>
-                                    <font>font14</font> <!-- NXTFlix_33 -->
+                                    <font>category_widget_title</font> <!-- NXTFlix_33 -->
                                     <textcolor>FF1F2020</textcolor>
                                     <align>center</align>
                                     <aligny>center</aligny>
@@ -1212,7 +1216,7 @@
                                     <top>35</top>
                                     <left>20</left>
                                     <control type="label">
-                                        <font>font14</font> <!-- NXTFlix_33 -->
+                                        <font>category_widget_title</font> <!-- NXTFlix_33 -->
                                         <align>left</align>
                                         <aligny>bottom</aligny>
                                         <label>[COLOR $INFO[ListItem.Property(highlight)]][B]$INFO[ListItem.Property(quality)][/B][/COLOR]</label>
@@ -1278,7 +1282,7 @@
                                     <left>210</left>
                                     <width max="860">auto</width>
                                     <height>40</height>
-                                    <font>font14</font> <!-- NXTFlix_33 -->
+                                    <font>category_widget_title</font> <!-- NXTFlix_33 -->
                                     <textcolor>FFFFFFFF</textcolor>
                                     <align>center</align>
                                     <aligny>center</aligny>
@@ -1344,7 +1348,7 @@
                     <left>355</left>
                     <width max="1210">auto</width>
                     <height>30</height>
-                    <font>font60</font> <!-- NXTFlix_60_BOLD -->
+                    <font>lyr15b</font> <!-- NXTFlix_60_BOLD -->
                     <textcolor>FFCCCCCC</textcolor>
                     <align>center</align>
                     <aligny>bottom</aligny>
@@ -1379,7 +1383,7 @@
                                 <top>35</top>
                                 <left>20</left>
                                 <control type="label">
-                                    <font>font14</font> <!-- NXTFlix_33 -->
+                                    <font>category_widget_title</font> <!-- NXTFlix_33 -->
                                     <align>left</align>
                                     <aligny>bottom</aligny>
                                     <label>[COLOR $INFO[ListItem.Property(highlight)]][B]$INFO[ListItem.Property(quality)][/B][/COLOR]</label>
@@ -1447,7 +1451,7 @@
                                 <left>40</left>
                                 <width max="860">auto</width>
                                 <height>40</height>
-                                <font>font14</font> <!-- NXTFlix_33 -->
+                                <font>category_widget_title</font> <!-- NXTFlix_33 -->
                                 <textcolor>FF9c9a9b</textcolor>
                                 <align>center</align>
                                 <aligny>center</aligny>
@@ -1480,7 +1484,7 @@
                                     <top>35</top>
                                     <left>20</left>
                                     <control type="label">
-                                        <font>font14</font> <!-- NXTFlix_33 -->
+                                        <font>category_widget_title</font> <!-- NXTFlix_33 -->
                                         <textcolor>FF1F2020</textcolor>
                                         <align>left</align>
                                         <aligny>bottom</aligny>
@@ -1548,7 +1552,7 @@
                                     <left>40</left>
                                     <width max="860">auto</width>
                                     <height>40</height>
-                                    <font>font14</font> <!-- NXTFlix_33 -->
+                                    <font>category_widget_title</font> <!-- NXTFlix_33 -->
                                     <textcolor>FF1F2020</textcolor>
                                     <align>center</align>
                                     <aligny>center</aligny>
@@ -1585,7 +1589,7 @@
                                     <top>35</top>
                                     <left>20</left>
                                     <control type="label">
-                                        <font>font14</font> <!-- NXTFlix_33 -->
+                                        <font>category_widget_title</font> <!-- NXTFlix_33 -->
                                         <align>left</align>
                                         <aligny>bottom</aligny>
                                         <label>[COLOR $INFO[ListItem.Property(highlight)]][B]$INFO[ListItem.Property(quality)][/B][/COLOR]</label>
@@ -1651,7 +1655,7 @@
                                     <left>40</left>
                                     <width max="860">auto</width>
                                     <height>40</height>
-                                    <font>font14</font> <!-- NXTFlix_33 -->
+                                    <font>category_widget_title</font> <!-- NXTFlix_33 -->
                                     <textcolor>FFFFFFFF</textcolor>
                                     <align>center</align>
                                     <aligny>center</aligny>
@@ -1717,7 +1721,7 @@
                     <left>355</left>
                     <width max="1210">auto</width>
                     <height>30</height>
-                    <font>font60</font> <!-- NXTFlix_60_BOLD -->
+                    <font>lyr15b</font> <!-- NXTFlix_60_BOLD -->
                     <textcolor>FFCCCCCC</textcolor>
                     <align>center</align>
                     <aligny>top</aligny>
@@ -1754,7 +1758,7 @@
                                 <top>35</top>
                                 <left>20</left>
                                 <control type="label">
-                                    <font>font14</font> <!-- NXTFlix_33 -->
+                                    <font>category_widget_title</font> <!-- NXTFlix_33 -->
                                     <align>left</align>
                                     <aligny>bottom</aligny>
                                     <label>[COLOR $INFO[ListItem.Property(highlight)]][B]$INFO[ListItem.Property(quality)][/B][/COLOR]</label>
@@ -1810,7 +1814,7 @@
                                 <left>210</left>
                                 <width max="1460">auto</width>
                                 <height>40</height>
-                                <font>font14</font> <!-- NXTFlix_33 -->
+                                <font>category_widget_title</font> <!-- NXTFlix_33 -->
                                 <textcolor>FF9c9a9b</textcolor>
                                 <align>left</align>
                                 <aligny>center</aligny>
@@ -1842,7 +1846,7 @@
                                     <top>35</top>
                                     <left>20</left>
                                     <control type="label">
-                                        <font>font14</font> <!-- NXTFlix_33 -->
+                                        <font>category_widget_title</font> <!-- NXTFlix_33 -->
                                         <textcolor>FF1F2020</textcolor>
                                         <align>left</align>
                                         <aligny>bottom</aligny>
@@ -1898,7 +1902,7 @@
                                     <left>210</left>
                                     <width max="1460">auto</width>
                                     <height>40</height>
-                                    <font>font14</font> <!-- NXTFlix_33 -->
+                                    <font>category_widget_title</font> <!-- NXTFlix_33 -->
                                     <textcolor>FF1F2020</textcolor>
                                     <align>left</align>
                                     <aligny>center</aligny>
@@ -1933,7 +1937,7 @@
                                     <top>35</top>
                                     <left>20</left>
                                     <control type="label">
-                                        <font>font14</font> <!-- NXTFlix_33 -->
+                                        <font>category_widget_title</font> <!-- NXTFlix_33 -->
                                         <align>left</align>
                                         <aligny>bottom</aligny>
                                         <label>[COLOR $INFO[ListItem.Property(highlight)]][B]$INFO[ListItem.Property(quality)][/B][/COLOR]</label>
@@ -1987,7 +1991,7 @@
                                     <left>210</left>
                                     <width max="1460">auto</width>
                                     <height>40</height>
-                                    <font>font14</font> <!-- NXTFlix_33 -->
+                                    <font>category_widget_title</font> <!-- NXTFlix_33 -->
                                     <textcolor>FFFFFFFF</textcolor>
                                     <align>left</align>
                                     <aligny>center</aligny>

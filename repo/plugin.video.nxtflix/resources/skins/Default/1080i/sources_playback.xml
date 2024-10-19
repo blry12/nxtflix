@@ -70,7 +70,7 @@
                     <top>400</top>
                     <width>1920</width>
                     <height>30</height>
-                    <font>font60</font> <!-- NXTFlix_60_BOLD -->
+                    <font>lyr15b</font> <!-- NXTFlix_60_BOLD -->
                     <textcolor>FFCCCCCC</textcolor>
                     <align>center</align>
                     <aligny>bottom</aligny>
@@ -81,7 +81,7 @@
                     <top>480</top>
                     <width>1920</width>
                     <height>25</height>
-                    <font>font14</font> <!-- NXTFlix_33 -->
+                    <font>category_widget_title</font> <!-- NXTFlix_33 -->
                     <textcolor>FFCCCCCC</textcolor>
                     <align>center</align>
                     <aligny>bottom</aligny>

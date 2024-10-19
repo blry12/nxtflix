@@ -36,7 +36,7 @@
                     <left>1590</left>
                     <width max="300">auto</width>
                     <height>20</height>
-                    <font>font_clock_small</font> <!-- NXTFlix_38 -->
+                    <font>font_medium</font> <!-- NXTFlix_38 -->
                     <textcolor>FFCCCCCC</textcolor>
                     <align>right</align>
                     <aligny>center</aligny>
