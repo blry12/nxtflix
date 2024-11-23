@@ -87,7 +87,7 @@
                     <top>105</top>
                     <left>1250</left>
                     <width>650</width>
-                    <height>750</height>
+                    <height>950</height>
                     <aspectratio aligny="top">stretch</aspectratio>
                     <texture diffuse="NXTFlix_diffuse/poster_w217_h320.png" />
                 </control>
@@ -442,6 +442,17 @@
             <!-- Info List -->
             <control type="group">
                 <visible>String.IsEqual(Window.Property(window_format),infolist)</visible>
+                <control type="image">
+                    <aspectratio align="center" aligny="center">keep</aspectratio>
+                    <top>20</top>
+                    <left>640</left>
+                    <height max="110">auto</height>
+                    <width max="600">auto</width>
+                    <align>center</align>
+                    <aligny>top</aligny>
+                    <texture background="true">$INFO[Window.Property(clearlogo)]</texture>
+                    <visible>!String.IsEmpty(Window.Property(clearlogo))</visible>
+                </control>
                 <control type="label">
                     <top>60</top>
                     <left>355</left>
@@ -458,6 +469,11 @@
                     <left>1110</left>
                     <top>220</top>
                     <control type="group">
+                        <control type="image">
+                            <width>770</width>
+                            <height>825</height>
+                            <texture colordiffuse="FF1F2020" border="30">NXTFlix_common/circle.png</texture>
+                        </control>
                         <control type="image">
                             <left>-40</left>
                             <top>-50</top>
@@ -479,26 +495,6 @@
                             <texture colordiffuse="$INFO[Container(2001).ListItem().Property(highlight)]">$INFO[Container(2001).ListItem().Property(quality_icon)]</texture>
                         </control>
                     </control>
-                <control type="image" id="201">
-                    <top>-225</top>
-                    <left>-720</left>
-                    <aspectratio>keep</aspectratio>
-                    <align>top</align>
-                    <aligny>center</aligny>
-                    <aspectratio aligny="top">stretch</aspectratio>
-                    <texture diffuse="NXTFlix_diffuse/poster_w217_h320.png" />
-                </control>     
-                <control type="image">
-                    <top>-225</top>
-                    <left>-720</left>
-                    <height max="250">auto</height>
-                    <width max="1130">auto</width>
-                    <aspectratio>keep</aspectratio>
-                    <align>top</align>
-                    <aligny>center</aligny>
-                    <texture background="true">$INFO[Window.Property(clearlogo)]</texture>
-                    <visible>!String.IsEmpty(Window.Property(clearlogo))</visible>
-                </control>                   
                     <control type="group">
                         <visible>String.IsEmpty(ListItem.Property(perform_full_search))</visible>
                         <left>10</left>
@@ -622,7 +618,7 @@
                             <top>15</top>
                             <width>1030</width>
                             <height>110</height>
-                            <texture colordiffuse="501F2020" border="30">NXTFlix_common/circle.png</texture>
+                            <texture colordiffuse="FF1F2020" border="30">NXTFlix_common/circle.png</texture>
                         </control>
                         <control type="group">
                             <visible>String.IsEmpty(ListItem.Property(perform_full_search))</visible>
