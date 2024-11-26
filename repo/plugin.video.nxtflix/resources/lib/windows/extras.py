@@ -37,7 +37,7 @@ imdb_parentsguide, imdb_videos = imdb_api.imdb_parentsguide, imdb_api.imdb_video
 fetch_ratings_info, trakt_comments = omdb_api.fetch_ratings_info, trakt_api.trakt_comments
 tmdb_image_base, count_insert = 'https://image.tmdb.org/t/p/%s%s', 'x%s'
 youtube_check = 'plugin.video.youtube'
-setting_base, label_base, ratings_icon_base = 'NXTFlix.extras.%s.button', 'button%s.label', 'NXTFlix_flags/ratings/%s'
+setting_base, label_base, ratings_icon_base = 'nxtflix.extras.%s.button', 'button%s.label', 'nxtflix_flags/ratings/%s'
 separator = '[COLOR %s][B]  •  [/B][/COLOR]'
 custom_highlight_var_dict = {'skin.arctic.horizon.2': '$VAR[ColorHighlight]]'}
 button_ids = (10, 11, 12, 13, 14, 15, 16, 17, 50)
@@ -48,9 +48,8 @@ text_list_ids = (reviews_id, trivia_id, blunders_id, parentsguide_id, comments_i
 art_ids = (posters_id, fanarts_id)
 finished_tvshow = ('', 'Ended', 'Canceled')
 parentsguide_levels = {'mild': ls(32996), 'moderate': ls(32997), 'severe': ls(32998), 'none': ls(33070)}
-parentsguide_inputs = {'Sex & Nudity': (ls(32990), get_icon('sex_nudity')), 'Violence & Gore': (ls(32991), get_icon('genre_war')),
-						'Profanity': (ls(32992),get_icon('bad_language')), 'Alcohol, Drugs & Smoking': (ls(32993), get_icon('drugs_alcohol')),
-						'Frightening & Intense Scenes': (ls(32994), get_icon('genre_horror'))}
+parentsguide_icons = {'Sex & Nudity': get_icon('sex_nudity'), 'Violence & Gore': get_icon('genre_war'), 'Profanity': get_icon('bad_language'),
+						'Alcohol, Drugs & Smoking': get_icon('drugs_alcohol'), 'Frightening & Intense Scenes': get_icon('genre_horror')}
 meta_ratings_values = (('Meta', 'metascore', 1), ('Tom/Critic', 'tomatometer', 2), ('Tom/User', 'tomatousermeter', 3), ('IMDb', 'imdb', 4), ('TMDb', 'tmdb', 5))
 ratings_null = ('', '%')
 _images = Images().run
@@ -275,10 +274,11 @@ class Extras(BaseDialog):
 			for item in data:
 				try:
 					listitem = self.make_listitem()
-					name = parentsguide_inputs[item['title']][0]
-					ranking = parentsguide_levels[item['ranking'].lower()].upper()
+					name = item['title']
+					ranking = item['ranking'].upper()
+					if ranking == 'NONE': ranking = 'NO RANK'
 					if item['content']: ranking += ' (x%02d)' % item['total_count']
-					icon = parentsguide_inputs[item['title']][1]
+					icon = parentsguide_icons[name]
 					listitem.setProperty('name', name)
 					listitem.setProperty('ranking', ranking)
 					listitem.setProperty('thumbnail', icon)
@@ -566,7 +566,7 @@ class Extras(BaseDialog):
 
 	def tvshow_browse(self):
 		close_all_dialog()
-		clear_property('NXTFlix.window_stack')
+		clear_property('nxtflix.window_stack')
 		url_params = self.make_tvshow_browse_params()
 		self.selected = self.folder_runner(url_params)
 		self.close()

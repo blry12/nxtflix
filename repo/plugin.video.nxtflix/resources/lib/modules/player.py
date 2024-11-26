@@ -19,7 +19,7 @@ xbmc_actor = ku.xbmc_actor
 total_time_errors = ('0.0', '', 0.0, None)
 video_fullscreen_check = 'Window.IsActive(fullscreenvideo)'
 
-class NXTFlixPlayer(xbmc_player):
+class nxtflixPlayer(xbmc_player):
 	def __init__ (self):
 		xbmc_player.__init__(self)
 
@@ -211,7 +211,7 @@ class NXTFlixPlayer(xbmc_player):
 									'tvdb_id': self.tvdb_id, 'from_playback': 'true'}
 				Thread(target=self.run_media_progress, args=(watched_function, watched_params)).start()
 			else:
-				clear_property('NXTFlix.random_episode_history')
+				clear_property('nxtflix.random_episode_history')
 				if self.current_point >= self.set_resume:
 					progress_params = {'media_type': self.media_type, 'tmdb_id': self.tmdb_id, 'curr_time': self.curr_time, 'total_time': self.total_time,
 									'title': self.title, 'season': self.season, 'episode': self.episode, 'from_playback': 'true'}
@@ -287,7 +287,7 @@ class NXTFlixPlayer(xbmc_player):
 		except: pass
 
 	def clear_playback_properties(self):
-		clear_property('NXTFlix.window_stack')
+		clear_property('nxtflix.window_stack')
 		clear_property('script.trakt.ids')
 		clear_property('subs.player_filename')
 
@@ -302,9 +302,9 @@ class Subtitles(xbmc_player):
 	def __init__(self):
 		xbmc_player.__init__(self)
 		self.os = OpenSubtitlesAPI()
-		self.auto_enable = get_setting('NXTFlix.subtitles.auto_enable')
-		self.subs_action = get_setting('NXTFlix.subtitles.subs_action')
-		self.language = get_setting('NXTFlix.subtitles.language_primary')
+		self.auto_enable = get_setting('nxtflix.subtitles.auto_enable')
+		self.subs_action = get_setting('nxtflix.subtitles.subs_action')
+		self.language = get_setting('nxtflix.subtitles.language_primary')
 		self.quality = ['bluray', 'hdrip', 'brrip', 'bdrip', 'dvdrip', 'webdl', 'webrip', 'webcap', 'web', 'hdtv', 'hdrip']
 
 	def get(self, query, imdb_id, season, episode, secondary_search=False):
@@ -380,7 +380,7 @@ class Subtitles(xbmc_player):
 		sleep(2500)
 		imdb_id = re.sub(r'[^0-9]', '', imdb_id)
 		subtitle_path = translate_path('special://temp/')
-		sub_filename = 'NXTFlixSubs_%s_%s_%s' % (imdb_id, season, episode) if season else 'NXTFlixSubs_%s' % imdb_id
+		sub_filename = 'nxtflixSubs_%s_%s_%s' % (imdb_id, season, episode) if season else 'nxtflixSubs_%s' % imdb_id
 		search_filename = sub_filename + '_%s.srt' % self.language
 		subtitle = _video_file_subs()
 		if subtitle: return
@@ -389,7 +389,7 @@ class Subtitles(xbmc_player):
 		subtitle = _searched_subs()
 		if subtitle: return self.setSubtitles(subtitle)
 		if secondary_search: return _notification(32793)
-		secondary_language = get_setting('NXTFlix.subtitles.language_secondary')
+		secondary_language = get_setting('nxtflix.subtitles.language_secondary')
 		if secondary_language in (self.language, None, 'None', ''): return _notification(32793)
 		self.language = secondary_language
 		self.get(query, imdb_id, season, episode, secondary_search=True)

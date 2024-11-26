@@ -155,7 +155,7 @@ class SourcesResults(BaseDialog):
 								else: set_property('source_type', 'UNCACHED')
 								set_property('highlight', 'FF7C7C7C')
 							else:
-								cache_flag = 'UNCHECKED' if provider == 'REAL-DEBRID' else 'CACHED'
+								cache_flag = '[B]CACHED[/B]' if provider == 'PREMIUMIZE' else 'UNCHECKED'
 								if highlight_type == 0: key = 'torrent_highlight'
 								elif highlight_type == 1: key = provider_lower
 								else: key = basic_quality
@@ -387,8 +387,8 @@ class SourcesPlayback(BaseDialog):
 		self.setProperty('year', year)
 		self.setProperty('poster', poster)
 		self.setProperty('genre', genre)
-		self.setProperty('flag_highlight', self.get_setting('NXTFlix.scraper_flag_identify_colour', 'FF7C7C7C'))
-		self.setProperty('result_highlight', self.get_setting('NXTFlix.scraper_result_identify_colour', 'FFFFFFFF'))
+		self.setProperty('flag_highlight', self.get_setting('nxtflix.scraper_flag_identify_colour', 'FF7C7C7C'))
+		self.setProperty('result_highlight', self.get_setting('nxtflix.scraper_result_identify_colour', 'FFFFFFFF'))
 
 	def set_resolver_properties(self):
 		if self.meta_get('media_type') == 'movie': self.text = self.meta_get('plot')

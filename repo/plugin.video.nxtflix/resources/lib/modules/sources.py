@@ -4,7 +4,7 @@ from windows.base_window import open_window, create_window
 from scrapers import external, folders
 from modules import debrid, kodi_utils, settings, metadata, watched_status
 from modules.debrid import debrid_enabled
-from modules.player import NXTFlixPlayer
+from modules.player import nxtflixPlayer
 from modules.source_utils import get_cache_expiry, make_alias_dict
 from modules.utils import clean_file_name, string_to_float, safe_string, remove_accents, get_datetime, append_module_to_syspath, manual_function_import, manual_module_import
 # logger = kodi_utils.logger
@@ -70,7 +70,7 @@ class Sources():
 		self.ignore_scrape_filters = params_get('ignore_scrape_filters', 'false') == 'true'
 		self.disabled_ext_ignored = params_get('disabled_ext_ignored', self.disabled_ext_ignored) == 'true'
 		self.default_ext_only = params_get('default_ext_only', self.default_ext_only) == 'true'
-		self.folders_ignore_filters = get_setting('NXTFlix.results.folders_ignore_filters', 'false') == 'true'
+		self.folders_ignore_filters = get_setting('nxtflix.results.folders_ignore_filters', 'false') == 'true'
 		self.media_type, self.tmdb_id, self.ep_name, self.plot = params_get('media_type'), params_get('tmdb_id'), params_get('ep_name'), params_get('plot')
 		self.custom_title, self.custom_year = params_get('custom_title', None), params_get('custom_year', None)
 		self.custom_season, self.custom_episode = params_get('custom_season', None), params_get('custom_episode', None)
@@ -92,9 +92,9 @@ class Sources():
 		self.hevc_filter_key, self.hdr_filter_key, self.dolby_vision_filter_key, self.av1_filter_key = '[B]HEVC[/B]', '[B]HDR[/B]', '[B]D/VISION[/B]', '[B]AV1[/B]'
 		self.audio_filter_key = audio_filters()
 		self.sort_function, self.display_uncached_torrents, self.quality_filter = results_sort_order(), display_uncached_torrents(), self._quality_filter()
-		self.hybrid_allowed, self.filter_size_method = self.filter_hdr in (0, 2), int(get_setting('NXTFlix.results.filter_size_method', '0'))
-		self.include_unknown_size = get_setting('NXTFlix.results.include.unknown.size', 'false') == 'true'
-		self.include_3D_results = get_setting('NXTFlix.include_3d_results', 'true') == 'true'
+		self.hybrid_allowed, self.filter_size_method = self.filter_hdr in (0, 2), int(get_setting('nxtflix.results.filter_size_method', '0'))
+		self.include_unknown_size = get_setting('nxtflix.results.include.unknown.size', 'false') == 'true'
+		self.include_3D_results = get_setting('nxtflix.include_3d_results', 'true') == 'true'
 		self._update_meta()
 		self._search_info()
 		return self.get_sources()
@@ -131,7 +131,7 @@ class Sources():
 			if self.active_external:
 				if any((i[0] == 'comet' for i in self.external_providers)):
 					debrid_service = self.debrid_enabled[0]
-					debrid_token = get_setting('NXTFlix.%s' % debrid_token_dict[debrid_service])
+					debrid_token = get_setting('nxtflix.%s' % debrid_token_dict[debrid_service])
 				else: debrid_service, debrid_token = '', ''
 				self.external_args = (self.meta, self.external_providers, self.debrid_enabled, debrid_service, debrid_token, self.internal_scraper_names,
 										self.prescrape_sources, self.progress_dialog, self.disabled_ext_ignored)
@@ -187,13 +187,13 @@ class Sources():
 		results = [i for i in results if i['quality'] in self.quality_filter]
 		if not self.include_3D_results: results = [i for i in results if not '3D' in i['extraInfo']]
 		if self.filter_size_method:
-			min_size = string_to_float(get_setting('NXTFlix.results.size.min_manual', '0'), '0') / 1000
+			min_size = string_to_float(get_setting('nxtflix.results.size.min_manual', '0'), '0') / 1000
 			if min_size == 0.0 and not self.include_unknown_size: min_size = 0.02
 			if self.filter_size_method == 1:
 				duration = self.meta['duration'] or (5400 if self.media_type == 'movie' else 2400)
-				max_size = ((0.125 * (0.90 * string_to_float(get_setting('NXTFlix.results.size.auto', '20'), '20'))) * duration)/1000
+				max_size = ((0.125 * (0.90 * string_to_float(get_setting('nxtflix.results.size.auto', '20'), '20'))) * duration)/1000
 			elif self.filter_size_method == 2:
-				max_size = string_to_float(get_setting('NXTFlix.results.size.manual', '10000'), '10000') / 1000
+				max_size = string_to_float(get_setting('nxtflix.results.size.manual', '10000'), '10000') / 1000
 			results = [i for i in results if i['scrape_provider'] == 'folders' or min_size <= i['size'] <= max_size]
 		results += folder_results
 		return results
@@ -307,7 +307,7 @@ class Sources():
 		current_list.extend(self.folder_sources())
 
 	def get_folderscraper_info(self):
-		folder_info = [(get_setting('NXTFlix.%s.display_name' % i), i, source_folders_directory(self.media_type, i)) for i in folder_scrapers]
+		folder_info = [(get_setting('nxtflix.%s.display_name' % i), i, source_folders_directory(self.media_type, i)) for i in folder_scrapers]
 		return [i for i in folder_info if not i[0] in (None, 'None', '') and i[2]]
 
 	def scrapers_dialog(self):
@@ -392,7 +392,7 @@ class Sources():
 		if custom_year: year = custom_year
 		else:
 			year = self.meta.get('year')
-			if self.active_external and get_setting('NXTFlix.search.enable.yearcheck', 'false') == 'true':
+			if self.active_external and get_setting('nxtflix.search.enable.yearcheck', 'false') == 'true':
 				from apis.imdb_api import imdb_year_check
 				try:
 					imdb_year = str(imdb_year_check(self.meta.get('imdb_id')))
@@ -468,7 +468,7 @@ class Sources():
 
 	def _special_filter(self, results, key, enable_setting):
 		if key == self.hevc_filter_key and enable_setting in (0,2):
-			hevc_max_quality = self._get_quality_rank(get_setting('NXTFlix.filter_hevc.%s' % ('max_autoplay_quality' if self.autoplay else 'max_quality'), '4K'))
+			hevc_max_quality = self._get_quality_rank(get_setting('nxtflix.filter_hevc.%s' % ('max_autoplay_quality' if self.autoplay else 'max_quality'), '4K'))
 			results = [i for i in results if not key in i['extraInfo'] or i['quality_rank'] >= hevc_max_quality]
 		if enable_setting == 1:
 			if key == self.dolby_vision_filter_key and self.hybrid_allowed:
@@ -558,7 +558,7 @@ class Sources():
 		link = chosen_result['url_dl']
 		name = chosen_result['name']
 		self._kill_progress_dialog()
-		return NXTFlixPlayer().run(link, 'video')
+		return nxtflixPlayer().run(link, 'video')
 
 	def debridPacks(self, debrid_provider, name, magnet_url, info_hash, download=False):
 		show_busy_dialog()
@@ -578,7 +578,7 @@ class Sources():
 		link = self.resolve_internal_sources(debrid_info, chosen_result['link'], '')
 		name = chosen_result['filename']
 		self._kill_progress_dialog()
-		return NXTFlixPlayer().run(link, 'video')
+		return nxtflixPlayer().run(link, 'video')
 
 	def play_file(self, results, source={}):
 		self.playback_successful, self.cancel_all_playback = None, False
@@ -594,7 +594,7 @@ class Sources():
 				leading_index = max(source_index-3, 0)
 				items_prev = results[leading_index:source_index]
 				trailing_index = 7 - len(items_prev)
-				items_next = results[source_index+1:source_index+trailing_index]
+				items_next = results[source_index:source_index+trailing_index]
 				items = items + items_next + items_prev
 			processed_items = []
 			processed_items_append = processed_items.append
@@ -633,7 +633,7 @@ class Sources():
 						sleep(self.playback_attempt_pause)
 						try: del player
 						except: pass
-					player = NXTFlixPlayer()
+					player = nxtflixPlayer()
 					url, self.playback_successful, self.cancel_all_playback = None, None, False
 					self.playing_filename = item['name']
 					try:
