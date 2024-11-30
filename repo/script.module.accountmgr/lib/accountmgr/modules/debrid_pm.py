@@ -53,7 +53,6 @@ class Auth:
         except:
                 xbmc.log('%s: Seren Premiumize Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
-                
 
     #nxtflix PM
         try:
@@ -87,7 +86,6 @@ class Auth:
                 xbmc.log('%s: nxtflix Premiumize Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
                 
-
     #Fen PM
         try:
                 if xbmcvfs.exists(var.chk_fen) and xbmcvfs.exists(var.chkset_fen):
@@ -231,38 +229,6 @@ class Auth:
         except:
                 xbmc.log('%s: afFENity Premiumize Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
-            
-    #Ezra PM
-        try:
-                if xbmcvfs.exists(var.chk_ezra) and xbmcvfs.exists(var.chkset_ezra):
-                        chk_auth_ezra = xbmcaddon.Addon('plugin.video.ezra').getSetting("pm.token")
-                        chk_auth_ezra_rd = xbmcaddon.Addon('plugin.video.ezra').getSetting("rd.token")
-                        chk_auth_ezra_ad = xbmcaddon.Addon('plugin.video.ezra').getSetting("ad.token")
-                        if not str(var.chk_accountmgr_tk_pm) == str(chk_auth_ezra) or str(chk_auth_ezra) == '':
-
-                                addon = xbmcaddon.Addon("plugin.video.ezra")
-                                addon.setSetting("pm.account_id", your_pm_username)
-                                addon.setSetting("pm.token", your_pm_token)
-
-                                enabled_pm = ("true")
-                                addon.setSetting("pm.enabled", enabled_pm)
-
-                                if str(chk_auth_ezra_rd) != '':
-                                        enabled_rd = ("true")
-                                        addon.setSetting("rd.enabled", enabled_rd)
-                                else:
-                                        enabled_rd = ("false")
-                                        addon.setSetting("rd.enabled", enabled_rd)
-
-                                if str(chk_auth_ezra_ad) != '':
-                                        enabled_ad = ("true")
-                                        addon.setSetting("ad.enabled", enabled_ad)
-                                else:
-                                        enabled_ad = ("false")
-                                        addon.setSetting("ad.enabled", enabled_ad)
-        except:
-                xbmc.log('%s: Ezra Premiumize Failed!' % var.amgr, xbmc.LOGINFO)
-                pass
 
     #Coalition PM
         try:
@@ -360,36 +326,36 @@ class Auth:
                 xbmc.log('%s: Umbrella Premiumize Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
 
-    #OneMoar PM
+    #Infinity PM
         try:
-                if xbmcvfs.exists(var.chk_onem) and xbmcvfs.exists(var.chkset_onem):
-                        chk_auth_onem = xbmcaddon.Addon('plugin.video.onemoar').getSetting("premiumizetoken")
-                        chk_auth_onem_rd = xbmcaddon.Addon('plugin.video.onemoar').getSetting("realdebridtoken")
-                        chk_auth_onem_ad = xbmcaddon.Addon('plugin.video.onemoar').getSetting("alldebridtoken")
-                        if not str(var.chk_accountmgr_tk_pm) == str(chk_auth_onem) or str(chk_auth_onem) == '':
+                if xbmcvfs.exists(var.chk_infinity) and xbmcvfs.exists(var.chkset_infinity):
+                        chk_auth_infinity = xbmcaddon.Addon('plugin.video.infinity').getSetting("premiumizetoken")
+                        chk_auth_infinity_rd = xbmcaddon.Addon('plugin.video.infinity').getSetting("realdebridtoken")
+                        chk_auth_infinity_ad = xbmcaddon.Addon('plugin.video.infinity').getSetting("alldebridtoken")
+                        if not str(var.chk_accountmgr_tk_pm) == str(chk_auth_infinity) or str(chk_auth_infinity) == '':
                                 
-                                addon = xbmcaddon.Addon("plugin.video.onemoar")
+                                addon = xbmcaddon.Addon("plugin.video.infinity")
                                 addon.setSetting("premiumizeusername", your_pm_username)
                                 addon.setSetting("premiumizetoken", your_pm_token)
 
                                 enabled_pm = ("true")
                                 addon.setSetting("premiumize.enable", enabled_pm)
 
-                                if str(chk_auth_onem_rd) != '':
+                                if str(chk_auth_infinity_rd) != '':
                                         enabled_rd = ("true")
                                         addon.setSetting("alldebrid.enable", enabled_rd)
                                 else:
                                         enabled_rd = ("false")
                                         addon.setSetting("realdebrid.enable", enabled_rd)
 
-                                if str(chk_auth_onem_ad) != '':
+                                if str(chk_auth_infinity_ad) != '':
                                         enabled_ad = ("true")
                                         addon.setSetting("alldebrid.enable", enabled_ad)
                                 else:
                                         enabled_ad = ("false")
                                         addon.setSetting("alldebrid.enable", enabled_ad)
         except:
-                xbmc.log('%s: OneMoar Premiumize Failed!' % var.amgr, xbmc.LOGINFO)
+                xbmc.log('%s: Infinity Premiumize Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
             
      #Dradis PM
@@ -406,22 +372,6 @@ class Auth:
                                 addon.setSetting("premiumize.enable", enabled_pm)
         except:
                 xbmc.log('%s: Dradis Premiumize Failed!' % var.amgr, xbmc.LOGINFO)
-                pass
-
-     #Taz19 PM
-        try:
-                if xbmcvfs.exists(var.chk_taz) and xbmcvfs.exists(var.chkset_taz):
-                        chk_auth_taz = xbmcaddon.Addon('plugin.video.taz19').getSetting("premiumize.token")
-                        if not str(var.chk_accountmgr_tk_pm) == str(chk_auth_taz) or str(chk_auth_taz) == '':
-                                
-                                addon = xbmcaddon.Addon("plugin.video.taz19")
-                                addon.setSetting("pm.account_id", your_pm_username)
-                                addon.setSetting("pm.token", your_pm_token)
-
-                                enabled_pm = ("true")
-                                addon.setSetting("pm.enabled", enabled_pm)
-        except:
-                xbmc.log('%s: Taz Premiumize Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
             
     #Shadow PM
@@ -508,31 +458,6 @@ class Auth:
         except:
                 xbmc.log('%s: Base Premiumize Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
-            
-    #Unleashed PM
-        try:
-                if xbmcvfs.exists(var.chk_unleashed) and not xbmcvfs.exists(var.unleashed_ud):
-                        os.mkdir(var.unleashed_ud)
-                        xbmcvfs.copy(os.path.join(var.unleashed), os.path.join(var.chkset_unleashed))
-                        
-                if xbmcvfs.exists(var.chk_unleashed) and not xbmcvfs.exists(var.chkset_unleashed):
-                        xbmcvfs.copy(os.path.join(var.unleashed), os.path.join(var.chkset_unleashed))
-
-                if xbmcvfs.exists(var.chk_unleashed) and xbmcvfs.exists(var.chkset_unleashed):
-                        chk_auth_unleashed = xbmcaddon.Addon('plugin.video.unleashed').getSetting("premiumize.token")
-                        if not str(var.chk_accountmgr_tk_pm) == str(chk_auth_unleashed) or str(chk_auth_unleashed) == '':
-                                
-                                addon = xbmcaddon.Addon("plugin.video.unleashed")
-                                addon.setSetting("premiumize.token", your_pm_token)
-
-                                d_use = ("true")
-                                addon.setSetting("debrid_use", d_use)
-                                
-                                d_select = ("1")
-                                addon.setSetting("debrid_select", d_select)
-        except:
-                xbmc.log('%s: Unleashed Premiumize Failed!' % var.amgr, xbmc.LOGINFO)
-                pass
 
     #Chains PM
         try:
@@ -559,57 +484,7 @@ class Auth:
                 xbmc.log('%s: Chains Premiumize Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
 
-    #Twisted PM
-        try:
-                if xbmcvfs.exists(var.chk_twisted) and not xbmcvfs.exists(var.twisted_ud):
-                        os.mkdir(var.twisted_ud)
-                        xbmcvfs.copy(os.path.join(var.twisted), os.path.join(var.chkset_twisted))
-                        
-                if xbmcvfs.exists(var.chk_twisted) and not xbmcvfs.exists(var.chkset_twisted):
-                        xbmcvfs.copy(os.path.join(var.twisted), os.path.join(var.chkset_twisted))
-
-                if xbmcvfs.exists(var.chk_twisted) and xbmcvfs.exists(var.chkset_twisted):
-                        chk_auth_twisted = xbmcaddon.Addon('plugin.video.twisted').getSetting("premiumize.token")
-                        if not str(var.chk_accountmgr_tk_pm) == str(chk_auth_twisted) or str(chk_auth_twisted) == '':
-                        
-                                addon = xbmcaddon.Addon("plugin.video.twisted")
-                                addon.setSetting("premiumize.token", your_pm_token)
-
-                                d_use = ("true")
-                                addon.setSetting("debrid_use", d_use)
-                                
-                                d_select = ("1")
-                                addon.setSetting("debrid_select", d_select)
-        except:
-                xbmc.log('%s: Twisted Premiumize Failed!' % var.amgr, xbmc.LOGINFO)
-                pass
-            
-    #Magic Dragon PM
-        try:
-                if xbmcvfs.exists(var.chk_md) and not xbmcvfs.exists(var.md_ud):
-                        os.mkdir(var.md_ud)
-                        xbmcvfs.copy(os.path.join(var.md), os.path.join(var.chkset_md))
-                        
-                if xbmcvfs.exists(var.chk_md) and not xbmcvfs.exists(var.chkset_md):
-                        xbmcvfs.copy(os.path.join(var.md), os.path.join(var.chkset_md))
-
-                if xbmcvfs.exists(var.chk_md) and xbmcvfs.exists(var.chkset_md):
-                        chk_auth_md = xbmcaddon.Addon('plugin.video.magicdragon').getSetting("premiumize.token")
-                        if not str(var.chk_accountmgr_tk_pm) == str(chk_auth_md) or str(chk_auth_md) == '':
-                        
-                                addon = xbmcaddon.Addon("plugin.video.magicdragon")
-                                addon.setSetting("premiumize.token", your_pm_token)
-
-                                d_use = ("true")
-                                addon.setSetting("debrid_use", d_use)
-                                
-                                d_select = ("1")
-                                addon.setSetting("debrid_select", d_select)
-        except:
-                xbmc.log('%s: Magic Dragon Premiumize Failed!' % var.amgr, xbmc.LOGINFO)
-                pass
-
-    #Asgard PM
+#Asgard PM
         try:
                 if xbmcvfs.exists(var.chk_asgard) and not xbmcvfs.exists(var.asgard_ud):
                         os.mkdir(var.asgard_ud)
@@ -766,6 +641,64 @@ class Auth:
                 xbmc.log('%s: Aliunde Premiumize Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
 
+    #Nightwing Lite PM
+        try:
+                if xbmcvfs.exists(var.chk_night) and not xbmcvfs.exists(var.night_ud):
+                        os.mkdir(var.night_ud)
+                        xbmcvfs.copy(os.path.join(var.night), os.path.join(var.chkset_night))
+                        
+                if xbmcvfs.exists(var.chk_night) and not xbmcvfs.exists(var.chkset_night):
+                        xbmcvfs.copy(os.path.join(var.night), os.path.join(var.chkset_night))
+
+                if xbmcvfs.exists(var.chk_night) and xbmcvfs.exists(var.chkset_night):
+                        chk_auth_night = xbmcaddon.Addon('plugin.video.NightwingLite').getSetting("premiumize.token")
+                        chk_auth_night_rd = xbmcaddon.Addon('plugin.video.NightwingLite').getSetting("rd.auth")
+                        chk_auth_night_ad = xbmcaddon.Addon('plugin.video.NightwingLite').getSetting("alldebrid.token")
+                        if not str(var.chk_accountmgr_tk_pm) == str(chk_auth_night) or str(chk_auth_night) == '':
+
+                                addon = xbmcaddon.Addon("plugin.video.NightwingLite")
+                                addon.setSetting("premiumize.token", your_pm_token)
+
+                                pm_use = ("true")
+                                addon.setSetting("debrid_use_pm", pm_use)
+
+                                if str(chk_auth_night_rd) != '':
+                                        rd_use = ("true")
+                                        addon.setSetting("debrid_use_rd", rd_use)
+                                else:
+                                        rd_use = ("false")
+                                        addon.setSetting("debrid_use_rd", rd_use)
+                        
+                                if str(chk_auth_night_ad) != '':
+                                        ad_use = ("true")
+                                        addon.setSetting("debrid_use_ad", ad_use)
+                                else:
+                                        ad_use = ("false")
+                                        addon.setSetting("debrid_use_ad", ad_use)
+        except:
+                xbmc.log('%s: Nightwing Lite Premiumize Failed!' % var.amgr, xbmc.LOGINFO)
+                pass
+
+     #Chains Genocide PM
+        try:
+                if xbmcvfs.exists(var.chk_genocide) and not xbmcvfs.exists(var.genocide_ud):
+                        os.mkdir(var.genocide_ud)
+                        xbmcvfs.copy(os.path.join(var.genocide), os.path.join(var.chkset_genocide))
+                        
+                if xbmcvfs.exists(var.chk_genocide) and not xbmcvfs.exists(var.chkset_genocide):
+                        xbmcvfs.copy(os.path.join(var.genocide), os.path.join(var.chkset_genocide))
+                        
+                if xbmcvfs.exists(var.chk_genocide) and xbmcvfs.exists(var.chkset_genocide):
+                        chk_auth_genocide = xbmcaddon.Addon('plugin.video.chainsgenocide').getSetting("premiumize.token")
+                        if not str(var.chk_accountmgr_tk_pm) == str(chk_auth_genocide) or str(chk_auth_genocide) == '':
+                        
+                                addon = xbmcaddon.Addon("plugin.video.chainsgenocide")
+                                addon.setSetting("premiumize.username", your_pm_username)
+                                addon.setSetting("premiumize.token", your_pm_token)
+        except:
+                xbmc.log('%s: Chains Genocide Premiumize Failed!' % var.amgr, xbmc.LOGINFO)
+                pass
+            
      #Otaku PM
         try:
                 if xbmcvfs.exists(var.chk_otaku) and not xbmcvfs.exists(var.otaku_ud):

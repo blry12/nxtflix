@@ -19,20 +19,16 @@ ORDER = ['seren',
          'fen',
          'fenlt',
          'affen',
-         'ezra',
          'coal',
          'pov',
          'umb',
-         'onem',
+         'infinity',
          'dradis',
-         'taz',
          'thecrew',
          'homelander',
          'quicksilver',
          'genocide',
          'shazam',
-         'nightwing',
-         'thelab',
          'alvin',
          'moria',
          'absolution',
@@ -151,27 +147,6 @@ DEBRIDID = {
         'default_tmdb_session'  : '',
         'data'     : [],
         'activate' : 'Addon.OpenSettings(plugin.video.affenity)'},
-    'ezra': {
-        'name'     : 'Ezra',
-        'plugin'   : 'plugin.video.ezra',
-        'saved'    : 'ezra',
-        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.ezra'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.ezra', 'icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.ezra', 'fanart.png'),
-        'file'     : os.path.join(CONFIG.METAFOLD, 'ezra_meta'),
-        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.ezra', 'settings.xml'),
-        'default'  : '',
-        'default_fanart'  : 'fanart_client_key',
-        'default_omdb'  : '',
-        'default_mdb'  : '',
-        'default_imdb'  : 'imdb_user',
-        'default_tvdb'  : '',
-        'default_tmdb'  : 'tmdb_api',
-        'default_tmdb_user'  : '',
-        'default_tmdb_pass'  : '',
-        'default_tmdb_session'  : '',
-        'data'     : ['tmdb_api', 'imdb_user', 'fanart_client_key'],
-        'activate' : 'Addon.OpenSettings(plugin.video.ezra)'},
     'coal': {
         'name'     : 'The Coalition',
         'plugin'   : 'plugin.video.coalition',
@@ -235,15 +210,15 @@ DEBRIDID = {
         'default_tmdb_session'  : 'tmdb.sessionid',
         'data'     : ['tmdb.apikey', 'tmdbusername', 'tmdbpassword', 'tmdb.sessionid', 'imdbuser', 'mdblist.api', 'fanart_tv.api_key'],
         'activate' : 'Addon.OpenSettings(plugin.video.umbrella)'},
-    'onem': {
-        'name'     : 'OneMoar',
-        'plugin'   : 'plugin.video.onemoar',
-        'saved'    : 'onem',
-        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.onemoar'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.onemoar', 'icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.onemoar', 'fanart.jpg'),
-        'file'     : os.path.join(CONFIG.METAFOLD, 'onem_meta'),
-        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.onemoar', 'settings.xml'),
+    'infinity': {
+        'name'     : 'Infinity',
+        'plugin'   : 'plugin.video.infinity',
+        'saved'    : 'infinity',
+        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.infinity'),
+        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.infinity/resources/media/', 'icon.png'),
+        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.infinity', 'fanart.jpg'),
+        'file'     : os.path.join(CONFIG.METAFOLD, 'infinity_meta'),
+        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.infinity', 'settings.xml'),
         'default'  : '',
         'default_fanart'  : 'fanart_tv.api_key',
         'default_omdb'  : '',
@@ -255,7 +230,7 @@ DEBRIDID = {
         'default_tmdb_pass'  : 'tmdbpassword',
         'default_tmdb_session'  : 'tmdb.sessionid',
         'data'     : ['tmdb.apikey', 'tmdbusername', 'tmdbpassword', 'tmdb.sessionid', 'imdbuser', 'mdblist.api', 'fanart_tv.api_key'],
-        'activate' : 'Addon.OpenSettings(plugin.video.onemoar)'},
+        'activate' : 'Addon.OpenSettings(plugin.video.infinity)'},
     'dradis': {
         'name'     : 'Dradis',
         'plugin'   : 'plugin.video.dradis',
@@ -277,27 +252,6 @@ DEBRIDID = {
         'default_tmdb_session'  : 'tmdb.session_id',
         'data'     : ['tmdb.api.key', 'tmdb.username', 'tmdb.password', 'tmdb.session_id', 'imdb.user', 'fanart_tv.api_key'],
         'activate' : 'Addon.OpenSettings(plugin.video.dradis)'},
-    'taz': {
-        'name'     : 'Taz19',
-        'plugin'   : 'plugin.video.taz19',
-        'saved'    : 'taz',
-        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.taz19'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.taz19', 'icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.taz19', 'fanart.jpg'),
-        'file'     : os.path.join(CONFIG.METAFOLD, 'taz_meta'),
-        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.taz19', 'settings.xml'),
-        'default'  : '',
-        'default_fanart'  : 'fanart_client_key',
-        'default_omdb'  : '',
-        'default_mdb'  : '',
-        'default_imdb'  : 'imdb_user',
-        'default_tvdb'  : '',
-        'default_tmdb'  : 'tmdb_api',
-        'default_tmdb_user'  : '',
-        'default_tmdb_pass'  : '',
-        'default_tmdb_session'  : '',
-        'data'     : ['tmdb_api', 'imdb_user', 'fanart_client_key'],
-        'activate' : 'Addon.OpenSettings(plugin.video.taz19)'},
    'thecrew': {
         'name'     : 'The Crew',
         'plugin'   : 'plugin.video.thecrew',
@@ -403,48 +357,6 @@ DEBRIDID = {
         'default_tmdb_session'  : '',
         'data'     : ['tm.user', 'imdb.user', 'fanart.tv.user'],
         'activate' : 'Addon.OpenSettings(plugin.video.shazam)'},
-   'nightwing': {
-        'name'     : 'Nightwing',
-        'plugin'   : 'plugin.video.nightwing',
-        'saved'    : 'nightwing',
-        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nightwing'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nightwing', 'icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.nightwing', 'fanart.jpg'),
-        'file'     : os.path.join(CONFIG.METAFOLD, 'nightwing_meta'),
-        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.nightwing', 'settings.xml'),
-        'default'  : '',
-        'default_fanart'  : 'fanart.tv.user',
-        'default_omdb'  : '',
-        'default_mdb'  : '',
-        'default_imdb'  : 'imdb.user',
-        'default_tvdb'  : '',
-        'default_tmdb'  : 'tm.user',
-        'default_tmdb_user'  : '',
-        'default_tmdb_pass'  : '',
-        'default_tmdb_session'  : '',
-        'data'     : ['tm.user', 'imdb.user', 'fanart.tv.user'],
-        'activate' : 'Addon.OpenSettings(plugin.video.nightwing)'},
-   'thelab': {
-        'name'     : 'TheLab',
-        'plugin'   : 'plugin.video.thelab',
-        'saved'    : 'thelab',
-        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.thelab'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.thelab', 'icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.thelab', 'fanart.jpg'),
-        'file'     : os.path.join(CONFIG.METAFOLD, 'thelab_meta'),
-        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.thelab', 'settings.xml'),
-        'default'  : '',
-        'default_fanart'  : 'fanart.tv.user',
-        'default_omdb'  : '',
-        'default_mdb'  : '',
-        'default_imdb'  : 'imdb.user',
-        'default_tvdb'  : '',
-        'default_tmdb'  : 'tm.user',
-        'default_tmdb_user'  : '',
-        'default_tmdb_pass'  : '',
-        'default_tmdb_session'  : '',
-        'data'     : ['tm.user', 'imdb.user', 'fanart.tv.user'],
-        'activate' : 'Addon.OpenSettings(plugin.video.thelab)'},
    'alvin': {
         'name'     : 'Alvin',
         'plugin'   : 'plugin.video.alvin',
@@ -831,7 +743,7 @@ def debrid_user_tmdb(who):
             if os.path.exists(DEBRIDID[who]['path']):
                 try:
                     add = tools.get_addon_by_id(DEBRIDID[who]['plugin'])
-                    user_omdb = add.getSetting(DEBRIDID[who]['default_tmdb'])
+                    user_tmdb = add.getSetting(DEBRIDID[who]['default_tmdb'])
                 except:
                     pass
     return user_tmdb
@@ -1064,6 +976,14 @@ def revoke_meta():
             addon.setSetting("tmdb_api", var.ezra_tmdb)
         except:
             pass
+            
+    if xbmcvfs.exists(var.chk_nxtflix) and xbmcvfs.exists(var.chkset_nxtflix):
+        try:
+            addon = xbmcaddon.Addon("plugin.video.nxtflix")
+            addon.setSetting("fanart_client_key", var.nxtflix_fan)                        
+            addon.setSetting("tmdb_api", var.nxtflix_tmdb)
+        except:
+            pass            
         
     if xbmcvfs.exists(var.chk_fen) and xbmcvfs.exists(var.chkset_fen):
         try:

@@ -4,37 +4,31 @@
 3.  Fen
 4.  Fen Light
 5.  afFENity
-6.  Ezra
-7.  The Coalition
-8.  POV                  
-9.  Umbrella
-10.  OneMoar
-11.  Dradis
-12. Taz19
-13. Shadow
-14. Ghost
-15. Base
-16. Unleashed            
-17. Chain Reaction
-18. Magic Dragon
-19. Asgard
-20. Patriot
-21. Black Lightning
-22. Aliunde K19
-23. Homelander
-24. Quicksilver
-25. Chains Genocide
-26. Absolution       
-27. Shazam
-28. The Crew              
-29. Nightwing 
-30. Alvin
-31. TheLab
-32. Moria
-33. Nine Lives
-34. Scrubs V2
-35. TheLabjr
-36. TMDb Helper
-37. Trakt Add-on
-38. All Accounts
-39. My Accounts
+6.  The Coalition
+7.  POV                  
+8.  Umbrella
+9.  Infinity
+10.  Dradis
+11. Shadow
+12. Ghost
+13. Base          
+14. Chain Reaction
+15. Asgard
+16. Patriot
+17. Black Lightning
+18. Aliunde K19
+19. Nightwing Lite
+20. Homelander
+21. Quicksilver
+22. Chains Genocide
+23. Absolution       
+24. Shazam
+25. The Crew              
+26. Alvin
+27. Moria
+28. Nine Lives
+29. Scrubs V2
+30. TMDb Helper
+31. Trakt Add-on
+32. All Accounts
+33. My Accounts

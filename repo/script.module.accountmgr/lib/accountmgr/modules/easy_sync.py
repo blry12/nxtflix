@@ -16,6 +16,24 @@ your_easy_pass = accountmgr.getSetting("easynews.password")
 class Auth:
         def easy_auth(self):
 
+        #nxtflix
+                try:
+                        if xbmcvfs.exists(var.chk_nxtflix) and xbmcvfs.exists(var.chkset_nxtflix): #Check that the addon is installed and settings.xml exists
+                                
+                                #Get add-on setting to compare
+                                chk_easy = xbmcaddon.Addon('plugin.video.nxtflix').getSetting("easynews_password")
+                                enable_easy = ("true")
+                                
+                                #Write data to settings.xml
+                                if not str(var.chk_accountmgr_easy) == str(chk_easy) or str(chk_easy) == '': #Compare Account Mananger data to Add-on data. If they match authorization is skipped
+                                        addon = xbmcaddon.Addon("plugin.video.nxtflix")
+                                        addon.setSetting("provider.easynews", enable_easy)
+                                        addon.setSetting("easynews_user", your_easy_user)
+                                        addon.setSetting("easynews_password", your_easy_pass)
+                except:
+                        xbmc.log('%s: nxtflix Easynews Failed!' % var.amgr, xbmc.LOGINFO)
+                        pass
+                        
         #Fen
                 try:
                         if xbmcvfs.exists(var.chk_fen) and xbmcvfs.exists(var.chkset_fen): #Check that the addon is installed and settings.xml exists
@@ -87,22 +105,6 @@ class Auth:
                 except:
                         xbmc.log('%s: afFENity Easynews Failed!' % var.amgr, xbmc.LOGINFO)
                         pass
-                
-        #Ezra
-                try:
-                        if xbmcvfs.exists(var.chk_ezra) and xbmcvfs.exists(var.chkset_ezra ):
-                                
-                                chk_easy = xbmcaddon.Addon('plugin.video.ezra').getSetting("easynews_password")
-                                enable_easy = ("true")
-                                                          
-                                if not str(var.chk_accountmgr_easy) == str(chk_easy) or str(chk_easy) == '':
-                                        addon = xbmcaddon.Addon("plugin.video.ezra")
-                                        addon.setSetting("provider.easynews", enable_easy)
-                                        addon.setSetting("easynews_user", your_easy_user)
-                                        addon.setSetting("easynews_password", your_easy_pass)
-                except:
-                        xbmc.log('%s: Ezra Easynews Failed!' % var.amgr, xbmc.LOGINFO)
-                        pass
 
         #Coalition
                 try:
@@ -152,20 +154,20 @@ class Auth:
                         xbmc.log('%s: Umbrella Easynews Failed!' % var.amgr, xbmc.LOGINFO)
                         pass
 
-        #OneMoar
+        #Infinity
                 try:
-                        if xbmcvfs.exists(var.chk_onem) and xbmcvfs.exists(var.chkset_onem):
+                        if xbmcvfs.exists(var.chk_infinity) and xbmcvfs.exists(var.chkset_infinity):
 
-                                chk_easy = xbmcaddon.Addon('plugin.video.onemoar').getSetting("easynews.password")
+                                chk_easy = xbmcaddon.Addon('plugin.video.infinity').getSetting("easynews.password")
                                 enable_easy = ("true")
                                      
                                 if not str(var.chk_accountmgr_easy) == str(chk_easy) or str(chk_easy) == '':
-                                        addon = xbmcaddon.Addon("plugin.video.onemoar")
+                                        addon = xbmcaddon.Addon("plugin.video.infinityity")
                                         addon.setSetting("easynews.enable", enable_easy)
                                         addon.setSetting("easynews.user", your_easy_user)
                                         addon.setSetting("easynews.password", your_easy_pass)
                 except:
-                        xbmc.log('%s: OneMoar Easynews Failed!' % var.amgr, xbmc.LOGINFO)
+                        xbmc.log('%s: Infinity Easynews Failed!' % var.amgr, xbmc.LOGINFO)
                         pass
                 
         #Dradis
@@ -181,21 +183,6 @@ class Auth:
                                         addon.setSetting("easynews.password", your_easy_pass)
                 except:
                         xbmc.log('%s: Dradis Easynews Failed!' % var.amgr, xbmc.LOGINFO)
-                        pass
-
-        #Taz19
-                try:
-                        if xbmcvfs.exists(var.chk_taz) and xbmcvfs.exists(var.chkset_taz):
-
-                                chk_easy = xbmcaddon.Addon('plugin.video.taz19').getSetting("easynews.password")
-                                enable_easy = ("true")
-                                     
-                                if not str(var.chk_accountmgr_easy) == str(chk_easy) or str(chk_easy) == '':
-                                        addon = xbmcaddon.Addon("plugin.video.taz19")
-                                        addon.setSetting("easynews.user", your_easy_user)
-                                        addon.setSetting("easynews.password", your_easy_pass)
-                except:
-                        xbmc.log('%s: Taz Easynews Failed!' % var.amgr, xbmc.LOGINFO)
                         pass
                 
         #The Crew

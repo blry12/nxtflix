@@ -1,30 +1,28 @@
 
-1.  Seren  
-2.  NXTFlix Media                
+1.  Seren 
+2.  NXTFlix Media                 
 3.  Fen
 4.  Fen Light
 5.  afFENity
-6.  Ezra
-7.  The Coalition
-8.  POV                   
-9.  Umbrella
-10.  OneMoar
-11. Dradis
-12. Taz19
-13. The Crew 
-14. Homelander 
-15. Quicksilver
-16. Chains Genocide           
-17. Shazam
-18. Nightwing
-19. Alvin
-20. TheLab
-21. Moria
-22. Absolution
-23. Nine Lives
-24. TMDb Helper
-25. Embuary Info
-26. Metahandler
-27. PVR Artwork Module
-28. All Accounts
-29. My Accounts
+6.  The Coalition
+7.  POV                   
+8.  Umbrella
+9.  Infinity
+10.  Dradis
+11. The Crew 
+12. Homelander 
+13. Quicksilver
+14. Chains Genocide           
+15. Shazam
+16. Nightwing Lite
+17. Alvin
+18. TheLab
+19. Moria
+20. Absolution
+21. Nine Lives
+22. TMDb Helper
+23. Embuary Info
+24. Metahandler
+25. PVR Artwork Module
+26. All Accounts
+27. My Accounts

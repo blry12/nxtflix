@@ -46,7 +46,6 @@ class Auth:
         except:
                 xbmc.log('%s: Seren Trakt Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
-
     #nxtflix
         try:
                 if xbmcvfs.exists(var.chk_nxtflix) and xbmcvfs.exists(var.chkset_nxtflix):
@@ -71,7 +70,7 @@ class Auth:
         except:
                 xbmc.log('%s: nxtflix Trakt Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
-                
+
     #Fen
         try:
                 if xbmcvfs.exists(var.chk_fen) and xbmcvfs.exists(var.chkset_fen):
@@ -121,7 +120,6 @@ class Auth:
                             #Write settings to database
                             from accountmgr.modules import trakt_db
                             trakt_db.auth_fenlt_trakt()
-                            accountmgr.setSetting("rm_traktcache", 'true')
                         cursor.close()
         except:
                 xbmc.log('%s: Fen Light Trakt Failed!' % var.amgr, xbmc.LOGINFO)
@@ -154,26 +152,9 @@ class Auth:
 
                             from accountmgr.modules import trakt_db
                             trakt_db.auth_affen_trakt()
-                            accountmgr.setSetting("rm_traktcache", 'true')
                         cursor.close()
         except:
                 xbmc.log('%s: afFENity Trakt Failed!' % var.amgr, xbmc.LOGINFO)
-                pass
-            
-    #Ezra
-        try:
-                if xbmcvfs.exists(var.chk_ezra) and xbmcvfs.exists(var.chkset_ezra):
-                        chk_auth_ezra = xbmcaddon.Addon('plugin.video.ezra').getSetting("trakt.token")
-                        if not str(var.chk_accountmgr_tk) == str(chk_auth_ezra) or str(chk_auth_ezra) == '':
-
-                                addon = xbmcaddon.Addon("plugin.video.ezra")
-                                addon.setSetting("trakt.token", your_token)
-                                addon.setSetting("trakt_user", your_username)
-                                addon.setSetting("trakt.expires", your_expires)
-                                addon.setSetting("trakt.indicators_active", 'true')
-                                addon.setSetting("watched_indicators", '1')
-        except:
-                xbmc.log('%s: Ezra Trakt Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
 
      #Coalition
@@ -207,21 +188,15 @@ class Auth:
                         chk_auth_pov = xbmcaddon.Addon('plugin.video.pov').getSetting("trakt.token")
                         if not str(var.chk_accountmgr_tk) == str(chk_auth_pov) or str(chk_auth_pov) == '':
 
-                                with open(var.path_pov,'r') as f:
-                                    data = f.read()
-
-                                client = data.replace(var.pov_client,var.client_am).replace(var.pov_secret,var.secret_am)
-
-                                with open(var.path_pov,'w') as f:
-                                    f.write(client)
-
                                 addon = xbmcaddon.Addon("plugin.video.pov")
+                                addon.setSetting("trakt.client_id", var.client_am)
+                                addon.setSetting("trakt.client_secret", var.secret_am)
                                 addon.setSetting("trakt.token", your_token)
                                 addon.setSetting("trakt_user", your_username)
                                 addon.setSetting("trakt.refresh", your_refresh)
                                 addon.setSetting("trakt.expires", your_expires)
-                                addon.setSetting("trakt.indicators_active", 'true')
-                                addon.setSetting("watched.indicators", '1')              
+                                addon.setSetting("trakt_indicators_active", 'true')
+                                addon.setSetting("watched_indicators", '1')              
         except:
                 xbmc.log('%s: POV Trakt Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
@@ -246,13 +221,13 @@ class Auth:
                 xbmc.log('%s: Umbrella Trakt Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
 
-    #OneMoar
+    #Infinity
         try:
-                if xbmcvfs.exists(var.chk_onem) and xbmcvfs.exists(var.chkset_onem):
-                        chk_auth_onem = xbmcaddon.Addon('plugin.video.onemoar').getSetting("trakt.user.token")
-                        if not str(var.chk_accountmgr_tk) == str(chk_auth_onem) or str(chk_auth_onem) == '':
+                if xbmcvfs.exists(var.chk_infinity) and xbmcvfs.exists(var.chkset_infinity):
+                        chk_auth_infinity = xbmcaddon.Addon('plugin.video.infinity').getSetting("trakt.user.token")
+                        if not str(var.chk_accountmgr_tk) == str(chk_auth_infinity) or str(chk_auth_infinity) == '':
 
-                                addon = xbmcaddon.Addon("plugin.video.onemoar")
+                                addon = xbmcaddon.Addon("plugin.video.infinity")
                                 addon.setSetting("trakt.user.name", your_username)
                                 addon.setSetting("trakt.user.token", your_token)
                                 addon.setSetting("trakt.refreshtoken", your_refresh)
@@ -263,56 +238,25 @@ class Auth:
                                 addon.setSetting("trakt.scrobble", 'true')
                                 addon.setSetting("resume.source", '1')  
         except:
-                xbmc.log('%s: OneMoar Trakt Failed!' % var.amgr, xbmc.LOGINFO)
+                xbmc.log('%s: Infinity Trakt Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
-
+            
     #Dradis
         try:
                 if xbmcvfs.exists(var.chk_dradis) and xbmcvfs.exists(var.chkset_dradis):
                         chk_auth_dradis = xbmcaddon.Addon('plugin.video.dradis').getSetting("trakt.token")
                         if not str(var.chk_accountmgr_tk) == str(chk_auth_dradis) or str(chk_auth_dradis) == '':
 
-                                with open(var.path_dradis,'r') as f:
-                                    data = f.read()
-
-                                client = data.replace(var.dradis_client,var.client_am).replace(var.dradis_secret,var.secret_am)
-
-                                with open(var.path_dradis,'w') as f:
-                                    f.write(client)
-
                                 addon = xbmcaddon.Addon("plugin.video.dradis")
+                                addon.setSetting("trakt.client_id", var.client_am)
+                                addon.setSetting("trakt.client_secret", var.secret_am)
                                 addon.setSetting("trakt.username", your_username)
                                 addon.setSetting("trakt.token", your_token)
                                 addon.setSetting("trakt.refresh", your_refresh)
                                 addon.setSetting("trakt.expires", your_expires)
                                 addon.setSetting("trakt.isauthed", 'true')
-                                accountmgr.setSetting("dradis_traktsync", 'true')
         except:
                 xbmc.log('%s: Dradis Trakt Failed!' % var.amgr, xbmc.LOGINFO)
-                pass
-
-    #Taz19
-        try:
-                if xbmcvfs.exists(var.chk_taz) and xbmcvfs.exists(var.chkset_taz):
-                        chk_auth_taz = xbmcaddon.Addon('plugin.video.taz19').getSetting("trakt.token")
-                        if not str(var.chk_accountmgr_tk) == str(chk_auth_taz) or str(chk_auth_taz) == '':
-
-                                with open(var.path_taz,'r') as f:
-                                    data = f.read()
-
-                                client = data.replace(var.taz_client,var.client_am)
-
-                                with open(var.path_taz,'w') as f:
-                                    f.write(client)
-                                
-                                addon = xbmcaddon.Addon("plugin.video.taz19")
-                                addon.setSetting("trakt_user", your_username)
-                                addon.setSetting("trakt.token", your_token)
-                                addon.setSetting("trakt.expires", your_expires)
-                                addon.setSetting("trakt_indicators_active", 'true')
-                                addon.setSetting("watched_indicators", '1')
-        except:
-                xbmc.log('%s: Taz Trakt Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
             
     #Shadow
@@ -401,35 +345,6 @@ class Auth:
         except:
                 xbmc.log('%s: Base Trakt Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
-            
-    #Unleashed
-        try:
-                if xbmcvfs.exists(var.chk_unleashed) and not xbmcvfs.exists(var.unleashed_ud):
-                        os.mkdir(var.unleashed_ud)
-                        xbmcvfs.copy(os.path.join(var.unleashed), os.path.join(var.chkset_unleashed))
-                        
-                if xbmcvfs.exists(var.chk_unleashed) and not xbmcvfs.exists(var.chkset_unleashed):
-                        xbmcvfs.copy(os.path.join(var.unleashed), os.path.join(var.chkset_unleashed))
-
-                if xbmcvfs.exists(var.chk_unleashed) and xbmcvfs.exists(var.chkset_unleashed):
-                        chk_auth_unleashed = xbmcaddon.Addon('plugin.video.unleashed').getSetting("trakt_access_token")
-                        if not str(var.chk_accountmgr_tk) == str(chk_auth_unleashed) or str(chk_auth_unleashed) == '':
-                                
-                                with open(var.path_unleashed,'r') as f:
-                                    data = f.read()
-
-                                client = data.replace(var.unleashed_client,var.client_am).replace(var.unleashed_secret,var.secret_am)
-
-                                with open(var.path_unleashed,'w') as f:
-                                    f.write(client)
-
-                                addon = xbmcaddon.Addon("plugin.video.unleashed")
-                                addon.setSetting("trakt_access_token", your_token)
-                                addon.setSetting("trakt_refresh_token", your_refresh)
-                                addon.setSetting("trakt_expires_at", your_expires)
-        except:
-                xbmc.log('%s: Unleashed Trakt Failed!' % var.amgr, xbmc.LOGINFO)
-                pass
         
     #Chain Reaction
         try:
@@ -458,35 +373,6 @@ class Auth:
                                 addon.setSetting("trakt_expires_at", your_expires)
         except:
                 xbmc.log('%s: Chain Reaction Trakt Failed!' % var.amgr, xbmc.LOGINFO)
-                pass
-           
-    #Magic Dragon
-        try:
-                if xbmcvfs.exists(var.chk_md) and not xbmcvfs.exists(var.md_ud):
-                        os.mkdir(var.md_ud)
-                        xbmcvfs.copy(os.path.join(var.md), os.path.join(var.chkset_md))
-                        
-                if xbmcvfs.exists(var.chk_md) and not xbmcvfs.exists(var.chkset_md):
-                        xbmcvfs.copy(os.path.join(var.md), os.path.join(var.chkset_md))
-
-                if xbmcvfs.exists(var.chk_md) and xbmcvfs.exists(var.chkset_md):
-                        chk_auth_md = xbmcaddon.Addon('plugin.video.magicdragon').getSetting("trakt_access_token")
-                        if not str(var.chk_accountmgr_tk) == str(chk_auth_md) or str(chk_auth_md) == '':
-                               
-                                with open(var.path_md,'r') as f:
-                                    data = f.read()
-
-                                client = data.replace(var.md_client,var.client_am).replace(var.md_secret,var.secret_am)
-
-                                with open(var.path_md,'w') as f:
-                                    f.write(client)
-
-                                addon = xbmcaddon.Addon("plugin.video.magicdragon")
-                                addon.setSetting("trakt_access_token", your_token)
-                                addon.setSetting("trakt_refresh_token", your_refresh)
-                                addon.setSetting("trakt_expires_at", your_expires)
-        except:
-                xbmc.log('%s: Magic Dragon Trakt Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
         
     #Asgard
@@ -604,6 +490,35 @@ class Auth:
         except:
                 xbmc.log('%s: Aliunde Trakt Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
+
+    #Nightwing Lite
+        try:
+                if xbmcvfs.exists(var.chk_night) and not xbmcvfs.exists(var.night_ud):
+                        os.mkdir(var.night_ud)
+                        xbmcvfs.copy(os.path.join(var.night), os.path.join(var.chkset_night))
+                        
+                if xbmcvfs.exists(var.chk_night) and not xbmcvfs.exists(var.chkset_night):
+                        xbmcvfs.copy(os.path.join(var.night), os.path.join(var.chkset_night))
+
+                if xbmcvfs.exists(var.chk_night) and xbmcvfs.exists(var.chkset_night):
+                        chk_auth_night = xbmcaddon.Addon('plugin.video.NightwingLite').getSetting("trakt_access_token")
+                        if not str(var.chk_accountmgr_tk) == str(chk_auth_night) or str(chk_auth_night) == '':
+                                
+                                with open(var.path_night,'r') as f:
+                                    data = f.read()
+
+                                client = data.replace(var.night_client,var.client_am).replace(var.night_secret,var.secret_am)
+
+                                with open(var.path_night,'w') as f:
+                                    f.write(client)
+
+                                addon = xbmcaddon.Addon("plugin.video.NightwingLite")
+                                addon.setSetting("trakt_access_token", your_token)
+                                addon.setSetting("trakt_refresh_token", your_refresh)
+                                addon.setSetting("trakt_expires_at", your_expires)
+        except:
+                xbmc.log('%s: Nightwing Lite Trakt Failed!' % var.amgr, xbmc.LOGINFO)
+                pass
             
     #Homelander
         try:
@@ -666,13 +581,19 @@ class Auth:
                         chk_auth_genocide = xbmcaddon.Addon('plugin.video.chainsgenocide').getSetting("trakt.token")
                         if not str(var.chk_accountmgr_tk) == str(chk_auth_genocide) or str(chk_auth_genocide) == '':
 
+                                with open(var.path_genocide,'r') as f:
+                                    data = f.read()
+
+                                client = data.replace(var.genocide_client,var.client_am).replace(var.genocide_secret,var.secret_am)
+
+                                with open(var.path_genocide,'w') as f:
+                                    f.write(client)
+                                    
                                 addon = xbmcaddon.Addon("plugin.video.chainsgenocide")
-                                addon.setSetting("trakt.user", your_username)
+                                addon.setSetting("trakt.username", your_username)
                                 addon.setSetting("trakt.token", your_token)
                                 addon.setSetting("trakt.refresh", your_refresh)
-                                addon.setSetting("trakt.authed", 'yes')
-                                addon.setSetting("trakt.client_id", var.client_am)
-                                addon.setSetting("trakt.client_secret", var.secret_am)
+                                addon.setSetting("trakt.isauthed", 'true')
         except:
                 xbmc.log('%s: Chains Genocide Trakt Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
@@ -777,30 +698,6 @@ class Auth:
         except:
                 xbmc.log('%s: Nightwing Trakt Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
-
-    #TheLab
-        try:
-                if xbmcvfs.exists(var.chk_lab) and not xbmcvfs.exists(var.lab_ud):
-                        os.mkdir(var.lab_ud)
-                        xbmcvfs.copy(os.path.join(var.lab), os.path.join(var.chkset_lab))
-                        
-                if xbmcvfs.exists(var.chk_lab) and not xbmcvfs.exists(var.chkset_lab):
-                        xbmcvfs.copy(os.path.join(var.lab), os.path.join(var.chkset_lab))
-
-                if xbmcvfs.exists(var.chk_lab) and xbmcvfs.exists(var.chkset_lab):
-                        chk_auth_lab = xbmcaddon.Addon('plugin.video.thelab').getSetting("trakt.token")
-                        if not str(var.chk_accountmgr_tk) == str(chk_auth_lab) or str(chk_auth_lab) == '':
-
-                                addon = xbmcaddon.Addon("plugin.video.thelab")
-                                addon.setSetting("trakt.user", your_username)
-                                addon.setSetting("trakt.token", your_token)
-                                addon.setSetting("trakt.refresh", your_refresh)
-                                addon.setSetting("trakt.authed", 'yes')
-                                addon.setSetting("trakt.client_id", var.client_am)
-                                addon.setSetting("trakt.client_secret", var.secret_am)
-        except:
-                xbmc.log('%s: TheLab Trakt Failed!' % var.amgr, xbmc.LOGINFO)
-                pass
             
     #Alvin
         try:
@@ -902,36 +799,6 @@ class Auth:
                                 addon.setSetting("trakt.authed", 'yes')
         except:
                 xbmc.log('%s: Scrubs V2 Trakt Failed!' % var.amgr, xbmc.LOGINFO)
-                pass
-
-    #TheLabjr
-        try:
-                if xbmcvfs.exists(var.chk_labjr) and not xbmcvfs.exists(var.labjr_ud):
-                        os.mkdir(var.labjr_ud)
-                        xbmcvfs.copy(os.path.join(var.labjr), os.path.join(var.chkset_labjr))
-                        
-                if xbmcvfs.exists(var.chk_labjr) and not xbmcvfs.exists(var.chkset_labjr):
-                        xbmcvfs.copy(os.path.join(var.labjr), os.path.join(var.chkset_labjr))
-
-                if xbmcvfs.exists(var.chk_labjr) and xbmcvfs.exists(var.chkset_labjr):
-                        chk_auth_labjr = xbmcaddon.Addon('plugin.video.thelabjr').getSetting("trakt.token")
-                        if not str(var.chk_accountmgr_tk) == str(chk_auth_labjr) or str(chk_auth_labjr) == '':
-
-                                with open(var.path_labjr,'r') as f:
-                                    data = f.read()
-
-                                client = data.replace(var.labjr_client,var.client_am).replace(var.labjr_secret,var.secret_am)
-
-                                with open(var.path_labjr,'w') as f:
-                                    f.write(client)
-
-                                addon = xbmcaddon.Addon("plugin.video.thelabjr")
-                                addon.setSetting("trakt.user", your_username)
-                                addon.setSetting("trakt.token", your_token)
-                                addon.setSetting("trakt.refresh", your_refresh)
-                                addon.setSetting("trakt.authed", 'yes')
-        except:
-                xbmc.log('%s: TheLabjr Trakt Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
             
     #TMDB Helper

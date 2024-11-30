@@ -61,7 +61,6 @@ class Auth:
                 xbmc.log('%s: Seren Real-Debrid Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
 
-
     #nxtflix RD
         try:
                 if xbmcvfs.exists(var.chk_nxtflix) and xbmcvfs.exists(var.chkset_nxtflix):
@@ -96,7 +95,6 @@ class Auth:
         except:
                 xbmc.log('%s: nxtflix Real-Debrid Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
-                
                 
     #Fen RD
         try:
@@ -244,41 +242,6 @@ class Auth:
                 xbmc.log('%s: afFENity Real-Debrid Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
 
-    #Ezra RD
-        try:
-                if xbmcvfs.exists(var.chk_ezra) and xbmcvfs.exists(var.chkset_ezra):
-                        chk_auth_ezra = xbmcaddon.Addon('plugin.video.ezra').getSetting("rd.token")
-                        chk_auth_ezra_pm = xbmcaddon.Addon('plugin.video.ezra').getSetting("pm.token")
-                        chk_auth_ezra_ad = xbmcaddon.Addon('plugin.video.ezra').getSetting("ad.token")
-                        if not str(var.chk_accountmgr_tk_rd) == str(chk_auth_ezra) or str(chk_auth_ezra) == '':
-
-                                addon = xbmcaddon.Addon("plugin.video.ezra")
-                                addon.setSetting("rd.username", your_rd_username)
-                                addon.setSetting("rd.token", your_rd_token)
-                                addon.setSetting("rd.client_id", your_rd_client_id)
-                                addon.setSetting("rd.refresh", your_rd_refresh)
-                                addon.setSetting("rd.secret", your_rd_secret)
-
-                                enabled_rd = ("true")
-                                addon.setSetting("rd.enabled", enabled_rd)
-
-                                if str(chk_auth_ezra_pm) != '':
-                                        enabled_pm = ("true")
-                                        addon.setSetting("pm.enabled", enabled_pm)
-                                else:
-                                        enabled_pm = ("false")
-                                        addon.setSetting("pm.enabled", enabled_pm)
-                        
-                                if str(chk_auth_ezra_ad) != '':
-                                        enabled_ad = ("true")
-                                        addon.setSetting("ad.enabled", enabled_ad)
-                                else:
-                                        enabled_ad = ("false")
-                                        addon.setSetting("ad.enabled", enabled_ad)
-        except:
-                xbmc.log('%s: Ezra Real-Debrid Failed!' % var.amgr, xbmc.LOGINFO)
-                pass
-
     #Coalition RD
         try:
                 if xbmcvfs.exists(var.chk_coal) and xbmcvfs.exists(var.chkset_coal):
@@ -385,15 +348,15 @@ class Auth:
                 xbmc.log('%s: Umbrella Real-Debrid Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
 
-    #OneMoar RD
+    #Infinity RD
         try:
-                if xbmcvfs.exists(var.chk_onem) and xbmcvfs.exists(var.chkset_onem):
-                        chk_auth_onem = xbmcaddon.Addon('plugin.video.onemoar').getSetting("realdebridtoken")
-                        chk_auth_onem_pm = xbmcaddon.Addon('plugin.video.onemoar').getSetting("premiumizetoken")
-                        chk_auth_onem_ad = xbmcaddon.Addon('plugin.video.onemoar').getSetting("alldebridtoken")
-                        if not str(var.chk_accountmgr_tk_rd) == str(chk_auth_onem) or str(chk_auth_onem) == '':
+                if xbmcvfs.exists(var.chk_infinity) and xbmcvfs.exists(var.chkset_infinity):
+                        chk_auth_infinity = xbmcaddon.Addon('plugin.video.infinity').getSetting("realdebridtoken")
+                        chk_auth_infinity_pm = xbmcaddon.Addon('plugin.video.infinity').getSetting("premiumizetoken")
+                        chk_auth_infinity_ad = xbmcaddon.Addon('plugin.video.infinity').getSetting("alldebridtoken")
+                        if not str(var.chk_accountmgr_tk_rd) == str(chk_auth_infinity) or str(chk_auth_infinity) == '':
                         
-                                addon = xbmcaddon.Addon("plugin.video.onemoar")
+                                addon = xbmcaddon.Addon("plugin.video.infinity")
                                 addon.setSetting("realdebridusername", your_rd_username)
                                 addon.setSetting("realdebridtoken", your_rd_token)
                                 addon.setSetting("realdebrid.clientid", your_rd_client_id)
@@ -404,21 +367,21 @@ class Auth:
                                 addon.setSetting("realdebrid.enable", enabled_rd)
 
                  
-                                if str(chk_auth_onem_pm) != '':
+                                if str(chk_auth_infinity_pm) != '':
                                         enabled_pm = ("true")
                                         addon.setSetting("premiumize.enable", enabled_pm)
                                 else:
                                         enabled_pm = ("false")
                                         addon.setSetting("premiumize.enable", enabled_pm)
 
-                                if str(chk_auth_onem_ad) != '':
+                                if str(chk_auth_infinity_ad) != '':
                                         enabled_ad = ("true")
                                         addon.setSetting("alldebrid.enable", enabled_ad)
                                 else:
                                         enabled_ad = ("false")
                                         addon.setSetting("alldebrid.enable", enabled_ad)
         except:
-                xbmc.log('%s: OneMoar Real-Debrid Failed!' % var.amgr, xbmc.LOGINFO)
+                xbmc.log('%s: Infinity Real-Debrid Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
             
      #Dradis RD
@@ -438,26 +401,6 @@ class Auth:
                                 addon.setSetting("realdebrid.enable", enabled_rd)
         except:
                 xbmc.log('%s: Dradis Real-Debrid Failed!' % var.amgr, xbmc.LOGINFO)
-                pass
-
-     #Taz RD
-        try:
-                if xbmcvfs.exists(var.chk_taz) and xbmcvfs.exists(var.chkset_taz):
-                        chk_auth_taz = xbmcaddon.Addon('plugin.video.taz19').getSetting("rd.token")
-                        if not str(var.chk_accountmgr_tk_rd) == str(chk_auth_taz) or str(chk_auth_taz) == '':
-
-                                addon = xbmcaddon.Addon("plugin.video.taz19")
-                                addon.setSetting("rd.username", your_rd_username)
-                                addon.setSetting("rd.token", your_rd_token)
-                                addon.setSetting("rd.auth", your_rd_token)
-                                addon.setSetting("rd.client_id", your_rd_client_id)
-                                addon.setSetting("rd.refresh", your_rd_refresh)
-                                addon.setSetting("rd.secret", your_rd_secret)
-                                
-                                enabled_rd = ("true")
-                                addon.setSetting("rd.enabled", enabled_rd)
-        except:
-                xbmc.log('%s: Taz Real-Debrid Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
             
     #Shadow RD
@@ -553,34 +496,6 @@ class Auth:
         except:
                 xbmc.log('%s: Base Real-Debrid Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
-            
-    #Unleashed RD
-        try:
-                if xbmcvfs.exists(var.chk_unleashed) and not xbmcvfs.exists(var.unleashed_ud):
-                        os.mkdir(var.unleashed_ud)
-                        xbmcvfs.copy(os.path.join(var.unleashed), os.path.join(var.chkset_unleashed))
-                        
-                if xbmcvfs.exists(var.chk_unleashed) and not xbmcvfs.exists(var.chkset_unleashed):
-                        xbmcvfs.copy(os.path.join(var.unleashed), os.path.join(var.chkset_unleashed))
-
-                if xbmcvfs.exists(var.chk_unleashed) and xbmcvfs.exists(var.chkset_unleashed):
-                        chk_auth_unleashed = xbmcaddon.Addon('plugin.video.unleashed').getSetting("rd.auth")
-                        if not str(var.chk_accountmgr_tk_rd) == str(chk_auth_unleashed) or str(chk_auth_unleashed) == '':
-
-                                addon = xbmcaddon.Addon("plugin.video.unleashed")
-                                addon.setSetting("rd.auth", your_rd_token)
-                                addon.setSetting("rd.client_id", your_rd_client_id)
-                                addon.setSetting("rd.refresh", your_rd_refresh)
-                                addon.setSetting("rd.secret", your_rd_secret)
-                                
-                                d_use = ("true")
-                                addon.setSetting("debrid_use", d_use)
-                                
-                                d_select = ("0")
-                                addon.setSetting("debrid_select", d_select)
-        except:
-                xbmc.log('%s: Unleashed Real-Debrid Failed!' % var.amgr, xbmc.LOGINFO)
-                pass
 
     #Chains RD
         try:
@@ -608,62 +523,6 @@ class Auth:
                                 addon.setSetting("debrid_select", d_select)
         except:
                 xbmc.log('%s: Chains Real-Debrid Failed!' % var.amgr, xbmc.LOGINFO)
-                pass
-
-    #Twisted RD
-        try:
-                if xbmcvfs.exists(var.chk_twisted) and not xbmcvfs.exists(var.twisted_ud):
-                        os.mkdir(var.twisted_ud)
-                        xbmcvfs.copy(os.path.join(var.twisted), os.path.join(var.chkset_twisted))
-                        
-                if xbmcvfs.exists(var.chk_twisted) and not xbmcvfs.exists(var.chkset_twisted):
-                        xbmcvfs.copy(os.path.join(var.twisted), os.path.join(var.chkset_twisted))
-
-                if xbmcvfs.exists(var.chk_twisted) and xbmcvfs.exists(var.chkset_twisted):
-                        chk_auth_twisted = xbmcaddon.Addon('plugin.video.twisted').getSetting("rd.auth")
-                        if not str(var.chk_accountmgr_tk_rd) == str(chk_auth_twisted) or str(chk_auth_twisted) == '':
-
-                                addon = xbmcaddon.Addon("plugin.video.twisted")
-                                addon.setSetting("rd.auth", your_rd_token)
-                                addon.setSetting("rd.client_id", your_rd_client_id)
-                                addon.setSetting("rd.refresh", your_rd_refresh)
-                                addon.setSetting("rd.secret", your_rd_secret)
-
-                                d_use = ("true")
-                                addon.setSetting("debrid_use", d_use)
-                                
-                                d_select = ("0")
-                                addon.setSetting("debrid_select", d_select)
-        except:
-                xbmc.log('%s: Twisted Real-Debrid Failed!' % var.amgr, xbmc.LOGINFO)
-                pass
-            
-    #Magic Dragon RD
-        try:
-                if xbmcvfs.exists(var.chk_md) and not xbmcvfs.exists(var.md_ud):
-                        os.mkdir(var.md_ud)
-                        xbmcvfs.copy(os.path.join(var.md), os.path.join(var.chkset_md))
-                        
-                if xbmcvfs.exists(var.chk_md) and not xbmcvfs.exists(var.chkset_md):
-                        xbmcvfs.copy(os.path.join(var.md), os.path.join(var.chkset_md))
-
-                if xbmcvfs.exists(var.chk_md) and xbmcvfs.exists(var.chkset_md):
-                        chk_auth_md = xbmcaddon.Addon('plugin.video.magicdragon').getSetting("rd.auth")
-                        if not str(var.chk_accountmgr_tk_rd) == str(chk_auth_md) or str(chk_auth_md) == '':
-
-                                addon = xbmcaddon.Addon("plugin.video.magicdragon")
-                                addon.setSetting("rd.auth", your_rd_token)
-                                addon.setSetting("rd.client_id", your_rd_client_id)
-                                addon.setSetting("rd.refresh", your_rd_refresh)
-                                addon.setSetting("rd.secret", your_rd_secret)
-
-                                d_use = ("true")
-                                addon.setSetting("debrid_use", d_use)
-                                
-                                d_select = ("0")
-                                addon.setSetting("debrid_select", d_select)
-        except:
-                xbmc.log('%s: Magic Dragon Real-Debrid Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
 
     #Asgard RD
@@ -829,6 +688,70 @@ class Auth:
                 xbmc.log('%s: Aliunde Real-Debrid Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
 
+    #Nightwing Lite RD
+        try:
+                if xbmcvfs.exists(var.chk_night) and not xbmcvfs.exists(var.night_ud):
+                        os.mkdir(var.night_ud)
+                        xbmcvfs.copy(os.path.join(var.night), os.path.join(var.chkset_night))
+                        
+                if xbmcvfs.exists(var.chk_night) and not xbmcvfs.exists(var.chkset_night):
+                        xbmcvfs.copy(os.path.join(var.night), os.path.join(var.chkset_night))
+
+                if xbmcvfs.exists(var.chk_night) and xbmcvfs.exists(var.chkset_night):
+                        chk_auth_night = xbmcaddon.Addon('plugin.video.NightwingLite').getSetting("rd.auth")
+                        chk_auth_night_pm = xbmcaddon.Addon('plugin.video.NightwingLite').getSetting("premiumize.token")
+                        chk_auth_night_ad = xbmcaddon.Addon('plugin.video.NightwingLite').getSetting("alldebrid.token")
+                        if not str(var.chk_accountmgr_tk_rd) == str(chk_auth_night) or str(chk_auth_night) == '':
+
+                                addon = xbmcaddon.Addon("plugin.video.NightwingLite")
+                                addon.setSetting("rd.auth", your_rd_token)
+                                addon.setSetting("rd.client_id", your_rd_client_id)
+                                addon.setSetting("rd.refresh", your_rd_refresh)
+                                addon.setSetting("rd.secret", your_rd_secret)
+
+                                rd_use = ("true")
+                                addon.setSetting("debrid_use_rd", rd_use)
+
+                                if str(chk_auth_night_pm) != '':
+                                        pm_use = ("true")
+                                        addon.setSetting("debrid_use_pm", pm_use)
+                                else:
+                                        pm_use = ("false")
+                                        addon.setSetting("debrid_use_pm", pm_use)
+                                        
+                                if str(chk_auth_night_ad) != '':
+                                        ad_use = ("true")
+                                        addon.setSetting("debrid_use_ad", ad_use)
+                                else:
+                                        ad_use = ("false")
+                                        addon.setSetting("debrid_use_ad", ad_use)
+        except:
+                xbmc.log('%s: Nightwing Lite Real-Debrid Failed!' % var.amgr, xbmc.LOGINFO)
+                pass
+
+    #Chains Genocide RD
+        try:
+                if xbmcvfs.exists(var.chk_genocide) and not xbmcvfs.exists(var.genocide_ud):
+                        os.mkdir(var.genocide_ud)
+                        xbmcvfs.copy(os.path.join(var.genocide), os.path.join(var.chkset_genocide))
+                        
+                if xbmcvfs.exists(var.chk_genocide) and not xbmcvfs.exists(var.chkset_genocide):
+                        xbmcvfs.copy(os.path.join(var.genocide), os.path.join(var.chkset_genocide))
+                        
+                if xbmcvfs.exists(var.chk_genocide) and xbmcvfs.exists(var.chkset_genocide):
+                        chk_auth_genocide = xbmcaddon.Addon('plugin.video.chainsgenocide').getSetting("realdebrid.token")
+                        if not str(var.chk_accountmgr_tk_rd) == str(chk_auth_genocide) or str(chk_auth_genocide) == '':
+
+                                addon = xbmcaddon.Addon("plugin.video.chainsgenocide")
+                                addon.setSetting("realdebrid.username", your_rd_username)
+                                addon.setSetting("realdebrid.token", your_rd_token)
+                                addon.setSetting("realdebrid.client_id", your_rd_client_id)
+                                addon.setSetting("realdebrid.refresh", your_rd_refresh)
+                                addon.setSetting("realdebrid.secret", your_rd_secret)
+        except:
+                xbmc.log('%s: Chains Genocide Real-Debrid Failed!' % var.amgr, xbmc.LOGINFO)
+                pass
+            
      #Otaku RD
         try:
                 if xbmcvfs.exists(var.chk_otaku) and not xbmcvfs.exists(var.otaku_ud):

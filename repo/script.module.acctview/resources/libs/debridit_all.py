@@ -17,25 +17,21 @@ ORDER = ['seren',
          'fen',
          'fenlt',
          'affen',
-         'ezra',
          'coal',
          'pov',
          'umb',
-         'onem',
+         'infinity',
          'dradis',
-         'taz',
          'shadow',
          'ghost',
          'base',
-         'unleashed',
          'chains',
-         'twisted',
-         'md',
          'asgard',
          'patriot',
          'blackl',
          'metv',
          'aliunde',
+         'nightlite',
          'otaku',
          'acctmgr',
          'allact',
@@ -113,20 +109,6 @@ DEBRIDID = {
         'default_ad'  : 'ad.account_id',
         'data'     : [],
         'activate' : 'Addon.OpenSettings(plugin.video.affenity)'},
-    'ezra': {
-        'name'     : 'Ezra',
-        'plugin'   : 'plugin.video.ezra',
-        'saved'    : 'ezra',
-        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.ezra'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.ezra', 'icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.ezra', 'fanart.png'),
-        'file'     : os.path.join(CONFIG.DEBRIDFOLD, 'ezra'),
-        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.ezra', 'settings.xml'),
-        'default_rd'  : 'rd.username',
-        'default_pm'  : 'pm.account_id',
-        'default_ad'  : 'ad.account_id',
-        'data'     : [],
-        'activate' : 'Addon.OpenSettings(plugin.video.ezra)'},
     'coal': {
         'name'     : 'The Coalition',
         'plugin'   : 'plugin.video.coalition',
@@ -169,20 +151,20 @@ DEBRIDID = {
         'default_ad'  : 'alldebridusername',
         'data'     : [],
         'activate' : 'Addon.OpenSettings(plugin.video.umbrella)'},
-    'onem': {
-        'name'     : 'OneMoar',
-        'plugin'   : 'plugin.video.onemoar',
-        'saved'    : 'onem',
-        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.onemoar'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.onemoar', 'icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.onemoar', 'fanart.jpg'),
-        'file'     : os.path.join(CONFIG.DEBRIDFOLD, 'onem'),
-        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.onemoar', 'settings.xml'),
+    'infinity': {
+        'name'     : 'Infinity',
+        'plugin'   : 'plugin.video.infinity',
+        'saved'    : 'infinity',
+        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.infinity'),
+        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.infinity/resources/media/', 'icon.png'),
+        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.infinity', 'fanart.jpg'),
+        'file'     : os.path.join(CONFIG.DEBRIDFOLD, 'infinity'),
+        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.infinity', 'settings.xml'),
         'default_rd'  : 'realdebridusername',
         'default_pm'  : 'premiumizeusername',
         'default_ad'  : 'alldebridusername',
         'data'     : [],
-        'activate' : 'Addon.OpenSettings(plugin.video.onemoar)'},
+        'activate' : 'Addon.OpenSettings(plugin.video.infinity)'},
     'dradis': {
         'name'     : 'Dradis',
         'plugin'   : 'plugin.video.dradis',
@@ -197,20 +179,6 @@ DEBRIDID = {
         'default_ad'  : 'alldebrid.username',
         'data'     : [],
         'activate' : 'Addon.OpenSettings(plugin.video.dradis)'},
-    'taz': {
-        'name'     : 'Taz19',
-        'plugin'   : 'plugin.video.taz19',
-        'saved'    : 'taz',
-        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.taz19'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.taz19', 'icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.taz19', 'fanart.jpg'),
-        'file'     : os.path.join(CONFIG.DEBRIDFOLD, 'taz'),
-        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.taz19', 'settings.xml'),
-        'default_rd'  : 'rd.client_id',
-        'default_pm'  : 'pm.account_id',
-        'default_ad'  : 'ad.account_id',
-        'data'     : [],
-        'activate' : 'Addon.OpenSettings(plugin.video.taz19)'},
     'shadow': {
         'name'     : 'Shadow',
         'plugin'   : 'plugin.video.shadow',
@@ -253,20 +221,6 @@ DEBRIDID = {
         'default_ad'  : 'alldebrid.username',
         'data'     : [],
         'activate' : 'Addon.OpenSettings(plugin.video.ghost)'},
-    'unleashed': {
-        'name'     : 'Unleashed',
-        'plugin'   : 'plugin.video.unleashed',
-        'saved'    : 'unleashed',
-        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.unleashed'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.unleashed', 'icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.unleashed', 'fanart.jpg'),
-        'file'     : os.path.join(CONFIG.DEBRIDFOLD, 'unleashed'),
-        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.unleashed', 'settings.xml'),
-        'default_rd'  : 'rd.client_id',
-        'default_pm'  : 'premiumize.token',
-        'default_ad'  : 'alldebrid.username',
-        'data'     : [],
-        'activate' : 'Addon.OpenSettings(plugin.video.unleashed)'},
     'chains': {
         'name'     : 'Chains Reaction',
         'plugin'   : 'plugin.video.thechains',
@@ -281,34 +235,6 @@ DEBRIDID = {
         'default_ad'  : 'alldebrid.username',
         'data'     : [],
         'activate' : 'Addon.OpenSettings(plugin.video.thechains)'},
-    'twisted': {
-        'name'     : 'Twisted',
-        'plugin'   : 'plugin.video.twisted',
-        'saved'    : 'twisted',
-        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.twisted'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.twisted', 'icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.twisted', 'fanart.jpg'),
-        'file'     : os.path.join(CONFIG.DEBRIDFOLD, 'twisted'),
-        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.twisted', 'settings.xml'),
-        'default_rd'  : 'rd.client_id',
-        'default_pm'  : 'premiumize.token',
-        'default_ad'  : 'alldebrid.username',
-        'data'     : [],
-        'activate' : 'Addon.OpenSettings(plugin.video.twisted)'},
-    'md': {
-        'name'     : 'Magic Dragon',
-        'plugin'   : 'plugin.video.magicdragon',
-        'saved'    : 'md',
-        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.magicdragon'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.magicdragon', 'icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.magicdragon', 'fanart.jpg'),
-        'file'     : os.path.join(CONFIG.DEBRIDFOLD, 'md'),
-        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.magicdragon', 'settings.xml'),
-        'default_rd'  : 'rd.client_id',
-        'default_pm'  : 'premiumize.token',
-        'default_ad'  : 'alldebrid.username',
-        'data'     : [],
-        'activate' : 'Addon.OpenSettings(plugin.video.magicdragon)'},
     'asgard': {
         'name'     : 'Asgard',
         'plugin'   : 'plugin.video.asgard',
@@ -367,7 +293,7 @@ DEBRIDID = {
         'activate' : 'Addon.OpenSettings(plugin.video.metv19)'},
     'aliunde': {
         'name'     : 'Aliunde K19',
-        'plugin'   : 'plugin.video.aliunde',
+        'plugin'   : 'plugin.video.aliundek19',
         'saved'    : 'aliunde',
         'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.aliundek19'),
         'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.aliundek19', 'icon.png'),
@@ -379,6 +305,20 @@ DEBRIDID = {
         'default_ad'  : 'alldebrid.username',
         'data'     : [],
         'activate' : 'Addon.OpenSettings(plugin.video.aliundek19)'},
+    'nightlite': {
+        'name'     : 'Nightwing Lite',
+        'plugin'   : 'plugin.video.NightwingLite',
+        'saved'    : 'nightlite',
+        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.NightwingLite'),
+        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.NightwingLite', 'icon.png'),
+        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.NightwingLite', 'fanart.jpg'),
+        'file'     : os.path.join(CONFIG.DEBRIDFOLD, 'nightlite'),
+        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.NightwingLite', 'settings.xml'),
+        'default_rd'  : 'rd.client_id',
+        'default_pm'  : 'premiumize.token',
+        'default_ad'  : 'alldebrid.username',
+        'data'     : [],
+        'activate' : 'Addon.OpenSettings(plugin.video.NightwingLite)'},
     'otaku': {
         'name'     : 'Otaku',
         'plugin'   : 'plugin.video.otaku',
@@ -507,7 +447,7 @@ def debrid_user_rd(who):
             if os.path.exists(DEBRIDID[who]['path']):
                 try:
                     add = tools.get_addon_by_id(DEBRIDID[who]['plugin'])
-                    user_rd = add.getSetting(DEBRIDID[who]['default_rd'])
+                    user_rd = add.getSetting(DEBRIDID[who]['default'])
                 except:
                     pass
     return user_rd
@@ -555,7 +495,7 @@ def debrid_user_pm(who):
             if os.path.exists(DEBRIDID[who]['path']):
                 try:
                     add = tools.get_addon_by_id(DEBRIDID[who]['plugin'])
-                    user_pm = add.getSetting(DEBRIDID[who]['default_pm'])
+                    user_pm = add.getSetting(DEBRIDID[who]['default'])
                 except:
                     pass
     return user_pm
@@ -603,7 +543,7 @@ def debrid_user_ad(who):
             if os.path.exists(DEBRIDID[who]['path']):
                 try:
                     add = tools.get_addon_by_id(DEBRIDID[who]['plugin'])
-                    user_ad = add.getSetting(DEBRIDID[who]['default_ad'])
+                    user_ad = add.getSetting(DEBRIDID[who]['default'])
                 except:
                     pass
     return user_ad
