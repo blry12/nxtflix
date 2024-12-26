@@ -1,3 +1,7 @@
+[COLOR red][B]Version 1.0.29[/B][/COLOR]
+- Fix for Python 3.12 breaking module detection.
+- Fix for some regular expressions in source_utils and cleantitle.
+
 [COLOR red][B]Version 1.0.28[/B][/COLOR]
 - Fix for change in comet result format.
 
