@@ -111,39 +111,39 @@ class Auth:
                         xbmc.log('%s: Fen Metadata Failed!' % var.amgr, xbmc.LOGINFO)
                         pass
 
-        #Fen Light
+        #NXTFlix Light
                 try:
-                        if xbmcvfs.exists(var.chk_fenlt) and xbmcvfs.exists(var.chkset_fenlt): #Check that the addon is installed and settings.db exists
+                        if xbmcvfs.exists(var.chk_nxtflixlt) and xbmcvfs.exists(var.chkset_nxtflixlt): #Check that the addon is installed and settings.db exists
                             
                             #Create database connection
                             from accountmgr.modules import meta_db
-                            conn = meta_db.create_conn(var.fenlt_settings_db)
+                            conn = meta_db.create_conn(var.nxtflixlt_settings_db)
                             
                             #Get OMDb add-on settings to compare
                             with conn:
                                 cursor = conn.cursor()
                                 cursor.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('omdb_api',))
                                 auth_omdb = cursor.fetchone()
-                                chk_auth_fenlt_omdb = str(auth_omdb)
+                                chk_auth_nxtflixlt_omdb = str(auth_omdb)
 
                                 cursor.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('tmdb_api',))
                                 auth_tmdb = cursor.fetchone()
-                                chk_auth_fenlt_tmdb = str(auth_tmdb)
+                                chk_auth_nxtflixlt_tmdb = str(auth_tmdb)
                                 
                                 #Clean up database results
                                 for char in char_remov:
-                                    chk_auth_fenlt_omdb = chk_auth_fenlt_omdb.replace(char, "")
+                                    chk_auth_nxtflixlt_omdb = chk_auth_nxtflixlt_omdb.replace(char, "")
 
                                 for char in char_remov:
-                                    chk_auth_fenlt_tmdb = chk_auth_fenlt_tmdb.replace(char, "")
+                                    chk_auth_nxtflixlt_tmdb = chk_auth_nxtflixlt_tmdb.replace(char, "")
                                     
-                                if str(var.chk_accountmgr_omdb) != chk_auth_fenlt_omdb or str(var.chk_accountmgr_tmdb) != chk_auth_fenlt_tmdb: #Compare Account Mananger data to Add-on data. If they match, authorization is skipped
+                                if str(var.chk_accountmgr_omdb) != chk_auth_nxtflixlt_omdb or str(var.chk_accountmgr_tmdb) != chk_auth_nxtflixlt_tmdb: #Compare Account Mananger data to Add-on data. If they match, authorization is skipped
                                     
                                     #Write settings to database
                                     from accountmgr.modules import meta_db
-                                    meta_db.auth_fenlt_meta()
+                                    meta_db.auth_nxtflixlt_meta()
                 except:
-                        xbmc.log('%s: Fen Light Metadata Failed!' % var.amgr, xbmc.LOGINFO)
+                        xbmc.log('%s: NXTFlix Light Metadata Failed!' % var.amgr, xbmc.LOGINFO)
                         pass
 
         #afFENity

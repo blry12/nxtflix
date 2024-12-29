@@ -35,9 +35,9 @@ def traktSecret():
 
 def rm_traktcache():
         if setting('rm_traktcache')=='true':
-                if os.path.exists(os.path.join(fenlt_trakt_db)):
+                if os.path.exists(os.path.join(nxtflixlt_trakt_db)):
                         try:
-                                os.unlink(os.path.join(fenlt_trakt_db))
+                                os.unlink(os.path.join(nxtflixlt_trakt_db))
                         except OSError:
                                 pass
                 if os.path.exists(os.path.join(affen_trakt_db)):
@@ -86,23 +86,23 @@ easy_backup = translatePath(backup_path) + 'easynews/'
 file_backup = translatePath(backup_path) + 'filepursuit/'
 meta_backup = translatePath(backup_path) + 'meta/'
 
-#Fen Light Database Paths
-fen_lt_path = os.path.join(user_path, 'addon_data/plugin.video.fenlight/databases')
-fenlt_settings_db = os.path.join(fen_lt_path,'settings.db')
-fenlt_traktcache = os.path.join(user_path, 'addon_data/plugin.video.fenlight/databases')
-fenlt_trakt_db = os.path.join(fenlt_traktcache,'traktcache.db')
+#NXTFlix Light Database Paths
+nxtflix_lt_path = os.path.join(user_path, 'addon_data/plugin.video.nxtflixlight/databases')
+nxtflixlt_settings_db = os.path.join(nxtflix_lt_path,'settings.db')
+nxtflixlt_traktcache = os.path.join(user_path, 'addon_data/plugin.video.nxtflixlight/databases')
+nxtflixlt_trakt_db = os.path.join(nxtflixlt_traktcache,'traktcache.db')
 
-#Fen Light Backup Paths
-rd_backup_fenlt = os.path.join(rd_backup,'fenlt_rd.db')
-pm_backup_fenlt = os.path.join(pm_backup,'fenlt_pm.db')
-ad_backup_fenlt = os.path.join(ad_backup,'fenlt_ad.db')
-trakt_backup_fenlt = os.path.join(trakt_backup,'fenlt_trakt.db')
-meta_backup_fenlt = os.path.join(meta_backup,'fenlt_meta.db')
-easy_backup_fenlt = os.path.join(easy_backup,'fenlt_easy.db')
+#NXTFlix Light Backup Paths
+rd_backup_nxtflixlt = os.path.join(rd_backup,'nxtflixlt_rd.db')
+pm_backup_nxtflixlt = os.path.join(pm_backup,'nxtflixlt_pm.db')
+ad_backup_nxtflixlt = os.path.join(ad_backup,'nxtflixlt_ad.db')
+trakt_backup_nxtflixlt = os.path.join(trakt_backup,'nxtflixlt_trakt.db')
+meta_backup_nxtflixlt = os.path.join(meta_backup,'nxtflixlt_meta.db')
+easy_backup_nxtflixlt = os.path.join(easy_backup,'nxtflixlt_easy.db')
 
 #afFEnity Database Paths
-affen_lt_path = os.path.join(user_path, 'addon_data/plugin.video.affenity/databases')
-affen_settings_db = os.path.join(affen_lt_path,'settings.db')
+afnxtflix_lt_path = os.path.join(user_path, 'addon_data/plugin.video.affenity/databases')
+affen_settings_db = os.path.join(afnxtflix_lt_path,'settings.db')
 affen_traktcache = addon_data + translatePath('plugin.video.affenity/databases')
 affen_trakt_db = os.path.join(affen_traktcache,'traktcache.db')
 
@@ -169,7 +169,7 @@ pvr = xmls + translatePath('script.module.pvr.artwork/settings.xml')
 chk_seren = addons + translatePath('plugin.video.seren/')
 chk_nxtflix = addons + translatePath('plugin.video.nxtflix/')
 chk_fen = addons + translatePath('plugin.video.fen/')
-chk_fenlt = addons + translatePath('plugin.video.fenlight/')
+chk_nxtflixlt = addons + translatePath('plugin.video.nxtflixlight/')
 chk_affen = addons + translatePath('plugin.video.affenity/')
 chk_coal = addons + translatePath('plugin.video.coalition/')
 chk_pov = addons + translatePath('plugin.video.pov/')
@@ -257,7 +257,7 @@ pvr_ud = addon_data + translatePath('script.module.pvr.artwork/')
 chkset_seren = addon_data + translatePath('plugin.video.seren/settings.xml')
 chkset_nxtflix = addon_data + translatePath('plugin.video.nxtflix/settings.xml')
 chkset_fen = addon_data + translatePath('plugin.video.fen/settings.xml')
-chkset_fenlt = addon_data + translatePath('plugin.video.fenlight/databases/settings.db')
+chkset_nxtflixlt = addon_data + translatePath('plugin.video.nxtflixlight/databases/settings.db')
 chkset_affen = addon_data + translatePath('plugin.video.affenity/databases/settings.db')
 chkset_coal = addon_data + translatePath('plugin.video.coalition/settings.xml')
 chkset_pov = addon_data + translatePath('plugin.video.pov/settings.xml')
@@ -325,12 +325,12 @@ path_trakt = addons + translatePath('script.trakt/resources/lib/traktapi.py')
 #Trakt API Keys
 seren_client = '0c9a30819e4af6ffaf3b954cbeae9b54499088513863c03c02911de00ac2de79'
 seren_secret = 'bf02417f27b514cee6a8d135f2ddc261a15eecfb6ed6289c36239826dcdd1842'
-nxtflix_client = '4a479b95c8224999eef8d418cfe6c7a4389e2837441672c48c9c8168ea42a407'
+nxtflix_client = '793fda23d5ab3f352dc5856e5aa3a43c150402406cadf81a419bce23fab15e46'
 fen_client = '645b0f46df29d27e63c4a8d5fff158edd0bef0a6a5d32fc12c1b82388be351af'
-nxtflix_secret = '89d8f8f71b312985a9e1f91e9eb426e23050102734bb1fa36ec76cdc74452ab6'
+nxtflix_secret = '2cc8aaac698563a9ad5d3be4cceb2a02543fc12b600c191d37565acfb2b5fdc2'
 fen_secret = '422a282ef5fe4b5c47bc60425c009ac3047ebd10a7f6af790303875419f18f98'
-fenlt_client = '1038ef327e86e7f6d39d80d2eb5479bff66dd8394e813c5e0e387af0f84d89fb'
-fenlt_secret = '8d27a92e1d17334dae4a0590083a4f26401cb8f721f477a79fd3f218f8534fd1'
+nxtflixlt_client = '793fda23d5ab3f352dc5856e5aa3a43c150402406cadf81a419bce23fab15e46'
+nxtflixlt_secret = '2cc8aaac698563a9ad5d3be4cceb2a02543fc12b600c191d37565acfb2b5fdc2'
 affen_client = 'd4161a7a106424551add171e5470112e4afdaf2438e6ef2fe0548edc75924868'
 affen_secret = 'b5fcd7cb5d9bb963784d11bbf8535bc0d25d46225016191eb48e50792d2155c0'
 coal_client = '19849909a0f8c9dc632bc5f5c7ccafd19f3e452e2e44fee05b83fd5dc1e77675'
@@ -376,7 +376,7 @@ trakt_secret = 'b5fcd7cb5d9bb963784d11bbf8535bc0d25d46225016191eb48e50792d2155c0
 nxtflix_fan = 'fa836e1c874ba95ab08a14ee88e05565'
 fen_fan = 'fa836e1c874ba95ab08a14ee88e05565'
 fen_tmdb = 'b370b60447737762ca38457bd77579b3'
-fenlt_tmdb = 'b370b60447737762ca38457bd77579b3'
+nxtflixlt_tmdb = '76067629fab243b989a68881eb1f63ef'
 coal_fan = '598515b970d81280063107d49d0e2558"'
 coal_tmdb = '74f3ce931d65ebda1f77ef24eac2625f'
 pov_fan = 'fe073550acf157bdb8a4217f215c0882'

@@ -21,7 +21,7 @@ addons = translatePath('special://home/addons/')
 ORDER = ['serenrd',
          'nxtflixrd',
          'fenrd',
-         'fenltrd',
+         'nxtflixltrd',
          'affenrd',
          'coalrd',
          'povrd',
@@ -82,18 +82,18 @@ DEBRIDID = {
         'default'  : 'rd.account_id',
         'data'     : ['rd.client_id', 'rd.refresh', 'rd.secret', 'rd.token', 'rd.account_id', 'rd.enabled'],
         'activate' : 'Addon.OpenSettings(plugin.video.fen)'},
-    'fenltrd': {
-        'name'     : 'Fen Light',
-        'plugin'   : 'plugin.video.fenlight',
-        'saved'    : 'fenltrd',
-        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.fenlight'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.fenlight/resources/media/', 'fenlight_icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.fenlight/resources/media/', 'fenlight_fanart.png'),
-        'file'     : os.path.join(CONFIG.DEBRIDFOLD_RD, 'fenlt_rd'),
-        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.fenlight/databases', 'settings.db'),
+    'nxtflixltrd': {
+        'name'     : 'NXTFlix Light',
+        'plugin'   : 'plugin.video.nxtflixlight',
+        'saved'    : 'nxtflixltrd',
+        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight'),
+        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight/resources/media/', 'fenlight_icon.png'),
+        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight/resources/media/', 'fenlight_fanart.png'),
+        'file'     : os.path.join(CONFIG.DEBRIDFOLD_RD, 'nxtflixlt_rd'),
+        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.nxtflixlight/databases', 'settings.db'),
         'default'  : '',
         'data'     : [],
-        'activate' : 'Addon.OpenSettings(plugin.video.fenlight)'},
+        'activate' : 'Addon.OpenSettings(plugin.video.nxtflixlight)'},
     'affenrd': {
         'name'     : 'afFENity',
         'plugin'   : 'plugin.video.affenity',
@@ -377,10 +377,10 @@ def debrid_user(who):
     user = None
     if DEBRIDID[who]:
         name = DEBRIDID[who]['name']
-        if os.path.exists(DEBRIDID[who]['path']) and name == 'Fen Light':
+        if os.path.exists(DEBRIDID[who]['path']) and name == 'NXTFlix Light':
             try:
                 # Create database connection
-                conn = create_conn(var.fenlt_settings_db)
+                conn = create_conn(var.nxtflixlt_settings_db)
                 with conn:
                     cur = conn.cursor()
                     cur.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('rd.token',)) #Get setting to compare
@@ -393,7 +393,7 @@ def debrid_user(who):
                         user = user_data #Return if authorized
                     cur.close()
             except:
-                xbmc.log('%s: Debridit_rd Fen Light Failed!' % var.amgr, xbmc.LOGINFO)
+                xbmc.log('%s: Debridit_rd NXTFlix Light Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
         elif os.path.exists(DEBRIDID[who]['path']) and name == 'afFENity':
             try:

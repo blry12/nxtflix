@@ -15,7 +15,7 @@ from resources.libs.common import var
 
 ORDER = ['nxtflix',
          'fen',
-         'fenlt',
+         'nxtflixlt',
          'affen',
          'coal',
          'pov',
@@ -52,18 +52,18 @@ EASYID = {
         'default'  : 'easynews_user',
         'data'     : ['provider.easynews', 'easynews_user', 'easynews_password', 'easynews.use_custom_farm', 'easynews.server_name', 'easynews.title_filter', 'easynews.filter_lang', 'en.priority', 'easynews.lang_filters', 'check.easynews'],
         'activate' : 'Addon.OpenSettings(plugin.video.fen)'},
-    'fenlt': {
-        'name'     : 'Fen Light',
-        'plugin'   : 'plugin.video.fenlight',
-        'saved'    : 'fenlt',
-        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.fenlight'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.fenlight/resources/media/', 'fenlight_icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.fenlight/resources/media/', 'fenlight_fanart.png'),
-        'file'     : os.path.join(CONFIG.EASYFOLD, 'fenlt_easy'),
-        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.fenlight/databases', 'settings.db'),
+    'nxtflixlt': {
+        'name'     : 'NXTFlix Light',
+        'plugin'   : 'plugin.video.nxtflixlight',
+        'saved'    : 'nxtflixlt',
+        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight'),
+        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight/resources/media/', 'fenlight_icon.png'),
+        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight/resources/media/', 'fenlight_fanart.png'),
+        'file'     : os.path.join(CONFIG.EASYFOLD, 'nxtflixlt_easy'),
+        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.nxtflixlight/databases', 'settings.db'),
         'default'    : '',
         'data'     : [],
-        'activate' : 'Addon.OpenSettings(plugin.video.fenlight)'},
+        'activate' : 'Addon.OpenSettings(plugin.video.nxtflixlight)'},
     'affen': {
         'name'     : 'afFENity',
         'plugin'   : 'plugin.video.affenity',
@@ -203,10 +203,10 @@ def easy_user(who):
     user_easy = None
     if EASYID[who]:
         name = EASYID[who]['name']
-        if os.path.exists(EASYID[who]['path']) and name == 'Fen Light':
+        if os.path.exists(EASYID[who]['path']) and name == 'NXTFlix Light':
             try:
                 # Create database connection
-                conn = create_conn(var.fenlt_settings_db)
+                conn = create_conn(var.nxtflixlt_settings_db)
                 with conn:
                     cur = conn.cursor()
                     cur.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('easynews_user',)) #Get setting to compare
@@ -219,7 +219,7 @@ def easy_user(who):
                         user_easy = user_data #Return if authorized
                     cur.close()
             except:
-                xbmc.log('%s: Easyit Fen Light Failed!' % var.amgr, xbmc.LOGINFO)
+                xbmc.log('%s: Easyit NXTFlix Light Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
         elif os.path.exists(EASYID[who]['path']) and name == 'afFENity':
             try:
@@ -338,7 +338,7 @@ def update_easy(do, who):
             logging.log('Easynews Info Not Found for {0}'.format(name))
     elif do == 'clearaddon':
         logging.log('{0} SETTINGS: {1}'.format(name, settings))
-        if name == 'Fen Light':
+        if name == 'NXTFlix Light':
             pass
         else:
             if os.path.exists(settings):

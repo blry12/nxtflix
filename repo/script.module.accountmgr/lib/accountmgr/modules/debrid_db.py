@@ -225,11 +225,11 @@ def disable_ad(conn, setting):
 ######################################################################
 ######################################################################    
 ######################################################################
-########################## Auth Fen Light RD #########################
-def auth_fenlt_rd():
+########################## Auth NXTFlix Light RD #########################
+def auth_nxtflixlt_rd():
     try:
         # Create database connection
-        conn = create_conn(var.fenlt_settings_db)
+        conn = create_conn(var.nxtflixlt_settings_db)
         with conn:
             connect_rd(conn, ('true', 'rd.enabled'))
             connect_rd(conn, (your_rd_token, 'rd.token'))
@@ -238,27 +238,27 @@ def auth_fenlt_rd():
             connect_rd(conn, (your_rd_refresh, 'rd.refresh'))
             connect_rd(conn, (your_rd_secret, 'rd.secret'))
     except:
-        xbmc.log('%s: Debrid_db Fen Light RD Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Debrid_db NXTFlix Light RD Failed!' % var.amgr, xbmc.LOGINFO)
         pass
     
-def enable_fenlt_rd():
+def enable_nxtflixlt_rd():
     try:
         # Create database connection
-        conn = create_conn(var.fenlt_settings_db)
+        conn = create_conn(var.nxtflixlt_settings_db)
         with conn:
             enable_rd(conn, ('true', 'rd.enabled'))
     except:
-        xbmc.log('%s: Debrid_db Fen Light Enable RD Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Debrid_db NXTFlix Light Enable RD Failed!' % var.amgr, xbmc.LOGINFO)
         pass
    
-def disable_fenlt_rd():
+def disable_nxtflixlt_rd():
     try:
         # Create database connection
-        conn = create_conn(var.fenlt_settings_db)
+        conn = create_conn(var.nxtflixlt_settings_db)
         with conn:
             disable_rd(conn, ('false', 'rd.enabled'))
     except:
-        xbmc.log('%s: Debrid_db Fen Light Disable RD Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Debrid_db NXTFlix Light Disable RD Failed!' % var.amgr, xbmc.LOGINFO)
         pass
 
 
@@ -266,36 +266,36 @@ def disable_fenlt_rd():
 #####################################################################
 #####################################################################   
 #####################################################################
-######################### Auth Fen Light PM #########################
-def auth_fenlt_pm():
+######################### Auth NXTFlix Light PM #########################
+def auth_nxtflixlt_pm():
     try:
-        conn = create_conn(var.fenlt_settings_db)
+        conn = create_conn(var.nxtflixlt_settings_db)
         with conn:
             connect_pm(conn, ('true', 'pm.enabled'))
             connect_pm(conn, (your_pm_token, 'pm.token'))
             connect_pm(conn, (your_pm_username, 'pm.account_id'))
     except:
-        xbmc.log('%s: Debrid_db Fen Light PM Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Debrid_db NXTFlix Light PM Failed!' % var.amgr, xbmc.LOGINFO)
         pass
     
-def enable_fenlt_pm():
+def enable_nxtflixlt_pm():
     try:
-        conn = create_conn(var.fenlt_settings_db)
+        conn = create_conn(var.nxtflixlt_settings_db)
         with conn:
             enable_pm(conn, ('true', 'pm.enabled'))
     except:
-        xbmc.log('%s: Debrid_db Fen Light Enable PM Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Debrid_db NXTFlix Light Enable PM Failed!' % var.amgr, xbmc.LOGINFO)
         pass
     
 
     
-def disable_fenlt_pm():
+def disable_nxtflixlt_pm():
     try:
-        conn = create_conn(var.fenlt_settings_db)
+        conn = create_conn(var.nxtflixlt_settings_db)
         with conn:
             disable_pm(conn, ('false', 'pm.enabled'))
     except:
-        xbmc.log('%s: Debrid_db Fen Light Disable PM Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Debrid_db NXTFlix Light Disable PM Failed!' % var.amgr, xbmc.LOGINFO)
         pass
 
 
@@ -303,34 +303,34 @@ def disable_fenlt_pm():
 #####################################################################
 #####################################################################    
 #####################################################################    
-######################### Auth Fen Light AD #########################
-def auth_fenlt_ad():
+######################### Auth NXTFlix Light AD #########################
+def auth_nxtflixlt_ad():
     try:
-        conn = create_conn(var.fenlt_settings_db)
+        conn = create_conn(var.nxtflixlt_settings_db)
         with conn:
             connect_ad(conn, ('true', 'ad.enabled'))
             connect_ad(conn, (your_ad_token, 'ad.token'))
             connect_ad(conn, (your_ad_username, 'ad.account_id'))
     except:
-        xbmc.log('%s: Debrid_db Fen Light AD Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Debrid_db NXTFlix Light AD Failed!' % var.amgr, xbmc.LOGINFO)
         pass
     
-def enable_fenlt_ad():
+def enable_nxtflixlt_ad():
     try:
-        conn = create_conn(var.fenlt_settings_db)
+        conn = create_conn(var.nxtflixlt_settings_db)
         with conn:
             enable_ad(conn, ('true', 'ad.enabled'))
     except:
-        xbmc.log('%s: Debrid_db Fen Light Enable AD Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Debrid_db NXTFlix Light Enable AD Failed!' % var.amgr, xbmc.LOGINFO)
         pass
        
-def disable_fenlt_ad():
+def disable_nxtflixlt_ad():
     try:
-        conn = create_conn(var.fenlt_settings_db)
+        conn = create_conn(var.nxtflixlt_settings_db)
         with conn:
             disable_ad(conn, ('false', 'ad.enabled'))
     except:
-        xbmc.log('%s: Debrid_db Fen Light Disable AD Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Debrid_db NXTFlix Light Disable AD Failed!' % var.amgr, xbmc.LOGINFO)
         pass
 
 

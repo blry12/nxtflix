@@ -108,11 +108,11 @@ class Router:
         # TRAKT MANAGER
         elif mode == 'savetrakt':  # Save Trakt Data
             traktit.trakt_it('update', name)
-            databit.backup_fenlt_trakt()
+            databit.backup_nxtflixlt_trakt()
             databit.backup_affen_trakt()
         elif mode == 'savetrakt_acctmgr':  # Save Trakt Data via Account Manager settings menu
             traktit.trakt_it('update', name)
-            databit.backup_fenlt_trakt()
+            databit.backup_nxtflixlt_trakt()
             databit.backup_affen_trakt()
             xbmcgui.Dialog().notification('Account Manager', 'Trakt Backup Complete!', trakt_icon, 3000)
             xbmc.sleep(1000)
@@ -123,7 +123,7 @@ class Router:
                     path = os.listdir(var.trakt_backup)
                     if len(path) != 0: # Skip restore if no saved data in backup folder
                         traktit.trakt_it_restore('restore', name)
-                        databit.restore_fenlt_trakt()
+                        databit.restore_nxtflixlt_trakt()
                         databit.restore_affen_trakt()
                         if xbmcvfs.exists(var.chk_dradis) and xbmcvfs.exists(var.chkset_dradis):
                             accountmgr.setSetting("dradis_traktsync", 'true')
@@ -153,7 +153,7 @@ class Router:
                 pass
             else:
                 accountmgr.setSetting("api.service", "false") #Disable API Check Service
-            databit.revoke_fenlt_trakt()
+            databit.revoke_nxtflixlt_trakt()
             databit.revoke_affen_trakt()
             if xbmcvfs.exists(var.chk_seren) and (var.setting('traktuserkey.enabled') == 'true' or var.setting('devuserkey.enabled') == 'true'): #Check if add-on is installed
                 try:
@@ -471,12 +471,12 @@ class Router:
         # DEBRID MANAGER RD
         elif mode == 'savedebrid_rd':  # Save Debrid Data
             debridit_rd.debrid_it('update', name)                              
-            databit.backup_fenlt_rd()                
+            databit.backup_nxtflixlt_rd()                
             databit.backup_affen_rd()
             jsonit.realizer_bk()
         elif mode == 'savedebrid_acctmgr_rd':  # Save Debrid Data via Account Manager settings menu
             debridit_rd.debrid_it('update', name)                              
-            databit.backup_fenlt_rd()                
+            databit.backup_nxtflixlt_rd()                
             databit.backup_affen_rd()
             jsonit.realizer_bk()
             xbmcgui.Dialog().notification('Account Manager', 'Real-Debrid Backup Complete!', rd_icon, 3000)
@@ -488,7 +488,7 @@ class Router:
                     path = os.listdir(var.rd_backup)
                     if len(path) != 0: # Skip restore if no saved data in backup folder
                         debridit_rd.debrid_it('restore', name)
-                        databit.restore_fenlt_rd()
+                        databit.restore_nxtflixlt_rd()
                         databit.restore_affen_rd()
                         jsonit.realizer_rst()
                         xbmcgui.Dialog().notification('Account Manager', 'Real-Debrid Data Restored!', rd_icon, 3000)
@@ -507,7 +507,7 @@ class Router:
                 pass
         elif mode == 'addondebrid_rd':  # Clear All Addon Debrid Data
             debridit_rd.debrid_it('wipeaddon', name)
-            databit.revoke_fenlt_rd()
+            databit.revoke_nxtflixlt_rd()
             databit.revoke_affen_rd()
             jsonit.realizer_rvk()
             xbmcgui.Dialog().notification('Account Manager', 'All Add-ons Revoked!', rd_icon, 3000)
@@ -546,11 +546,11 @@ class Router:
         # DEBRID MANAGER PM
         elif mode == 'savedebrid_pm':  # Save Debrid Data
             debridit_pm.debrid_it('update', name)                              
-            databit.backup_fenlt_pm()                
+            databit.backup_nxtflixlt_pm()                
             databit.backup_affen_pm()
         elif mode == 'savedebrid_acctmgr_pm':  # Save Debrid Data via Account Manager settings menu
             debridit_pm.debrid_it('update', name)                              
-            databit.backup_fenlt_pm()                
+            databit.backup_nxtflixlt_pm()                
             databit.backup_affen_pm()
             xbmcgui.Dialog().notification('Account Manager', 'Premiumize Backup Complete!', pm_icon, 3000)
             xbmc.sleep(1000)
@@ -561,7 +561,7 @@ class Router:
                     path = os.listdir(var.pm_backup)
                     if len(path) != 0: # Skip restore if no saved data in backup folder
                         debridit_pm.debrid_it('restore', name)
-                        databit.restore_fenlt_pm()
+                        databit.restore_nxtflixlt_pm()
                         databit.restore_affen_pm()
                         xbmcgui.Dialog().notification('Account Manager', 'Premiumize Data Restored!', pm_icon, 3000)
                         xbmc.sleep(1000)
@@ -579,7 +579,7 @@ class Router:
                 pass
         elif mode == 'addondebrid_pm':  # Clear All Addon Debrid Data
             debridit_pm.debrid_it('wipeaddon', name)
-            databit.revoke_fenlt_pm()
+            databit.revoke_nxtflixlt_pm()
             databit.revoke_affen_pm()
             xbmcgui.Dialog().notification('Account Manager', 'All Add-ons Revoked!', pm_icon, 3000)
             xbmc.sleep(1000)
@@ -617,11 +617,11 @@ class Router:
         # DEBRID MANAGER AD
         elif mode == 'savedebrid_ad':  # Save Debrid Data
             debridit_ad.debrid_it('update', name)                              
-            databit.backup_fenlt_ad()                
+            databit.backup_nxtflixlt_ad()                
             databit.backup_affen_ad()
         elif mode == 'savedebrid_acctmgr_ad':  # Save Debrid Data via Account Manager settings menu
             debridit_ad.debrid_it('update', name)                              
-            databit.backup_fenlt_ad()                
+            databit.backup_nxtflixlt_ad()                
             databit.backup_affen_ad()
             xbmcgui.Dialog().notification('Account Manager', 'All-Debrid Backup Complete!', ad_icon, 3000)
             xbmc.sleep(1000)
@@ -632,7 +632,7 @@ class Router:
                     path = os.listdir(var.ad_backup)
                     if len(path) != 0: # Skip restore if no saved data in backup folder
                         debridit_ad.debrid_it('restore', name)
-                        databit.restore_fenlt_ad()
+                        databit.restore_nxtflixlt_ad()
                         databit.restore_affen_ad()
                         xbmcgui.Dialog().notification('Account Manager', 'All-Debrid Data Restored!', ad_icon, 3000)
                         xbmc.sleep(1000)
@@ -650,7 +650,7 @@ class Router:
                 pass
         elif mode == 'addondebrid_ad':  # Clear All Addon Debrid Data
             debridit_ad.debrid_it('wipeaddon', name)
-            databit.revoke_fenlt_ad()
+            databit.revoke_nxtflixlt_ad()
             databit.revoke_affen_ad()
             xbmcgui.Dialog().notification('Account Manager', 'All Add-ons Revoked!', ad_icon, 3000)
             xbmc.sleep(1000)
@@ -753,12 +753,12 @@ class Router:
         # EASYNEWS MANAGER
         elif mode == 'saveeasy':  # Save Data
             easyit.easy_it('update', name)
-            databit.backup_fenlt_easy()
+            databit.backup_nxtflixlt_easy()
             databit.backup_affen_easy()
         elif mode == 'save_easy_acctmgr':  # Save Data via Account Manager settings menu
             if str(var.chk_accountmgr_easy) != '':
                 easyit.easy_it('update', name)
-                databit.backup_fenlt_easy()
+                databit.backup_nxtflixlt_easy()
                 databit.backup_affen_easy()
                 xbmcgui.Dialog().notification('Account Manager', 'Easynews Backup Complete!', easy_icon, 3000)
                 xbmc.sleep(1000)
@@ -773,7 +773,7 @@ class Router:
                     path = os.listdir(var.easy_backup)
                     if len(path) != 0: # Skip restore if no saved data in backup folder
                         easyit.easy_it('restore', name)
-                        databit.restore_fenlt_easy()
+                        databit.restore_nxtflixlt_easy()
                         databit.restore_affen_easy()
                         xbmcgui.Dialog().notification('Account Manager', 'Easynews Data Restored!', easy_icon, 3000)
                         xbmc.sleep(1000)
@@ -791,7 +791,7 @@ class Router:
                 pass
         elif mode == 'addoneasy':  # Clear All Addon Easynews Data
             easyit.easy_it('clearaddon', name)
-            databit.revoke_fenlt_easy()
+            databit.revoke_nxtflixlt_easy()
             databit.revoke_affen_easy()
             xbmcgui.Dialog().notification('Account Manager', 'All Add-ons Revoked!', easy_icon, 3000)
             xbmc.sleep(1000)
@@ -891,12 +891,12 @@ class Router:
         #META DATA MANAGER
         elif mode == 'savemeta':  # Save Meta Data
             metait_all.debrid_it('update', name)
-            databit.backup_fenlt_meta()
+            databit.backup_nxtflixlt_meta()
             databit.backup_affen_meta()
         elif mode == 'savemeta_acctmgr':  # Save Meta Data via Account Manager settings menu
             if str(var.chk_accountmgr_fanart) != '' or str(var.chk_accountmgr_omdb) != '' or str(var.chk_accountmgr_mdb) != '' or str(var.chk_accountmgr_imdb) != '' or str(var.chk_accountmgr_tmdb) != '' or str(var.chk_accountmgr_tmdb_user) != '' or str(var.chk_accountmgr_tvdb) != '':
                 metait_all.debrid_it('update', name)
-                databit.backup_fenlt_meta()
+                databit.backup_nxtflixlt_meta()
                 databit.backup_affen_meta()
                 xbmcgui.Dialog().notification('Account Manager', 'Metadata Backup Complete!', amgr_icon, 3000)
                 xbmc.sleep(1000)
@@ -911,7 +911,7 @@ class Router:
                     path = os.listdir(var.meta_backup)
                     if len(path) != 0: # Skip restore if no saved data in backup folder
                         metait_all.debrid_it('restore', name)
-                        databit.restore_fenlt_meta()
+                        databit.restore_nxtflixlt_meta()
                         databit.restore_affen_meta()
                         xbmcgui.Dialog().notification('Account Manager', 'Metadata Restored!', amgr_icon, 3000)
                         xbmc.sleep(2000)
@@ -930,7 +930,7 @@ class Router:
                 pass
         elif mode == 'addonmeta':  # Clear All Addon Meta Data
             metait_all.debrid_it('clearaddon', name)
-            databit.revoke_fenlt_meta()
+            databit.revoke_nxtflixlt_meta()
             databit.revoke_affen_meta()
             xbmcgui.Dialog().notification('Account Manager', 'All Add-ons Revoked!', amgr_icon, 3000)
             xbmc.sleep(2000)
@@ -970,18 +970,18 @@ class Router:
             else:
                 if not str(var.chk_accountmgr_tk_rd) == '':
                     debridit_rd.debrid_it('wipeaddon', name)
-                    databit.revoke_fenlt_rd()
+                    databit.revoke_nxtflixlt_rd()
                     databit.revoke_affen_rd()
                     jsonit.realizer_rvk()
                     
                 if not str(var.chk_accountmgr_tk_pm) == '':
                     debridit_pm.debrid_it('wipeaddon', name)
-                    databit.revoke_fenlt_pm()
+                    databit.revoke_nxtflixlt_pm()
                     databit.revoke_affen_pm()
                     
                 if not str(var.chk_accountmgr_tk_ad) == '':
                     debridit_ad.debrid_it('wipeaddon', name)
-                    databit.revoke_fenlt_ad()
+                    databit.revoke_nxtflixlt_ad()
                     databit.revoke_affen_ad()
                     
                 xbmcgui.Dialog().notification('Account Manager', 'All Add-ons Revoked!', amgr_icon, 3000)
@@ -996,20 +996,20 @@ class Router:
                 if not str(var.chk_accountmgr_tk_rd) == '': # Skip backup if Debrid account not authorized
                     #Real-Debrid
                     debridit_rd.debrid_it('update', name)                              
-                    databit.backup_fenlt_rd()                
+                    databit.backup_nxtflixlt_rd()                
                     databit.backup_affen_rd()
                     jsonit.realizer_bk()
                     
                 if not str(var.chk_accountmgr_tk_pm) == '':
                     #Premiumize
                     debridit_pm.debrid_it('update', name)                              
-                    databit.backup_fenlt_pm()                
+                    databit.backup_nxtflixlt_pm()                
                     databit.backup_affen_pm()
 
                 if not str(var.chk_accountmgr_tk_ad) == '':
                     #All-Debrid
                     debridit_ad.debrid_it('update', name)                              
-                    databit.backup_fenlt_ad()                
+                    databit.backup_nxtflixlt_ad()                
                     databit.backup_affen_ad()
                     
                 xbmcgui.Dialog().notification('Account Manager', 'Backup Complete!', amgr_icon, 3000)
@@ -1024,7 +1024,7 @@ class Router:
                         path_rd = os.listdir(var.rd_backup)
                         if len(path_rd) != 0: # Skip if backup directory is empty
                             debridit_rd.debrid_it('restore', name)
-                            databit.restore_fenlt_rd()
+                            databit.restore_nxtflixlt_rd()
                             databit.restore_affen_rd()
                             jsonit.realizer_rst()
                             xbmcgui.Dialog().notification('Account Manager', 'Real-Debrid Data Restored!', rd_icon, 3000)
@@ -1036,7 +1036,7 @@ class Router:
                         path_pm = os.listdir(var.pm_backup)
                         if len(path_pm) != 0: # Skip if backup directory is empty
                             debridit_pm.debrid_it('restore', name)
-                            databit.restore_fenlt_pm()
+                            databit.restore_nxtflixlt_pm()
                             databit.restore_affen_pm()
                             xbmcgui.Dialog().notification('Account Manager', 'Premiumize Data Restored!', pm_icon, 3000)
                         else:
@@ -1047,7 +1047,7 @@ class Router:
                         path_ad = os.listdir(var.ad_backup)
                         if len(path_ad) != 0: # Skip if backup directory is empty
                             debridit_ad.debrid_it('restore', name)
-                            databit.restore_fenlt_ad()
+                            databit.restore_nxtflixlt_ad()
                             databit.restore_affen_ad()
                             xbmcgui.Dialog().notification('Account Manager', 'All-Debrid Data Restored!', ad_icon, 3000)
                         else:
@@ -1127,7 +1127,7 @@ class Router:
             try:
                 #Revoke Trakt
                 if not str(var.chk_accountmgr_tk) == '':
-                    databit.revoke_fenlt_trakt()
+                    databit.revoke_nxtflixlt_trakt()
                     databit.revoke_affen_trakt()
                     #Revoke Account Manager/Custom API keys for all add-ons
                     if xbmcvfs.exists(var.chk_seren) and (var.setting('traktuserkey.enabled') == 'true' or var.setting('devuserkey.enabled') == 'true'): #Check if add-on is installed
@@ -1156,17 +1156,17 @@ class Router:
                             xbmc.log('%s: Traktit.py Revoke API Fen Failed!' % var.amgr, xbmc.LOGINFO)
                             pass
 
-                    if xbmcvfs.exists(var.chk_fenlt):
+                    if xbmcvfs.exists(var.chk_nxtflixlt):
                         try:
-                            with open(var.path_fenlt,'r') as f:
+                            with open(var.path_nxtflixlt,'r') as f:
                                 data = f.read()
 
-                            client = data.replace(var.client_am,var.fenlt_client).replace(var.secret_am,var.fenlt_secret)
+                            client = data.replace(var.client_am,var.nxtflixlt_client).replace(var.secret_am,var.nxtflixlt_secret)
 
-                            with open(var.path_fenlt,'w') as f:
+                            with open(var.path_nxtflixlt,'w') as f:
                                 f.write(client)
                         except:
-                            xbmc.log('%s: Traktit.py Revoke API Fen Light Failed!' % var.amgr, xbmc.LOGINFO)
+                            xbmc.log('%s: Traktit.py Revoke API NXTFlix Light Failed!' % var.amgr, xbmc.LOGINFO)
                             pass
 
                     if xbmcvfs.exists(var.chk_coal):
@@ -1399,20 +1399,20 @@ class Router:
                 #Revoke Real-Debrid
                 if not str(var.chk_accountmgr_tk_rd) == '':
                     debridit_rd.debrid_it('wipeaddon', name)
-                    databit.revoke_fenlt_rd()
+                    databit.revoke_nxtflixlt_rd()
                     databit.revoke_affen_rd()
                     jsonit.realizer_rvk()
                 
                 #Revoke Premiumize
                 if not str(var.chk_accountmgr_tk_pm) == '':
                     debridit_pm.debrid_it('wipeaddon', name)
-                    databit.revoke_fenlt_pm()
+                    databit.revoke_nxtflixlt_pm()
                     databit.revoke_affen_pm()
                 
                 #Revoke All-Debrid
                 if not str(var.chk_accountmgr_tk_ad) == '':
                     debridit_ad.debrid_it('wipeaddon', name)
-                    databit.revoke_fenlt_ad()
+                    databit.revoke_nxtflixlt_ad()
                     databit.revoke_affen_ad()
 
                 #Revoke & Clear OffCloud
@@ -1423,7 +1423,7 @@ class Router:
                 #Revoke & Clear Easynews
                 if not str(var.setting('easynews.password')) == '':
                     easyit.easy_it('wipeaddon', name)
-                    databit.revoke_fenlt_easy()
+                    databit.revoke_nxtflixlt_easy()
                     databit.revoke_affen_easy()
                     accountmgr.setSetting("easynews.enabled", 'false')
 
@@ -1435,7 +1435,7 @@ class Router:
                 #Revoke & Clear Metadata
                 if str(var.setting('fanart.tv.api.key')) != '' or str(var.setting('omdb.api.key')) != '' or str(var.setting('mdb.api.key')) != '' or str(var.setting('imdb.user')) != '' or str(var.setting('tvdb.api.key')) != '' or str(var.setting('tmdb.api.key')) != '' or str(var.setting('tmdb.username')) != '' or str(var.setting('tmdb.password')) != '' or str(var.setting('tmdb.session_id')) != '':
                     metait_all.debrid_it('wipeaddon', name)
-                    databit.revoke_fenlt_meta()
+                    databit.revoke_nxtflixlt_meta()
                     databit.revoke_affen_meta()
                     accountmgr.setSetting("meta.enabled", 'false')
                 

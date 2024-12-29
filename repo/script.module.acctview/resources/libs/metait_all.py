@@ -17,7 +17,7 @@ from resources.libs.common import var
 ORDER = ['seren',
          'nxtflix',
          'fen',
-         'fenlt',
+         'nxtflixlt',
          'affen',
          'coal',
          'pov',
@@ -105,15 +105,15 @@ DEBRIDID = {
         'default_tmdb_session'  : '',
         'data'     : ['tmdb_api', 'imdb_user', 'fanart_client_key'],
         'activate' : 'Addon.OpenSettings(plugin.video.fen)'},
-    'fenlt': {
-        'name'     : 'Fen Light',
-        'plugin'   : 'plugin.video.fenlight',
-        'saved'    : 'fenlt',
-        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.fenlight'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.fenlight/resources/media/', 'fenlight_icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.fenlight/resources/media/', 'fenlight_fanart.png'),
-        'file'     : os.path.join(CONFIG.DEBRIDFOLD_RD, 'fenlt'),
-        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.fenlight.databases', 'settings.db'),
+    'nxtflixlt': {
+        'name'     : 'NXTFlix Light',
+        'plugin'   : 'plugin.video.nxtflixlight',
+        'saved'    : 'nxtflixlt',
+        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight'),
+        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight/resources/media/', 'fenlight_icon.png'),
+        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight/resources/media/', 'fenlight_fanart.png'),
+        'file'     : os.path.join(CONFIG.DEBRIDFOLD_RD, 'nxtflixlt'),
+        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.nxtflixlight.databases', 'settings.db'),
         'default'    : '',
         'default_fanart'  : '',
         'default_omdb'  : '',
@@ -125,7 +125,7 @@ DEBRIDID = {
         'default_tmdb_pass'  : '',
         'default_tmdb_session'  : '',
         'data'     : [],
-        'activate' : 'Addon.OpenSettings(plugin.video.fenlight)'},
+        'activate' : 'Addon.OpenSettings(plugin.video.nxtflixlight)'},
     'affen': {
         'name'     : 'afFENity',
         'plugin'   : 'plugin.video.affenity',
@@ -607,11 +607,11 @@ def debrid_user_fanart(who):
     user_fanart = None
     if DEBRIDID[who]:
         name = DEBRIDID[who]['name']
-        if os.path.exists(DEBRIDID[who]['path']) and name == 'Fen Light':
+        if os.path.exists(DEBRIDID[who]['path']) and name == 'NXTFlix Light':
             user_fanart = ''
         if os.path.exists(DEBRIDID[who]['path']) and name == 'afFENity':
             user_fanart = ''
-        if os.path.exists(DEBRIDID[who]['path']) and name != 'Fen Light' or name != 'afFENity':
+        if os.path.exists(DEBRIDID[who]['path']) and name != 'NXTFlix Light' or name != 'afFENity':
                 try:
                     add = tools.get_addon_by_id(DEBRIDID[who]['plugin'])
                     user_fanart = add.getSetting(DEBRIDID[who]['default_fanart'])
@@ -623,10 +623,10 @@ def debrid_user_omdb(who):
     user_omdb = None
     if DEBRIDID[who]:
         name = DEBRIDID[who]['name']
-        if os.path.exists(DEBRIDID[who]['path']) and name == 'Fen Light':
+        if os.path.exists(DEBRIDID[who]['path']) and name == 'NXTFlix Light':
             try:
                 # Create database connection
-                conn = create_conn(var.fenlt_settings_db)
+                conn = create_conn(var.nxtflixlt_settings_db)
                 with conn:
                     cur = conn.cursor()
                     cur.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('omdb_api',)) #Get setting to compare
@@ -639,7 +639,7 @@ def debrid_user_omdb(who):
                         user_omdb = user_data #Return if authorized
                     cur.close()
             except:
-                xbmc.log('%s: Metait_all Fen Light Failed!' % var.amgr, xbmc.LOGINFO)
+                xbmc.log('%s: Metait_all NXTFlix Light Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
         elif os.path.exists(DEBRIDID[who]['path']) and name == 'afFENity':
             try:
@@ -671,11 +671,11 @@ def debrid_user_mdb(who):
     user_mdb = None
     if DEBRIDID[who]:
         name = DEBRIDID[who]['name']
-        if os.path.exists(DEBRIDID[who]['path']) and name == 'Fen Light':
+        if os.path.exists(DEBRIDID[who]['path']) and name == 'NXTFlix Light':
             user_mdb = ''
         if os.path.exists(DEBRIDID[who]['path']) and name == 'afFENity':
             user_mdb = ''
-        if os.path.exists(DEBRIDID[who]['path']) and name != 'Fen Light' or name != 'afFENity':
+        if os.path.exists(DEBRIDID[who]['path']) and name != 'NXTFlix Light' or name != 'afFENity':
                 try:
                     add = tools.get_addon_by_id(DEBRIDID[who]['plugin'])
                     user_mdb = add.getSetting(DEBRIDID[who]['default_mdb'])
@@ -687,11 +687,11 @@ def debrid_user_imdb(who):
     user_imdb = None
     if DEBRIDID[who]:
         name = DEBRIDID[who]['name']
-        if os.path.exists(DEBRIDID[who]['path']) and name == 'Fen Light':
+        if os.path.exists(DEBRIDID[who]['path']) and name == 'NXTFlix Light':
             user_imdb = ''
         if os.path.exists(DEBRIDID[who]['path']) and name == 'afFENity':
             user_imdb = ''
-        if os.path.exists(DEBRIDID[who]['path']) and name != 'Fen Light' or name != 'afFENity':
+        if os.path.exists(DEBRIDID[who]['path']) and name != 'NXTFlix Light' or name != 'afFENity':
                 try:
                     add = tools.get_addon_by_id(DEBRIDID[who]['plugin'])
                     user_imdb = add.getSetting(DEBRIDID[who]['default_imdb'])
@@ -703,11 +703,11 @@ def debrid_user_tvdb(who):
     user_tvdb = None
     if DEBRIDID[who]:
         name = DEBRIDID[who]['name']
-        if os.path.exists(DEBRIDID[who]['path']) and name == 'Fen Light':
+        if os.path.exists(DEBRIDID[who]['path']) and name == 'NXTFlix Light':
             user_tvdb = ''
         if os.path.exists(DEBRIDID[who]['path']) and name == 'afFENity':
             user_tvdb = ''
-        if os.path.exists(DEBRIDID[who]['path']) and name != 'Fen Light' or name != 'afFENity':
+        if os.path.exists(DEBRIDID[who]['path']) and name != 'NXTFlix Light' or name != 'afFENity':
                 try:
                     add = tools.get_addon_by_id(DEBRIDID[who]['plugin'])
                     user_tvdb = add.getSetting(DEBRIDID[who]['default_tvdb'])
@@ -719,10 +719,10 @@ def debrid_user_tmdb(who):
     user_tmdb = None
     if DEBRIDID[who]:
         name = DEBRIDID[who]['name']
-        if os.path.exists(DEBRIDID[who]['path']) and name == 'Fen Light':
+        if os.path.exists(DEBRIDID[who]['path']) and name == 'NXTFlix Light':
             try:
                 # Create database connection
-                conn = create_conn(var.fenlt_settings_db)
+                conn = create_conn(var.nxtflixlt_settings_db)
                 with conn:
                     cur = conn.cursor()
                     cur.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('tmdb_api',)) #Get setting to compare
@@ -735,7 +735,7 @@ def debrid_user_tmdb(who):
                         user_tmdb = user_data #Return if authorized
                     cur.close()
             except:
-                xbmc.log('%s: Metait_all Fen Light Failed!' % var.amgr, xbmc.LOGINFO)
+                xbmc.log('%s: Metait_all NXTFlix Light Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
         elif os.path.exists(DEBRIDID[who]['path']) and name == 'afFENity':
             user_tmdb = ''
@@ -752,11 +752,11 @@ def debrid_user_tmdb_user(who):
     user_tmdb_user = None
     if DEBRIDID[who]:
         name = DEBRIDID[who]['name']
-        if os.path.exists(DEBRIDID[who]['path']) and name == 'Fen Light':
+        if os.path.exists(DEBRIDID[who]['path']) and name == 'NXTFlix Light':
             user_tmdb_user = ''
         if os.path.exists(DEBRIDID[who]['path']) and name == 'afFENity':
             user_tmdb_user = ''
-        if os.path.exists(DEBRIDID[who]['path']) and name != 'Fen Light' or name != 'afFENity':
+        if os.path.exists(DEBRIDID[who]['path']) and name != 'NXTFlix Light' or name != 'afFENity':
                 try:
                     add = tools.get_addon_by_id(DEBRIDID[who]['plugin'])
                     user_tmdb_user = add.getSetting(DEBRIDID[who]['default_tmdb_user'])
@@ -768,11 +768,11 @@ def debrid_user_tmdb_pass(who):
     user_tmdb_pass = None
     if DEBRIDID[who]:
         name = DEBRIDID[who]['name']
-        if os.path.exists(DEBRIDID[who]['path']) and name == 'Fen Light':
+        if os.path.exists(DEBRIDID[who]['path']) and name == 'NXTFlix Light':
             user_tmdb_pass = ''
         if os.path.exists(DEBRIDID[who]['path']) and name == 'afFENity':
             user_tmdb_pass = ''
-        if os.path.exists(DEBRIDID[who]['path']) and name != 'Fen Light' or name != 'afFENity':
+        if os.path.exists(DEBRIDID[who]['path']) and name != 'NXTFlix Light' or name != 'afFENity':
                 try:
                     add = tools.get_addon_by_id(DEBRIDID[who]['plugin'])
                     user_tmdb_pass = add.getSetting(DEBRIDID[who]['default_tmdb_pass'])
@@ -784,11 +784,11 @@ def debrid_user_tmdb_session(who):
     user_tmdb_session = None
     if DEBRIDID[who]:
         name = DEBRIDID[who]['name']
-        if os.path.exists(DEBRIDID[who]['path']) and name == 'Fen Light':
+        if os.path.exists(DEBRIDID[who]['path']) and name == 'NXTFlix Light':
             user_tmdb_session = ''
         if os.path.exists(DEBRIDID[who]['path']) and name == 'afFENity':
             user_tmdb_session = ''
-        if os.path.exists(DEBRIDID[who]['path']) and name != 'Fen Light' or name != 'afFENity':
+        if os.path.exists(DEBRIDID[who]['path']) and name != 'NXTFlix Light' or name != 'afFENity':
                 try:
                     add = tools.get_addon_by_id(DEBRIDID[who]['plugin'])
                     user_tmdb_session = add.getSetting(DEBRIDID[who]['default_tmdb_session'])
@@ -889,7 +889,7 @@ def update_debrid(do, who):
         xbmc.executebuiltin('Container.Refresh()')
     elif do == 'clearaddon':
         logging.log('{0} SETTINGS: {1}'.format(name, settings))
-        if name == 'Fen Light':
+        if name == 'NXTFlix Light':
             pass
         else:
             if os.path.exists(settings):

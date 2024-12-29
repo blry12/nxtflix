@@ -52,33 +52,33 @@ class Auth:
                         xbmc.log('%s: Fen Easynews Failed!' % var.amgr, xbmc.LOGINFO)
                         pass
  
-        #Fen Light
+        #NXTFlix Light
                 try:
-                        if xbmcvfs.exists(var.chk_fenlt) and xbmcvfs.exists(var.chkset_fenlt): #Check that the addon is installed and settings.db exists
+                        if xbmcvfs.exists(var.chk_nxtflixlt) and xbmcvfs.exists(var.chkset_nxtflixlt): #Check that the addon is installed and settings.db exists
                             
                             #Create database connection
                             from accountmgr.modules import easy_db
-                            conn = easy_db.create_conn(var.fenlt_settings_db)
+                            conn = easy_db.create_conn(var.nxtflixlt_settings_db)
                             
                             #Get add-on settings to compare
                             with conn:
                                 cursor = conn.cursor()
                                 cursor.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('easynews_user',))
                                 auth_easy = cursor.fetchone()
-                                chk_auth_fenlt = str(auth_easy)
+                                chk_auth_nxtflixlt = str(auth_easy)
                                 
                                 #Clean up database results
                                 for char in char_remov:
-                                    chk_auth_fenlt = chk_auth_fenlt.replace(char, "")
+                                    chk_auth_nxtflixlt = chk_auth_nxtflixlt.replace(char, "")
                                     
-                                if not str(var.chk_accountmgr_easy) == chk_auth_fenlt: #Compare Account Mananger data to Add-on data. If they match, authorization is skipped
+                                if not str(var.chk_accountmgr_easy) == chk_auth_nxtflixlt: #Compare Account Mananger data to Add-on data. If they match, authorization is skipped
                                     
                                     #Write settings to database
                                     from accountmgr.modules import easy_db
-                                    easy_db.auth_fenlt_easy()
+                                    easy_db.auth_nxtflixlt_easy()
                                 cursor.close()
                 except:
-                        xbmc.log('%s: Fen Light Easynews Failed!' % var.amgr, xbmc.LOGINFO)
+                        xbmc.log('%s: NXTFlix Light Easynews Failed!' % var.amgr, xbmc.LOGINFO)
                         pass
 
         #afFENity

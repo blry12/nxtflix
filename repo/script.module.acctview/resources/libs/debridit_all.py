@@ -15,7 +15,7 @@ from resources.libs.common import var
 ORDER = ['seren',
          'nxtflix',
          'fen',
-         'fenlt',
+         'nxtflixlt',
          'affen',
          'coal',
          'pov',
@@ -81,20 +81,20 @@ DEBRIDID = {
         'default_ad'  : 'ad.account_id',
         'data'     : [],
         'activate' : 'Addon.OpenSettings(plugin.video.fen)'},
-    'fenlt': {
-        'name'     : 'Fen Light',
-        'plugin'   : 'plugin.video.fenlight',
-        'saved'    : 'fenlt',
-        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.fenlight'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.fenlight/resources/media/', 'fenlight_icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.fenlight/resources/media/', 'fenlight_fanart.png'),
-        'file'     : os.path.join(CONFIG.DEBRIDFOLD, 'fenlt'),
-        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.fenlight/databases', 'settings.db'),
+    'nxtflixlt': {
+        'name'     : 'NXTFlix Light',
+        'plugin'   : 'plugin.video.nxtflixlight',
+        'saved'    : 'nxtflixlt',
+        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight'),
+        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight/resources/media/', 'fenlight_icon.png'),
+        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight/resources/media/', 'fenlight_fanart.png'),
+        'file'     : os.path.join(CONFIG.DEBRIDFOLD, 'nxtflixlt'),
+        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.nxtflixlight/databases', 'settings.db'),
         'default_rd'  : 'rd.account_id',
         'default_pm'  : 'pm.account_id',
         'default_ad'  : 'ad.account_id',
         'data'     : [],
-        'activate' : 'Addon.OpenSettings(plugin.video.fenlight)'},
+        'activate' : 'Addon.OpenSettings(plugin.video.nxtflixlight)'},
     'affen': {
         'name'     : 'afFENity',
         'plugin'   : 'plugin.video.affenity',
@@ -408,10 +408,10 @@ def debrid_user_rd(who):
     user_rd = None
     if DEBRIDID[who]:
         name = DEBRIDID[who]['name']
-        if os.path.exists(DEBRIDID[who]['path']) and name == 'Fen Light':
+        if os.path.exists(DEBRIDID[who]['path']) and name == 'NXTFlix Light':
             try:
                 # Create database connection
-                conn = create_conn(var.fenlt_settings_db)
+                conn = create_conn(var.nxtflixlt_settings_db)
                 with conn:
                     cur = conn.cursor()
                     cur.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('rd.token',)) #Get setting to compare
@@ -424,7 +424,7 @@ def debrid_user_rd(who):
                         user_rd = user_data #Return if authorized
                     cur.close()
             except:
-                xbmc.log('%s: Debridit_all_rd Fen Light Failed!' % var.amgr, xbmc.LOGINFO)
+                xbmc.log('%s: Debridit_all_rd NXTFlix Light Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
         elif os.path.exists(DEBRIDID[who]['path']) and name == 'afFENity':
             try:
@@ -456,10 +456,10 @@ def debrid_user_pm(who):
     user_pm = None
     if DEBRIDID[who]:
         name = DEBRIDID[who]['name']
-        if os.path.exists(DEBRIDID[who]['path']) and name == 'Fen Light':
+        if os.path.exists(DEBRIDID[who]['path']) and name == 'NXTFlix Light':
             try:
                 # Create database connection
-                conn = create_conn(var.fenlt_settings_db)
+                conn = create_conn(var.nxtflixlt_settings_db)
                 with conn:
                     cur = conn.cursor()
                     cur.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('pm.token',)) #Get setting to compare
@@ -472,7 +472,7 @@ def debrid_user_pm(who):
                         user_pm = user_data #Return if authorized
                     cur.close()
             except:
-                xbmc.log('%s: Debridit_all_pm Fen Light Failed!' % var.amgr, xbmc.LOGINFO)
+                xbmc.log('%s: Debridit_all_pm NXTFlix Light Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
         elif os.path.exists(DEBRIDID[who]['path']) and name == 'afFENity':
             try:
@@ -504,10 +504,10 @@ def debrid_user_ad(who):
     user_ad = None
     if DEBRIDID[who]:
         name = DEBRIDID[who]['name']
-        if os.path.exists(DEBRIDID[who]['path']) and name == 'Fen Light':
+        if os.path.exists(DEBRIDID[who]['path']) and name == 'NXTFlix Light':
             try:
                 # Create database connection
-                conn = create_conn(var.fenlt_settings_db)
+                conn = create_conn(var.nxtflixlt_settings_db)
                 with conn:
                     cur = conn.cursor()
                     cur.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('ad.token',)) #Get setting to compare
@@ -520,7 +520,7 @@ def debrid_user_ad(who):
                         user_ad = user_data #Return if authorized
                     cur.close()
             except:
-                xbmc.log('%s: Debridit_all_ad Fen Light Failed!' % var.amgr, xbmc.LOGINFO)
+                xbmc.log('%s: Debridit_all_ad NXTFlix Light Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
         elif os.path.exists(DEBRIDID[who]['path']) and name == 'afFENity':
             try:

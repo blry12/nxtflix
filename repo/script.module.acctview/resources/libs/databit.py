@@ -106,8 +106,8 @@ def connect_ad(conn, setting):
         pass
 
 
-######################### Fen Light Trakt #########################
-def connect_trakt_fenlt(conn, setting):
+######################### NXTFlix Light Trakt #########################
+def connect_trakt_nxtflixlt(conn, setting):
     try:
         # Update settings database
         trakt_client = ''' UPDATE settings
@@ -211,8 +211,8 @@ def connect_easy(conn, setting):
         xbmc.log('%s: Databit_db Easynews Failed!' % var.amgr, xbmc.LOGINFO)
         pass
 
-######################### Fen Light Metadata #########################
-def connect_meta_fenlt(conn, setting):
+######################### NXTFlix Light Metadata #########################
+def connect_meta_nxtflixlt(conn, setting):
     try:
         # Update settings database
         omdb_api = ''' UPDATE settings
@@ -251,13 +251,13 @@ def connect_meta_affen(conn, setting):
 
 ########################################################################
 ########################################################################
-############################ Fen Light RD ##############################
+############################ NXTFlix Light RD ##############################
     
-######################### Restore Fen Light RD #########################
-def restore_fenlt_rd():
+######################### Restore NXTFlix Light RD #########################
+def restore_nxtflixlt_rd():
     try:
-        conn_p = create_conn(var.rd_backup_fenlt)
-        conn_t = create_conn(var.fenlt_settings_db)
+        conn_p = create_conn(var.rd_backup_nxtflixlt)
+        conn_t = create_conn(var.nxtflixlt_settings_db)
 
         cur_p = conn_p.cursor()
         cur_t = conn_t.cursor()
@@ -324,14 +324,14 @@ def restore_fenlt_rd():
         cur_t.close()
         cur_p.close()
     except:
-        xbmc.log('%s: Databit_db Restore Fen Light RD Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Databit_db Restore NXTFlix Light RD Failed!' % var.amgr, xbmc.LOGINFO)
         pass
     
-######################### Revoke Fen Light RD #########################
-def revoke_fenlt_rd():
+######################### Revoke NXTFlix Light RD #########################
+def revoke_nxtflixlt_rd():
     try:
         # Create database connection
-        conn = create_conn(var.fenlt_settings_db)
+        conn = create_conn(var.nxtflixlt_settings_db)
         with conn:
             connect_rd(conn, ('empty_setting', 'rd.enabled'))
             connect_rd(conn, ('empty_setting', 'rd.token'))
@@ -340,38 +340,38 @@ def revoke_fenlt_rd():
             connect_rd(conn, ('empty_setting', 'rd.refresh'))
             connect_rd(conn, ('empty_setting', 'rd.secret'))
     except:
-        xbmc.log('%s: Databit_db Revoke Fen Light RD Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Databit_db Revoke NXTFlix Light RD Failed!' % var.amgr, xbmc.LOGINFO)
         pass
 
-######################### Backup Fen Light RD #########################
-def backup_fenlt_rd():
-    if os.path.exists(os.path.join(var.fenlt_settings_db)) and os.path.exists(os.path.join(var.rd_backup)):
+######################### Backup NXTFlix Light RD #########################
+def backup_nxtflixlt_rd():
+    if os.path.exists(os.path.join(var.nxtflixlt_settings_db)) and os.path.exists(os.path.join(var.rd_backup)):
         try:
-            xbmcvfs.copy(os.path.join(var.fenlt_settings_db), os.path.join(var.rd_backup_fenlt))
+            xbmcvfs.copy(os.path.join(var.nxtflixlt_settings_db), os.path.join(var.rd_backup_nxtflixlt))
         except:
-            xbmc.log('%s: Databit_db Backup Fen Light RD Failed!' % var.amgr, xbmc.LOGINFO)
+            xbmc.log('%s: Databit_db Backup NXTFlix Light RD Failed!' % var.amgr, xbmc.LOGINFO)
             pass
 
-##################### Delete Fen Light RD Backup #####################
-#def delete_fenlt_rd():
-#    if os.path.exists(os.path.join(var.rd_backup_fenlt)):
+##################### Delete NXTFlix Light RD Backup #####################
+#def delete_nxtflixlt_rd():
+#    if os.path.exists(os.path.join(var.rd_backup_nxtflixlt)):
 #        try:
-#            os.unlink(os.path.join(var.rd_backup_fenlt))
+#            os.unlink(os.path.join(var.rd_backup_nxtflixlt))
 #        except OSError:
-#            xbmc.log('%s: Databit_db Delete Fen Light RD Failed!' % var.amgr, xbmc.LOGINFO)
+#            xbmc.log('%s: Databit_db Delete NXTFlix Light RD Failed!' % var.amgr, xbmc.LOGINFO)
 #            pass
 
 
 
 ########################################################################
 ########################################################################
-############################ Fen Light PM ##############################
+############################ NXTFlix Light PM ##############################
 
-######################### Restore Fen Light PM #########################
-def restore_fenlt_pm():
+######################### Restore NXTFlix Light PM #########################
+def restore_nxtflixlt_pm():
     try:
         conn_p = create_conn(var.pm_backup_affen)
-        conn_t = create_conn(var.fenlt_settings_db)
+        conn_t = create_conn(var.nxtflixlt_settings_db)
 
         cur_p = conn_p.cursor()
         cur_t = conn_t.cursor()
@@ -408,45 +408,45 @@ def restore_fenlt_pm():
         cur_t.close()
         cur_p.close()
     except:
-        xbmc.log('%s: Databit_db Restore Fen Light PM Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Databit_db Restore NXTFlix Light PM Failed!' % var.amgr, xbmc.LOGINFO)
         pass
     
-######################### Revoke Fen Light PM #########################
-def revoke_fenlt_pm():
+######################### Revoke NXTFlix Light PM #########################
+def revoke_nxtflixlt_pm():
     try:
         # Create database connection
-        conn = create_conn(var.fenlt_settings_db)
+        conn = create_conn(var.nxtflixlt_settings_db)
         with conn:
             connect_pm(conn, ('empty_setting', 'pm.enabled'))
             connect_pm(conn, ('empty_setting', 'pm.token'))
             connect_pm(conn, ('empty_setting', 'pm.account_id'))
     except:
-        xbmc.log('%s: Databit_db Revoke Fen Light PM Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Databit_db Revoke NXTFlix Light PM Failed!' % var.amgr, xbmc.LOGINFO)
         pass
     
-######################### Backup Fen Light PM #########################
-def backup_fenlt_pm():
-    if os.path.exists(os.path.join(var.fenlt_settings_db)) and os.path.exists(os.path.join(var.pm_backup)):
+######################### Backup NXTFlix Light PM #########################
+def backup_nxtflixlt_pm():
+    if os.path.exists(os.path.join(var.nxtflixlt_settings_db)) and os.path.exists(os.path.join(var.pm_backup)):
         try:
-            xbmcvfs.copy(os.path.join(var.fenlt_settings_db), os.path.join(var.pm_backup_fenlt))
+            xbmcvfs.copy(os.path.join(var.nxtflixlt_settings_db), os.path.join(var.pm_backup_nxtflixlt))
         except:
-            xbmc.log('%s: Databit_db Backup Fen Light PM Failed!' % var.amgr, xbmc.LOGINFO)
+            xbmc.log('%s: Databit_db Backup NXTFlix Light PM Failed!' % var.amgr, xbmc.LOGINFO)
             pass
 
-##################### Delete Fen Light PM Backup #####################
-#def delete_fenlt_pm():
-#    if os.path.exists(os.path.join(var.pm_backup_fenlt)):
+##################### Delete NXTFlix Light PM Backup #####################
+#def delete_nxtflixlt_pm():
+#    if os.path.exists(os.path.join(var.pm_backup_nxtflixlt)):
 #        try:
-#            os.unlink(os.path.join(var.pm_backup_fenlt))
+#            os.unlink(os.path.join(var.pm_backup_nxtflixlt))
 #        except OSError:
-#           xbmc.log('%s: Databit_db Delete Fen Light PM Failed!' % var.amgr, xbmc.LOGINFO)
+#           xbmc.log('%s: Databit_db Delete NXTFlix Light PM Failed!' % var.amgr, xbmc.LOGINFO)
 #           pass
 
-######################### Restore Fen Light AD #########################
-def restore_fenlt_ad():
+######################### Restore NXTFlix Light AD #########################
+def restore_nxtflixlt_ad():
     try:
-        conn_p = create_conn(var.ad_backup_fenlt)
-        conn_t = create_conn(var.fenlt_settings_db)
+        conn_p = create_conn(var.ad_backup_nxtflixlt)
+        conn_t = create_conn(var.nxtflixlt_settings_db)
 
         cur_p = conn_p.cursor()
         cur_t = conn_t.cursor()
@@ -483,38 +483,38 @@ def restore_fenlt_ad():
         cur_t.close()
         cur_p.close()
     except:
-        xbmc.log('%s: Databit_db Restore Fen Light AD Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Databit_db Restore NXTFlix Light AD Failed!' % var.amgr, xbmc.LOGINFO)
         pass
     
-######################### Revoke Fen Light AD #########################
-def revoke_fenlt_ad():
+######################### Revoke NXTFlix Light AD #########################
+def revoke_nxtflixlt_ad():
     try:
         # Create database connection
-        conn = create_conn(var.fenlt_settings_db)
+        conn = create_conn(var.nxtflixlt_settings_db)
         with conn:
             connect_ad(conn, ('empty_setting', 'ad.enabled'))
             connect_ad(conn, ('empty_setting', 'ad.token'))
             connect_ad(conn, ('empty_setting', 'ad.account_id'))
     except:
-        xbmc.log('%s: Databit_db Revoke Fen Light AD Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Databit_db Revoke NXTFlix Light AD Failed!' % var.amgr, xbmc.LOGINFO)
         pass
     
-######################### Backup Fen Light AD #########################
-def backup_fenlt_ad():
-    if os.path.exists(os.path.join(var.fenlt_settings_db)) and os.path.exists(os.path.join(var.ad_backup)):
+######################### Backup NXTFlix Light AD #########################
+def backup_nxtflixlt_ad():
+    if os.path.exists(os.path.join(var.nxtflixlt_settings_db)) and os.path.exists(os.path.join(var.ad_backup)):
         try:
-            xbmcvfs.copy(os.path.join(var.fenlt_settings_db), os.path.join(var.ad_backup_fenlt))
+            xbmcvfs.copy(os.path.join(var.nxtflixlt_settings_db), os.path.join(var.ad_backup_nxtflixlt))
         except:
-            xbmc.log('%s: Databit_db Backup Fen Light AD Failed!' % var.amgr, xbmc.LOGINFO)
+            xbmc.log('%s: Databit_db Backup NXTFlix Light AD Failed!' % var.amgr, xbmc.LOGINFO)
             pass
 
-##################### Delete Fen Light AD Backup #####################
-#def delete_fenlt_ad():
-#    if os.path.exists(os.path.join(var.ad_backup_fenlt)):
+##################### Delete NXTFlix Light AD Backup #####################
+#def delete_nxtflixlt_ad():
+#    if os.path.exists(os.path.join(var.ad_backup_nxtflixlt)):
 #        try:
-#            os.unlink(os.path.join(var.ad_backup_fenlt))
+#            os.unlink(os.path.join(var.ad_backup_nxtflixlt))
 #        except OSError:
-#            xbmc.log('%s: Databit_db Delete Fen Light AD Failed!' % var.amgr, xbmc.LOGINFO)
+#            xbmc.log('%s: Databit_db Delete NXTFlix Light AD Failed!' % var.amgr, xbmc.LOGINFO)
 #            pass
 
 
@@ -797,14 +797,14 @@ def backup_affen_ad():
     
 ##########################################################################
 ##########################################################################
-############################# Fen Light Trakt ############################
+############################# NXTFlix Light Trakt ############################
     
-######################### Restore Fen Light Trakt #########################
+######################### Restore NXTFlix Light Trakt #########################
         
-def restore_fenlt_trakt():
+def restore_nxtflixlt_trakt():
     try:
-        conn_p = create_conn(var.trakt_backup_fenlt)
-        conn_t = create_conn(var.fenlt_settings_db)
+        conn_p = create_conn(var.trakt_backup_nxtflixlt)
+        conn_t = create_conn(var.nxtflixlt_settings_db)
 
         cur_p = conn_p.cursor()
         cur_t = conn_t.cursor()
@@ -891,43 +891,43 @@ def restore_fenlt_trakt():
         cur_t.close()
         cur_p.close()
     except:
-        xbmc.log('%s: Databit_db Restore Fen Light Trakt Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Databit_db Restore NXTFlix Light Trakt Failed!' % var.amgr, xbmc.LOGINFO)
         pass
     
 #Revoke Trakt
-def revoke_fenlt_trakt():
+def revoke_nxtflixlt_trakt():
     try:
         # Create database connection
-        conn = create_conn(var.fenlt_settings_db)
+        conn = create_conn(var.nxtflixlt_settings_db)
         with conn:
-            connect_trakt_fenlt(conn, (var.fenlt_client, 'trakt.client'))
-            connect_trakt_fenlt(conn, (var.fenlt_secret, 'trakt.secret'))
-            connect_trakt_fenlt(conn, ('empty_setting', 'trakt.token'))
-            connect_trakt_fenlt(conn, ('empty_setting', 'trakt.user'))
-            connect_trakt_fenlt(conn, ('empty_setting', 'trakt.refresh'))
-            connect_trakt_fenlt(conn, ('empty_setting', 'trakt.expires'))
-            connect_trakt_fenlt(conn, (0, 'watched_indicators'))
-            connect_trakt_fenlt(conn, ('Fen Light', 'watched_indicators_name'))
+            connect_trakt_nxtflixlt(conn, (var.nxtflixlt_client, 'trakt.client'))
+            connect_trakt_nxtflixlt(conn, (var.nxtflixlt_secret, 'trakt.secret'))
+            connect_trakt_nxtflixlt(conn, ('empty_setting', 'trakt.token'))
+            connect_trakt_nxtflixlt(conn, ('empty_setting', 'trakt.user'))
+            connect_trakt_nxtflixlt(conn, ('empty_setting', 'trakt.refresh'))
+            connect_trakt_nxtflixlt(conn, ('empty_setting', 'trakt.expires'))
+            connect_trakt_nxtflixlt(conn, (0, 'watched_indicators'))
+            connect_trakt_nxtflixlt(conn, ('NXTFlix Light', 'watched_indicators_name'))
     except:
-        xbmc.log('%s: Databit_db Revoke Fen Light Trakt Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Databit_db Revoke NXTFlix Light Trakt Failed!' % var.amgr, xbmc.LOGINFO)
         pass
     
 #Backup Trakt
-def backup_fenlt_trakt():
-    if os.path.exists(os.path.join(var.fenlt_settings_db)) and os.path.exists(os.path.join(var.trakt_backup)):
+def backup_nxtflixlt_trakt():
+    if os.path.exists(os.path.join(var.nxtflixlt_settings_db)) and os.path.exists(os.path.join(var.trakt_backup)):
         try:
-            xbmcvfs.copy(os.path.join(var.fenlt_settings_db), os.path.join(var.trakt_backup_fenlt))
+            xbmcvfs.copy(os.path.join(var.nxtflixlt_settings_db), os.path.join(var.trakt_backup_nxtflixlt))
         except:
-            xbmc.log('%s: Databit_db Backup Fen Light Trakt Failed!' % var.amgr, xbmc.LOGINFO)
+            xbmc.log('%s: Databit_db Backup NXTFlix Light Trakt Failed!' % var.amgr, xbmc.LOGINFO)
             pass
 
 #Delete Trakt Backup
-#def delete_fenlt_trakt():
-#    if os.path.exists(os.path.join(var.trakt_backup_fenlt)):
+#def delete_nxtflixlt_trakt():
+#    if os.path.exists(os.path.join(var.trakt_backup_nxtflixlt)):
 #        try:
-#            os.unlink(os.path.join(var.trakt_backup_fenlt))
+#            os.unlink(os.path.join(var.trakt_backup_nxtflixlt))
 #        except OSError:
-#            xbmc.log('%s: Databit_db Delete Fen Light Trakt Failed!' % var.amgr, xbmc.LOGINFO)
+#            xbmc.log('%s: Databit_db Delete NXTFlix Light Trakt Failed!' % var.amgr, xbmc.LOGINFO)
 #            pass
         
 
@@ -1049,13 +1049,13 @@ def backup_affen_trakt():
 
 ##########################################################################
 ##########################################################################
-########################### Fen Light Easynews ###########################
+########################### NXTFlix Light Easynews ###########################
     
 ############################ Restore Easynews ############################
-def restore_fenlt_easy():
+def restore_nxtflixlt_easy():
     try:
-        conn_p = create_conn(var.easy_backup_fenlt)
-        conn_t = create_conn(var.fenlt_settings_db)
+        conn_p = create_conn(var.easy_backup_nxtflixlt)
+        conn_t = create_conn(var.nxtflixlt_settings_db)
 
         cur_p = conn_p.cursor()
         cur_t = conn_t.cursor()
@@ -1092,38 +1092,38 @@ def restore_fenlt_easy():
         cur_t.close()
         cur_p.close()
     except:
-        xbmc.log('%s: Databit_db Restore Fen Light Easynews Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Databit_db Restore NXTFlix Light Easynews Failed!' % var.amgr, xbmc.LOGINFO)
         pass
     
 ############################ Revoke Easynews ############################
-def revoke_fenlt_easy():
+def revoke_nxtflixlt_easy():
     try:
         # Create database connection
-        conn = create_conn(var.fenlt_settings_db)
+        conn = create_conn(var.nxtflixlt_settings_db)
         with conn:
             connect_easy(conn, ('empty_setting', 'provider.easynews'))
             connect_easy(conn, ('empty_setting', 'easynews_user'))
             connect_easy(conn, ('empty_setting', 'easynews_password'))
     except:
-        xbmc.log('%s: Databit_db Revoke Fen Light Easynews Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Databit_db Revoke NXTFlix Light Easynews Failed!' % var.amgr, xbmc.LOGINFO)
         pass
     
 ############################ Backup Easynews ############################
-def backup_fenlt_easy():
-    if os.path.exists(os.path.join(var.fenlt_settings_db)) and os.path.exists(os.path.join(var.easy_backup)):
+def backup_nxtflixlt_easy():
+    if os.path.exists(os.path.join(var.nxtflixlt_settings_db)) and os.path.exists(os.path.join(var.easy_backup)):
         try:
-            xbmcvfs.copy(os.path.join(var.fenlt_settings_db), os.path.join(var.easy_backup_fenlt))
+            xbmcvfs.copy(os.path.join(var.nxtflixlt_settings_db), os.path.join(var.easy_backup_nxtflixlt))
         except:
-            xbmc.log('%s: Databit_db Backup Fen Light Easynews Failed!' % var.amgr, xbmc.LOGINFO)
+            xbmc.log('%s: Databit_db Backup NXTFlix Light Easynews Failed!' % var.amgr, xbmc.LOGINFO)
             pass
 
 ############################ Delete Easynews Backup ############################
-#def delete_fenlt_easy():
-#    if os.path.exists(os.path.join(var.easy_backup_fenlt)):
+#def delete_nxtflixlt_easy():
+#    if os.path.exists(os.path.join(var.easy_backup_nxtflixlt)):
 #        try:
-#            os.unlink(os.path.join(var.easy_backup_fenlt))
+#            os.unlink(os.path.join(var.easy_backup_nxtflixlt))
 #        except OSError:
-#            xbmc.log('%s: Databit_db Delete Fen Light Easynews Failed!' % var.amgr, xbmc.LOGINFO)
+#            xbmc.log('%s: Databit_db Delete NXTFlix Light Easynews Failed!' % var.amgr, xbmc.LOGINFO)
 #            pass
 
 
@@ -1213,13 +1213,13 @@ def backup_affen_easy():
 
 ##########################################################################
 ##########################################################################
-########################### Fen Light Metadata ############################
+########################### NXTFlix Light Metadata ############################
     
 ############################ Restore Metadata ############################
-def restore_fenlt_meta():
+def restore_nxtflixlt_meta():
     try:
-        conn_p = create_conn(var.meta_backup_fenlt)
-        conn_t = create_conn(var.fenlt_settings_db)
+        conn_p = create_conn(var.meta_backup_nxtflixlt)
+        conn_t = create_conn(var.nxtflixlt_settings_db)
 
         cur_p = conn_p.cursor()
         cur_t = conn_t.cursor()
@@ -1250,31 +1250,31 @@ def restore_fenlt_meta():
         pass
     
 ############################ Revoke Metadata ############################
-def revoke_fenlt_meta():
+def revoke_nxtflixlt_meta():
     try:
         # Create database connection
-        conn = create_conn(var.fenlt_settings_db)
+        conn = create_conn(var.nxtflixlt_settings_db)
         with conn:
-            connect_meta_fenlt(conn, ('empty_setting', 'omdb_api'))
-            connect_meta_fenlt(conn, (var.fenlt_tmdb, 'tmdb_api'))
+            connect_meta_nxtflixlt(conn, ('empty_setting', 'omdb_api'))
+            connect_meta_nxtflixlt(conn, (var.nxtflixlt_tmdb, 'tmdb_api'))
     except:
         xbmc.log('%s: Databit_db Revoke Metadata Failed!' % var.amgr, xbmc.LOGINFO)
         pass
     
 ############################ Backup Metadata ############################
-def backup_fenlt_meta():
-    if os.path.exists(os.path.join(var.fenlt_settings_db)) and os.path.exists(os.path.join(var.meta_backup)):
+def backup_nxtflixlt_meta():
+    if os.path.exists(os.path.join(var.nxtflixlt_settings_db)) and os.path.exists(os.path.join(var.meta_backup)):
         try:
-            xbmcvfs.copy(os.path.join(var.fenlt_settings_db), os.path.join(var.meta_backup_fenlt))
+            xbmcvfs.copy(os.path.join(var.nxtflixlt_settings_db), os.path.join(var.meta_backup_nxtflixlt))
         except:
             xbmc.log('%s: Databit_db Backup Metadata Failed!' % var.amgr, xbmc.LOGINFO)
             pass
 
 ############################ Delete Metadata ############################
-#def delete_fenlt_meta():
-#    if os.path.exists(os.path.join(var.meta_backup_fenlt)):
+#def delete_nxtflixlt_meta():
+#    if os.path.exists(os.path.join(var.meta_backup_nxtflixlt)):
 #        try:
-#            os.unlink(os.path.join(var.meta_backup_fenlt))
+#            os.unlink(os.path.join(var.meta_backup_nxtflixlt))
 #        except OSError:
 #            xbmc.log('%s: Databit_db Delete Metadata Failed!' % var.amgr, xbmc.LOGINFO)
 #            pass

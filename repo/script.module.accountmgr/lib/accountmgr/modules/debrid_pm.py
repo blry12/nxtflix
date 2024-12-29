@@ -119,57 +119,57 @@ class Auth:
                 pass
 
 
-    #Fen Light PM        
+    #NXTFlix Light PM        
         try:
-                if xbmcvfs.exists(var.chk_fenlt) and xbmcvfs.exists(var.chkset_fenlt):
+                if xbmcvfs.exists(var.chk_nxtflixlt) and xbmcvfs.exists(var.chkset_nxtflixlt):
                         
                         from accountmgr.modules import debrid_db
-                        conn = debrid_db.create_conn(var.fenlt_settings_db)
+                        conn = debrid_db.create_conn(var.nxtflixlt_settings_db)
                         
                         with conn:
                             cursor = conn.cursor()
                             cursor.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('pm.token',))
                             auth_pm = cursor.fetchone()
-                            chk_auth_fenlt = str(auth_pm)
+                            chk_auth_nxtflixlt = str(auth_pm)
 
                             cursor.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('rd.token',))
                             auth_rd = cursor.fetchone()
-                            chk_auth_fenlt_rd = str(auth_pm)
+                            chk_auth_nxtflixlt_rd = str(auth_pm)
 
                             cursor.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('ad.token',))
                             auth_ad = cursor.fetchone()
-                            chk_auth_fenlt_ad = str(auth_ad)
+                            chk_auth_nxtflixlt_ad = str(auth_ad)
                             
                             for char in char_remov:
-                                chk_auth_fenlt = chk_auth_fenlt.replace(char, "")
+                                chk_auth_nxtflixlt = chk_auth_nxtflixlt.replace(char, "")
                                 
-                            if not str(var.chk_accountmgr_tk_pm) == chk_auth_fenlt:
+                            if not str(var.chk_accountmgr_tk_pm) == chk_auth_nxtflixlt:
                                 
                                 from accountmgr.modules import debrid_db
-                                debrid_db.auth_fenlt_pm()
+                                debrid_db.auth_nxtflixlt_pm()
                                 
                                 for char in char_remov:
-                                    chk_auth_fenlt_rd = chk_auth_fenlt_rd.replace(char, "")
+                                    chk_auth_nxtflixlt_rd = chk_auth_nxtflixlt_rd.replace(char, "")
                                 
-                                if chk_auth_fenlt_rd != 'empty_setting' or chk_auth_fenlt_rd != '' or chk_auth_fenlt_rd != None:
+                                if chk_auth_nxtflixlt_rd != 'empty_setting' or chk_auth_nxtflixlt_rd != '' or chk_auth_nxtflixlt_rd != None:
                                     from accountmgr.modules import debrid_db
-                                    debrid_db.enable_fenlt_rd()
+                                    debrid_db.enable_nxtflixlt_rd()
                                 else:
                                     from accountmgr.modules import debrid_db
-                                    debrid_db.disable_fenlt_rd()
+                                    debrid_db.disable_nxtflixlt_rd()
                                     
                                 for char in char_remov:
-                                    chk_auth_fenlt_ad = chk_auth_fenlt_ad.replace(char, "")
+                                    chk_auth_nxtflixlt_ad = chk_auth_nxtflixlt_ad.replace(char, "")
 
-                                if chk_auth_fenlt_ad != 'empty_setting' or chk_auth_fenlt_ad != '' or chk_auth_fenlt_ad != None:
+                                if chk_auth_nxtflixlt_ad != 'empty_setting' or chk_auth_nxtflixlt_ad != '' or chk_auth_nxtflixlt_ad != None:
                                     from accountmgr.modules import debrid_db
-                                    debrid_db.enable_fenlt_ad()
+                                    debrid_db.enable_nxtflixlt_ad()
                                 else:
                                     from accountmgr.modules import debrid_db
-                                    debrid_db.disable_fenlt_ad()
+                                    debrid_db.disable_nxtflixlt_ad()
                             cursor.close()
         except:
-                xbmc.log('%s: Fen Light Premiumize Failed!' % var.amgr, xbmc.LOGINFO)
+                xbmc.log('%s: NXTFlix Light Premiumize Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
 
     #afFENity PM        

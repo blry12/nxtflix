@@ -16,7 +16,7 @@ from resources.libs.common import var
 ORDER = ['seren',
          'nxtflix',       
          'fen',
-         'fenlt',
+         'nxtflixlt',
          'affen',
          'coal',
          'pov',
@@ -85,18 +85,18 @@ TRAKTID = {
         'default'  : 'trakt.user',
         'data'     : ['trakt.refresh', 'trakt.expires', 'trakt.token', 'trakt.user', 'trakt.indicators_active','watched_indicators'],
         'activate' : 'Addon.OpenSettings(plugin.video.fen)'},
-    'fenlt': {
-        'name'     : 'Fen Light',
-        'plugin'   : 'plugin.video.fenlight',
-        'saved'    : 'fenlt',
-        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.fenlight'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.fenlight/resources/media/', 'fenlight_icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.fenlight/resources/media/', 'fenlight_fanart.png'),
-        'file'     : os.path.join(CONFIG.TRAKTFOLD, 'fenlt'),
-        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.fenlight/databases', 'settings.db'),
-        'fenlt'    : '',
+    'nxtflixlt': {
+        'name'     : 'NXTFlix Light',
+        'plugin'   : 'plugin.video.nxtflixlight',
+        'saved'    : 'nxtflixlt',
+        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight'),
+        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight/resources/media/', 'fenlight_icon.png'),
+        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight/resources/media/', 'fenlight_fanart.png'),
+        'file'     : os.path.join(CONFIG.TRAKTFOLD, 'nxtflixlt'),
+        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.nxtflixlight/databases', 'settings.db'),
+        'nxtflixlt'    : '',
         'data'     : [],
-        'activate' : 'Addon.OpenSettings(plugin.video.fenlight)'},
+        'activate' : 'Addon.OpenSettings(plugin.video.nxtflixlight)'},
     'affen': {
         'name'     : 'afFENity',
         'plugin'   : 'plugin.video.affenity',
@@ -106,7 +106,7 @@ TRAKTID = {
         'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.affenity/resources/media/', 'affenity_fanart.png'),
         'file'     : os.path.join(CONFIG.TRAKTFOLD, 'affen'),
         'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.affenity/databases', 'settings.db'),
-        'fenlt'    : '',
+        'nxtflixlt'    : '',
         'data'     : [],
         'activate' : 'Addon.OpenSettings(plugin.video.affenity)'},
     'coal': {
@@ -476,10 +476,10 @@ def trakt_user(who):
     user = None
     if TRAKTID[who]:
         name = TRAKTID[who]['name']
-        if os.path.exists(TRAKTID[who]['path']) and name == 'Fen Light': #Skip Fen Light due to not having a settings.xml
+        if os.path.exists(TRAKTID[who]['path']) and name == 'NXTFlix Light': #Skip NXTFlix Light due to not having a settings.xml
             try:
                 # Create database connection
-                conn = create_conn(var.fenlt_settings_db)
+                conn = create_conn(var.nxtflixlt_settings_db)
                 with conn:
                     cur = conn.cursor()
                     cur.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('trakt.token',)) #Get setting to compare
@@ -492,7 +492,7 @@ def trakt_user(who):
                         user = user_data #Return if authorized
                     cur.close()
             except:
-                xbmc.log('%s: Traktit Fen Light Failed!' % var.amgr, xbmc.LOGINFO)
+                xbmc.log('%s: Traktit NXTFlix Light Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
         elif os.path.exists(TRAKTID[who]['path']) and name == 'afFENity': #Skip afFENity due to not having a settings.xml
             try:
@@ -654,7 +654,7 @@ def update_trakt(do, who):
             logging.log('Trakt Data Not Found for {0}'.format(name))    
     elif do == 'clearaddon':
         logging.log('{0} SETTINGS: {1}'.format(name, settings))
-        if name == 'Fen Light' or name == 'afFENity':
+        if name == 'NXTFlix Light' or name == 'afFENity':
             pass
         else:
             if os.path.exists(settings):
@@ -676,7 +676,7 @@ def update_trakt(do, who):
         xbmc.executebuiltin('Container.Refresh()')
     elif do == 'wipeaddon':
         logging.log('{0} SETTINGS: {1}'.format(name, settings))
-        if name == 'Fen Light' or name == 'afFENity':
+        if name == 'NXTFlix Light' or name == 'afFENity':
             pass
         else:
             if os.path.exists(settings):

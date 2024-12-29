@@ -17,7 +17,7 @@ from resources.libs.common import var
 ORDER = ['serenad',
          'nxtflixad',
          'fenad',
-         'fenltad',
+         'nxtflixltad',
          'affenad',
          'coalad', 
          'povad',
@@ -77,18 +77,18 @@ DEBRIDID = {
         'default'  : 'ad.account_id',
         'data'     : ['ad.token', 'ad.enabled', 'ad.account_id'],
         'activate' : 'Addon.OpenSettings(plugin.video.fen)'},
-    'fenltad': {
-        'name'     : 'Fen Light',
-        'plugin'   : 'plugin.video.fenlight',
-        'saved'    : 'fenltad',
-        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.fenlight'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.fenlight/resources/media/', 'fenlight_icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.fenlight/resources/media/', 'fenlight_fanart.png'),
-        'file'     : os.path.join(CONFIG.DEBRIDFOLD_AD, 'fenlt_ad'),
-        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.fenlight/databases', 'settings.db'),
-        'fenlt'    : '',
+    'nxtflixltad': {
+        'name'     : 'NXTFlix Light',
+        'plugin'   : 'plugin.video.nxtflixlight',
+        'saved'    : 'nxtflixltad',
+        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight'),
+        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight/resources/media/', 'fenlight_icon.png'),
+        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight/resources/media/', 'fenlight_fanart.png'),
+        'file'     : os.path.join(CONFIG.DEBRIDFOLD_AD, 'nxtflixlt_ad'),
+        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.nxtflixlight/databases', 'settings.db'),
+        'nxtflixlt'    : '',
         'data'     : [],
-        'activate' : 'Addon.OpenSettings(plugin.video.fenlight)'},
+        'activate' : 'Addon.OpenSettings(plugin.video.nxtflixlight)'},
     'affenad': {
         'name'     : 'afFENity',
         'plugin'   : 'plugin.video.affenity',
@@ -98,7 +98,7 @@ DEBRIDID = {
         'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.affenity/resources/media/', 'affenity_fanart.png'),
         'file'     : os.path.join(CONFIG.DEBRIDFOLD_AD, 'affen_ad'),
         'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.affenity/databases', 'settings.db'),
-        'fenlt'    : '',
+        'nxtflixlt'    : '',
         'data'     : [],
         'activate' : 'Addon.OpenSettings(plugin.video.affenity)'},
     'coalad': {
@@ -360,10 +360,10 @@ def debrid_user(who):
     user = None
     if DEBRIDID[who]:
         name = DEBRIDID[who]['name']
-        if os.path.exists(DEBRIDID[who]['path']) and name == 'Fen Light':
+        if os.path.exists(DEBRIDID[who]['path']) and name == 'NXTFlix Light':
             try:
                 # Create database connection
-                conn = create_conn(var.fenlt_settings_db)
+                conn = create_conn(var.nxtflixlt_settings_db)
                 with conn:
                     cur = conn.cursor()
                     cur.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('ad.token',)) #Get setting to compare
@@ -376,7 +376,7 @@ def debrid_user(who):
                         user = user_data #Return if authorized
                     cur.close()
             except:
-                xbmc.log('%s: Debridit_ad Fen Light Failed!' % var.amgr, xbmc.LOGINFO)
+                xbmc.log('%s: Debridit_ad NXTFlix Light Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
         elif os.path.exists(DEBRIDID[who]['path']) and name == 'afFENity':
             try:

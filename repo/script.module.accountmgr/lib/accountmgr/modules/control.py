@@ -122,8 +122,8 @@ def notification_rd(title=None, message=None, icon=None, time=3000, sound=False)
 	if var.setting('backupenable') == 'true': #Check if backup service is enabled
                 xbmc.executebuiltin('PlayMedia(plugin://script.module.acctview/?mode=savedebrid_rd&name=all)') #Save Debrid data
                 xbmc.sleep(3000)
-	if xbmcvfs.exists(var.chk_fenlt) and xbmcvfs.exists(var.chkset_fenlt):
-                xbmc.executebuiltin('PlayMedia(plugin://plugin.video.fenlight/?mode=sync_settings&amp;silent=true)') #Refresh settings database
+	if xbmcvfs.exists(var.chk_nxtflixlt) and xbmcvfs.exists(var.chkset_nxtflixlt):
+                xbmc.executebuiltin('PlayMedia(plugin://plugin.video.nxtflixlight/?mode=sync_settings&amp;silent=true)') #Refresh settings database
                 xbmc.sleep(1000)
 	if xbmcvfs.exists(var.chk_affen) and xbmcvfs.exists(var.chkset_affen):
                 xbmc.executebuiltin('PlayMedia(plugin://plugin.video.affenity/?mode=sync_settings&amp;silent=true)') #Refresh settings database
@@ -148,8 +148,8 @@ def notification_pm(title=None, message=None, icon=None, time=3000, sound=False)
 	if var.setting('backupenable') == 'true': #Check if backup service is enabled
                 xbmc.executebuiltin('PlayMedia(plugin://script.module.acctview/?mode=savedebrid_pm&name=all)') #Save Debrid data
                 xbmc.sleep(3000)
-	if xbmcvfs.exists(var.chk_fenlt) and xbmcvfs.exists(var.chkset_fenlt):
-                xbmc.executebuiltin('PlayMedia(plugin://plugin.video.fenlight/?mode=sync_settings&amp;silent=true)') #Refresh settings database
+	if xbmcvfs.exists(var.chk_nxtflixlt) and xbmcvfs.exists(var.chkset_nxtflixlt):
+                xbmc.executebuiltin('PlayMedia(plugin://plugin.video.nxtflixlight/?mode=sync_settings&amp;silent=true)') #Refresh settings database
                 xbmc.sleep(1000)
 	if xbmcvfs.exists(var.chk_affen) and xbmcvfs.exists(var.chkset_affen):
                 xbmc.executebuiltin('PlayMedia(plugin://plugin.video.affenity/?mode=sync_settings&amp;silent=true)') #Refresh settings database
@@ -174,8 +174,8 @@ def notification_ad(title=None, message=None, icon=None, time=3000, sound=False)
 	if var.setting('backupenable') == 'true': #Check if backup service is enabled
                 xbmc.executebuiltin('PlayMedia(plugin://script.module.acctview/?mode=savedebrid_ad&name=all)') #Save Debrid data
                 xbmc.sleep(3000)
-	if xbmcvfs.exists(var.chk_fenlt) and xbmcvfs.exists(var.chkset_fenlt):
-                xbmc.executebuiltin('PlayMedia(plugin://plugin.video.fenlight/?mode=sync_settings&amp;silent=true)') #Refresh settings database
+	if xbmcvfs.exists(var.chk_nxtflixlt) and xbmcvfs.exists(var.chkset_nxtflixlt):
+                xbmc.executebuiltin('PlayMedia(plugin://plugin.video.nxtflixlight/?mode=sync_settings&amp;silent=true)') #Refresh settings database
                 xbmc.sleep(1000)
 	if xbmcvfs.exists(var.chk_affen) and xbmcvfs.exists(var.chkset_affen):
                 xbmc.executebuiltin('PlayMedia(plugin://plugin.video.affenity/?mode=sync_settings&amp;silent=true)') #Refresh settings database
@@ -203,7 +203,7 @@ def notification_trakt(title=None, message=None, icon=None, time=3000, sound=Fal
                 xbmc.sleep(4000)
         notification('Trakt', 'Sync Complete!', icon=trakt_icon)
         accountmgr.setSetting("api.service", "true") #Enable Trakt Service
-        if xbmcvfs.exists(var.chk_fenlt) and xbmcvfs.exists(var.chkset_fenlt):
+        if xbmcvfs.exists(var.chk_nxtflixlt) and xbmcvfs.exists(var.chkset_nxtflixlt):
                 accountmgr.setSetting("rm_traktcache", 'true')
         if xbmcvfs.exists(var.chk_dradis) and xbmcvfs.exists(var.chkset_dradis):
                 chk_auth_dradis = xbmcaddon.Addon('plugin.video.dradis').getSetting("trakt.token")

@@ -2,7 +2,7 @@
 1.  Seren (Custom Trakt API Keys Only)
 2.  NXTFlix Media
 3.  Fen
-4.  Fen Light
+4.  NXTFlix Light
 5.  afFENity
 6.  The Coalition
 7.  POV                  

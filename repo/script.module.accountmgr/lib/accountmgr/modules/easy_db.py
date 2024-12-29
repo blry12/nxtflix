@@ -50,17 +50,17 @@ def connect_easy(conn, setting):
 
 
     
-#################### Auth Fen Light Easynews ###################
-def auth_fenlt_easy():
+#################### Auth NXTFlix Light Easynews ###################
+def auth_nxtflixlt_easy():
     try:
         # Create database connection
-        conn = create_conn(var.fenlt_settings_db)
+        conn = create_conn(var.nxtflixlt_settings_db)
         with conn:
             connect_easy(conn, ('true', 'provider_easynews'))
             connect_easy(conn, (your_easy_user, 'easynews_user'))
             connect_easy(conn, (your_easy_pass, 'easynews_password'))
     except:
-        xbmc.log('%s: Easy_db Fen Light Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Easy_db NXTFlix Light Failed!' % var.amgr, xbmc.LOGINFO)
         pass
 
 
