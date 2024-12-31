@@ -15,8 +15,8 @@ from resources.libs.common import tools
 from resources.libs.common import var
 
 ORDER = ['serenpm',
-         'nxtflixpm',
          'fenpm',
+         'nxtflixpm',         
          'nxtflixltpm',
          'affenpm',
          'coalpm',
@@ -54,18 +54,6 @@ DEBRIDID = {
         'default'  : 'premiumize.username',
         'data'     : ['premiumize.enabled', 'premiumize.username', 'premiumize.token'],
         'activate' : 'Addon.OpenSettings(plugin.video.seren)'},
-    'nxtflixpm': {
-        'name'     : 'NXTFlix',
-        'plugin'   : 'plugin.video.nxtflix',
-        'saved'    : 'nxtflixpm',
-        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix/resources/media/', 'nxtflix_icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix/resources/media/', 'nxtflix_fanart.png'),
-        'file'     : os.path.join(CONFIG.DEBRIDFOLD_PM, 'nxtflix_pm'),
-        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.nxtflix', 'settings.xml'),
-        'default'  : 'pm.account_id',
-        'data'     : ['pm.token', 'pm.account_id', 'pm.enabled'],
-        'activate' : 'Addon.OpenSettings(plugin.video.nxtflix)'},        
     'fenpm': {
         'name'     : 'Fen',
         'plugin'   : 'plugin.video.fen',
@@ -78,6 +66,18 @@ DEBRIDID = {
         'default'  : 'pm.account_id',
         'data'     : ['pm.token', 'pm.account_id', 'pm.enabled'],
         'activate' : 'Addon.OpenSettings(plugin.video.fen)'},
+    'nxtflixpm': {
+        'name'     : 'NXTFlix',
+        'plugin'   : 'plugin.video.nxtflix',
+        'saved'    : 'nxtflixpm',
+        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix'),
+        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix/resources/media/', 'nxtflix_icon.png'),
+        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix/resources/media/', 'nxtflix_fanart.png'),
+        'file'     : os.path.join(CONFIG.DEBRIDFOLD_PM, 'nxtflix_pm'),
+        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.nxtflix', 'settings.xml'),
+        'default'  : 'pm.account_id',
+        'data'     : ['pm.token', 'pm.account_id', 'pm.enabled'],
+        'activate' : 'Addon.OpenSettings(plugin.video.nxtflix)'},        
     'nxtflixltpm': {
         'name'     : 'NXTFlix Light',
         'plugin'   : 'plugin.video.nxtflixlight',

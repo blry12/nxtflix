@@ -167,19 +167,6 @@ class Router:
                 except:
                     xbmc.log('%s: Traktit.py Revoke API Seren Failed!' % var.amgr, xbmc.LOGINFO)
                     pass
-                    
-            if xbmcvfs.exists(var.chk_nxtflix):
-                try:
-                    with open(var.path_nxtflix,'r') as f:
-                        data = f.read()
-
-                    client = data.replace(var.client_am,var.nxtflix_client).replace(var.secret_am,var.nxtflix_secret)
-
-                    with open(var.path_nxtflix,'w') as f:
-                        f.write(client)
-                except:
-                    xbmc.log('%s: Traktit.py Revoke API nxtflix Failed!' % var.amgr, xbmc.LOGINFO)
-                    pass                    
 
             if xbmcvfs.exists(var.chk_fen):
                 try:
@@ -193,6 +180,19 @@ class Router:
                 except:
                     xbmc.log('%s: Traktit.py Revoke API Fen Failed!' % var.amgr, xbmc.LOGINFO)
                     pass
+                    
+            if xbmcvfs.exists(var.chk_nxtflix):
+                try:
+                    with open(var.path_nxtflix,'r') as f:
+                        data = f.read()
+
+                    client = data.replace(var.client_am,var.nxtflix_client).replace(var.secret_am,var.nxtflix_secret)
+
+                    with open(var.path_nxtflix,'w') as f:
+                        f.write(client)
+                except:
+                    xbmc.log('%s: Traktit.py Revoke API NXTFlix Failed!' % var.amgr, xbmc.LOGINFO)
+                    pass                    
 
             if xbmcvfs.exists(var.chk_coal):
                 try:
@@ -511,8 +511,6 @@ class Router:
             databit.revoke_affen_rd()
             jsonit.realizer_rvk()
             xbmcgui.Dialog().notification('Account Manager', 'All Add-ons Revoked!', rd_icon, 3000)
-            xbmc.sleep(1000)
-            xbmc.executebuiltin('Addon.OpenSettings(script.module.accountmgr)')
         elif mode == 'cleardebrid_rd':  # Clear All Saved Debrid Data
             try:
                 if xbmcvfs.exists(var.rd_backup): # Skip clearing data if no debrid folder present in backup folder
@@ -582,8 +580,6 @@ class Router:
             databit.revoke_nxtflixlt_pm()
             databit.revoke_affen_pm()
             xbmcgui.Dialog().notification('Account Manager', 'All Add-ons Revoked!', pm_icon, 3000)
-            xbmc.sleep(1000)
-            xbmc.executebuiltin('Addon.OpenSettings(script.module.accountmgr)')
         elif mode == 'cleardebrid_pm':  # Clear All Saved Debrid Data
             try:
                 if xbmcvfs.exists(var.pm_backup): # Skip clearing data if no debrid folder present in backup folder
@@ -653,8 +649,6 @@ class Router:
             databit.revoke_nxtflixlt_ad()
             databit.revoke_affen_ad()
             xbmcgui.Dialog().notification('Account Manager', 'All Add-ons Revoked!', ad_icon, 3000)
-            xbmc.sleep(1000)
-            xbmc.executebuiltin('Addon.OpenSettings(script.module.accountmgr)')
         elif mode == 'cleardebrid_ad':  # Clear All Saved Debrid Data
             try:
                 if xbmcvfs.exists(var.ad_backup): # Skip clearing data if no debrid folder present in backup folder
@@ -721,8 +715,6 @@ class Router:
         elif mode == 'addonoffc':  # Clear All Addon OffCloud Data
             offit.offc_it('clearaddon', name)
             xbmcgui.Dialog().notification('Account Manager', 'All Add-ons Revoked!', offcloud_icon, 3000)
-            xbmc.sleep(1000)
-            xbmc.executebuiltin('Addon.OpenSettings(script.module.accountmgr)')
         elif mode == 'clearoffc':  # Clear All Saved Data
             try:
                 if xbmcvfs.exists(var.offc_backup): # Skip clearing data if no nondebrid folder present in backup folder
@@ -794,8 +786,6 @@ class Router:
             databit.revoke_nxtflixlt_easy()
             databit.revoke_affen_easy()
             xbmcgui.Dialog().notification('Account Manager', 'All Add-ons Revoked!', easy_icon, 3000)
-            xbmc.sleep(1000)
-            xbmc.executebuiltin('Addon.OpenSettings(script.module.accountmgr)')
         elif mode == 'cleareasy':  # Clear All Saved Data
             try:
                 if xbmcvfs.exists(var.easy_backup): # Skip clearing data if no nondebrid folder present in backup folder
@@ -859,8 +849,6 @@ class Router:
         elif mode == 'addonfile':  # Clear All Addon Filepursuit Data
             fileit.filep_it('clearaddon', name)
             xbmcgui.Dialog().notification('Account Manager', 'All Add-ons Revoked!', file_icon, 3000)
-            xbmc.sleep(1000)
-            xbmc.executebuiltin('Addon.OpenSettings(script.module.accountmgr)')
         elif mode == 'clearfile':  # Clear All Saved Data
             try:
                 if xbmcvfs.exists(var.file_backup): # Skip clearing data if no nondebrid folder present in backup folder
@@ -985,8 +973,6 @@ class Router:
                     databit.revoke_affen_ad()
                     
                 xbmcgui.Dialog().notification('Account Manager', 'All Add-ons Revoked!', amgr_icon, 3000)
-                xbmc.sleep(1000)
-                xbmc.executebuiltin('Addon.OpenSettings(script.module.accountmgr)')
                 
         #BACKUP ALL DEBRID ACCOUNTS
         elif mode == 'backupall':  # Save Debrid Data for all Debrid services
@@ -1155,6 +1141,19 @@ class Router:
                         except:
                             xbmc.log('%s: Traktit.py Revoke API Fen Failed!' % var.amgr, xbmc.LOGINFO)
                             pass
+                            
+                    if xbmcvfs.exists(var.chk_nxtflix):
+                        try:
+                            with open(var.path_nxtflix,'r') as f:
+                                data = f.read()
+
+                            client = data.replace(var.client_am,var.nxtflix_client).replace(var.secret_am,var.nxtflix_secret)
+
+                            with open(var.path_nxtflix,'w') as f:
+                                f.write(client)
+                        except:
+                            xbmc.log('%s: Traktit.py Revoke API NXTFlix Failed!' % var.amgr, xbmc.LOGINFO)
+                            pass                            
 
                     if xbmcvfs.exists(var.chk_nxtflixlt):
                         try:

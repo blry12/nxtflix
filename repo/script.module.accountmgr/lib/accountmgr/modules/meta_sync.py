@@ -54,35 +54,7 @@ class Auth:
                 except:
                         xbmc.log('%s: Seren Metadata Failed!' % var.amgr, xbmc.LOGINFO)
                         pass
-
-        #nxtflix
-                try:
-                        if xbmcvfs.exists(var.chk_nxtflix) and xbmcvfs.exists(var.chkset_nxtflix):
-
-                                chk_fanart_api = xbmcaddon.Addon('plugin.video.nxtflix').getSetting("fanart_client_key")
-                                chk_omdb_api = xbmcaddon.Addon('plugin.video.nxtflix').getSetting("omdb_api")
-                                chk_imdb_api = xbmcaddon.Addon('plugin.video.nxtflix').getSetting("imdb_user")    
-                                chk_tmdb_api = xbmcaddon.Addon('plugin.video.nxtflix').getSetting("tmdb_api")
-                                
-                                if not str(var.chk_accountmgr_fanart) == str(chk_fanart_api) or str(chk_fanart_api) == '':
-                                        addon = xbmcaddon.Addon("plugin.video.nxtflix")
-                                        addon.setSetting("fanart_client_key", your_fanart_api)
-
-                                if not str(var.chk_accountmgr_omdb) == str(chk_omdb_api) or str(chk_omdb_api) == '':
-                                        addon = xbmcaddon.Addon("plugin.video.nxtflix")
-                                        addon.setSetting("omdb_api", your_omdb_api)
-
-                                if not str(var.chk_accountmgr_imdb) == str(chk_imdb_api) or str(chk_imdb_api) == '':
-                                        addon = xbmcaddon.Addon("plugin.video.nxtflix")
-                                        addon.setSetting("imdb_user", your_imdb_api)
-                                        
-                                if not str(var.chk_accountmgr_tmdb) == str(chk_tmdb_api) or str(chk_tmdb_api) == '':
-                                        addon = xbmcaddon.Addon("plugin.video.nxtflix")
-                                        addon.setSetting("tmdb_api", your_tmdb_api)
-                except:
-                        xbmc.log('%s: nxtflix Metadata Failed!' % var.amgr, xbmc.LOGINFO)
-                        pass
-                        
+                
         #Fen
                 try:
                         if xbmcvfs.exists(var.chk_fen) and xbmcvfs.exists(var.chkset_fen):
@@ -110,6 +82,34 @@ class Auth:
                 except:
                         xbmc.log('%s: Fen Metadata Failed!' % var.amgr, xbmc.LOGINFO)
                         pass
+                        
+        #NXTFlix
+                try:
+                        if xbmcvfs.exists(var.chk_nxtflix) and xbmcvfs.exists(var.chkset_nxtflix):
+
+                                chk_fanart_api = xbmcaddon.Addon('plugin.video.nxtflix').getSetting("fanart_client_key")
+                                chk_omdb_api = xbmcaddon.Addon('plugin.video.nxtflix').getSetting("omdb_api")
+                                chk_imdb_api = xbmcaddon.Addon('plugin.video.nxtflix').getSetting("imdb_user")    
+                                chk_tmdb_api = xbmcaddon.Addon('plugin.video.nxtflix').getSetting("tmdb_api")
+                                
+                                if not str(var.chk_accountmgr_fanart) == str(chk_fanart_api) or str(chk_fanart_api) == '':
+                                        addon = xbmcaddon.Addon("plugin.video.nxtflix")
+                                        addon.setSetting("fanart_client_key", your_fanart_api)
+
+                                if not str(var.chk_accountmgr_omdb) == str(chk_omdb_api) or str(chk_omdb_api) == '':
+                                        addon = xbmcaddon.Addon("plugin.video.nxtflix")
+                                        addon.setSetting("omdb_api", your_omdb_api)
+
+                                if not str(var.chk_accountmgr_imdb) == str(chk_imdb_api) or str(chk_imdb_api) == '':
+                                        addon = xbmcaddon.Addon("plugin.video.nxtflix")
+                                        addon.setSetting("imdb_user", your_imdb_api)
+                                        
+                                if not str(var.chk_accountmgr_tmdb) == str(chk_tmdb_api) or str(chk_tmdb_api) == '':
+                                        addon = xbmcaddon.Addon("plugin.video.nxtflix")
+                                        addon.setSetting("tmdb_api", your_tmdb_api)
+                except:
+                        xbmc.log('%s: NXTFlix Metadata Failed!' % var.amgr, xbmc.LOGINFO)
+                        pass                        
 
         #NXTFlix Light
                 try:
@@ -629,8 +629,8 @@ class Auth:
                         if xbmcvfs.exists(var.chk_tmdbh) and xbmcvfs.exists(var.chkset_tmdbh):
 
                                 chk_fanart_api = xbmcaddon.Addon('plugin.video.themoviedb.helper').getSetting("fanarttv_clientkey")
-                                chk_imdb_api = xbmcaddon.Addon('plugin.video.themoviedb.helper').getSetting("omdb_apikey")    
-                                chk_tmdb_api = xbmcaddon.Addon('plugin.video.themoviedb.helper').getSetting("mdblist_apikey")
+                                chk_omdb_api = xbmcaddon.Addon('plugin.video.themoviedb.helper').getSetting("omdb_apikey")    
+                                chk_mdb_api = xbmcaddon.Addon('plugin.video.themoviedb.helper').getSetting("mdblist_apikey")
                                 
                                 if not str(var.chk_accountmgr_fanart) == str(chk_fanart_api) or str(chk_fanart_api) == '':
                                         addon = xbmcaddon.Addon("plugin.video.themoviedb.helper")
@@ -850,4 +850,41 @@ class Auth:
                                         addon.setSetting("tmdb.session_id", your_tmdb_session)
                 except:
                         xbmc.log('%s: My Accounts Metadata Failed!' % var.amgr, xbmc.LOGINFO)
+                        pass
+
+        #Fentastic Skin
+                try:
+                        if xbmcvfs.exists(var.chk_fentastic) and xbmcvfs.exists(var.chkset_fentastic):
+                                with open(var.path_fentastic) as f:
+                                        if var.chk_accountmgr_mdb in f.read():
+                                                pass
+
+                                        else:
+                                                template = "{}({},{})"
+                                                builtin = "Skin.SetString"
+                                                string1 = "mdblist_api_key"
+                                                string2 = str(your_mdb_api)
+                                                formatted = template.format(builtin, string1, string2)
+                                                assert formatted == "function(string)"
+                                                xbmc.executebuiltin(formatted) #xbmc.executebuiltin("Skin.SetString(mdblist_api_key, your_mdb_api)")
+                except:
+                        xbmc.log('%s: Fentastic Metadata Failed!' % var.amgr, xbmc.LOGINFO)
+                                        
+        #Nimbus Skin
+                try:
+                        if xbmcvfs.exists(var.chk_nimbus) and xbmcvfs.exists(var.chkset_nimbus):
+                                with open(var.path_nimbus) as f:
+                                        if var.chk_accountmgr_mdb in f.read():
+                                                pass
+
+                                        else:
+                                                template = "{}({},{})"
+                                                builtin = "Skin.SetString"
+                                                string1 = "mdblist_api_key"
+                                                string2 = str(your_mdb_api)
+                                                formatted = template.format(builtin, string1, string2)
+                                                assert formatted == "function(string)"
+                                                xbmc.executebuiltin(formatted) #xbmc.executebuiltin("Skin.SetString(mdblist_api_key, your_mdb_api)")
+                except:
+                        xbmc.log('%s: Nimbus Metadata Failed!' % var.amgr, xbmc.LOGINFO)
                         pass

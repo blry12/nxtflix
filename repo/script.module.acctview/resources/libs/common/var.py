@@ -46,7 +46,7 @@ def rm_traktcache():
                         except OSError:
                                 pass
                 addon.setSetting("rm_traktcache", 'false')
-                
+
 #Account Mananger Trakt API Keys
 client_am = traktID()
 secret_am = traktSecret()
@@ -124,8 +124,8 @@ backup_youtube = os.path.join(meta_backup,'youtube.json')
 
 #Account Manager Add-on XML's
 seren = xmls + translatePath('plugin.video.seren/settings.xml')
-nxtflix = xmls + translatePath('plugin.video.nxtflix/settings.xml')
 fen = xmls + translatePath('plugin.video.fen/settings.xml')
+nxtflix = xmls + translatePath('plugin.video.nxtflix/settings.xml')
 coal = xmls + translatePath('plugin.video.coalition/settings.xml')
 pov = xmls + translatePath('plugin.video.pov/settings.xml')
 umb = xmls + translatePath('plugin.video.umbrella/settings.xml')
@@ -167,8 +167,8 @@ pvr = xmls + translatePath('script.module.pvr.artwork/settings.xml')
 
 #Add-on Paths
 chk_seren = addons + translatePath('plugin.video.seren/')
-chk_nxtflix = addons + translatePath('plugin.video.nxtflix/')
 chk_fen = addons + translatePath('plugin.video.fen/')
+chk_nxtflix = addons + translatePath('plugin.video.nxtflix/')
 chk_nxtflixlt = addons + translatePath('plugin.video.nxtflixlight/')
 chk_affen = addons + translatePath('plugin.video.affenity/')
 chk_coal = addons + translatePath('plugin.video.coalition/')
@@ -209,11 +209,13 @@ chk_simkl = addons + translatePath('script.simkl/')
 chk_embuary = addons + translatePath('script.embuary.info/')
 chk_meta = addons + translatePath('script.module.metahandler/')
 chk_pvr = addons + translatePath('script.module.pvr.artwork/')
+chk_fentastic = addons + translatePath('skin.fentastic/')
+chk_nimbus = addons + translatePath('skin.nimbus/')
 
 #Add-on Userdata Paths
 seren_ud = addon_data + translatePath('plugin.video.seren/')
-nxtflix_ud = addon_data + translatePath('plugin.video.nxtflix/')
 fen_ud = addon_data + translatePath('plugin.video.fen/')
+nxtflix_ud = addon_data + translatePath('plugin.video.nxtflix/')
 coal_ud = addon_data + translatePath('plugin.video.coalition/')
 pov_ud = addon_data + translatePath('plugin.video.pov/')
 umb_ud = addon_data + translatePath('plugin.video.umbrella/')
@@ -255,8 +257,8 @@ pvr_ud = addon_data + translatePath('script.module.pvr.artwork/')
 
 #Add-on settings.xml Paths
 chkset_seren = addon_data + translatePath('plugin.video.seren/settings.xml')
-chkset_nxtflix = addon_data + translatePath('plugin.video.nxtflix/settings.xml')
 chkset_fen = addon_data + translatePath('plugin.video.fen/settings.xml')
+chkset_nxtflix = addon_data + translatePath('plugin.video.nxtflix/settings.xml')
 chkset_nxtflixlt = addon_data + translatePath('plugin.video.nxtflixlight/databases/settings.db')
 chkset_affen = addon_data + translatePath('plugin.video.affenity/databases/settings.db')
 chkset_coal = addon_data + translatePath('plugin.video.coalition/settings.xml')
@@ -298,11 +300,17 @@ chkset_simkl = addon_data + translatePath('script.simkl/settings.xml')
 chkset_embuary = addon_data + translatePath('script.embuary.info/settings.xml')
 chkset_meta = addon_data + translatePath('script.module.metahandler/settings.xml')
 chkset_pvr = addon_data + translatePath('script.module.pvr.artwork/settings.xml')
+chkset_fentastic = addon_data + translatePath('skin.fentastic/settings.xml')
+chkset_nimbus = addon_data + translatePath('skin.nimbus/settings.xml')
+
+#Skin Setting Paths
+path_fentastic = addon_data + translatePath('skin.fentastic/settings.xml')
+path_nimbus = addon_data + translatePath('skin.nimbus/settings.xml')
 
 #Trakt API Key Paths
 path_seren = addons + translatePath('plugin.video.seren/resources/lib/indexers/trakt.py')
-path_nxtflix = addons + translatePath('plugin.video.nxtflix/resources/lib/apis/trakt_api.py')
 path_fen = addons + translatePath('plugin.video.fen/resources/lib/apis/trakt_api.py')
+path_nxtflix = addons + translatePath('plugin.video.nxtflix/resources/lib/apis/trakt_api.py')
 path_affen = addons + translatePath('plugin.video.affenity/resources/lib/apis/trakt_api.py')
 path_coal = addons + translatePath('plugin.video.coalition/resources/lib/apis/trakt_api.py')
 path_shadow = addons + translatePath('plugin.video.shadow/resources/modules/general.py')
@@ -325,10 +333,10 @@ path_trakt = addons + translatePath('script.trakt/resources/lib/traktapi.py')
 #Trakt API Keys
 seren_client = '0c9a30819e4af6ffaf3b954cbeae9b54499088513863c03c02911de00ac2de79'
 seren_secret = 'bf02417f27b514cee6a8d135f2ddc261a15eecfb6ed6289c36239826dcdd1842'
-nxtflix_client = '793fda23d5ab3f352dc5856e5aa3a43c150402406cadf81a419bce23fab15e46'
 fen_client = '645b0f46df29d27e63c4a8d5fff158edd0bef0a6a5d32fc12c1b82388be351af'
-nxtflix_secret = '2cc8aaac698563a9ad5d3be4cceb2a02543fc12b600c191d37565acfb2b5fdc2'
 fen_secret = '422a282ef5fe4b5c47bc60425c009ac3047ebd10a7f6af790303875419f18f98'
+nxtflix_client = '793fda23d5ab3f352dc5856e5aa3a43c150402406cadf81a419bce23fab15e46'
+nxtflix_secret = '2cc8aaac698563a9ad5d3be4cceb2a02543fc12b600c191d37565acfb2b5fdc2'
 nxtflixlt_client = '793fda23d5ab3f352dc5856e5aa3a43c150402406cadf81a419bce23fab15e46'
 nxtflixlt_secret = '2cc8aaac698563a9ad5d3be4cceb2a02543fc12b600c191d37565acfb2b5fdc2'
 affen_client = 'd4161a7a106424551add171e5470112e4afdaf2438e6ef2fe0548edc75924868'
@@ -373,10 +381,10 @@ trakt_client = 'd4161a7a106424551add171e5470112e4afdaf2438e6ef2fe0548edc75924868
 trakt_secret = 'b5fcd7cb5d9bb963784d11bbf8535bc0d25d46225016191eb48e50792d2155c0'
 
 #Metadata API Keys
-nxtflix_fan = 'fa836e1c874ba95ab08a14ee88e05565'
 fen_fan = 'fa836e1c874ba95ab08a14ee88e05565'
 fen_tmdb = 'b370b60447737762ca38457bd77579b3'
-nxtflixlt_tmdb = '76067629fab243b989a68881eb1f63ef'
+nxtflix_tmdb = '76067629fab243b989a68881eb1f63ef'
+nxtflixlt_tmdb = 'b370b60447737762ca38457bd77579b3'
 coal_fan = '598515b970d81280063107d49d0e2558"'
 coal_tmdb = '74f3ce931d65ebda1f77ef24eac2625f'
 pov_fan = 'fe073550acf157bdb8a4217f215c0882'

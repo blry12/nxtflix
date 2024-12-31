@@ -15,8 +15,8 @@ from resources.libs.common import tools
 from resources.libs.common import var
 
 ORDER = ['serenad',
-         'nxtflixad',
          'fenad',
+         'nxtflixad',         
          'nxtflixltad',
          'affenad',
          'coalad', 
@@ -53,18 +53,6 @@ DEBRIDID = {
         'default'  : 'alldebrid.username',
         'data'     : ['alldebrid.enabled', 'alldebrid.username', 'alldebrid.apikey'],
         'activate' : 'Addon.OpenSettings(plugin.video.seren)'},
-    'nxtflixad': {
-        'name'     : 'NXTFlix',
-        'plugin'   : 'plugin.video.nxtflix',
-        'saved'    : 'nxtflixad',
-        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix/resources/media/', 'nxtflix_icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix/resources/media/', 'nxtflix_fanart.png'),
-        'file'     : os.path.join(CONFIG.DEBRIDFOLD_AD, 'nxtflix_ad'),
-        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.nxtflix', 'settings.xml'),
-        'default'  : 'ad.account_id',
-        'data'     : ['ad.token', 'ad.enabled', 'ad.account_id'],
-        'activate' : 'Addon.OpenSettings(plugin.video.nxtflix)'},        
     'fenad': {
         'name'     : 'Fen',
         'plugin'   : 'plugin.video.fen',
@@ -77,6 +65,18 @@ DEBRIDID = {
         'default'  : 'ad.account_id',
         'data'     : ['ad.token', 'ad.enabled', 'ad.account_id'],
         'activate' : 'Addon.OpenSettings(plugin.video.fen)'},
+    'nxtflixad': {
+        'name'     : 'NXTFlix',
+        'plugin'   : 'plugin.video.nxtflix',
+        'saved'    : 'nxtflixad',
+        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix'),
+        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix/resources/media/', 'nxtflix_icon.png'),
+        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix/resources/media/', 'nxtflix_fanart.png'),
+        'file'     : os.path.join(CONFIG.DEBRIDFOLD_AD, 'nxtflix_ad'),
+        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.nxtflix', 'settings.xml'),
+        'default'  : 'ad.account_id',
+        'data'     : ['ad.token', 'ad.enabled', 'ad.account_id'],
+        'activate' : 'Addon.OpenSettings(plugin.video.nxtflix)'},        
     'nxtflixltad': {
         'name'     : 'NXTFlix Light',
         'plugin'   : 'plugin.video.nxtflixlight',

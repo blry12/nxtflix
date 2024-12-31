@@ -54,38 +54,6 @@ class Auth:
                 xbmc.log('%s: Seren All-Debrid Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
 
-    #nxtflix AD
-        try:
-                if xbmcvfs.exists(var.chk_nxtflix) and xbmcvfs.exists(var.chkset_nxtflix):
-                        chk_auth_nxtflix = xbmcaddon.Addon('plugin.video.nxtflix').getSetting("ad.token")
-                        chk_auth_nxtflix_rd = xbmcaddon.Addon('plugin.video.nxtflix').getSetting("rd.token")
-                        chk_auth_nxtflix_pm = xbmcaddon.Addon('plugin.video.nxtflix').getSetting("pm.token")
-                        if not str(var.chk_accountmgr_tk_ad) == str(chk_auth_nxtflix) or str(chk_auth_nxtflix) == '':
-
-                                addon = xbmcaddon.Addon("plugin.video.nxtflix")
-                                addon.setSetting("ad.account_id", your_ad_username)
-                                addon.setSetting("ad.token", your_ad_token)
-
-                                enabled_ad = ("true")
-                                addon.setSetting("ad.enabled", enabled_ad)
-
-                                if str(chk_auth_nxtflix_rd) != '':
-                                        enabled_rd = ("true")
-                                        addon.setSetting("rd.enabled", enabled_rd)
-                                else:
-                                        enabled_rd = ("false")
-                                        addon.setSetting("rd.enabled", enabled_rd)
-                        
-                                if str(chk_auth_nxtflix_pm) != '':
-                                        enabled_pm = ("true")
-                                        addon.setSetting("pm.enabled", enabled_pm)
-                                else:
-                                        enabled_pm = ("false")
-                                        addon.setSetting("pm.enabled", enabled_pm)
-        except:
-                xbmc.log('%s: nxtflix All-Debrid Failed!' % var.amgr, xbmc.LOGINFO)
-                pass
-                
     #Fen AD
         try:
                 if xbmcvfs.exists(var.chk_fen) and xbmcvfs.exists(var.chkset_fen):
@@ -117,6 +85,38 @@ class Auth:
         except:
                 xbmc.log('%s: Fen All-Debrid Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
+                
+    #NXTFlix AD
+        try:
+                if xbmcvfs.exists(var.chk_nxtflix) and xbmcvfs.exists(var.chkset_nxtflix):
+                        chk_auth_nxtflix = xbmcaddon.Addon('plugin.video.nxtflix').getSetting("ad.token")
+                        chk_auth_nxtflix_rd = xbmcaddon.Addon('plugin.video.nxtflix').getSetting("rd.token")
+                        chk_auth_nxtflix_pm = xbmcaddon.Addon('plugin.video.nxtflix').getSetting("pm.token")
+                        if not str(var.chk_accountmgr_tk_ad) == str(chk_auth_nxtflix) or str(chk_auth_nxtflix) == '':
+
+                                addon = xbmcaddon.Addon("plugin.video.nxtflix")
+                                addon.setSetting("ad.account_id", your_ad_username)
+                                addon.setSetting("ad.token", your_ad_token)
+
+                                enabled_ad = ("true")
+                                addon.setSetting("ad.enabled", enabled_ad)
+
+                                if str(chk_auth_nxtflix_rd) != '':
+                                        enabled_rd = ("true")
+                                        addon.setSetting("rd.enabled", enabled_rd)
+                                else:
+                                        enabled_rd = ("false")
+                                        addon.setSetting("rd.enabled", enabled_rd)
+                        
+                                if str(chk_auth_nxtflix_pm) != '':
+                                        enabled_pm = ("true")
+                                        addon.setSetting("pm.enabled", enabled_pm)
+                                else:
+                                        enabled_pm = ("false")
+                                        addon.setSetting("pm.enabled", enabled_pm)
+        except:
+                xbmc.log('%s: NXTFlix All-Debrid Failed!' % var.amgr, xbmc.LOGINFO)
+                pass                
 
     #NXTFlix Light AD
         try:

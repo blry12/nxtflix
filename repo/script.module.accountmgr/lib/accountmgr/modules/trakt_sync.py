@@ -46,30 +46,6 @@ class Auth:
         except:
                 xbmc.log('%s: Seren Trakt Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
-    #nxtflix
-        try:
-                if xbmcvfs.exists(var.chk_nxtflix) and xbmcvfs.exists(var.chkset_nxtflix):
-                        chk_auth_nxtflix = xbmcaddon.Addon('plugin.video.nxtflix').getSetting("trakt.token")
-                        if not str(var.chk_accountmgr_tk) == str(chk_auth_nxtflix) or str(chk_auth_nxtflix) == '':
-                        
-                                    with open(var.path_nxtflix,'r') as f:
-                                        data = f.read()
-
-                                    client = data.replace(var.nxtflix_client,var.client_am).replace(var.nxtflix_secret,var.secret_am)
-
-                                    with open(var.path_nxtflix,'w') as f:
-                                        f.write(client) 
-
-                                    addon = xbmcaddon.Addon("plugin.video.nxtflix")
-                                    addon.setSetting("trakt.token", your_token)
-                                    addon.setSetting("trakt.user", your_username)
-                                    addon.setSetting("trakt.refresh", your_refresh)
-                                    addon.setSetting("trakt.expires", your_expires)
-                                    addon.setSetting("trakt.indicators_active", 'true')
-                                    addon.setSetting("watched_indicators", '1')
-        except:
-                xbmc.log('%s: nxtflix Trakt Failed!' % var.amgr, xbmc.LOGINFO)
-                pass
 
     #Fen
         try:
@@ -95,6 +71,31 @@ class Auth:
         except:
                 xbmc.log('%s: Fen Trakt Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
+                
+    #NXTFlix
+        try:
+                if xbmcvfs.exists(var.chk_nxtflix) and xbmcvfs.exists(var.chkset_nxtflix):
+                        chk_auth_nxtflix = xbmcaddon.Addon('plugin.video.nxtflix').getSetting("trakt.token")
+                        if not str(var.chk_accountmgr_tk) == str(chk_auth_nxtflix) or str(chk_auth_nxtflix) == '':
+                        
+                                    with open(var.path_nxtflix,'r') as f:
+                                        data = f.read()
+
+                                    client = data.replace(var.nxtflix_client,var.client_am).replace(var.nxtflix_secret,var.secret_am)
+
+                                    with open(var.path_nxtflix,'w') as f:
+                                        f.write(client) 
+
+                                    addon = xbmcaddon.Addon("plugin.video.nxtflix")
+                                    addon.setSetting("trakt.token", your_token)
+                                    addon.setSetting("trakt.user", your_username)
+                                    addon.setSetting("trakt.refresh", your_refresh)
+                                    addon.setSetting("trakt.expires", your_expires)
+                                    addon.setSetting("trakt.indicators_active", 'true')
+                                    addon.setSetting("watched_indicators", '1')
+        except:
+                xbmc.log('%s: NXTFlix Trakt Failed!' % var.amgr, xbmc.LOGINFO)
+                pass                
 
     #NXTFlix Light
         try:

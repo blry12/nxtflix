@@ -109,7 +109,7 @@ class AddonCheckUpdate:
             try:
                 import re
                 import requests
-                repo_xml = requests.get('https://raw.githubusercontent.com/Zaxxon709/nexus/main/zips/script.module.accountmgr/addon.xml')
+                repo_xml = requests.get('https://raw.githubusercontent.com/Zaxxon709/zaxxon/main/zips/script.module.accountmgr/addon.xml')
                 if repo_xml.status_code != 200:
                     return xbmc.log('[ script.module.accountmgr ]  Could not connect to remote repo XML: status code = %s' % repo_xml.status_code, LOGINFO)
                 repo_version = re.search(r'<addon id=\"script.module.accountmgr\".*version=\"(\d*.\d*.\d*)\"', repo_xml.text, re.I).group(1)
@@ -193,23 +193,6 @@ def check_api():
                                 xbmc.log('%s: Seren API Failed!' % var.amgr, xbmc.LOGINFO)
                                 pass
 
-                if var.setting('api.service')=='true' and xbmcvfs.exists(var.chk_nxtflix) and xbmcvfs.exists(var.chkset_nxtflix) and str(var.chk_accountmgr_tk) != '':
-                        try:
-                                with open(var.path_nxtflix) as f:
-                                        if var.chk_api in f.read():
-                                                pass
-                                        else:   
-                                                with open(var.path_nxtflix,'r') as f:
-                                                    data = f.read()
-
-                                                client = data.replace(var.nxtflix_client,var.client_am).replace(var.nxtflix_secret,var.secret_am)
-
-                                                with open(var.path_nxtflix,'w') as f:
-                                                    f.write(client) 
-                        except:
-                                xbmc.log('%s: nxtflix API Failed!' % var.amgr, xbmc.LOGINFO)
-                                pass
-                                
                 if var.setting('api.service')=='true' and xbmcvfs.exists(var.chk_fen) and xbmcvfs.exists(var.chkset_fen) and str(var.chk_accountmgr_tk) != '':
                         try:
                                 with open(var.path_fen) as f:
@@ -607,19 +590,6 @@ def restore_api():
                 xbmc.log('%s: Restore API Seren Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
 
-        if xbmcvfs.exists(var.chk_nxtflix):
-            try:
-                with open(var.path_nxtflix,'r') as f:
-                    data = f.read()
-
-                client = data.replace(var.nxtflix_client,var.client_am).replace(var.nxtflix_secret,var.secret_am)
-
-                with open(var.path_nxtflix,'w') as f:
-                    f.write(client)
-            except:
-                xbmc.log('%s: Restore API nxtflix Failed!' % var.amgr, xbmc.LOGINFO)
-                pass
-                
         if xbmcvfs.exists(var.chk_fen):
             try:
                 with open(var.path_fen,'r') as f:

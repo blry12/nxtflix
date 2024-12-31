@@ -14,8 +14,8 @@ from resources.libs.common import tools
 from resources.libs.common import var
 
 ORDER = ['seren',
-         'nxtflix',       
          'fen',
+         'nxtflix',         
          'nxtflixlt',
          'affen',
          'coal',
@@ -61,18 +61,6 @@ TRAKTID = {
         'default'  : 'trakt.username',
         'data'     : ['trakt.auth', 'trakt.clientid', 'trakt.refresh', 'trakt.secret', 'trakt.username', 'trakt.expires'],
         'activate' : 'Addon.OpenSettings(plugin.video.seren)'},
-    'nxtflix': {
-        'name'     : 'NXTFlix',
-        'plugin'   : 'plugin.video.nxtflix',
-        'saved'    : 'nxtflix',
-        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix/resources/media/', 'nxtflix_icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix/resources/media/', 'nxtflix_fanart.png'),
-        'file'     : os.path.join(CONFIG.TRAKTFOLD, 'nxtflix_trakt'),
-        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.nxtflix', 'settings.xml'),
-        'default'  : 'trakt.user',
-        'data'     : ['trakt.refresh', 'trakt.expires', 'trakt.token', 'trakt.user', 'trakt.indicators_active','watched_indicators'],
-        'activate' : 'Addon.OpenSettings(plugin.video.nxtflix)'},        
     'fen': {
         'name'     : 'Fen',
         'plugin'   : 'plugin.video.fen',
@@ -85,6 +73,18 @@ TRAKTID = {
         'default'  : 'trakt.user',
         'data'     : ['trakt.refresh', 'trakt.expires', 'trakt.token', 'trakt.user', 'trakt.indicators_active','watched_indicators'],
         'activate' : 'Addon.OpenSettings(plugin.video.fen)'},
+    'nxtflix': {
+        'name'     : 'NXTFlix',
+        'plugin'   : 'plugin.video.nxtflix',
+        'saved'    : 'nxtflix',
+        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix'),
+        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix/resources/media/', 'nxtflix_icon.png'),
+        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix/resources/media/', 'nxtflix_fanart.png'),
+        'file'     : os.path.join(CONFIG.TRAKTFOLD, 'nxtflix_trakt'),
+        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.nxtflix', 'settings.xml'),
+        'default'  : 'trakt.user',
+        'data'     : ['trakt.refresh', 'trakt.expires', 'trakt.token', 'trakt.user', 'trakt.indicators_active','watched_indicators'],
+        'activate' : 'Addon.OpenSettings(plugin.video.nxtflix)'},        
     'nxtflixlt': {
         'name'     : 'NXTFlix Light',
         'plugin'   : 'plugin.video.nxtflixlight',

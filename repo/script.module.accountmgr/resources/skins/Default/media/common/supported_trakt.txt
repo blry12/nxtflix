@@ -1,34 +1,33 @@
 
 1.  Seren (Custom Trakt API Keys Only)
-2.  NXTFlix Media
-3.  Fen
-4.  NXTFlix Light
-5.  afFENity
-6.  The Coalition
-7.  POV                  
-8.  Umbrella
-9.  Infinity
-10.  Dradis
-11. Shadow
-12. Ghost
-13. Base          
-14. Chain Reaction
-15. Asgard
-16. Patriot
-17. Black Lightning
-18. Aliunde K19
-19. Nightwing Lite
-20. Homelander
-21. Quicksilver
-22. Chains Genocide
-23. Absolution       
-24. Shazam
-25. The Crew              
-26. Alvin
-27. Moria
-28. Nine Lives
-29. Scrubs V2
-30. TMDb Helper
-31. Trakt Add-on
-32. All Accounts
-33. My Accounts
+2.  Fen
+3.  NXTFlix Light
+4.  afFENity
+5.  The Coalition
+6.  POV                  
+7.  Umbrella
+8.  Infinity
+9.  Dradis
+10. Shadow
+11. Ghost
+12. Base          
+13. Chain Reaction
+14. Asgard
+15. Patriot
+16. Black Lightning
+17. Aliunde K19
+18. Nightwing Lite
+19. Homelander
+20. Quicksilver
+21. Chains Genocide
+22. Absolution       
+23. Shazam
+24. The Crew              
+25. Alvin
+26. Moria
+27. Nine Lives
+28. Scrubs V2
+29. TMDb Helper
+30. Trakt Add-on
+31. All Accounts
+32. My Accounts

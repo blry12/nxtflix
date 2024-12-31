@@ -15,8 +15,8 @@ from resources.libs.common import tools
 from resources.libs.common import var
 
 ORDER = ['seren',
-         'nxtflix',
          'fen',
+         'nxtflix',         
          'nxtflixlt',
          'affen',
          'coal',
@@ -63,27 +63,6 @@ DEBRIDID = {
         'default_tmdb_session'  : '',
         'data'     : ['tmdb.apikey', 'tvdb.apikey', 'omdb.apikey', 'fanart.apikey'],
         'activate' : 'Addon.OpenSettings(plugin.video.seren)'},
-    'nxtflix': {
-        'name'     : 'NXTFlix',
-        'plugin'   : 'plugin.video.nxtflix',
-        'saved'    : 'nxtflix',
-        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix/resources/media/', 'nxtflix_icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix/resources/media/', 'nxtflix_fanart.png'),
-        'file'     : os.path.join(CONFIG.METAFOLD, 'nxtflix_meta'),
-        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.nxtflix', 'settings.xml'),
-        'default'  : '',
-        'default_fanart'  : 'fanart_client_key',
-        'default_omdb'  : '',
-        'default_mdb'  : '',
-        'default_imdb'  : 'imdb_user',
-        'default_tvdb'  : '',
-        'default_tmdb'  : 'tmdb_api',
-        'default_tmdb_user'  : '',
-        'default_tmdb_pass'  : '',
-        'default_tmdb_session'  : '',
-        'data'     : ['tmdb_api', 'imdb_user', 'fanart_client_key'],
-        'activate' : 'Addon.OpenSettings(plugin.video.nxtflix)'},        
     'fen': {
         'name'     : 'Fen',
         'plugin'   : 'plugin.video.fen',
@@ -105,6 +84,27 @@ DEBRIDID = {
         'default_tmdb_session'  : '',
         'data'     : ['tmdb_api', 'imdb_user', 'fanart_client_key'],
         'activate' : 'Addon.OpenSettings(plugin.video.fen)'},
+    'nxtflix': {
+        'name'     : 'NXTFlix',
+        'plugin'   : 'plugin.video.nxtflix',
+        'saved'    : 'nxtflix',
+        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix'),
+        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix/resources/media/', 'nxtflix_icon.png'),
+        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix/resources/media/', 'nxtflix_fanart.png'),
+        'file'     : os.path.join(CONFIG.METAFOLD, 'nxtflix_meta'),
+        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.nxtflix', 'settings.xml'),
+        'default'  : '',
+        'default_fanart'  : 'fanart_client_key',
+        'default_omdb'  : '',
+        'default_mdb'  : '',
+        'default_imdb'  : 'imdb_user',
+        'default_tvdb'  : '',
+        'default_tmdb'  : 'tmdb_api',
+        'default_tmdb_user'  : '',
+        'default_tmdb_pass'  : '',
+        'default_tmdb_session'  : '',
+        'data'     : ['tmdb_api', 'imdb_user', 'fanart_client_key'],
+        'activate' : 'Addon.OpenSettings(plugin.video.nxtflix)'},        
     'nxtflixlt': {
         'name'     : 'NXTFlix Light',
         'plugin'   : 'plugin.video.nxtflixlight',
@@ -113,7 +113,7 @@ DEBRIDID = {
         'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight/resources/media/', 'fenlight_icon.png'),
         'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight/resources/media/', 'fenlight_fanart.png'),
         'file'     : os.path.join(CONFIG.DEBRIDFOLD_RD, 'nxtflixlt'),
-        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.nxtflixlight.databases', 'settings.db'),
+        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.nxtflixlight/databases', 'settings.db'),
         'default'    : '',
         'default_fanart'  : '',
         'default_omdb'  : '',
@@ -976,14 +976,6 @@ def revoke_meta():
             addon.setSetting("tmdb_api", var.ezra_tmdb)
         except:
             pass
-            
-    if xbmcvfs.exists(var.chk_nxtflix) and xbmcvfs.exists(var.chkset_nxtflix):
-        try:
-            addon = xbmcaddon.Addon("plugin.video.nxtflix")
-            addon.setSetting("fanart_client_key", var.nxtflix_fan)                        
-            addon.setSetting("tmdb_api", var.nxtflix_tmdb)
-        except:
-            pass            
         
     if xbmcvfs.exists(var.chk_fen) and xbmcvfs.exists(var.chkset_fen):
         try:

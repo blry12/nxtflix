@@ -16,24 +16,6 @@ your_easy_pass = accountmgr.getSetting("easynews.password")
 class Auth:
         def easy_auth(self):
 
-        #nxtflix
-                try:
-                        if xbmcvfs.exists(var.chk_nxtflix) and xbmcvfs.exists(var.chkset_nxtflix): #Check that the addon is installed and settings.xml exists
-                                
-                                #Get add-on setting to compare
-                                chk_easy = xbmcaddon.Addon('plugin.video.nxtflix').getSetting("easynews_password")
-                                enable_easy = ("true")
-                                
-                                #Write data to settings.xml
-                                if not str(var.chk_accountmgr_easy) == str(chk_easy) or str(chk_easy) == '': #Compare Account Mananger data to Add-on data. If they match authorization is skipped
-                                        addon = xbmcaddon.Addon("plugin.video.nxtflix")
-                                        addon.setSetting("provider.easynews", enable_easy)
-                                        addon.setSetting("easynews_user", your_easy_user)
-                                        addon.setSetting("easynews_password", your_easy_pass)
-                except:
-                        xbmc.log('%s: nxtflix Easynews Failed!' % var.amgr, xbmc.LOGINFO)
-                        pass
-                        
         #Fen
                 try:
                         if xbmcvfs.exists(var.chk_fen) and xbmcvfs.exists(var.chkset_fen): #Check that the addon is installed and settings.xml exists
@@ -51,6 +33,24 @@ class Auth:
                 except:
                         xbmc.log('%s: Fen Easynews Failed!' % var.amgr, xbmc.LOGINFO)
                         pass
+                        
+        #NXTFlix
+                try:
+                        if xbmcvfs.exists(var.chk_nxtflix) and xbmcvfs.exists(var.chkset_nxtflix): #Check that the addon is installed and settings.xml exists
+                                
+                                #Get add-on setting to compare
+                                chk_easy = xbmcaddon.Addon('plugin.video.nxtflix').getSetting("easynews_password")
+                                enable_easy = ("true")
+                                
+                                #Write data to settings.xml
+                                if not str(var.chk_accountmgr_easy) == str(chk_easy) or str(chk_easy) == '': #Compare Account Mananger data to Add-on data. If they match authorization is skipped
+                                        addon = xbmcaddon.Addon("plugin.video.nxtflix")
+                                        addon.setSetting("provider.easynews", enable_easy)
+                                        addon.setSetting("easynews_user", your_easy_user)
+                                        addon.setSetting("easynews_password", your_easy_pass)
+                except:
+                        xbmc.log('%s: NXTFlix Easynews Failed!' % var.amgr, xbmc.LOGINFO)
+                        pass                        
  
         #NXTFlix Light
                 try:

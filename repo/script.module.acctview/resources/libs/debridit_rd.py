@@ -19,8 +19,8 @@ translatePath = xbmcvfs.translatePath
 addons = translatePath('special://home/addons/')
 
 ORDER = ['serenrd',
-         'nxtflixrd',
          'fenrd',
+         'nxtflixrd',         
          'nxtflixltrd',
          'affenrd',
          'coalrd',
@@ -58,18 +58,6 @@ DEBRIDID = {
         'default'  : 'rd.username',
         'data'     : ['rd.auth', 'rd.client_id', 'rd.expiry', 'rd.refresh', 'rd.secret', 'rd.username', 'realdebrid.enabled'],
         'activate' : 'Addon.OpenSettings(plugin.video.seren)'},
-    'nxtflixrd': {
-        'name'     : 'NXTFlix',
-        'plugin'   : 'plugin.video.nxtflix',
-        'saved'    : 'nxtflixrd',
-        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix/resources/media/', 'nxtflix_icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix/resources/media/', 'nxtflix_fanart.png'),
-        'file'     : os.path.join(CONFIG.DEBRIDFOLD_RD, 'nxtflix_rd'),
-        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.nxtflix', 'settings.xml'),
-        'default'  : 'rd.account_id',
-        'data'     : ['rd.client_id', 'rd.refresh', 'rd.secret', 'rd.token', 'rd.account_id', 'rd.enabled'],
-        'activate' : 'Addon.OpenSettings(plugin.video.nxtflix)'},        
     'fenrd': {
         'name'     : 'Fen',
         'plugin'   : 'plugin.video.fen',
@@ -82,6 +70,18 @@ DEBRIDID = {
         'default'  : 'rd.account_id',
         'data'     : ['rd.client_id', 'rd.refresh', 'rd.secret', 'rd.token', 'rd.account_id', 'rd.enabled'],
         'activate' : 'Addon.OpenSettings(plugin.video.fen)'},
+    'nxtflixrd': {
+        'name'     : 'NXTFlix',
+        'plugin'   : 'plugin.video.nxtflix',
+        'saved'    : 'nxtflixrd',
+        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix'),
+        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix/resources/media/', 'nxtflix_icon.png'),
+        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix/resources/media/', 'nxtflix_fanart.png'),
+        'file'     : os.path.join(CONFIG.DEBRIDFOLD_RD, 'nxtflix_rd'),
+        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.nxtflix', 'settings.xml'),
+        'default'  : 'rd.account_id',
+        'data'     : ['rd.client_id', 'rd.refresh', 'rd.secret', 'rd.token', 'rd.account_id', 'rd.enabled'],
+        'activate' : 'Addon.OpenSettings(plugin.video.nxtflix)'},        
     'nxtflixltrd': {
         'name'     : 'NXTFlix Light',
         'plugin'   : 'plugin.video.nxtflixlight',

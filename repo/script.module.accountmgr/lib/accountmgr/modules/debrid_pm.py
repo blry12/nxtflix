@@ -54,38 +54,6 @@ class Auth:
                 xbmc.log('%s: Seren Premiumize Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
 
-    #nxtflix PM
-        try:
-                if xbmcvfs.exists(var.chk_nxtflix) and xbmcvfs.exists(var.chkset_nxtflix):
-                        chk_auth_nxtflix = xbmcaddon.Addon('plugin.video.nxtflix').getSetting("pm.token")
-                        chk_auth_nxtflix_rd = xbmcaddon.Addon('plugin.video.nxtflix').getSetting("rd.token")
-                        chk_auth_nxtflix_ad = xbmcaddon.Addon('plugin.video.nxtflix').getSetting("ad.token")
-                        if not str(var.chk_accountmgr_tk_pm) == str(chk_auth_nxtflix) or str(chk_auth_nxtflix) == '':
-                                
-                                addon = xbmcaddon.Addon("plugin.video.nxtflix")
-                                addon.setSetting("pm.account_id", your_pm_username)
-                                addon.setSetting("pm.token", your_pm_token)
-
-                                enabled_pm = ("true")
-                                addon.setSetting("pm.enabled", enabled_pm)
-
-                                if str(chk_auth_nxtflix_rd) != '':
-                                        enabled_rd = ("true")
-                                        addon.setSetting("rd.enabled", enabled_rd)
-                                else:
-                                        enabled_rd = ("false")
-                                        addon.setSetting("rd.enabled", enabled_rd)
-
-                                if str(chk_auth_nxtflix_ad) != '':
-                                        enabled_ad = ("true")
-                                        addon.setSetting("ad.enabled", enabled_ad)
-                                else:
-                                        enabled_ad = ("false")
-                                        addon.setSetting("ad.enabled", enabled_ad)
-        except:
-                xbmc.log('%s: nxtflix Premiumize Failed!' % var.amgr, xbmc.LOGINFO)
-                pass
-                
     #Fen PM
         try:
                 if xbmcvfs.exists(var.chk_fen) and xbmcvfs.exists(var.chkset_fen):
@@ -117,6 +85,38 @@ class Auth:
         except:
                 xbmc.log('%s: Fen Premiumize Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
+                
+    #NXTFlix PM
+        try:
+                if xbmcvfs.exists(var.chk_nxtflix) and xbmcvfs.exists(var.chkset_nxtflix):
+                        chk_auth_nxtflix = xbmcaddon.Addon('plugin.video.nxtflix').getSetting("pm.token")
+                        chk_auth_nxtflix_rd = xbmcaddon.Addon('plugin.video.nxtflix').getSetting("rd.token")
+                        chk_auth_nxtflix_ad = xbmcaddon.Addon('plugin.video.nxtflix').getSetting("ad.token")
+                        if not str(var.chk_accountmgr_tk_pm) == str(chk_auth_nxtflix) or str(chk_auth_nxtflix) == '':
+                                
+                                addon = xbmcaddon.Addon("plugin.video.nxtflix")
+                                addon.setSetting("pm.account_id", your_pm_username)
+                                addon.setSetting("pm.token", your_pm_token)
+
+                                enabled_pm = ("true")
+                                addon.setSetting("pm.enabled", enabled_pm)
+
+                                if str(chk_auth_nxtflix_rd) != '':
+                                        enabled_rd = ("true")
+                                        addon.setSetting("rd.enabled", enabled_rd)
+                                else:
+                                        enabled_rd = ("false")
+                                        addon.setSetting("rd.enabled", enabled_rd)
+
+                                if str(chk_auth_nxtflix_ad) != '':
+                                        enabled_ad = ("true")
+                                        addon.setSetting("ad.enabled", enabled_ad)
+                                else:
+                                        enabled_ad = ("false")
+                                        addon.setSetting("ad.enabled", enabled_ad)
+        except:
+                xbmc.log('%s: NXTFlix Premiumize Failed!' % var.amgr, xbmc.LOGINFO)
+                pass                
 
 
     #NXTFlix Light PM        
