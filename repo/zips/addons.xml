@@ -224,6 +224,7 @@
     <requires>
         <import addon="xbmc.python" version="3.0.0" />
         <import addon="script.module.requests" version="2.19.1" />
+		<import addon="script.module.cocoscrapers" version="0.0.1" />		
     </requires>
     <extension point="xbmc.python.pluginsource" library="resources/lib/nxtflixlight.py">
         <provides>video</provides>
