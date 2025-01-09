@@ -1,2 +1,3 @@
 1.1 - Changed Trakt and Debrid Authorization to all in one section.
+	- added offcloud, torbox and easy debrid options
 1.0 - Initial Release
