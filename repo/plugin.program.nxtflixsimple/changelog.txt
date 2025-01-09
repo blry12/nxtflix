@@ -1,1 +1,3 @@
-1.0.0 - Initial Release
+1.1 - Added TorBox, Offcloud, Easy Debrid. 
+	- Added Revoke options
+1.0 - Initial Release
