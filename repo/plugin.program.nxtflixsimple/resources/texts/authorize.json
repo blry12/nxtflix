@@ -1,5 +1,5 @@
 {
-    "Trakt And Debrid Account Manager": {
+    "Trakt And Debrid Settings": {
         "icon": "https://the666mafia.com/pics/authpics/all.png",
         "items": [			
             {
@@ -27,9 +27,9 @@
                 "url": "RunScript(script.module.accountmgr, action=easydebridAuth)"
             },				
             {
-                "name": "[COLOR lightblue]Authenticate OffCloud",
+                "name": "[COLOR lightblue]Authenticate Offcloud",
                 "url": "RunScript(script.module.accountmgr, action=offcloudAuth)"
-            },					
+			},				
             {
                 "name": "[COLOR lightgreen]Re-Sync Debrid Accounts",
                 "url": "RunScript(script.module.accountmgr, action=ReSyncAll)"
@@ -65,6 +65,34 @@
             {
                 "name": "[COLOR lightblue]View OffCloud Logins",
                 "url": "ActivateWindow(10001,plugin://script.module.acctview/?mode=offcloud,return)"
+            },		
+			{
+                "name": "[COLOR grey]Revoke Real Debrid",
+                "url": "RunScript(script.module.accountmgr, action=realdebridRevoke)"
+            },
+			{
+                "name": "[COLOR grey]Revoke Premiumize",
+                "url": "RunScript(script.module.accountmgr, action=premiumizeRevoke)"
+            },
+			{
+                "name": "[COLOR grey]Revoke All Debrid",
+                "url": "RunScript(script.module.accountmgr, action=alldebridRevoke)"
+            },
+			{
+                "name": "[COLOR grey]Revoke Trakt",
+                "url": "RunScript(script.module.accountmgr, action=traktRevoke)"
+            },
+			{
+                "name": "[COLOR grey]Revoke TorBox",
+                "url": "RunScript(script.module.accountmgr, action=torboxRevoke)"
+            },	
+			{
+                "name": "[COLOR grey]Revoke Easy Debrid",
+                "url": "RunScript(script.module.accountmgr, action=easydebridRevoke)"
+            },
+			{
+                "name": "[COLOR grey]Revoke Offcloud Debrid",
+                "url": "RunScript(script.module.accountmgr, action=offcloudRevoke)"
             },			
             {
                 "name": "[COLOR teal]Open Account Manager",
