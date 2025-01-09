@@ -10,12 +10,20 @@
         },
         {
             "name": "Authorize NXTFlixMedia Trakt",
-            "url": "RunPlugin(plugin://plugin.video.nxt/?mode=trakt.trakt_authenticate)",
+            "url": "RunPlugin(plugin://plugin.video.nxtflix/?mode=trakt.trakt_authenticate)",
             "icon": "https://techwiser.com/wp-content/uploads/2020/09/trakt-logo.png",
             "fanart": "https://techwiser.com/wp-content/uploads/2020/09/trakt-logo.png",
             "description": "",
             "type": ""
-        },			
+        },	
+        {
+            "name": "Authorize NXTFlix Light Trakt",
+            "url": "RunPlugin(plugin://plugin.video.nxtflixlight/?mode=trakt.trakt_authenticate)",
+            "icon": "https://techwiser.com/wp-content/uploads/2020/09/trakt-logo.png",
+            "fanart": "https://techwiser.com/wp-content/uploads/2020/09/trakt-logo.png",
+            "description": "",
+            "type": ""
+        },		
         {
             "name": "Authorize Umbrella Trakt",
             "url": "RunPlugin(plugin://plugin.video.umbrella/?action=traktAuth)",

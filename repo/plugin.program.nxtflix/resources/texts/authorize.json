@@ -4,8 +4,12 @@
         "items": [
             {
                 "name": "Install NXTFlixMedia (DEBRID ONLY)",
-                "url": "installaddon(plugin.video.nxt)"
+                "url": "installaddon(plugin.video.nxtflix)"
             },
+            {
+                "name": "Install NXTFlix Light (DEBRID ONLY)",
+                "url": "installaddon(plugin.video.nxtflixlight)"
+            },			
             {
                 "name": "Install FEN (DEBRID ONLY)",
                 "url": "installaddon(plugin.video.fen)"
