@@ -162,8 +162,8 @@
     <setting id="universal.settings" default="true" />
     <setting id="the_crew" default="true">false</setting>
     <setting id="the_crew.settings" default="true" />
-    <setting id="fen" default="true">false</setting>
-    <setting id="fen.settings" default="true" />
+    <setting id="nxtflix" default="true">false</setting>
+    <setting id="nxtflix.settings" default="true" />
     <setting id="po_watch" default="true">false</setting>
     <setting id="simple_info" default="true">false</setting>
     <setting id="trakt_info">true</setting>

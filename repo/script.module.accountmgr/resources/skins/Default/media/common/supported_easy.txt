@@ -1,12 +1,11 @@
 
-1.  Fen
+1.  nxtflix
 2.  NXTFlix Light
-3.  afFENity
-4.  The Coalition
-5.  POV
-6.  Umbrella
-7.  Infinity
-8.  Dradis
-9.  The Crew
-10. All Accounts
-11. My Accounts
+3.  The Coalition
+4.  POV
+5.  Umbrella
+6.  Infinity
+7.  Dradis
+8.  The Crew
+9.  All Accounts
+10. My Accounts

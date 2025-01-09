@@ -56,7 +56,7 @@ def auth_nxtflixlt_easy():
         # Create database connection
         conn = create_conn(var.nxtflixlt_settings_db)
         with conn:
-            connect_easy(conn, ('true', 'provider_easynews'))
+            connect_easy(conn, ('true', 'provider.easynews'))
             connect_easy(conn, (your_easy_user, 'easynews_user'))
             connect_easy(conn, (your_easy_pass, 'easynews_password'))
     except:
@@ -65,15 +65,15 @@ def auth_nxtflixlt_easy():
 
 
 
-################### Auth afFENity Easynews ##################
-def auth_affen_easy():
+'''################### Auth afnxtflixity Easynews ##################
+def auth_afnxtflix_easy():
     try:
         # Create database connection
-        conn = create_conn(var.affen_settings_db)
+        conn = create_conn(var.afnxtflix_settings_db)
         with conn:
             connect_easy(conn, ('true', 'provider_easynews'))
             connect_easy(conn, (your_easy_user, 'easynews_user'))
             connect_easy(conn, (your_easy_pass, 'easynews_password'))
     except:
-        xbmc.log('%s: Easy_db afFENity Failed!' % var.amgr, xbmc.LOGINFO)
-        pass
+        xbmc.log('%s: Easy_db afnxtflixity Failed!' % var.amgr, xbmc.LOGINFO)
+        pass'''

@@ -3,9 +3,11 @@ import xbmcaddon
 import xbmcgui
 import os.path
 import xbmcvfs
+import json
 import os
 import time
 import sqlite3
+import xml.etree.ElementTree as ET
 
 from sqlite3 import Error
 from xml.etree import ElementTree
@@ -14,11 +16,11 @@ from resources.libs.common import logging
 from resources.libs.common import tools
 from resources.libs.common import var
 
+char_remov = ["'", ",", ")","("]
+
 ORDER = ['seren',
-         'fen',
-         'nxtflix',         
+         'nxtflix',
          'nxtflixlt',
-         'affen',
          'coal',
          'pov',
          'umb',
@@ -39,7 +41,9 @@ ORDER = ['seren',
          'pvr',
          'acctmgr',
          'allact',
-         'myact']
+         'myact',
+         'nxtflixtastic',
+         'nimbus']
 
 DEBRIDID = {
     'seren': {
@@ -63,29 +67,8 @@ DEBRIDID = {
         'default_tmdb_session'  : '',
         'data'     : ['tmdb.apikey', 'tvdb.apikey', 'omdb.apikey', 'fanart.apikey'],
         'activate' : 'Addon.OpenSettings(plugin.video.seren)'},
-    'fen': {
-        'name'     : 'Fen',
-        'plugin'   : 'plugin.video.fen',
-        'saved'    : 'fen',
-        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.fen'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.fen/resources/media/', 'fen_icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.fen/resources/media/', 'fen_fanart.png'),
-        'file'     : os.path.join(CONFIG.METAFOLD, 'fen_meta'),
-        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.fen', 'settings.xml'),
-        'default'  : '',
-        'default_fanart'  : 'fanart_client_key',
-        'default_omdb'  : '',
-        'default_mdb'  : '',
-        'default_imdb'  : 'imdb_user',
-        'default_tvdb'  : '',
-        'default_tmdb'  : 'tmdb_api',
-        'default_tmdb_user'  : '',
-        'default_tmdb_pass'  : '',
-        'default_tmdb_session'  : '',
-        'data'     : ['tmdb_api', 'imdb_user', 'fanart_client_key'],
-        'activate' : 'Addon.OpenSettings(plugin.video.fen)'},
     'nxtflix': {
-        'name'     : 'NXTFlix',
+        'name'     : 'nxtflix',
         'plugin'   : 'plugin.video.nxtflix',
         'saved'    : 'nxtflix',
         'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix'),
@@ -104,49 +87,28 @@ DEBRIDID = {
         'default_tmdb_pass'  : '',
         'default_tmdb_session'  : '',
         'data'     : ['tmdb_api', 'imdb_user', 'fanart_client_key'],
-        'activate' : 'Addon.OpenSettings(plugin.video.nxtflix)'},        
+        'activate' : 'Addon.OpenSettings(plugin.video.nxtflix)'},
     'nxtflixlt': {
         'name'     : 'NXTFlix Light',
         'plugin'   : 'plugin.video.nxtflixlight',
         'saved'    : 'nxtflixlt',
         'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight/resources/media/', 'fenlight_icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight/resources/media/', 'fenlight_fanart.png'),
-        'file'     : os.path.join(CONFIG.DEBRIDFOLD_RD, 'nxtflixlt'),
+        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight/resources/media/', 'nxtflixlight_icon.png'),
+        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight/resources/media/', 'nxtflixlight_fanart2.jpg'),
+        'file'     : os.path.join(CONFIG.METAFOLD, 'nxtflixlt'),
         'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.nxtflixlight/databases', 'settings.db'),
         'default'    : '',
         'default_fanart'  : '',
-        'default_omdb'  : '',
+        'default_omdb'  : 'yes',
         'default_mdb'  : '',
         'default_imdb'  : '',
         'default_tvdb'  : '',
-        'default_tmdb'  : '',
+        'default_tmdb'  : 'yes',
         'default_tmdb_user'  : '',
         'default_tmdb_pass'  : '',
         'default_tmdb_session'  : '',
         'data'     : [],
         'activate' : 'Addon.OpenSettings(plugin.video.nxtflixlight)'},
-    'affen': {
-        'name'     : 'afFENity',
-        'plugin'   : 'plugin.video.affenity',
-        'saved'    : 'affen',
-        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.affenity'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.affenity/resources/media/', 'affenity_icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.affenity/resources/media/', 'affenity_fanart.png'),
-        'file'     : os.path.join(CONFIG.DEBRIDFOLD_RD, 'affen'),
-        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.affenity/databases', 'settings.db'),
-        'default'    : '',
-        'default_fanart'  : '',
-        'default_omdb'  : '',
-        'default_mdb'  : '',
-        'default_imdb'  : '',
-        'default_tvdb'  : '',
-        'default_tmdb'  : '',
-        'default_tmdb_user'  : '',
-        'default_tmdb_pass'  : '',
-        'default_tmdb_session'  : '',
-        'data'     : [],
-        'activate' : 'Addon.OpenSettings(plugin.video.affenity)'},
     'coal': {
         'name'     : 'The Coalition',
         'plugin'   : 'plugin.video.coalition',
@@ -216,7 +178,7 @@ DEBRIDID = {
         'saved'    : 'infinity',
         'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.infinity'),
         'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.infinity/resources/media/', 'icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.infinity', 'fanart.jpg'),
+        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.infinity/resources/media', 'fanart.png'),
         'file'     : os.path.join(CONFIG.METAFOLD, 'infinity_meta'),
         'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.infinity', 'settings.xml'),
         'default'  : '',
@@ -587,6 +549,48 @@ DEBRIDID = {
         'default_tmdb_pass'  : 'tmdb.password',
         'default_tmdb_session'  : 'tmdb.session_id',
         'data'     : ['tmdb.api.key', 'tmdb.username', 'tmdb.password', 'tmdb.session_id', 'imdb.user', 'fanart.tv.api.key'],
+        'activate' : 'Addon.OpenSettings(script.module.myaccounts)'},
+    'nxtflixtastic': {
+        'name'     : 'nxtflixtastic Skin',
+        'plugin'   : 'skin.nxtflixtastic',
+        'saved'    : 'nxtflixtastic',
+        'path'     : os.path.join(CONFIG.ADDONS, 'skin.nxtflixtastic'),
+        'icon'     : os.path.join(CONFIG.ADDONS, 'skin.nxtflixtastic/resources', 'icon.png'),
+        'fanart'   : os.path.join(CONFIG.ADDONS, 'skin.nxtflixtastic/resources', 'fanart.jpg'),
+        'file'     : os.path.join(CONFIG.METAFOLD, 'nxtflixtastic_meta'),
+        'settings' : os.path.join(CONFIG.ADDON_DATA, 'skin.nxtflixtastic', 'settings.xml'),
+        'default'  : '',
+        'default_fanart'  : '',
+        'default_omdb'  : '',
+        'default_mdb'  : 'mdblist_api_key',
+        'default_imdb'  : '',
+        'default_tvdb'  : '',
+        'default_tmdb'  : '',
+        'default_tmdb_user'  : '',
+        'default_tmdb_pass'  : '',
+        'default_tmdb_session'  : '',
+        'data'     : ['mdblist_api_key'],
+        'activate' : 'Addon.OpenSettings(script.module.myaccounts)'},
+    'nimbus': {
+        'name'     : 'Nimbus Skin',
+        'plugin'   : 'skin.nimbus',
+        'saved'    : 'nimbus',
+        'path'     : os.path.join(CONFIG.ADDONS, 'skin.nimbus'),
+        'icon'     : os.path.join(CONFIG.ADDONS, 'skin.nimbus/resources', 'icon.png'),
+        'fanart'   : os.path.join(CONFIG.ADDONS, 'skin.nimbus/resources', 'fanart.jpg'),
+        'file'     : os.path.join(CONFIG.METAFOLD, 'nimbus_meta'),
+        'settings' : os.path.join(CONFIG.ADDON_DATA, 'skin.nimbus', 'settings.xml'),
+        'default'  : '',
+        'default_fanart'  : '',
+        'default_omdb'  : '',
+        'default_mdb'  : 'mdblist_api_key',
+        'default_imdb'  : '',
+        'default_tvdb'  : '',
+        'default_tmdb'  : '',
+        'default_tmdb_user'  : '',
+        'default_tmdb_pass'  : '',
+        'default_tmdb_session'  : '',
+        'data'     : ['mdblist_api_key'],
         'activate' : 'Addon.OpenSettings(script.module.myaccounts)'}
 }
 
@@ -607,11 +611,19 @@ def debrid_user_fanart(who):
     user_fanart = None
     if DEBRIDID[who]:
         name = DEBRIDID[who]['name']
+        fanart = DEBRIDID[who]['default_fanart']
         if os.path.exists(DEBRIDID[who]['path']) and name == 'NXTFlix Light':
-            user_fanart = ''
-        if os.path.exists(DEBRIDID[who]['path']) and name == 'afFENity':
-            user_fanart = ''
-        if os.path.exists(DEBRIDID[who]['path']) and name != 'NXTFlix Light' or name != 'afFENity':
+            user_fanart = 'Skip'
+        #elif os.path.exists(DEBRIDID[who]['path']) and name == 'afnxtflixity':
+            #user_fanart = 'Skip'
+        elif os.path.exists(DEBRIDID[who]['path']) and name == 'nxtflixtastic Skin':
+            user_fanart = 'Skip'
+        elif os.path.exists(DEBRIDID[who]['path']) and name == 'Nimbus Skin':
+            user_fanart = 'Skip'
+        elif fanart == '':
+            user_fanart = 'Skip'
+        else:
+            if os.path.exists(DEBRIDID[who]['path']):
                 try:
                     add = tools.get_addon_by_id(DEBRIDID[who]['plugin'])
                     user_fanart = add.getSetting(DEBRIDID[who]['default_fanart'])
@@ -623,6 +635,7 @@ def debrid_user_omdb(who):
     user_omdb = None
     if DEBRIDID[who]:
         name = DEBRIDID[who]['name']
+        omdb = DEBRIDID[who]['default_omdb']
         if os.path.exists(DEBRIDID[who]['path']) and name == 'NXTFlix Light':
             try:
                 # Create database connection
@@ -632,21 +645,23 @@ def debrid_user_omdb(who):
                     cur.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('omdb_api',)) #Get setting to compare
                     auth = cur.fetchone()
                     user_data = str(auth)
-
                     if user_data == "('empty_setting',)" or user_data == "('',)" or user_data == '' or user_data == None: #Check if addon is authorized
                         user_omdb = None #Return if not authorized
                     else:
-                        user_omdb = user_data #Return if authorized
+                        for char in char_remov:
+                            user_data = user_data.replace(char, "")
+                            #if user_data == '':
+                            user_omdb = user_data #Return if authorized
                     cur.close()
             except:
                 xbmc.log('%s: Metait_all NXTFlix Light Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
-        elif os.path.exists(DEBRIDID[who]['path']) and name == 'afFENity':
+            '''elif os.path.exists(DEBRIDID[who]['path']) and name == 'afnxtflixity':
             try:
-                conn = create_conn(var.affen_settings_db)
+                conn = create_conn(var.afnxtflix_settings_db)
                 with conn:
                     cur = conn.cursor()
-                    cur.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('omdb_api',))
+                    cur.execute(''''''SELECT setting_value FROM settings WHERE setting_id = ?'''''', ('omdb_api',))
                     auth = cur.fetchone()
                     user_data = str(auth)
 
@@ -656,8 +671,14 @@ def debrid_user_omdb(who):
                         user_omdb = user_data
                     cur.close()
             except:
-                xbmc.log('%s: Metait_all afFENity Failed!' % var.amgr, xbmc.LOGINFO)
-                pass
+                xbmc.log('%s: Metait_all afnxtflixity Failed!' % var.amgr, xbmc.LOGINFO)
+                pass'''
+        elif os.path.exists(DEBRIDID[who]['path']) and name == 'nxtflixtastic Skin':
+            user_omdb = 'Skip'
+        elif os.path.exists(DEBRIDID[who]['path']) and name == 'Nimbus Skin':
+            user_omdb = 'Skip'
+        elif omdb == '':
+            user_omdb = 'Skip'
         else:
             if os.path.exists(DEBRIDID[who]['path']):
                 try:
@@ -671,11 +692,43 @@ def debrid_user_mdb(who):
     user_mdb = None
     if DEBRIDID[who]:
         name = DEBRIDID[who]['name']
+        mdb = DEBRIDID[who]['default_mdb']
         if os.path.exists(DEBRIDID[who]['path']) and name == 'NXTFlix Light':
-            user_mdb = ''
-        if os.path.exists(DEBRIDID[who]['path']) and name == 'afFENity':
-            user_mdb = ''
-        if os.path.exists(DEBRIDID[who]['path']) and name != 'NXTFlix Light' or name != 'afFENity':
+            user_mdb = 'Skip'
+        #if os.path.exists(DEBRIDID[who]['path']) and name == 'afnxtflixity':
+            #user_mdb = 'Skip'
+        elif os.path.exists(DEBRIDID[who]['path']) and name == 'nxtflixtastic Skin':
+            tree = ET.parse(var.nxtflixtastic)
+            root = tree.getroot()
+            for setting in root.findall('setting'):
+                setting_id = setting.get('id')
+                if setting_id == 'mdblist_api_key':
+                    user_data = str(setting.text)
+                    if user_data == 'None':
+                        user_mdb = ''
+                    else:
+                        user_mdb = user_data
+                    return user_mdb
+                else:
+                    user_mdb == None
+        elif os.path.exists(DEBRIDID[who]['path']) and name == 'Nimbus Skin':
+            tree = ET.parse(var.nimbus)
+            root = tree.getroot()
+            for setting in root.findall('setting'):
+                setting_id = setting.get('id')
+                if setting_id == 'mdblist_api_key':
+                    user_data = str(setting.text)
+                    if user_data == 'None':
+                        user_mdb = ''
+                    else:
+                        user_mdb = user_data
+                    return user_mdb
+                else:
+                    user_mdb == None
+        elif mdb == '':
+            user_mdb = 'Skip'
+        else:
+            if os.path.exists(DEBRIDID[who]['path']):
                 try:
                     add = tools.get_addon_by_id(DEBRIDID[who]['plugin'])
                     user_mdb = add.getSetting(DEBRIDID[who]['default_mdb'])
@@ -687,11 +740,19 @@ def debrid_user_imdb(who):
     user_imdb = None
     if DEBRIDID[who]:
         name = DEBRIDID[who]['name']
+        imdb = DEBRIDID[who]['default_imdb']
         if os.path.exists(DEBRIDID[who]['path']) and name == 'NXTFlix Light':
-            user_imdb = ''
-        if os.path.exists(DEBRIDID[who]['path']) and name == 'afFENity':
-            user_imdb = ''
-        if os.path.exists(DEBRIDID[who]['path']) and name != 'NXTFlix Light' or name != 'afFENity':
+            user_imdb = 'Skip'
+        #elif os.path.exists(DEBRIDID[who]['path']) and name == 'afnxtflixity':
+            #user_imdb = 'Skip'
+        elif os.path.exists(DEBRIDID[who]['path']) and name == 'nxtflixtastic Skin':
+            user_imdb = 'Skip'
+        elif os.path.exists(DEBRIDID[who]['path']) and name == 'Nimbus Skin':
+            user_imdb = 'Skip'
+        elif imdb == '':
+            user_imdb = 'Skip'
+        else:
+            if os.path.exists(DEBRIDID[who]['path']):
                 try:
                     add = tools.get_addon_by_id(DEBRIDID[who]['plugin'])
                     user_imdb = add.getSetting(DEBRIDID[who]['default_imdb'])
@@ -703,11 +764,19 @@ def debrid_user_tvdb(who):
     user_tvdb = None
     if DEBRIDID[who]:
         name = DEBRIDID[who]['name']
+        tvdb = DEBRIDID[who]['default_tvdb']
         if os.path.exists(DEBRIDID[who]['path']) and name == 'NXTFlix Light':
-            user_tvdb = ''
-        if os.path.exists(DEBRIDID[who]['path']) and name == 'afFENity':
-            user_tvdb = ''
-        if os.path.exists(DEBRIDID[who]['path']) and name != 'NXTFlix Light' or name != 'afFENity':
+            user_tvdb = 'Skip'
+        #elif os.path.exists(DEBRIDID[who]['path']) and name == 'afnxtflixity':
+            #user_tvdb = 'Skip'
+        elif os.path.exists(DEBRIDID[who]['path']) and name == 'nxtflixtastic Skin':
+            user_tvdb = 'Skip'
+        elif os.path.exists(DEBRIDID[who]['path']) and name == 'Nimbus Skin':
+            user_tvdb = 'Skip'
+        elif tvdb == '':
+            user_tvdb = 'Skip'
+        else:
+            if os.path.exists(DEBRIDID[who]['path']):
                 try:
                     add = tools.get_addon_by_id(DEBRIDID[who]['plugin'])
                     user_tvdb = add.getSetting(DEBRIDID[who]['default_tvdb'])
@@ -719,6 +788,7 @@ def debrid_user_tmdb(who):
     user_tmdb = None
     if DEBRIDID[who]:
         name = DEBRIDID[who]['name']
+        tmdb = DEBRIDID[who]['default_tmdb']
         if os.path.exists(DEBRIDID[who]['path']) and name == 'NXTFlix Light':
             try:
                 # Create database connection
@@ -732,13 +802,21 @@ def debrid_user_tmdb(who):
                     if user_data == "('empty_setting',)" or user_data == "('',)" or user_data == '' or user_data == None: #Check if addon is authorized
                         user_tmdb = None #Return if not authorized
                     else:
-                        user_tmdb = user_data #Return if authorized
+                        for char in char_remov:
+                            user_data = user_data.replace(char, "")
+                            user_tmdb = user_data #Return if authorized
                     cur.close()
             except:
                 xbmc.log('%s: Metait_all NXTFlix Light Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
-        elif os.path.exists(DEBRIDID[who]['path']) and name == 'afFENity':
-            user_tmdb = ''
+        #elif os.path.exists(DEBRIDID[who]['path']) and name == 'afnxtflixity':
+            #user_tmdb = 'Skip'
+        elif os.path.exists(DEBRIDID[who]['path']) and name == 'nxtflixtastic Skin':
+            user_tmdb = 'Skip'
+        elif os.path.exists(DEBRIDID[who]['path']) and name == 'Nimbus Skin':
+            user_tmdb = 'Skip'
+        elif tmdb == '':
+            user_tmdb = 'Skip'
         else:
             if os.path.exists(DEBRIDID[who]['path']):
                 try:
@@ -752,11 +830,19 @@ def debrid_user_tmdb_user(who):
     user_tmdb_user = None
     if DEBRIDID[who]:
         name = DEBRIDID[who]['name']
+        tmdb_user = DEBRIDID[who]['default_tmdb_user']
         if os.path.exists(DEBRIDID[who]['path']) and name == 'NXTFlix Light':
-            user_tmdb_user = ''
-        if os.path.exists(DEBRIDID[who]['path']) and name == 'afFENity':
-            user_tmdb_user = ''
-        if os.path.exists(DEBRIDID[who]['path']) and name != 'NXTFlix Light' or name != 'afFENity':
+            user_tmdb_user = 'Skip'
+        #elif os.path.exists(DEBRIDID[who]['path']) and name == 'afnxtflixity':
+            #user_tmdb_user = 'Skip'
+        elif os.path.exists(DEBRIDID[who]['path']) and name == 'nxtflixtastic Skin':
+            user_tmdb_user = 'Skip'
+        elif os.path.exists(DEBRIDID[who]['path']) and name == 'Nimbus Skin':
+            user_tmdb_user = 'Skip'
+        elif tmdb_user == '':
+            user_tmdb_user = 'Skip'
+        else:
+            if os.path.exists(DEBRIDID[who]['path']):
                 try:
                     add = tools.get_addon_by_id(DEBRIDID[who]['plugin'])
                     user_tmdb_user = add.getSetting(DEBRIDID[who]['default_tmdb_user'])
@@ -768,11 +854,19 @@ def debrid_user_tmdb_pass(who):
     user_tmdb_pass = None
     if DEBRIDID[who]:
         name = DEBRIDID[who]['name']
+        tmdb_pass = DEBRIDID[who]['default_tmdb_pass']
         if os.path.exists(DEBRIDID[who]['path']) and name == 'NXTFlix Light':
-            user_tmdb_pass = ''
-        if os.path.exists(DEBRIDID[who]['path']) and name == 'afFENity':
-            user_tmdb_pass = ''
-        if os.path.exists(DEBRIDID[who]['path']) and name != 'NXTFlix Light' or name != 'afFENity':
+            user_tmdb_pass = 'Skip'
+        #elif os.path.exists(DEBRIDID[who]['path']) and name == 'afnxtflixity':
+            #user_tmdb_pass = 'Skip'
+        elif os.path.exists(DEBRIDID[who]['path']) and name == 'nxtflixtastic Skin':
+            user_tmdb_pass = 'Skip'
+        elif os.path.exists(DEBRIDID[who]['path']) and name == 'Nimbus Skin':
+            user_tmdb_pass = 'Skip'
+        elif tmdb_pass == '':
+            user_tmdb_pass = 'Skip'
+        else:
+            if os.path.exists(DEBRIDID[who]['path']):
                 try:
                     add = tools.get_addon_by_id(DEBRIDID[who]['plugin'])
                     user_tmdb_pass = add.getSetting(DEBRIDID[who]['default_tmdb_pass'])
@@ -784,11 +878,19 @@ def debrid_user_tmdb_session(who):
     user_tmdb_session = None
     if DEBRIDID[who]:
         name = DEBRIDID[who]['name']
+        tmdb_session = DEBRIDID[who]['default_tmdb_pass']
         if os.path.exists(DEBRIDID[who]['path']) and name == 'NXTFlix Light':
-            user_tmdb_session = ''
-        if os.path.exists(DEBRIDID[who]['path']) and name == 'afFENity':
-            user_tmdb_session = ''
-        if os.path.exists(DEBRIDID[who]['path']) and name != 'NXTFlix Light' or name != 'afFENity':
+            user_tmdb_session = 'Skip'
+        #elif os.path.exists(DEBRIDID[who]['path']) and name == 'afnxtflixity':
+            #user_tmdb_session = 'Skip'
+        elif os.path.exists(DEBRIDID[who]['path']) and name == 'nxtflixtastic Skin':
+            user_tmdb_session = 'Skip'
+        elif os.path.exists(DEBRIDID[who]['path']) and name == 'Nimbus Skin':
+            user_tmdb_session = 'Skip'
+        elif tmdb_session == '':
+            user_tmdb_session = 'Skip'
+        else:
+            if os.path.exists(DEBRIDID[who]['path']):
                 try:
                     add = tools.get_addon_by_id(DEBRIDID[who]['plugin'])
                     user_tmdb_session = add.getSetting(DEBRIDID[who]['default_tmdb_session'])
@@ -847,43 +949,95 @@ def update_debrid(do, who):
     icon = DEBRIDID[who]['icon']
 
     if do == 'update':
-        try:
-            root = ElementTree.Element(saved)
-            
-            for setting in data:
-                debrid = ElementTree.SubElement(root, 'debrid')
-                id = ElementTree.SubElement(debrid, 'id')
-                id.text = setting
-                value = ElementTree.SubElement(debrid, 'value')
-                value.text = addonid.getSetting(setting)
-              
-            tree = ElementTree.ElementTree(root)
-            tree.write(file)
-            
-            user = addonid.getSetting(default)
-            CONFIG.set_setting(saved, user)
-            
-            logging.log('Debrid Info Saved for {0}'.format(name), level=xbmc.LOGINFO)
-        except Exception as e:
-            logging.log("[Debrid Info] Unable to Update {0} ({1})".format(who, str(e)), level=xbmc.LOGERROR)
-
+        if name == 'NXTFlix Light':
+            pass
+        else:
+            try:
+                if name == 'nxtflixtastic Skin':
+                    tree = ET.parse(var.nxtflixtastic)
+                    root = tree.getroot()
+                    for setting in root.findall('setting'):
+                        setting_id = setting.get('id')
+                        if setting_id == 'mdblist_api_key':
+                            setting_new = str(setting.text)
+                            root = ElementTree.Element(saved)
+                            for setting in data:
+                                debrid = ElementTree.SubElement(root, 'debrid')
+                                id = ElementTree.SubElement(debrid, 'id')
+                                id.text = setting
+                                value = ElementTree.SubElement(debrid, 'value')
+                                value.text = setting_new
+                                        
+                            tree = ElementTree.ElementTree(root)
+                            tree.write(file)
+                                
+                            user = addonid.getSetting(default)
+                            CONFIG.set_setting(saved, user)
+                elif name == 'Nimbus Skin':
+                    tree = ET.parse(var.nimbus)
+                    root = tree.getroot()
+                    for setting in root.findall('setting'):
+                        setting_id = setting.get('id')
+                        if setting_id == 'mdblist_api_key':
+                            setting_new = str(setting.text)
+                            root = ElementTree.Element(saved)
+                            for setting in data:
+                                debrid = ElementTree.SubElement(root, 'debrid')
+                                id = ElementTree.SubElement(debrid, 'id')
+                                id.text = setting
+                                value = ElementTree.SubElement(debrid, 'value')
+                                value.text = setting_new
+                                        
+                            tree = ElementTree.ElementTree(root)
+                            tree.write(file)
+                                
+                            user = addonid.getSetting(default)
+                            CONFIG.set_setting(saved, user)
+                else:
+                    root = ElementTree.Element(saved)
+                    for setting in data:
+                            debrid = ElementTree.SubElement(root, 'debrid')
+                            id = ElementTree.SubElement(debrid, 'id')
+                            id.text = setting
+                            value = ElementTree.SubElement(debrid, 'value')
+                            value.text = addonid.getSetting(setting)
+                                
+                    tree = ElementTree.ElementTree(root)
+                    tree.write(file)
+                    
+                    user = addonid.getSetting(default)
+                    CONFIG.set_setting(saved, user)
+                
+                logging.log('Debrid Info Saved for {0}'.format(name), level=xbmc.LOGINFO)
+            except Exception as e:
+                logging.log("[Debrid Info] Unable to Update {0} ({1})".format(who, str(e)), level=xbmc.LOGERROR)
     elif do == 'restore':
         if os.path.exists(file):
             tree = ElementTree.parse(file)
             root = tree.getroot()
+            json_query = xbmc.executeJSONRPC('{"jsonrpc":"2.0", "method":"Settings.GetSettingValue", "params":{"setting":"lookandfeel.skin"}, "id":1}')
+            json_query = json.loads(json_query)
+            skin = ''
+            if 'result' in json_query and 'value' in json_query['result']:
+                    skin_str = json_query['result']['value']
+                    #xbmc.log(str(skin), xbmc.LOGINFO)
             
-            try:
-                for setting in root.findall('debrid'):
-                    id = setting.find('id').text
-                    value = setting.find('value').text
+            for setting in root.findall('debrid'):
+                id = setting.find('id').text
+                value = setting.find('value').text
+                skin_setting = str(value)
+                if name == 'nxtflixtastic Skin' and skin_chk == 'skin.nxtflixtastic':
+                    xbmc.executebuiltin("Skin.SetString(mdblist_api_key, %s)" % value)
+                elif name == 'Nimbus Skin' and skin_chk == 'skin.nimbus':
+                    xbmc.executebuiltin("Skin.SetString(mdblist_api_key, %s)" % skin_setting)
+                else:
                     addonid.setSetting(id, value)
-                
-                user = addonid.getSetting(default)
-                CONFIG.set_setting(saved, user)
-                
-                logging.log('Debrid Info Restored for {0}'.format(name), level=xbmc.LOGINFO)
-            except Exception as e:
-                logging.log("[Debrid Info] Unable to Restore {0} ({1})".format(who, str(e)), level=xbmc.LOGERROR)
+            
+            user = addonid.getSetting(default)
+            CONFIG.set_setting(saved, user)
+            
+            logging.log('Debrid Info Restored for {0}'.format(name), level=xbmc.LOGINFO)
+
         else:
             logging.log('Debrid Info Not Found for {0}'.format(name))
         xbmc.executebuiltin('Container.Refresh()')
@@ -905,10 +1059,31 @@ def update_debrid(do, who):
                     tree.write(settings)
                     
                 except Exception as e:
-                    logging.log("[Debrid Info] Unable to Clear Addon {0} ({1})".format(who, str(e)), level=xbmc.LOGERROR)
+                    logging.log("[Metadata Info] Unable to Clear Addon {0} ({1})".format(who, str(e)), level=xbmc.LOGERROR)
         xbmc.executebuiltin('Container.Refresh()')
-        
-        revoke_meta() #Restore default API keys for all add-ons
+    elif do == 'wipeaddon':
+        logging.log('{0} SETTINGS: {1}'.format(name, settings))
+        if name == 'NXTFlix Light':
+        #if name == 'NXTFlix Light' or name == 'afnxtflixity':
+            pass
+        else:
+            if os.path.exists(settings):
+                try:
+                    tree = ElementTree.parse(settings)
+                    root = tree.getroot()
+                    
+                    for setting in root.findall('setting'):
+                        if setting.attrib['id'] in data:
+                            logging.log('Removing Setting: {0}'.format(setting.attrib))
+                            root.remove(setting)
+                                
+                    tree.write(settings)
+                    
+                except Exception as e:
+                    logging.log("[Metadata Info] Unable to Clear Addon {0} ({1})".format(who, str(e)), level=xbmc.LOGERROR)
+            xbmc.executebuiltin('Container.Refresh()')
+            
+            revoke_meta() #Restore default API keys for all add-ons
 
 def auto_update(who):
     if who == 'all':
@@ -963,25 +1138,22 @@ def import_list(who):
             logging.log_notify("[COLOR {0}]{1}[/COLOR]".format(CONFIG.COLOR1, name),
                        '[COLOR {0}]Debrid Info: Imported![/COLOR]'.format(CONFIG.COLOR2))
 
-def open_settings_debrid(who):
+def settings(who):
+    user = None
+    user = DEBRIDID[who]['name']
+    return user
+
+def open_settings(who):
     addonid = tools.get_addon_by_id(DEBRIDID[who]['plugin'])
     addonid.openSettings()
 
 def revoke_meta():
-
-    if xbmcvfs.exists(var.chk_ezra) and xbmcvfs.exists(var.chkset_ezra):
-        try:
-            addon = xbmcaddon.Addon("plugin.video.ezra")
-            addon.setSetting("fanart_client_key", var.ezra_fan)                        
-            addon.setSetting("tmdb_api", var.ezra_tmdb)
-        except:
-            pass
         
-    if xbmcvfs.exists(var.chk_fen) and xbmcvfs.exists(var.chkset_fen):
+    if xbmcvfs.exists(var.chk_nxtflix) and xbmcvfs.exists(var.chkset_nxtflix):
         try:
-            addon = xbmcaddon.Addon("plugin.video.fen")
-            addon.setSetting("fanart_client_key", var.fen_fan)                        
-            addon.setSetting("tmdb_api", var.fen_tmdb)
+            addon = xbmcaddon.Addon("plugin.video.nxtflix")
+            addon.setSetting("fanart_client_key", var.nxtflix_fan)                        
+            addon.setSetting("tmdb_api", var.nxtflix_tmdb)
         except:
             pass
 
@@ -1000,12 +1172,12 @@ def revoke_meta():
             addon.setSetting("tmdb_api", var.pov_tmdb)
         except:
             pass
-        
-    if xbmcvfs.exists(var.chk_taz) and xbmcvfs.exists(var.chkset_taz):
+
+    if xbmcvfs.exists(var.chk_dradis) and xbmcvfs.exists(var.chkset_dradis):
         try:
-            addon = xbmcaddon.Addon("plugin.video.taz19")
-            addon.setSetting("fanart_client_key", var.taz_fan)                        
-            addon.setSetting("tmdb_api", var.taz_tmdb)
+            addon = xbmcaddon.Addon("plugin.video.dradis")
+            addon.setSetting("fanart_tv.api_key", var.dradis_fan)                        
+            addon.setSetting("tmdb.api.key", var.dradis_tmdb)
         except:
             pass
         

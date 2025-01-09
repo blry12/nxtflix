@@ -74,28 +74,28 @@ def connect_trakt_nxtflixlt(conn, setting):
         pass
 
 
-######################### Affenity Trakt #########################
-def connect_trakt_affen(conn, setting):
+'''######################### Afnxtflixity Trakt #########################
+def connect_trakt_afnxtflix(conn, setting):
     try:
         # Update settings database
-        trakt_token = ''' UPDATE settings
+        trakt_token = '''''' UPDATE settings
                   SET setting_value = ?
-                  WHERE setting_id = ?'''
-        trakt_user = ''' UPDATE settings
+                  WHERE setting_id = ?''''''
+        trakt_user = '''''' UPDATE settings
                   SET setting_value = ?
-                  WHERE setting_id = ?'''
-        trakt_refresh = ''' UPDATE settings
+                  WHERE setting_id = ?''''''
+        trakt_refresh = '''''' UPDATE settings
                   SET setting_value = ?
-                  WHERE setting_id = ?'''
-        trakt_expires = ''' UPDATE settings
+                  WHERE setting_id = ?''''''
+        trakt_expires = '''''' UPDATE settings
                   SET setting_value = ?
-                  WHERE setting_id = ?'''
-        trakt_watched_indicators = ''' UPDATE settings
+                  WHERE setting_id = ?''''''
+        trakt_watched_indicators = '''''' UPDATE settings
                   SET setting_value = ?
-                  WHERE setting_id = ?'''
-        trakt_watched_indicators_name = ''' UPDATE settings
+                  WHERE setting_id = ?''''''
+        trakt_watched_indicators_name = '''''' UPDATE settings
                   SET setting_value = ?
-                  WHERE setting_id = ?'''
+                  WHERE setting_id = ?''''''
 
         cur = conn.cursor()
         cur.execute(trakt_token, setting)
@@ -108,7 +108,7 @@ def connect_trakt_affen(conn, setting):
         cur.close()
     except:
         xbmc.log('%s: Trakt_db Failed!' % var.amgr, xbmc.LOGINFO)
-        pass
+        pass'''
     
     
 #################### Auth NXTFlix Light Trakt ###################
@@ -131,18 +131,18 @@ def auth_nxtflixlt_trakt():
 
 
 
-#################### Auth afFENity Trakt ###################
-def auth_affen_trakt():
+'''#################### Auth afnxtflixity Trakt ###################
+def auth_afnxtflix_trakt():
     try:
         # Create database connection
-        conn = create_conn(var.affen_settings_db)
+        conn = create_conn(var.afnxtflix_settings_db)
         with conn:
-            connect_trakt_affen(conn, (your_token, 'trakt.token'))
-            connect_trakt_affen(conn, (your_username, 'trakt.user'))
-            connect_trakt_affen(conn, (your_refresh, 'trakt.refresh'))
-            connect_trakt_affen(conn, (your_expires, 'trakt.expires'))
-            connect_trakt_affen(conn, (1, 'watched_indicators'))
-            connect_trakt_affen(conn, ('Trakt', 'watched_indicators_name'))
+            connect_trakt_afnxtflix(conn, (your_token, 'trakt.token'))
+            connect_trakt_afnxtflix(conn, (your_username, 'trakt.user'))
+            connect_trakt_afnxtflix(conn, (your_refresh, 'trakt.refresh'))
+            connect_trakt_afnxtflix(conn, (your_expires, 'trakt.expires'))
+            connect_trakt_afnxtflix(conn, (1, 'watched_indicators'))
+            connect_trakt_afnxtflix(conn, ('Trakt', 'watched_indicators_name'))
     except:
-        xbmc.log('%s: Trakt_db afFENity Failed!' % var.amgr, xbmc.LOGINFO)
-        pass
+        xbmc.log('%s: Trakt_db afnxtflixity Failed!' % var.amgr, xbmc.LOGINFO)
+        pass'''

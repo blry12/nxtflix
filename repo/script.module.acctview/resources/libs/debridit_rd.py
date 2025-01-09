@@ -7,7 +7,6 @@ import json
 import os
 import time
 import sqlite3
-import xbmcvfs
 
 from sqlite3 import Error
 from xml.etree import ElementTree
@@ -19,10 +18,8 @@ translatePath = xbmcvfs.translatePath
 addons = translatePath('special://home/addons/')
 
 ORDER = ['serenrd',
-         'fenrd',
-         'nxtflixrd',         
+         'nxtflixrd',
          'nxtflixltrd',
-         'affenrd',
          'coalrd',
          'povrd',
          'umbrd',
@@ -58,20 +55,8 @@ DEBRIDID = {
         'default'  : 'rd.username',
         'data'     : ['rd.auth', 'rd.client_id', 'rd.expiry', 'rd.refresh', 'rd.secret', 'rd.username', 'realdebrid.enabled'],
         'activate' : 'Addon.OpenSettings(plugin.video.seren)'},
-    'fenrd': {
-        'name'     : 'Fen',
-        'plugin'   : 'plugin.video.fen',
-        'saved'    : 'fenrd',
-        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.fen'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.fen/resources/media/', 'fen_icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.fen/resources/media/', 'fen_fanart.png'),
-        'file'     : os.path.join(CONFIG.DEBRIDFOLD_RD, 'fen_rd'),
-        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.fen', 'settings.xml'),
-        'default'  : 'rd.account_id',
-        'data'     : ['rd.client_id', 'rd.refresh', 'rd.secret', 'rd.token', 'rd.account_id', 'rd.enabled'],
-        'activate' : 'Addon.OpenSettings(plugin.video.fen)'},
     'nxtflixrd': {
-        'name'     : 'NXTFlix',
+        'name'     : 'nxtflix',
         'plugin'   : 'plugin.video.nxtflix',
         'saved'    : 'nxtflixrd',
         'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix'),
@@ -81,31 +66,19 @@ DEBRIDID = {
         'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.nxtflix', 'settings.xml'),
         'default'  : 'rd.account_id',
         'data'     : ['rd.client_id', 'rd.refresh', 'rd.secret', 'rd.token', 'rd.account_id', 'rd.enabled'],
-        'activate' : 'Addon.OpenSettings(plugin.video.nxtflix)'},        
+        'activate' : 'Addon.OpenSettings(plugin.video.nxtflix)'},
     'nxtflixltrd': {
         'name'     : 'NXTFlix Light',
         'plugin'   : 'plugin.video.nxtflixlight',
         'saved'    : 'nxtflixltrd',
         'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight/resources/media/', 'fenlight_icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight/resources/media/', 'fenlight_fanart.png'),
+        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight/resources/media/', 'nxtflixlight_icon.png'),
+        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight/resources/media/', 'nxtflixlight_fanart2.jpg'),
         'file'     : os.path.join(CONFIG.DEBRIDFOLD_RD, 'nxtflixlt_rd'),
         'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.nxtflixlight/databases', 'settings.db'),
         'default'  : '',
         'data'     : [],
         'activate' : 'Addon.OpenSettings(plugin.video.nxtflixlight)'},
-    'affenrd': {
-        'name'     : 'afFENity',
-        'plugin'   : 'plugin.video.affenity',
-        'saved'    : 'affenrd',
-        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.affenity'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.affenity/resources/media/', 'affenity_icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.affenity/resources/media/', 'affenity_fanart.png'),
-        'file'     : os.path.join(CONFIG.DEBRIDFOLD_RD, 'affen_rd'),
-        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.affenity/databases', 'settings.db'),
-        'default'  : '',
-        'data'     : [],
-        'activate' : 'Addon.OpenSettings(plugin.video.affenity)'},
     'coalrd': {
         'name'     : 'The Coalition',
         'plugin'   : 'plugin.video.coalition',
@@ -148,7 +121,7 @@ DEBRIDID = {
         'saved'    : 'infinityrd',
         'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.infinity'),
         'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.infinity/resources/media/', 'icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.infinity', 'fanart.jpg'),
+        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.infinity/resources/media', 'fanart.png'),
         'file'     : os.path.join(CONFIG.DEBRIDFOLD_RD, 'infinity_rd'),
         'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.infinity', 'settings.xml'),
         'default'  : 'realdebridusername',
@@ -395,12 +368,12 @@ def debrid_user(who):
             except:
                 xbmc.log('%s: Debridit_rd NXTFlix Light Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
-        elif os.path.exists(DEBRIDID[who]['path']) and name == 'afFENity':
+            '''elif os.path.exists(DEBRIDID[who]['path']) and name == 'afnxtflixity':
             try:
-                conn = create_conn(var.affen_settings_db)
+                conn = create_conn(var.afnxtflix_settings_db)
                 with conn:
                     cur = conn.cursor()
-                    cur.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('rd.token',))
+                    cur.execute(''''''SELECT setting_value FROM settings WHERE setting_id = ?'''''', ('rd.token',))
                     auth = cur.fetchone()
                     user_data = str(auth)
 
@@ -410,8 +383,8 @@ def debrid_user(who):
                         user = user_data
                     cur.close()
             except:
-                xbmc.log('%s: Debridit_rd afFENity Failed!' % var.amgr, xbmc.LOGINFO)
-                pass
+                xbmc.log('%s: Debridit_rd afnxtflixity Failed!' % var.amgr, xbmc.LOGINFO)
+                pass'''
         elif os.path.exists(DEBRIDID[who]['path']) and name == 'Realizer':
             try:
                 with open(var.chkset_realx_json) as r:
@@ -482,28 +455,31 @@ def update_debrid(do, who):
     icon = DEBRIDID[who]['icon']
 
     if do == 'update':
-        if not user == '':
-            try:
-                root = ElementTree.Element(saved)
-                
-                for setting in data:
-                    debrid = ElementTree.SubElement(root, 'debrid')
-                    id = ElementTree.SubElement(debrid, 'id')
-                    id.text = setting
-                    value = ElementTree.SubElement(debrid, 'value')
-                    value.text = addonid.getSetting(setting)
-                  
-                tree = ElementTree.ElementTree(root)
-                tree.write(file)
-                
-                user = addonid.getSetting(default)
-                CONFIG.set_setting(saved, user)
-                
-                logging.log('Debrid Info Saved for {0}'.format(name), level=xbmc.LOGINFO)
-            except Exception as e:
-                logging.log("[Debrid Info] Unable to Update {0} ({1})".format(who, str(e)), level=xbmc.LOGERROR)
+        if name == 'NXTFlix Light':
+            pass
         else:
-            logging.log('Debrid Info Not Registered for {0}'.format(name))
+            if not user == '':
+                try:
+                    root = ElementTree.Element(saved)
+                    
+                    for setting in data:
+                        debrid = ElementTree.SubElement(root, 'debrid')
+                        id = ElementTree.SubElement(debrid, 'id')
+                        id.text = setting
+                        value = ElementTree.SubElement(debrid, 'value')
+                        value.text = addonid.getSetting(setting)
+                      
+                    tree = ElementTree.ElementTree(root)
+                    tree.write(file)
+                    
+                    user = addonid.getSetting(default)
+                    CONFIG.set_setting(saved, user)
+                    
+                    logging.log('Debrid Info Saved for {0}'.format(name), level=xbmc.LOGINFO)
+                except Exception as e:
+                    logging.log("[Debrid Info] Unable to Update {0} ({1})".format(who, str(e)), level=xbmc.LOGERROR)
+            else:
+                logging.log('Debrid Info Not Registered for {0}'.format(name))
     elif do == 'restore':
         if os.path.exists(file):
             tree = ElementTree.parse(file)
@@ -545,21 +521,25 @@ def update_debrid(do, who):
         xbmc.executebuiltin('Container.Refresh()')
     elif do == 'wipeaddon':
         logging.log('{0} SETTINGS: {1}'.format(name, settings))
-        if os.path.exists(settings):
-            try:
-                tree = ElementTree.parse(settings)
-                root = tree.getroot()
-                
-                for setting in root.findall('setting'):
-                    if setting.attrib['id'] in data:
-                        logging.log('Removing Setting: {0}'.format(setting.attrib))
-                        root.remove(setting)
-                            
-                tree.write(settings)
-                
-            except Exception as e:
-                logging.log("[Debrid Info] Unable to Clear Addon {0} ({1})".format(who, str(e)), level=xbmc.LOGERROR)
-        xbmc.executebuiltin('Container.Refresh()')
+        if name == 'NXTFlix Light':
+        #if name == 'NXTFlix Light' or name == 'afnxtflixity':
+            pass
+        else:
+            if os.path.exists(settings):
+                try:
+                    tree = ElementTree.parse(settings)
+                    root = tree.getroot()
+                    
+                    for setting in root.findall('setting'):
+                        if setting.attrib['id'] in data:
+                            logging.log('Removing Setting: {0}'.format(setting.attrib))
+                            root.remove(setting)
+                                
+                    tree.write(settings)
+                    
+                except Exception as e:
+                    logging.log("[Debrid Info] Unable to Clear Addon {0} ({1})".format(who, str(e)), level=xbmc.LOGERROR)
+            xbmc.executebuiltin('Container.Refresh()')
 
 def auto_update(who):
     if who == 'all':
@@ -614,7 +594,12 @@ def import_list(who):
             logging.log_notify("[COLOR {0}]{1}[/COLOR]".format(CONFIG.COLOR1, name),
                        '[COLOR {0}]Debrid Info: Imported![/COLOR]'.format(CONFIG.COLOR2))
 
-def open_settings_debrid(who):
+def settings(who):
+    user = None
+    user = DEBRIDID[who]['name']
+    return user
+
+def open_settings(who):
     addonid = tools.get_addon_by_id(DEBRIDID[who]['plugin'])
     addonid.openSettings()
 

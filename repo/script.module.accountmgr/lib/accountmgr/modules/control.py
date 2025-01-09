@@ -8,6 +8,7 @@ import xbmc
 import xbmcaddon
 import xbmcgui
 import xbmcvfs
+import datetime
 from libs.common import var
 
 addon = xbmcaddon.Addon
@@ -19,6 +20,7 @@ execute = xbmc.executebuiltin
 monitor = xbmc.Monitor()
 transPath = xbmcvfs.translatePath
 joinPath = os.path.join
+date = str(datetime.date.today())
 
 accountmgr = xbmcaddon.Addon('script.module.accountmgr')
 dialog = xbmcgui.Dialog()
@@ -36,8 +38,11 @@ pm_icon = joinPath(os.path.join(xbmcaddon.Addon('script.module.accountmgr').getA
 ad_icon = joinPath(os.path.join(xbmcaddon.Addon('script.module.accountmgr').getAddonInfo('path'), 'resources', 'icons'), 'alldebrid.png')
 trakt_icon = joinPath(os.path.join(xbmcaddon.Addon('script.module.accountmgr').getAddonInfo('path'), 'resources', 'icons'), 'trakt.png')
 tmdb_icon = joinPath(os.path.join(xbmcaddon.Addon('script.module.accountmgr').getAddonInfo('path'), 'resources', 'icons'), 'tmdb.png')
-simkl_icon = joinPath(os.path.join(xbmcaddon.Addon('script.module.accountmgr').getAddonInfo('path'), 'resources', 'icons'), 'simkl.png')
+torbox_icon = joinPath(os.path.join(xbmcaddon.Addon('script.module.accountmgr').getAddonInfo('path'), 'resources', 'icons'), 'torbox.png')
+easyd_icon = joinPath(os.path.join(xbmcaddon.Addon('script.module.accountmgr').getAddonInfo('path'), 'resources', 'icons'), 'easydebrid.png')
 offcloud_icon = joinPath(os.path.join(xbmcaddon.Addon('script.module.accountmgr').getAddonInfo('path'), 'resources', 'icons'), 'offcloud.png')
+easy_icon = joinPath(os.path.join(xbmcaddon.Addon('script.module.accountmgr').getAddonInfo('path'), 'resources', 'icons'), 'easynews.png')
+file_icon = joinPath(os.path.join(xbmcaddon.Addon('script.module.accountmgr').getAddonInfo('path'), 'resources', 'icons'), 'filepursuit.png')
 	
 def getKodiVersion():
 	return int(xbmc.getInfoLabel("System.BuildVersion")[:2])
@@ -122,12 +127,7 @@ def notification_rd(title=None, message=None, icon=None, time=3000, sound=False)
 	if var.setting('backupenable') == 'true': #Check if backup service is enabled
                 xbmc.executebuiltin('PlayMedia(plugin://script.module.acctview/?mode=savedebrid_rd&name=all)') #Save Debrid data
                 xbmc.sleep(3000)
-	if xbmcvfs.exists(var.chk_nxtflixlt) and xbmcvfs.exists(var.chkset_nxtflixlt):
-                xbmc.executebuiltin('PlayMedia(plugin://plugin.video.nxtflixlight/?mode=sync_settings&amp;silent=true)') #Refresh settings database
-                xbmc.sleep(1000)
-	if xbmcvfs.exists(var.chk_affen) and xbmcvfs.exists(var.chkset_affen):
-                xbmc.executebuiltin('PlayMedia(plugin://plugin.video.affenity/?mode=sync_settings&amp;silent=true)') #Refresh settings database
-                xbmc.sleep(1000)
+                accountmgr.setSetting('rd_backup_date', date)
 	notification('Real-Debrid', 'Sync Complete!', icon=rd_icon)
 	
 def notification_pm(title=None, message=None, icon=None, time=3000, sound=False):
@@ -148,12 +148,7 @@ def notification_pm(title=None, message=None, icon=None, time=3000, sound=False)
 	if var.setting('backupenable') == 'true': #Check if backup service is enabled
                 xbmc.executebuiltin('PlayMedia(plugin://script.module.acctview/?mode=savedebrid_pm&name=all)') #Save Debrid data
                 xbmc.sleep(3000)
-	if xbmcvfs.exists(var.chk_nxtflixlt) and xbmcvfs.exists(var.chkset_nxtflixlt):
-                xbmc.executebuiltin('PlayMedia(plugin://plugin.video.nxtflixlight/?mode=sync_settings&amp;silent=true)') #Refresh settings database
-                xbmc.sleep(1000)
-	if xbmcvfs.exists(var.chk_affen) and xbmcvfs.exists(var.chkset_affen):
-                xbmc.executebuiltin('PlayMedia(plugin://plugin.video.affenity/?mode=sync_settings&amp;silent=true)') #Refresh settings database
-                xbmc.sleep(1000)
+                accountmgr.setSetting('pm_backup_date', date)
 	notification('Premiumize', 'Sync Complete!', icon=pm_icon)
 
 def notification_ad(title=None, message=None, icon=None, time=3000, sound=False):
@@ -174,12 +169,7 @@ def notification_ad(title=None, message=None, icon=None, time=3000, sound=False)
 	if var.setting('backupenable') == 'true': #Check if backup service is enabled
                 xbmc.executebuiltin('PlayMedia(plugin://script.module.acctview/?mode=savedebrid_ad&name=all)') #Save Debrid data
                 xbmc.sleep(3000)
-	if xbmcvfs.exists(var.chk_nxtflixlt) and xbmcvfs.exists(var.chkset_nxtflixlt):
-                xbmc.executebuiltin('PlayMedia(plugin://plugin.video.nxtflixlight/?mode=sync_settings&amp;silent=true)') #Refresh settings database
-                xbmc.sleep(1000)
-	if xbmcvfs.exists(var.chk_affen) and xbmcvfs.exists(var.chkset_affen):
-                xbmc.executebuiltin('PlayMedia(plugin://plugin.video.affenity/?mode=sync_settings&amp;silent=true)') #Refresh settings database
-                xbmc.sleep(1000)
+                accountmgr.setSetting('ad_backup_date', date)
 	notification('All-Debrid', 'Sync Complete!', icon=ad_icon)
 
 def notification_trakt(title=None, message=None, icon=None, time=3000, sound=False):
@@ -201,9 +191,10 @@ def notification_trakt(title=None, message=None, icon=None, time=3000, sound=Fal
         if var.setting('backupenable') == 'true': #Check if backup service is enabled
                 xbmc.executebuiltin('PlayMedia(plugin://script.module.acctview/?mode=savetrakt&name=all)') #Save Trakt data
                 xbmc.sleep(4000)
+                accountmgr.setSetting('tk_backup_date', date)
         notification('Trakt', 'Sync Complete!', icon=trakt_icon)
         accountmgr.setSetting("api.service", "true") #Enable Trakt Service
-        if xbmcvfs.exists(var.chk_nxtflixlt) and xbmcvfs.exists(var.chkset_nxtflixlt):
+        if xbmcvfs.exists(var.chk_nxtflixlt) or xbmcvfs.exists(var.chk_afnxtflix):
                 accountmgr.setSetting("rm_traktcache", 'true')
         if xbmcvfs.exists(var.chk_dradis) and xbmcvfs.exists(var.chkset_dradis):
                 chk_auth_dradis = xbmcaddon.Addon('plugin.video.dradis').getSetting("trakt.token")
@@ -216,6 +207,48 @@ def notification_trakt(title=None, message=None, icon=None, time=3000, sound=Fal
         xbmc.sleep(3000)
         xbmcgui.Dialog().ok('Account Manager', 'To save changes, please close Kodi, Press OK to force close Kodi')
         os._exit(1)
+
+def notification_torbox(title=None, message=None, icon=None, time=3000, sound=False):
+        if title == 'default' or title is None: title = addonName()
+        if isinstance(title, int): heading = lang(title)
+        else: heading = str(title)
+        if isinstance(message, int): body = lang(message)
+        else: body = str(message)
+        if icon is None or icon == '' or icon == 'default': icon = addonIcon()
+        elif icon == 'INFO': icon = xbmcgui.NOTIFICATION_INFO
+        elif icon == 'WARNING': icon = xbmcgui.NOTIFICATION_WARNING
+        elif icon == 'ERROR': icon = xbmcgui.NOTIFICATION_ERROR
+        dialog.notification(heading, body, icon, time, sound=sound)
+        xbmc.sleep(3000)
+        notification('TorBox', 'Sync in progress, please wait!', icon=torbox_icon)
+        from accountmgr.modules import torbox_sync
+        torbox_sync.Auth().torbox_auth() #Sync all add-ons
+        if var.setting('backupenable') == 'true': #Check if backup service is enabled
+                xbmc.executebuiltin('PlayMedia(plugin://script.module.acctview/?mode=savetorbox&name=all)') #Save OffCloud data
+                xbmc.sleep(3000)
+                accountmgr.setSetting('tb_backup_date', date)
+        notification('TorBox', 'Sync Complete!', icon=torbox_icon)
+
+def notification_easydebrid(title=None, message=None, icon=None, time=3000, sound=False):
+        if title == 'default' or title is None: title = addonName()
+        if isinstance(title, int): heading = lang(title)
+        else: heading = str(title)
+        if isinstance(message, int): body = lang(message)
+        else: body = str(message)
+        if icon is None or icon == '' or icon == 'default': icon = addonIcon()
+        elif icon == 'INFO': icon = xbmcgui.NOTIFICATION_INFO
+        elif icon == 'WARNING': icon = xbmcgui.NOTIFICATION_WARNING
+        elif icon == 'ERROR': icon = xbmcgui.NOTIFICATION_ERROR
+        dialog.notification(heading, body, icon, time, sound=sound)
+        xbmc.sleep(3000)
+        notification('Easy Debrid', 'Sync in progress, please wait!', icon=easyd_icon)
+        from accountmgr.modules import easydebrid_sync
+        easydebrid_sync.Auth().easydebrid_auth() #Sync all add-ons
+        if var.setting('backupenable') == 'true': #Check if backup service is enabled
+                xbmc.executebuiltin('PlayMedia(plugin://script.module.acctview/?mode=saveeasydebrid&name=all)') #Save OffCloud data
+                xbmc.sleep(3000)
+                accountmgr.setSetting('ed_backup_date', date)
+        notification('Easy Debrid', 'Sync Complete!', icon=easyd_icon)
         
 def notification_offcloud(title=None, message=None, icon=None, time=3000, sound=False):
         if title == 'default' or title is None: title = addonName()
@@ -235,7 +268,50 @@ def notification_offcloud(title=None, message=None, icon=None, time=3000, sound=
         if var.setting('backupenable') == 'true': #Check if backup service is enabled
                 xbmc.executebuiltin('PlayMedia(plugin://script.module.acctview/?mode=saveoffcloud&name=all)') #Save OffCloud data
                 xbmc.sleep(3000)
+                accountmgr.setSetting('oc_backup_date', date)
         notification('OffCloud', 'Sync Complete!', icon=offcloud_icon)
+
+def notification_easynews(title=None, message=None, icon=None, time=3000, sound=False):
+        if title == 'default' or title is None: title = addonName()
+        if isinstance(title, int): heading = lang(title)
+        else: heading = str(title)
+        if isinstance(message, int): body = lang(message)
+        else: body = str(message)
+        if icon is None or icon == '' or icon == 'default': icon = addonIcon()
+        elif icon == 'INFO': icon = xbmcgui.NOTIFICATION_INFO
+        elif icon == 'WARNING': icon = xbmcgui.NOTIFICATION_WARNING
+        elif icon == 'ERROR': icon = xbmcgui.NOTIFICATION_ERROR
+        dialog.notification(heading, body, icon, time, sound=sound)
+        xbmc.sleep(3000)
+        notification('Easynews', 'Sync in progress, please wait!', icon=easy_icon)
+        from accountmgr.modules import easy_sync
+        easy_sync.Auth().easy_auth() #Sync all add-ons
+        if var.setting('backupenable') == 'true': #Check if backup service is enabled
+                xbmc.executebuiltin('PlayMedia(plugin://script.module.acctview/?mode=saveeasy&name=all)') #Save Easynews data
+                xbmc.sleep(3000)
+                accountmgr.setSetting('en_backup_date', date)
+        notification('Easynews', 'Sync Complete!', icon=easy_icon)
+
+def notification_filepursuit(title=None, message=None, icon=None, time=3000, sound=False):
+        if title == 'default' or title is None: title = addonName()
+        if isinstance(title, int): heading = lang(title)
+        else: heading = str(title)
+        if isinstance(message, int): body = lang(message)
+        else: body = str(message)
+        if icon is None or icon == '' or icon == 'default': icon = addonIcon()
+        elif icon == 'INFO': icon = xbmcgui.NOTIFICATION_INFO
+        elif icon == 'WARNING': icon = xbmcgui.NOTIFICATION_WARNING
+        elif icon == 'ERROR': icon = xbmcgui.NOTIFICATION_ERROR
+        dialog.notification(heading, body, icon, time, sound=sound)
+        xbmc.sleep(3000)
+        notification('FilePursuit', 'Sync in progress, please wait!', icon=file_icon)
+        from accountmgr.modules import filepursuit_sync
+        filepursuit_sync.Auth().file_auth() #Sync all add-ons
+        if var.setting('backupenable') == 'true': #Check if backup service is enabled
+                xbmc.executebuiltin('PlayMedia(plugin://script.module.acctview/?mode=savefile&name=all)') #Save FilePursuit data
+                xbmc.sleep(3000)
+                accountmgr.setSetting('fp_backup_date', date)
+        notification('FilePursuit', 'Sync Complete!', icon=file_icon)
 
 def notification_tmdb(title=None, message=None, icon=None, time=3000, sound=False):
 	if title == 'default' or title is None: title = addonName()
@@ -255,6 +331,7 @@ def notification_tmdb(title=None, message=None, icon=None, time=3000, sound=Fals
 	if var.setting('backupenable') == 'true': #Check if backup service is enabled
                 xbmc.executebuiltin('PlayMedia(plugin://script.module.acctview/?mode=savemeta&name=all)') #Save Metadata
                 xbmc.sleep(3000)
+                accountmgr.setSetting('md_backup_date', date)
 	notification('TMDb', 'Sync Complete!', icon=tmdb_icon)
 
 def yesnoDialog(line, heading=addonInfo('name'), nolabel='', yeslabel=''):

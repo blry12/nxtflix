@@ -14,10 +14,8 @@ from resources.libs.common import tools
 from resources.libs.common import var
 
 ORDER = ['seren',
-         'fen',
-         'nxtflix',         
+         'nxtflix',
          'nxtflixlt',
-         'affen',
          'coal',
          'pov',
          'umbrella',
@@ -61,20 +59,8 @@ TRAKTID = {
         'default'  : 'trakt.username',
         'data'     : ['trakt.auth', 'trakt.clientid', 'trakt.refresh', 'trakt.secret', 'trakt.username', 'trakt.expires'],
         'activate' : 'Addon.OpenSettings(plugin.video.seren)'},
-    'fen': {
-        'name'     : 'Fen',
-        'plugin'   : 'plugin.video.fen',
-        'saved'    : 'fen',
-        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.fen'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.fen/resources/media/', 'fen_icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.fen/resources/media/', 'fen_fanart.png'),
-        'file'     : os.path.join(CONFIG.TRAKTFOLD, 'fen_trakt'),
-        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.fen', 'settings.xml'),
-        'default'  : 'trakt.user',
-        'data'     : ['trakt.refresh', 'trakt.expires', 'trakt.token', 'trakt.user', 'trakt.indicators_active','watched_indicators'],
-        'activate' : 'Addon.OpenSettings(plugin.video.fen)'},
     'nxtflix': {
-        'name'     : 'NXTFlix',
+        'name'     : 'nxtflix',
         'plugin'   : 'plugin.video.nxtflix',
         'saved'    : 'nxtflix',
         'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix'),
@@ -84,31 +70,19 @@ TRAKTID = {
         'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.nxtflix', 'settings.xml'),
         'default'  : 'trakt.user',
         'data'     : ['trakt.refresh', 'trakt.expires', 'trakt.token', 'trakt.user', 'trakt.indicators_active','watched_indicators'],
-        'activate' : 'Addon.OpenSettings(plugin.video.nxtflix)'},        
+        'activate' : 'Addon.OpenSettings(plugin.video.nxtflix)'},
     'nxtflixlt': {
         'name'     : 'NXTFlix Light',
         'plugin'   : 'plugin.video.nxtflixlight',
         'saved'    : 'nxtflixlt',
         'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight/resources/media/', 'fenlight_icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight/resources/media/', 'fenlight_fanart.png'),
+        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight/resources/media/', 'nxtflixlight_icon.png'),
+        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight/resources/media/', 'nxtflixlight_fanart2.jpg'),
         'file'     : os.path.join(CONFIG.TRAKTFOLD, 'nxtflixlt'),
         'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.nxtflixlight/databases', 'settings.db'),
         'nxtflixlt'    : '',
         'data'     : [],
         'activate' : 'Addon.OpenSettings(plugin.video.nxtflixlight)'},
-    'affen': {
-        'name'     : 'afFENity',
-        'plugin'   : 'plugin.video.affenity',
-        'saved'    : 'affen',
-        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.affenity'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.affenity/resources/media/', 'affenity_icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.affenity/resources/media/', 'affenity_fanart.png'),
-        'file'     : os.path.join(CONFIG.TRAKTFOLD, 'affen'),
-        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.affenity/databases', 'settings.db'),
-        'nxtflixlt'    : '',
-        'data'     : [],
-        'activate' : 'Addon.OpenSettings(plugin.video.affenity)'},
     'coal': {
         'name'     : 'The Coalition',
         'plugin'   : 'plugin.video.coalition',
@@ -151,7 +125,7 @@ TRAKTID = {
         'saved'    : 'infinity',
         'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.infinity'),
         'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.infinity/resources/media/', 'icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.infinity', 'fanart.jpg'),
+        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.infinity/resources/media', 'fanart.png'),
         'file'     : os.path.join(CONFIG.TRAKTFOLD, 'infinity_trakt'),
         'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.infinity', 'settings.xml'),
         'default'  : 'trakt.user.name',
@@ -494,12 +468,12 @@ def trakt_user(who):
             except:
                 xbmc.log('%s: Traktit NXTFlix Light Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
-        elif os.path.exists(TRAKTID[who]['path']) and name == 'afFENity': #Skip afFENity due to not having a settings.xml
+            '''elif os.path.exists(TRAKTID[who]['path']) and name == 'afnxtflixity': #Skip afnxtflixity due to not having a settings.xml
             try:
-                conn = create_conn(var.affen_settings_db)
+                conn = create_conn(var.afnxtflix_settings_db)
                 with conn:
                     cur = conn.cursor()
-                    cur.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('trakt.token',))
+                    cur.execute(''''''SELECT setting_value FROM settings WHERE setting_id = ?'''''', ('trakt.token',))
                     auth = cur.fetchone()
                     user_data = str(auth)
 
@@ -509,8 +483,8 @@ def trakt_user(who):
                         user = user_data
                     cur.close()
             except:
-                xbmc.log('%s: Traktit afFENity Failed!' % var.amgr, xbmc.LOGINFO)
-                pass
+                xbmc.log('%s: Traktit afnxtflixity Failed!' % var.amgr, xbmc.LOGINFO)
+                pass'''
         else:
             if os.path.exists(TRAKTID[who]['path']):
                 try:
@@ -615,26 +589,29 @@ def update_trakt(do, who):
     name = TRAKTID[who]['name']
     icon = TRAKTID[who]['icon']
     if do == 'update':
-        if not user == '':
-            try:
-                root = ElementTree.Element(saved)
-
-                for setting in data:
-                    trakt = ElementTree.SubElement(root, 'trakt')
-                    id = ElementTree.SubElement(trakt, 'id')
-                    id.text = setting
-                    value = ElementTree.SubElement(trakt, 'value')
-                    value.text = addonid.getSetting(setting)
-
-                tree = ElementTree.ElementTree(root)
-                tree.write(file)
-                user = addonid.getSetting(default)
-                CONFIG.set_setting(saved, user)
-                logging.log('Trakt Data Saved for {0}'.format(name), level=xbmc.LOGINFO)
-            except Exception as e:
-                logging.log("[Trakt Data] Unable to Update {0} ({1})".format(who, str(e)), level=xbmc.LOGERROR)
+        if name == 'NXTFlix Light':
+            pass
         else:
-            logging.log('Trakt Data Not Registered for {0}'.format(name))    
+            if not user == '':
+                try:
+                    root = ElementTree.Element(saved)
+
+                    for setting in data:
+                        trakt = ElementTree.SubElement(root, 'trakt')
+                        id = ElementTree.SubElement(trakt, 'id')
+                        id.text = setting
+                        value = ElementTree.SubElement(trakt, 'value')
+                        value.text = addonid.getSetting(setting)
+
+                    tree = ElementTree.ElementTree(root)
+                    tree.write(file)
+                    user = addonid.getSetting(default)
+                    CONFIG.set_setting(saved, user)
+                    logging.log('Trakt Data Saved for {0}'.format(name), level=xbmc.LOGINFO)
+                except Exception as e:
+                    logging.log("[Trakt Data] Unable to Update {0} ({1})".format(who, str(e)), level=xbmc.LOGERROR)
+            else:
+                logging.log('Trakt Data Not Registered for {0}'.format(name))    
     elif do == 'restore':
         if os.path.exists(file):
             tree = ElementTree.parse(file)
@@ -654,7 +631,7 @@ def update_trakt(do, who):
             logging.log('Trakt Data Not Found for {0}'.format(name))    
     elif do == 'clearaddon':
         logging.log('{0} SETTINGS: {1}'.format(name, settings))
-        if name == 'NXTFlix Light' or name == 'afFENity':
+        if name == 'NXTFlix Light' or name == 'afnxtflixity':
             pass
         else:
             if os.path.exists(settings):
@@ -676,7 +653,8 @@ def update_trakt(do, who):
         xbmc.executebuiltin('Container.Refresh()')
     elif do == 'wipeaddon':
         logging.log('{0} SETTINGS: {1}'.format(name, settings))
-        if name == 'NXTFlix Light' or name == 'afFENity':
+        if name == 'NXTFlix Light':
+        #if name == 'NXTFlix Light' or name == 'afnxtflixity':
             pass
         else:
             if os.path.exists(settings):
@@ -747,6 +725,11 @@ def import_list(who):
             logging.log_notify("[COLOR {0}]{1}[/COLOR]".format(CONFIG.COLOR1, name),
                        '[COLOR {0}]Trakt Data: Imported![/COLOR]'.format(CONFIG.COLOR2))
 
-def open_settings_trakt(who):
+def settings(who):
+    user = None
+    user = TRAKTID[who]['name']
+    return user
+
+def open_settings(who):
     addonid = tools.get_addon_by_id(TRAKTID[who]['plugin'])
     addonid.openSettings()

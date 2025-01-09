@@ -335,13 +335,13 @@ def disable_nxtflixlt_ad():
 
 
     
-####################################################################
+'''####################################################################
 ####################################################################   
 ####################################################################
-######################### Auth afFENity RD #########################
-def auth_affen_rd():
+######################### Auth afnxtflixity RD #########################
+def auth_afnxtflix_rd():
     try:
-        conn = create_conn(var.affen_settings_db)
+        conn = create_conn(var.afnxtflix_settings_db)
         with conn:
             connect_rd(conn, ('true', 'rd.enabled'))
             connect_rd(conn, (your_rd_token, 'rd.token'))
@@ -350,25 +350,25 @@ def auth_affen_rd():
             connect_rd(conn, (your_rd_refresh, 'rd.refresh'))
             connect_rd(conn, (your_rd_secret, 'rd.secret'))
     except:
-        xbmc.log('%s: Debrid_db afFENity RD Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Debrid_db afnxtflixity RD Failed!' % var.amgr, xbmc.LOGINFO)
         pass
     
-def enable_affen_rd():
+def enable_afnxtflix_rd():
     try:
-        conn = create_conn(var.affen_settings_db)
+        conn = create_conn(var.afnxtflix_settings_db)
         with conn:
             enable_rd(conn, ('true', 'rd.enabled'))
     except:
-        xbmc.log('%s: Debrid_db afFENity Enable RD Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Debrid_db afnxtflixity Enable RD Failed!' % var.amgr, xbmc.LOGINFO)
         pass
     
-def disable_affen_rd():
+def disable_afnxtflix_rd():
     try:
-        conn = create_conn(var.affen_settings_db)
+        conn = create_conn(var.afnxtflix_settings_db)
         with conn:
             disable_rd(conn, ('false', 'rd.enabled'))
     except:
-        xbmc.log('%s: Debrid_db afFENity Disable RD Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Debrid_db afnxtflixity Disable RD Failed!' % var.amgr, xbmc.LOGINFO)
         pass
 
 
@@ -376,34 +376,34 @@ def disable_affen_rd():
 ####################################################################
 ####################################################################    
 ####################################################################    
-######################### Auth afFENity PM #########################
-def auth_affen_pm():
+######################### Auth afnxtflixity PM #########################
+def auth_afnxtflix_pm():
     try:
-        conn = create_conn(var.affen_settings_db)
+        conn = create_conn(var.afnxtflix_settings_db)
         with conn:
             connect_pm(conn, ('true', 'pm.enabled'))
             connect_pm(conn, (your_pm_token, 'pm.token'))
             connect_pm(conn, (your_pm_username, 'pm.account_id'))
     except:
-        xbmc.log('%s: Debrid_db afFENity PM Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Debrid_db afnxtflixity PM Failed!' % var.amgr, xbmc.LOGINFO)
         pass
     
-def enable_affen_pm():
+def enable_afnxtflix_pm():
     try:
-        conn = create_conn(var.affen_settings_db)
+        conn = create_conn(var.afnxtflix_settings_db)
         with conn:
             enable_pm(conn, ('true', 'pm.enabled'))
     except:
-        xbmc.log('%s: Debrid_db afFENity Enable PM Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Debrid_db afnxtflixity Enable PM Failed!' % var.amgr, xbmc.LOGINFO)
         pass
    
-def disable_affen_pm():
+def disable_afnxtflix_pm():
     try:
-        conn = create_conn(var.affen_settings_db)
+        conn = create_conn(var.afnxtflix_settings_db)
         with conn:
             disable_pm(conn, ('false', 'pm.enabled'))
     except:
-        xbmc.log('%s: Debrid_db afFENity Disable PM Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Debrid_db afnxtflixity Disable PM Failed!' % var.amgr, xbmc.LOGINFO)
         pass
     
 
@@ -411,32 +411,32 @@ def disable_affen_pm():
 ####################################################################
 ####################################################################    
 ####################################################################
-######################### Auth afFENity AD #########################
-def auth_affen_ad():
+######################### Auth afnxtflixity AD #########################
+def auth_afnxtflix_ad():
     try:
-        conn = create_conn(var.affen_settings_db)
+        conn = create_conn(var.afnxtflix_settings_db)
         with conn:
             connect_ad(conn, ('true', 'ad.enabled'))
             connect_ad(conn, (your_ad_token, 'ad.token'))
             connect_ad(conn, (your_ad_username, 'ad.account_id'))
     except:
-        xbmc.log('%s: Debrid_db afFENity AD Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Debrid_db afnxtflixity AD Failed!' % var.amgr, xbmc.LOGINFO)
         pass
     
-def enable_affen_ad():
+def enable_afnxtflix_ad():
     try:
-        conn = create_conn(var.affen_settings_db)
+        conn = create_conn(var.afnxtflix_settings_db)
         with conn:
             enable_ad(conn, ('true', 'ad.enabled'))
     except:
-        xbmc.log('%s: Debrid_db afFENity Enable AD Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Debrid_db afnxtflixity Enable AD Failed!' % var.amgr, xbmc.LOGINFO)
         pass
        
-def disable_affen_ad():
+def disable_afnxtflix_ad():
     try:
-        conn = create_conn(var.affen_settings_db)
+        conn = create_conn(var.afnxtflix_settings_db)
         with conn:
             disable_ad(conn, ('false', 'ad.enabled'))
     except:
-        xbmc.log('%s: Debrid_db afFENity Disable AD Failed!' % var.amgr, xbmc.LOGINFO)
-        pass
+        xbmc.log('%s: Debrid_db afnxtflixity Disable AD Failed!' % var.amgr, xbmc.LOGINFO)
+        pass'''

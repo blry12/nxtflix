@@ -54,39 +54,7 @@ class Auth:
                 xbmc.log('%s: Seren All-Debrid Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
 
-    #Fen AD
-        try:
-                if xbmcvfs.exists(var.chk_fen) and xbmcvfs.exists(var.chkset_fen):
-                        chk_auth_fen = xbmcaddon.Addon('plugin.video.fen').getSetting("ad.token")
-                        chk_auth_fen_rd = xbmcaddon.Addon('plugin.video.fen').getSetting("rd.token")
-                        chk_auth_fen_pm = xbmcaddon.Addon('plugin.video.fen').getSetting("pm.token")
-                        if not str(var.chk_accountmgr_tk_ad) == str(chk_auth_fen) or str(chk_auth_fen) == '':
-
-                                addon = xbmcaddon.Addon("plugin.video.fen")
-                                addon.setSetting("ad.account_id", your_ad_username)
-                                addon.setSetting("ad.token", your_ad_token)
-
-                                enabled_ad = ("true")
-                                addon.setSetting("ad.enabled", enabled_ad)
-
-                                if str(chk_auth_fen_rd) != '':
-                                        enabled_rd = ("true")
-                                        addon.setSetting("rd.enabled", enabled_rd)
-                                else:
-                                        enabled_rd = ("false")
-                                        addon.setSetting("rd.enabled", enabled_rd)
-                        
-                                if str(chk_auth_fen_pm) != '':
-                                        enabled_pm = ("true")
-                                        addon.setSetting("pm.enabled", enabled_pm)
-                                else:
-                                        enabled_pm = ("false")
-                                        addon.setSetting("pm.enabled", enabled_pm)
-        except:
-                xbmc.log('%s: Fen All-Debrid Failed!' % var.amgr, xbmc.LOGINFO)
-                pass
-                
-    #NXTFlix AD
+    #nxtflix AD
         try:
                 if xbmcvfs.exists(var.chk_nxtflix) and xbmcvfs.exists(var.chkset_nxtflix):
                         chk_auth_nxtflix = xbmcaddon.Addon('plugin.video.nxtflix').getSetting("ad.token")
@@ -115,8 +83,8 @@ class Auth:
                                         enabled_pm = ("false")
                                         addon.setSetting("pm.enabled", enabled_pm)
         except:
-                xbmc.log('%s: NXTFlix All-Debrid Failed!' % var.amgr, xbmc.LOGINFO)
-                pass                
+                xbmc.log('%s: nxtflix All-Debrid Failed!' % var.amgr, xbmc.LOGINFO)
+                pass
 
     #NXTFlix Light AD
         try:
@@ -140,6 +108,7 @@ class Auth:
                             cursor.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('rd.token',))
                             auth_rd = cursor.fetchone()
                             chk_auth_nxtflixlt_rd = str(auth_rd)
+                            cursor.close()
                             
                             #Clean up database results
                             for char in char_remov:
@@ -171,63 +140,64 @@ class Auth:
                                 else:
                                     from accountmgr.modules import debrid_db
                                     debrid_db.disable_nxtflixlt_rd()
-                            cursor.close()
+                                var.remkae_settings()
         except:
                 xbmc.log('%s: NXTFlix Light All-Debrid Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
 
-    #afFENity AD
-        try:
-                if xbmcvfs.exists(var.chk_affen) and xbmcvfs.exists(var.chkset_affen):
+    #afnxtflixity AD
+        '''try:
+                if xbmcvfs.exists(var.chk_afnxtflix) and xbmcvfs.exists(var.chkset_afnxtflix):
                         
                         from accountmgr.modules import debrid_db
-                        conn = debrid_db.create_conn(var.affen_settings_db)
+                        conn = debrid_db.create_conn(var.afnxtflix_settings_db)
                         
                         with conn:
                             cursor = conn.cursor()
-                            cursor.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('ad.token',))
+                            cursor.execute(''''''SELECT setting_value FROM settings WHERE setting_id = ?'''''', ('ad.token',))
                             auth_ad = cursor.fetchone()
-                            chk_auth_affen = str(auth_ad)
+                            chk_auth_afnxtflix = str(auth_ad)
 
-                            cursor.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('pm.token',))
+                            cursor.execute(''''''SELECT setting_value FROM settings WHERE setting_id = ?'''''', ('pm.token',))
                             auth_pm = cursor.fetchone()
-                            chk_auth_affen_pm = str(auth_pm)
+                            chk_auth_afnxtflix_pm = str(auth_pm)
 
-                            cursor.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('rd.token',))
+                            cursor.execute(''''''SELECT setting_value FROM settings WHERE setting_id = ?'''''', ('rd.token',))
                             auth_rd = cursor.fetchone()
-                            chk_auth_affen_rd = str(auth_rd)
+                            chk_auth_afnxtflix_rd = str(auth_rd)
+                            cursor.close()
                             
                             for char in char_remov:
-                                chk_auth_affen = chk_auth_affen.replace(char, "")
+                                chk_auth_afnxtflix = chk_auth_afnxtflix.replace(char, "")
                             
-                            if not str(var.chk_accountmgr_tk_ad) == chk_auth_affen:
+                            if not str(var.chk_accountmgr_tk_ad) == chk_auth_afnxtflix:
                                 
                                 from accountmgr.modules import debrid_db
-                                debrid_db.auth_affen_ad()
+                                debrid_db.auth_afnxtflix_ad()
                                 
                                 for char in char_remov:
-                                    chk_auth_affen_pm = chk_auth_affen_pm.replace(char, "")
+                                    chk_auth_afnxtflix_pm = chk_auth_afnxtflix_pm.replace(char, "")
                                 
-                                if chk_auth_affen_pm != 'empty_setting' or chk_auth_affen_pm != '' or chk_auth_affen_pm != None:
+                                if chk_auth_afnxtflix_pm != 'empty_setting' or chk_auth_afnxtflix_pm != '' or chk_auth_afnxtflix_pm != None:
                                     from accountmgr.modules import debrid_db
-                                    debrid_db.enable_affen_pm()
+                                    debrid_db.enable_afnxtflix_pm()
                                 else:
                                     from accountmgr.modules import debrid_db
-                                    debrid_db.disable_affen_pm()
+                                    debrid_db.disable_afnxtflix_pm()
                                     
                                 for char in char_remov:
-                                    chk_auth_affen_rd = chk_auth_affen_rd.replace(char, "")
+                                    chk_auth_afnxtflix_rd = chk_auth_afnxtflix_rd.replace(char, "")
 
-                                if chk_auth_affen_rd != 'empty_setting' or chk_auth_affen_rd != '' or chk_auth_affen_rd != None:
+                                if chk_auth_afnxtflix_rd != 'empty_setting' or chk_auth_afnxtflix_rd != '' or chk_auth_afnxtflix_rd != None:
                                     from accountmgr.modules import debrid_db
-                                    debrid_db.enable_affen_rd()
+                                    debrid_db.enable_afnxtflix_rd()
                                 else:
                                     from accountmgr.modules import debrid_db
-                                    debrid_db.disable_affen_rd()
-                            cursor.close()
+                                    debrid_db.disable_afnxtflix_rd()
+                                var.remkae_settings()
         except:
-                xbmc.log('%s: afFENity All-Debrid Failed!' % var.amgr, xbmc.LOGINFO)
-                pass
+                xbmc.log('%s: afnxtflixity All-Debrid Failed!' % var.amgr, xbmc.LOGINFO)
+                pass'''
             
     #Coalition AD
         try:

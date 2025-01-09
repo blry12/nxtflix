@@ -147,32 +147,32 @@ def connect_trakt_nxtflixlt(conn, setting):
         conn.commit()
         cur.close()
     except:
-        xbmc.log('%s: Databit_db Trakt Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Databit_db NXTFlix Light Trakt Failed!' % var.amgr, xbmc.LOGINFO)
         pass
 
     
-######################### Affenity Trakt #########################
-def connect_trakt_affen(conn, setting):
+'''######################### Afnxtflixity Trakt #########################
+def connect_trakt_afnxtflix(conn, setting):
     try:
         # Update settings database
-        trakt_token = ''' UPDATE settings
+        trakt_token = '''''' UPDATE settings
                   SET setting_value = ?
-                  WHERE setting_id = ?'''
-        trakt_user = ''' UPDATE settings
+                  WHERE setting_id = ?''''''
+        trakt_user = '''''' UPDATE settings
                   SET setting_value = ?
-                  WHERE setting_id = ?'''
-        trakt_refresh = ''' UPDATE settings
+                  WHERE setting_id = ?''''''
+        trakt_refresh = '''''' UPDATE settings
                   SET setting_value = ?
-                  WHERE setting_id = ?'''
-        trakt_expires = ''' UPDATE settings
+                  WHERE setting_id = ?''''''
+        trakt_expires = '''''' UPDATE settings
                   SET setting_value = ?
-                  WHERE setting_id = ?'''
-        trakt_watched_indicators = ''' UPDATE settings
+                  WHERE setting_id = ?''''''
+        trakt_watched_indicators = '''''' UPDATE settings
                   SET setting_value = ?
-                  WHERE setting_id = ?'''
-        trakt_watched_indicators_name = ''' UPDATE settings
+                  WHERE setting_id = ?''''''
+        trakt_watched_indicators_name = '''''' UPDATE settings
                   SET setting_value = ?
-                  WHERE setting_id = ?'''
+                  WHERE setting_id = ?''''''
 
         cur = conn.cursor()
         cur.execute(trakt_token, setting)
@@ -184,9 +184,67 @@ def connect_trakt_affen(conn, setting):
         conn.commit()
         cur.close()
     except:
-        xbmc.log('%s: Databit_db Trakt Failed!' % var.amgr, xbmc.LOGINFO)
-        pass
+        xbmc.log('%s: Databit_db Afnxtflixity Trakt Failed!' % var.amgr, xbmc.LOGINFO)
+        pass'''
 
+######################### Torbox #########################
+def connect_tb(conn, setting):
+    try:
+        # Update settings database
+        tb_enable = ''' UPDATE settings
+                  SET setting_value = ?
+                  WHERE setting_id = ?'''
+        tb_token = ''' UPDATE settings
+                  SET setting_value = ?
+                  WHERE setting_id = ?'''
+
+        cur = conn.cursor()
+        cur.execute(tb_enable, setting)
+        cur.execute(tb_token, setting)
+        conn.commit()
+        cur.close()
+    except:
+        xbmc.log('%s: Databit_db TorBox Failed!' % var.amgr, xbmc.LOGINFO)
+
+######################### Easy Debrid #########################
+def connect_ed(conn, setting):
+    try:
+        # Update settings database
+        ed_enable = ''' UPDATE settings
+                  SET setting_value = ?
+                  WHERE setting_id = ?'''
+        ed_token = ''' UPDATE settings
+                  SET setting_value = ?
+                  WHERE setting_id = ?'''
+
+        cur = conn.cursor()
+        cur.execute(ed_enable, setting)
+        cur.execute(ed_token, setting)
+        conn.commit()
+        cur.close()
+    except:
+        xbmc.log('%s: Databit_db Easy Debrid Failed!' % var.amgr, xbmc.LOGINFO)
+
+######################### Offcloud #########################
+def connect_oc(conn, setting):
+    try:
+        # Update settings database
+        oc_enable = ''' UPDATE settings
+                  SET setting_value = ?
+                  WHERE setting_id = ?'''
+        oc_token = ''' UPDATE settings
+                  SET setting_value = ?
+                  WHERE setting_id = ?'''
+
+        cur = conn.cursor()
+        cur.execute(oc_enable, setting)
+        cur.execute(oc_token, setting)
+        conn.commit()
+        cur.close()
+    except:
+        xbmc.log('%s: Databit_db Offcloud Failed!' % var.amgr, xbmc.LOGINFO)
+        pass
+    
 ######################### Easynews #########################
 def connect_easy(conn, setting):
     try:
@@ -228,26 +286,50 @@ def connect_meta_nxtflixlt(conn, setting):
         conn.commit()
         cur.close()
     except:
-        xbmc.log('%s: Databit_db Metadata Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Databit_db NXTFlix Light Metadata Failed!' % var.amgr, xbmc.LOGINFO)
         pass
     
-######################### Affenity Metadata #########################
-def connect_meta_affen(conn, setting):
+'''######################### Afnxtflixity Metadata #########################
+def connect_meta_afnxtflix(conn, setting):
     try:
         # Update settings database
-        omdb_api = ''' UPDATE settings
+        omdb_api = '''''' UPDATE settings
                   SET setting_value = ?
-                  WHERE setting_id = ?'''
+                  WHERE setting_id = ?''''''
 
         cur = conn.cursor()
         cur.execute(omdb_api, setting)
         conn.commit()
         cur.close()
     except:
-        xbmc.log('%s: Databit_db Metadata Failed!' % var.amgr, xbmc.LOGINFO)
-        pass
+        xbmc.log('%s: Databit_db Afnxtflixity Metadata Failed!' % var.amgr, xbmc.LOGINFO)
+        pass'''
 
     
+######################### External Providers #########################
+def connect_ext(conn, setting):
+    try:
+        # Update settings database
+        ext_enable = ''' UPDATE settings
+                  SET setting_value = ?
+                  WHERE setting_id = ?'''
+        ext_user = ''' UPDATE settings
+                  SET setting_value = ?
+                  WHERE setting_id = ?'''
+        ext_pass = ''' UPDATE settings
+                  SET setting_value = ?
+                  WHERE setting_id = ?'''
+
+        cur = conn.cursor()
+        cur.execute(ext_enable, setting)
+        cur.execute(ext_user, setting)
+        cur.execute(ext_pass, setting)
+        conn.commit()
+        cur.close()
+    except:
+        xbmc.log('%s: Ext_db Auth Failed!' % var.amgr, xbmc.LOGINFO)
+        pass
+
 
 ########################################################################
 ########################################################################
@@ -370,7 +452,7 @@ def backup_nxtflixlt_rd():
 ######################### Restore NXTFlix Light PM #########################
 def restore_nxtflixlt_pm():
     try:
-        conn_p = create_conn(var.pm_backup_affen)
+        conn_p = create_conn(var.pm_backup_afnxtflix)
         conn_t = create_conn(var.nxtflixlt_settings_db)
 
         cur_p = conn_p.cursor()
@@ -519,89 +601,89 @@ def backup_nxtflixlt_ad():
 
 
 
+'''#######################################################################
 #######################################################################
-#######################################################################
-############################# AfFENity RD #############################
+############################# Afnxtflixity RD #############################
 
-######################### Restore afFENity RD #########################
-def restore_affen_rd():
+######################### Restore afnxtflixity RD #########################
+def restore_afnxtflix_rd():
     try:
-        conn_p = create_conn(var.rd_backup_affen)
-        conn_t = create_conn(var.affen_settings_db)
+        conn_p = create_conn(var.rd_backup_afnxtflix)
+        conn_t = create_conn(var.afnxtflix_settings_db)
 
         cur_p = conn_p.cursor()
         cur_t = conn_t.cursor()
 
-        cur_p.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('rd.enabled',))
+        cur_p.execute(''''''SELECT setting_value FROM settings WHERE setting_id = ?'''''', ('rd.enabled',))
         data = cur_p.fetchone()
         data_set = str(data)
         
         for char in char_remov:
             data_set = data_set.replace(char, "")
-            cur_t.execute('''UPDATE settings SET setting_value = ? WHERE setting_id = ?''', (data_set, 'rd.enabled',))
+            cur_t.execute(''''''UPDATE settings SET setting_value = ? WHERE setting_id = ?'''''', (data_set, 'rd.enabled',))
 
         conn_t.commit()
         
-        cur_p.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('rd.token',))
+        cur_p.execute(''''''SELECT setting_value FROM settings WHERE setting_id = ?'''''', ('rd.token',))
         data = cur_p.fetchone()
         data_set = str(data)
         
         for char in char_remov:
             data_set = data_set.replace(char, "")
-            cur_t.execute('''UPDATE settings SET setting_value = ? WHERE setting_id = ?''', (data_set, 'rd.token',))
+            cur_t.execute(''''''UPDATE settings SET setting_value = ? WHERE setting_id = ?'''''', (data_set, 'rd.token',))
 
         conn_t.commit()
 
-        cur_p.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('rd.account_id',))
+        cur_p.execute(''''''SELECT setting_value FROM settings WHERE setting_id = ?'''''', ('rd.account_id',))
         data = cur_p.fetchone()
         data_set = str(data)
         
         for char in char_remov:
             data_set = data_set.replace(char, "")
-            cur_t.execute('''UPDATE settings SET setting_value = ? WHERE setting_id = ?''', (data_set, 'rd.account_id',))
+            cur_t.execute(''''''UPDATE settings SET setting_value = ? WHERE setting_id = ?'''''', (data_set, 'rd.account_id',))
 
         conn_t.commit()
 
-        cur_p.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('rd.client_id',))
+        cur_p.execute(''''''SELECT setting_value FROM settings WHERE setting_id = ?'''''', ('rd.client_id',))
         data = cur_p.fetchone()
         data_set = str(data)
         
         for char in char_remov:
             data_set = data_set.replace(char, "")
-            cur_t.execute('''UPDATE settings SET setting_value = ? WHERE setting_id = ?''', (data_set, 'rd.client_id',))
+            cur_t.execute(''''''UPDATE settings SET setting_value = ? WHERE setting_id = ?'''''', (data_set, 'rd.client_id',))
 
         conn_t.commit()
 
-        cur_p.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('rd.refresh',))
+        cur_p.execute(''''''SELECT setting_value FROM settings WHERE setting_id = ?'''''', ('rd.refresh',))
         data = cur_p.fetchone()
         data_set = str(data)
         
         for char in char_remov:
             data_set = data_set.replace(char, "")
-            cur_t.execute('''UPDATE settings SET setting_value = ? WHERE setting_id = ?''', (data_set, 'rd.refresh',))
+            cur_t.execute(''''''UPDATE settings SET setting_value = ? WHERE setting_id = ?'''''', (data_set, 'rd.refresh',))
 
         conn_t.commit()
 
-        cur_p.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('rd.secret',))
+        cur_p.execute(''''''SELECT setting_value FROM settings WHERE setting_id = ?'''''', ('rd.secret',))
         data = cur_p.fetchone()
         data_set = str(data)
         
         for char in char_remov:
             data_set = data_set.replace(char, "")
-            cur_t.execute('''UPDATE settings SET setting_value = ? WHERE setting_id = ?''', (data_set, 'rd.secret',))
+            cur_t.execute(''''''UPDATE settings SET setting_value = ? WHERE setting_id = ?'''''', (data_set, 'rd.secret',))
 
         conn_t.commit()
         cur_t.close()
         cur_p.close()
     except:
-        xbmc.log('%s: Databit_db Restore afFENity RD Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Databit_db Restore afnxtflixity RD Failed!' % var.amgr, xbmc.LOGINFO)
         pass
     
-######################### Revoke afFENity RD #########################
-def revoke_affen_rd():
+######################### Revoke afnxtflixity RD #########################
+def revoke_afnxtflix_rd():
     try:
         # Create database connection
-        conn = create_conn(var.affen_settings_db)
+        conn = create_conn(var.afnxtflix_settings_db)
         with conn:
             connect_rd(conn, ('empty_setting', 'rd.enabled'))
             connect_rd(conn, ('empty_setting', 'rd.token'))
@@ -610,188 +692,188 @@ def revoke_affen_rd():
             connect_rd(conn, ('empty_setting', 'rd.refresh'))
             connect_rd(conn, ('empty_setting', 'rd.secret'))
     except:
-        xbmc.log('%s: Databit_db Revoke afFENity RD Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Databit_db Revoke afnxtflixity RD Failed!' % var.amgr, xbmc.LOGINFO)
         pass
 
-######################### Backup afFENity RD #########################
-def backup_affen_rd():
-    if os.path.exists(os.path.join(var.affen_settings_db)) and os.path.exists(os.path.join(var.rd_backup)):
+######################### Backup afnxtflixity RD #########################
+def backup_afnxtflix_rd():
+    if os.path.exists(os.path.join(var.afnxtflix_settings_db)) and os.path.exists(os.path.join(var.rd_backup)):
         try:
-            xbmcvfs.copy(os.path.join(var.affen_settings_db), os.path.join(var.rd_backup_affen))
+            xbmcvfs.copy(os.path.join(var.afnxtflix_settings_db), os.path.join(var.rd_backup_afnxtflix))
         except:
-            xbmc.log('%s: Databit_db Backup afFENity RD Failed!' % var.amgr, xbmc.LOGINFO)
+            xbmc.log('%s: Databit_db Backup afnxtflixity RD Failed!' % var.amgr, xbmc.LOGINFO)
             pass
 
-##################### Delete afFENity RD Backup #####################
-#def delete_affen_rd():
-#    if os.path.exists(os.path.join(var.rd_backup_affen)):
+##################### Delete afnxtflixity RD Backup #####################
+#def delete_afnxtflix_rd():
+#    if os.path.exists(os.path.join(var.rd_backup_afnxtflix)):
 #        try:
-#            os.unlink(os.path.join(var.rd_backup_affen))
+#            os.unlink(os.path.join(var.rd_backup_afnxtflix))
 #        except OSError:
-#            xbmc.log('%s: Databit_db Delete afFENity RD Failed!' % var.amgr, xbmc.LOGINFO)
+#            xbmc.log('%s: Databit_db Delete afnxtflixity RD Failed!' % var.amgr, xbmc.LOGINFO)
 #            pass
 
 
 
 #######################################################################
 #######################################################################
-############################# AfFENity PM #############################
+############################# Afnxtflixity PM #############################
   
-######################### Restore afFENity PM #########################
-def restore_affen_pm():
+######################### Restore afnxtflixity PM #########################
+def restore_afnxtflix_pm():
     try:
-        conn_p = create_conn(var.pm_backup_affen)
-        conn_t = create_conn(var.affen_settings_db)
+        conn_p = create_conn(var.pm_backup_afnxtflix)
+        conn_t = create_conn(var.afnxtflix_settings_db)
 
         cur_p = conn_p.cursor()
         cur_t = conn_t.cursor()
 
-        cur_p.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('pm.enabled',))
+        cur_p.execute(''''''SELECT setting_value FROM settings WHERE setting_id = ?'''''', ('pm.enabled',))
         data = cur_p.fetchone()
         data_set = str(data)
         
         for char in char_remov:
             data_set = data_set.replace(char, "")
-            cur_t.execute('''UPDATE settings SET setting_value = ? WHERE setting_id = ?''', (data_set, 'pm.enabled',))
+            cur_t.execute(''''''UPDATE settings SET setting_value = ? WHERE setting_id = ?'''''', (data_set, 'pm.enabled',))
 
         conn_t.commit()
         
-        cur_p.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('pm.token',))
+        cur_p.execute(''''''SELECT setting_value FROM settings WHERE setting_id = ?'''''', ('pm.token',))
         data = cur_p.fetchone()
         data_set = str(data)
         
         for char in char_remov:
             data_set = data_set.replace(char, "")
-            cur_t.execute('''UPDATE settings SET setting_value = ? WHERE setting_id = ?''', (data_set, 'pm.token',))
+            cur_t.execute(''''''UPDATE settings SET setting_value = ? WHERE setting_id = ?'''''', (data_set, 'pm.token',))
 
         conn_t.commit()
 
-        cur_p.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('pm.account_id',))
+        cur_p.execute(''''''SELECT setting_value FROM settings WHERE setting_id = ?'''''', ('pm.account_id',))
         data = cur_p.fetchone()
         data_set = str(data)
         
         for char in char_remov:
             data_set = data_set.replace(char, "")
-            cur_t.execute('''UPDATE settings SET setting_value = ? WHERE setting_id = ?''', (data_set, 'pm.account_id',))
+            cur_t.execute(''''''UPDATE settings SET setting_value = ? WHERE setting_id = ?'''''', (data_set, 'pm.account_id',))
 
         conn_t.commit()
         cur_t.close()
         cur_p.close()
     except:
-        xbmc.log('%s: Databit_db Restore afFENity PM Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Databit_db Restore afnxtflixity PM Failed!' % var.amgr, xbmc.LOGINFO)
         pass
     
-######################### Revoke afFENity PM #########################
-def revoke_affen_pm():
+######################### Revoke afnxtflixity PM #########################
+def revoke_afnxtflix_pm():
     try:
         # Create database connection
-        conn = create_conn(var.affen_settings_db)
+        conn = create_conn(var.afnxtflix_settings_db)
         with conn:
             connect_pm(conn, ('empty_setting', 'pm.enabled'))
             connect_pm(conn, ('empty_setting', 'pm.token'))
             connect_pm(conn, ('empty_setting', 'pm.account_id'))
     except:
-        xbmc.log('%s: Databit_db Revoke afFENity PM Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Databit_db Revoke afnxtflixity PM Failed!' % var.amgr, xbmc.LOGINFO)
         pass
     
-######################### Backup afFENity PM #########################
-def backup_affen_pm():
-    if os.path.exists(os.path.join(var.affen_settings_db)) and os.path.exists(os.path.join(var.pm_backup)):
+######################### Backup afnxtflixity PM #########################
+def backup_afnxtflix_pm():
+    if os.path.exists(os.path.join(var.afnxtflix_settings_db)) and os.path.exists(os.path.join(var.pm_backup)):
         try:
-            xbmcvfs.copy(os.path.join(var.affen_settings_db), os.path.join(var.pm_backup_affen))
+            xbmcvfs.copy(os.path.join(var.afnxtflix_settings_db), os.path.join(var.pm_backup_afnxtflix))
         except:
-            xbmc.log('%s: Databit_db Backup afFENity PM Failed!' % var.amgr, xbmc.LOGINFO)
+            xbmc.log('%s: Databit_db Backup afnxtflixity PM Failed!' % var.amgr, xbmc.LOGINFO)
             pass
 
-##################### Delete afFENity PM Backup #####################
-#def delete_affen_pm():
-#    if os.path.exists(os.path.join(var.pm_backup_affen)):
+##################### Delete afnxtflixity PM Backup #####################
+#def delete_afnxtflix_pm():
+#    if os.path.exists(os.path.join(var.pm_backup_afnxtflix)):
 #        try:
-#            os.unlink(os.path.join(var.pm_backup_affen))
+#            os.unlink(os.path.join(var.pm_backup_afnxtflix))
 #        except OSError:
-#            xbmc.log('%s: Databit_db Delete afFENity PM Failed!' % var.amgr, xbmc.LOGINFO)
+#            xbmc.log('%s: Databit_db Delete afnxtflixity PM Failed!' % var.amgr, xbmc.LOGINFO)
 #            pass
 
 
 
 #######################################################################
 #######################################################################
-############################## AfFENity AD ############################
+############################## Afnxtflixity AD ############################
 
-######################### Restore afFENity AD #########################
-def restore_affen_ad():
+######################### Restore afnxtflixity AD #########################
+def restore_afnxtflix_ad():
     try:
-        conn_p = create_conn(var.ad_backup_affen)
-        conn_t = create_conn(var.affen_settings_db)
+        conn_p = create_conn(var.ad_backup_afnxtflix)
+        conn_t = create_conn(var.afnxtflix_settings_db)
 
         cur_p = conn_p.cursor()
         cur_t = conn_t.cursor()
 
-        cur_p.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('ad.enabled',))
+        cur_p.execute(''''''SELECT setting_value FROM settings WHERE setting_id = ?'''''', ('ad.enabled',))
         data = cur_p.fetchone()
         data_set = str(data)
         
         for char in char_remov:
             data_set = data_set.replace(char, "")
-            cur_t.execute('''UPDATE settings SET setting_value = ? WHERE setting_id = ?''', (data_set, 'ad.enabled',))
+            cur_t.execute(''''''UPDATE settings SET setting_value = ? WHERE setting_id = ?'''''', (data_set, 'ad.enabled',))
 
         conn_t.commit()
         
-        cur_p.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('ad.token',))
+        cur_p.execute(''''''SELECT setting_value FROM settings WHERE setting_id = ?'''''', ('ad.token',))
         data = cur_p.fetchone()
         data_set = str(data)
         
         for char in char_remov:
             data_set = data_set.replace(char, "")
-            cur_t.execute('''UPDATE settings SET setting_value = ? WHERE setting_id = ?''', (data_set, 'ad.token',))
+            cur_t.execute(''''''UPDATE settings SET setting_value = ? WHERE setting_id = ?'''''', (data_set, 'ad.token',))
 
         conn_t.commit()
 
-        cur_p.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('ad.account_id',))
+        cur_p.execute(''''''SELECT setting_value FROM settings WHERE setting_id = ?'''''', ('ad.account_id',))
         data = cur_p.fetchone()
         data_set = str(data)
         
         for char in char_remov:
             data_set = data_set.replace(char, "")
-            cur_t.execute('''UPDATE settings SET setting_value = ? WHERE setting_id = ?''', (data_set, 'ad.account_id',))
+            cur_t.execute(''''''UPDATE settings SET setting_value = ? WHERE setting_id = ?'''''', (data_set, 'ad.account_id',))
 
         conn_t.commit()
         cur_t.close()
         cur_p.close()
     except:
-        xbmc.log('%s: Databit_db Restore afFENity AD Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Databit_db Restore afnxtflixity AD Failed!' % var.amgr, xbmc.LOGINFO)
         pass
     
-######################### Revoke afFENity AD #########################
-def revoke_affen_ad():
+######################### Revoke afnxtflixity AD #########################
+def revoke_afnxtflix_ad():
     try:
         # Create database connection
-        conn = create_conn(var.affen_settings_db)
+        conn = create_conn(var.afnxtflix_settings_db)
         with conn:
             connect_ad(conn, ('empty_setting', 'ad.enabled'))
             connect_ad(conn, ('empty_setting', 'ad.token'))
             connect_ad(conn, ('empty_setting', 'ad.account_id'))
     except:
-        xbmc.log('%s: Databit_db Revoke afFENity AD Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Databit_db Revoke afnxtflixity AD Failed!' % var.amgr, xbmc.LOGINFO)
         pass
     
-######################### Backup afFENity AD #########################
-def backup_affen_ad():
-    if os.path.exists(os.path.join(var.affen_settings_db)) and os.path.exists(os.path.join(var.ad_backup)):
+######################### Backup afnxtflixity AD #########################
+def backup_afnxtflix_ad():
+    if os.path.exists(os.path.join(var.afnxtflix_settings_db)) and os.path.exists(os.path.join(var.ad_backup)):
         try:
-            xbmcvfs.copy(os.path.join(var.affen_settings_db), os.path.join(var.ad_backup_affen))
+            xbmcvfs.copy(os.path.join(var.afnxtflix_settings_db), os.path.join(var.ad_backup_afnxtflix))
         except:
-            xbmc.log('%s: Databit_db Backup afFENity AD Failed!' % var.amgr, xbmc.LOGINFO)
+            xbmc.log('%s: Databit_db Backup afnxtflixity AD Failed!' % var.amgr, xbmc.LOGINFO)
             pass
 
-##################### Delete afFENity AD Backup #####################
-#def delete_affen_ad():
-#    if os.path.exists(os.path.join(var.ad_backup_affen)):
+##################### Delete afnxtflixity AD Backup #####################
+#def delete_afnxtflix_ad():
+#    if os.path.exists(os.path.join(var.ad_backup_afnxtflix)):
 #        try:
-#            os.unlink(os.path.join(var.ad_backup_affen))
+#            os.unlink(os.path.join(var.ad_backup_afnxtflix))
 #        except OSError:
-#            xbmc.log('%s: Databit_db Delete afFENity AD Failed!' % var.amgr, xbmc.LOGINFO)
-#            pass
+#            xbmc.log('%s: Databit_db Delete afnxtflixity AD Failed!' % var.amgr, xbmc.LOGINFO)
+#            pass'''
 
 
     
@@ -932,118 +1014,328 @@ def backup_nxtflixlt_trakt():
         
 
 
+'''##########################################################################
 ##########################################################################
-##########################################################################
-############################# afFENity Trakt #############################
+############################# afnxtflixity Trakt #############################
     
-######################### Restore afFENity Trakt #########################
+######################### Restore afnxtflixity Trakt #########################
         
-def restore_affen_trakt():
+def restore_afnxtflix_trakt():
     try:
-        conn_p = create_conn(var.trakt_backup_affen)
-        conn_t = create_conn(var.affen_settings_db)
+        conn_p = create_conn(var.trakt_backup_afnxtflix)
+        conn_t = create_conn(var.afnxtflix_settings_db)
 
         cur_p = conn_p.cursor()
         cur_t = conn_t.cursor()
 
-        cur_p.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('trakt.token',))
+        cur_p.execute(''''''SELECT setting_value FROM settings WHERE setting_id = ?'''''', ('trakt.token',))
         data = cur_p.fetchone()
         data_set = str(data)
         
         for char in char_remov:
             data_set = data_set.replace(char, "")
-            cur_t.execute('''UPDATE settings SET setting_value = ? WHERE setting_id = ?''', (data_set, 'trakt.token',))
+            cur_t.execute(''''''UPDATE settings SET setting_value = ? WHERE setting_id = ?'''''', (data_set, 'trakt.token',))
 
         conn_t.commit()
         
-        cur_p.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('trakt.user',))
+        cur_p.execute(''''''SELECT setting_value FROM settings WHERE setting_id = ?'''''', ('trakt.user',))
         data = cur_p.fetchone()
         data_set = str(data)
         
         for char in char_remov:
             data_set = data_set.replace(char, "")
-            cur_t.execute('''UPDATE settings SET setting_value = ? WHERE setting_id = ?''', (data_set, 'trakt.user',))
+            cur_t.execute(''''''UPDATE settings SET setting_value = ? WHERE setting_id = ?'''''', (data_set, 'trakt.user',))
 
         conn_t.commit()
 
-        cur_p.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('trakt.refresh',))
+        cur_p.execute(''''''SELECT setting_value FROM settings WHERE setting_id = ?'''''', ('trakt.refresh',))
         data = cur_p.fetchone()
         data_set = str(data)
         
         for char in char_remov:
             data_set = data_set.replace(char, "")
-            cur_t.execute('''UPDATE settings SET setting_value = ? WHERE setting_id = ?''', (data_set, 'trakt.refresh',))
+            cur_t.execute(''''''UPDATE settings SET setting_value = ? WHERE setting_id = ?'''''', (data_set, 'trakt.refresh',))
 
         conn_t.commit()
         
-        cur_p.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('trakt.expires',))
+        cur_p.execute(''''''SELECT setting_value FROM settings WHERE setting_id = ?'''''', ('trakt.expires',))
         data = cur_p.fetchone()
         data_set = str(data)
         
         for char in char_remov:
             data_set = data_set.replace(char, "")
-            cur_t.execute('''UPDATE settings SET setting_value = ? WHERE setting_id = ?''', (data_set, 'trakt.expires',))
+            cur_t.execute(''''''UPDATE settings SET setting_value = ? WHERE setting_id = ?'''''', (data_set, 'trakt.expires',))
 
         conn_t.commit()
 
-        cur_p.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('watched_indicators',))
+        cur_p.execute(''''''SELECT setting_value FROM settings WHERE setting_id = ?'''''', ('watched_indicators',))
         data = cur_p.fetchone()
         data_set = str(data)
         
         for char in char_remov:
             data_set = data_set.replace(char, "")
-            cur_t.execute('''UPDATE settings SET setting_value = ? WHERE setting_id = ?''', (data_set, 'watched_indicators',))
+            cur_t.execute(''''''UPDATE settings SET setting_value = ? WHERE setting_id = ?'''''', (data_set, 'watched_indicators',))
 
         conn_t.commit()
 
-        cur_p.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('watched_indicators_name',))
+        cur_p.execute(''''''SELECT setting_value FROM settings WHERE setting_id = ?'''''', ('watched_indicators_name',))
         data = cur_p.fetchone()
         data_set = str(data)
         
         for char in char_remov:
             data_set = data_set.replace(char, "")
-            cur_t.execute('''UPDATE settings SET setting_value = ? WHERE setting_id = ?''', (data_set, 'watched_indicators_name',))
+            cur_t.execute(''''''UPDATE settings SET setting_value = ? WHERE setting_id = ?'''''', (data_set, 'watched_indicators_name',))
 
         conn_t.commit()
         cur_t.close()
         cur_p.close()
     except:
-        xbmc.log('%s: Databit_db Restore afFENity Trakt Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Databit_db Restore afnxtflixity Trakt Failed!' % var.amgr, xbmc.LOGINFO)
         pass
     
 #Revoke Trakt
-def revoke_affen_trakt():
+def revoke_afnxtflix_trakt():
     try:
         # Create database connection
-        conn = create_conn(var.affen_settings_db)
+        conn = create_conn(var.afnxtflix_settings_db)
         with conn:
-            connect_trakt_affen(conn, ('empty_setting', 'trakt.token'))
-            connect_trakt_affen(conn, ('empty_setting', 'trakt.user'))
-            connect_trakt_affen(conn, ('empty_setting', 'trakt.refresh'))
-            connect_trakt_affen(conn, ('empty_setting', 'trakt.expires'))
-            connect_trakt_affen(conn, (0, 'watched_indicators'))
-            connect_trakt_affen(conn, ('afFENity', 'watched_indicators_name'))
+            connect_trakt_afnxtflix(conn, ('empty_setting', 'trakt.token'))
+            connect_trakt_afnxtflix(conn, ('empty_setting', 'trakt.user'))
+            connect_trakt_afnxtflix(conn, ('empty_setting', 'trakt.refresh'))
+            connect_trakt_afnxtflix(conn, ('empty_setting', 'trakt.expires'))
+            connect_trakt_afnxtflix(conn, (0, 'watched_indicators'))
+            connect_trakt_afnxtflix(conn, ('afnxtflixity', 'watched_indicators_name'))
     except:
-        xbmc.log('%s: Databit_db Revoke afFENity Trakt Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Databit_db Revoke afnxtflixity Trakt Failed!' % var.amgr, xbmc.LOGINFO)
         pass
     
 #Backup Trakt
-def backup_affen_trakt():
-    if os.path.exists(os.path.join(var.affen_settings_db)) and os.path.exists(os.path.join(var.trakt_backup)):
+def backup_afnxtflix_trakt():
+    if os.path.exists(os.path.join(var.afnxtflix_settings_db)) and os.path.exists(os.path.join(var.trakt_backup)):
         try:
-            xbmcvfs.copy(os.path.join(var.affen_settings_db), os.path.join(var.trakt_backup_affen))
+            xbmcvfs.copy(os.path.join(var.afnxtflix_settings_db), os.path.join(var.trakt_backup_afnxtflix))
         except:
-            xbmc.log('%s: Databit_db Backup afFENity Trakt Failed!' % var.amgr, xbmc.LOGINFO)
+            xbmc.log('%s: Databit_db Backup afnxtflixity Trakt Failed!' % var.amgr, xbmc.LOGINFO)
             pass
 
 #Delete Trakt Backup
-#def delete_affen_trakt():
-#    if os.path.exists(os.path.join(var.trakt_backup_affen)):
+#def delete_afnxtflix_trakt():
+#    if os.path.exists(os.path.join(var.trakt_backup_afnxtflix)):
 #        try:
-#            os.unlink(os.path.join(var.trakt_backup_affen))
+#            os.unlink(os.path.join(var.trakt_backup_afnxtflix))
 #        except OSError:
-#            xbmc.log('%s: Databit_db Delete afFENity Trakt Failed!' % var.amgr, xbmc.LOGINFO)
+#            xbmc.log('%s: Databit_db Delete afnxtflixity Trakt Failed!' % var.amgr, xbmc.LOGINFO)
+#            pass'''
+
+
+
+##########################################################################
+##########################################################################
+########################### NXTFlix Light TorBox ###########################
+    
+############################ Restore TorBox ############################
+def restore_nxtflixlt_tb():
+    try:
+        conn_p = create_conn(var.tb_backup_nxtflixlt)
+        conn_t = create_conn(var.nxtflixlt_settings_db)
+
+        cur_p = conn_p.cursor()
+        cur_t = conn_t.cursor()
+
+        cur_p.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('tb.enable',))
+        data = cur_p.fetchone()
+        data_set = str(data)
+        
+        for char in char_remov:
+            data_set = data_set.replace(char, "")
+            cur_t.execute('''UPDATE settings SET setting_value = ? WHERE setting_id = ?''', (data_set, 'tb.enable',))
+
+        conn_t.commit()
+        
+        cur_p.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('tb.token',))
+        data = cur_p.fetchone()
+        data_set = str(data)
+        
+        for char in char_remov:
+            data_set = data_set.replace(char, "")
+            cur_t.execute('''UPDATE settings SET setting_value = ? WHERE setting_id = ?''', (data_set, 'tb.token',))
+
+        conn_t.commit()
+        cur_t.close()
+        cur_p.close()
+    except:
+        xbmc.log('%s: Databit_db Restore NXTFlix Light TorBox Failed!' % var.amgr, xbmc.LOGINFO)
+        pass
+    
+############################ Revoke TorBox ############################
+def revoke_nxtflixlt_tb():
+    try:
+        # Create database connection
+        conn = create_conn(var.nxtflixlt_settings_db)
+        with conn:
+            connect_tb(conn, ('false', 'tb.enabled'))
+            connect_tb(conn, ('empty_setting', 'tb.token'))
+    except:
+        xbmc.log('%s: Databit_db Revoke NXTFlix Light TorBox Failed!' % var.amgr, xbmc.LOGINFO)
+        pass
+    
+############################ Backup TorBox ############################
+def backup_nxtflixlt_tb():
+    if os.path.exists(os.path.join(var.nxtflixlt_settings_db)) and os.path.exists(os.path.join(var.tb_backup)):
+        try:
+            xbmcvfs.copy(os.path.join(var.nxtflixlt_settings_db), os.path.join(var.tb_backup_nxtflixlt))
+        except:
+            xbmc.log('%s: Databit_db Backup NXTFlix Light TorBox Failed!' % var.amgr, xbmc.LOGINFO)
+            pass
+
+############################ Delete TorBox Backup ############################
+#def delete_nxtflixlt_tb():
+#    if os.path.exists(os.path.join(var.tb_backup_nxtflixlt)):
+#        try:
+#            os.unlink(os.path.join(var.tb_backup_nxtflixlt))
+#        except OSError:
+#            xbmc.log('%s: Databit_db Delete NXTFlix Light TorBox Failed!' % var.amgr, xbmc.LOGINFO)
 #            pass
+
+
+
+#############################################################################
+#############################################################################
+########################### NXTFlix Light Easy Debrid ###########################
+    
+############################ Restore Easy Debrid ############################
+def restore_nxtflixlt_ed():
+    try:
+        conn_p = create_conn(var.ed_backup_nxtflixlt)
+        conn_t = create_conn(var.nxtflixlt_settings_db)
+
+        cur_p = conn_p.cursor()
+        cur_t = conn_t.cursor()
+
+        cur_p.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('ed.enable',))
+        data = cur_p.fetchone()
+        data_set = str(data)
+        
+        for char in char_remov:
+            data_set = data_set.replace(char, "")
+            cur_t.execute('''UPDATE settings SET setting_value = ? WHERE setting_id = ?''', (data_set, 'ed.enable',))
+
+        conn_t.commit()
+        
+        cur_p.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('ed.token',))
+        data = cur_p.fetchone()
+        data_set = str(data)
+        
+        for char in char_remov:
+            data_set = data_set.replace(char, "")
+            cur_t.execute('''UPDATE settings SET setting_value = ? WHERE setting_id = ?''', (data_set, 'ed.token',))
+
+        conn_t.commit()
+        cur_t.close()
+        cur_p.close()
+    except:
+        xbmc.log('%s: Databit_db Restore NXTFlix Light Easy Debrid Failed!' % var.amgr, xbmc.LOGINFO)
+        pass
+    
+############################ Revoke Easy Debrid ############################
+def revoke_nxtflixlt_ed():
+    try:
+        # Create database connection
+        conn = create_conn(var.nxtflixlt_settings_db)
+        with conn:
+            connect_ed(conn, ('false', 'ed.enabled'))
+            connect_ed(conn, ('empty_setting', 'ed.token'))
+    except:
+        xbmc.log('%s: Databit_db Revoke NXTFlix Light Easy Debrid Failed!' % var.amgr, xbmc.LOGINFO)
+        pass
+    
+############################ Backup Easy Debrid ############################
+def backup_nxtflixlt_ed():
+    if os.path.exists(os.path.join(var.nxtflixlt_settings_db)) and os.path.exists(os.path.join(var.ed_backup)):
+        try:
+            xbmcvfs.copy(os.path.join(var.nxtflixlt_settings_db), os.path.join(var.ed_backup_nxtflixlt))
+        except:
+            xbmc.log('%s: Databit_db Backup NXTFlix Light Easy Debrid Failed!' % var.amgr, xbmc.LOGINFO)
+            pass
+
+############################ Delete Easy Debrid ############################
+#def delete_nxtflixlt_ed():
+#    if os.path.exists(os.path.join(var.ed_backup_nxtflixlt)):
+#        try:
+#            os.unlink(os.path.join(var.ed_backup_nxtflixlt))
+#        except OSError:
+#            xbmc.log('%s: Databit_db Delete NXTFlix Light Easy Debrid Failed!' % var.amgr, xbmc.LOGINFO)
+#            pass
+
+
+##########################################################################
+##########################################################################
+########################### NXTFlix Light Offcloud ###########################
+    
+############################ Restore Offcloud ############################
+def restore_nxtflixlt_oc():
+    try:
+        conn_p = create_conn(var.offc_backup_nxtflixlt)
+        conn_t = create_conn(var.nxtflixlt_settings_db)
+
+        cur_p = conn_p.cursor()
+        cur_t = conn_t.cursor()
+
+        cur_p.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('oc.enable',))
+        data = cur_p.fetchone()
+        data_set = str(data)
+        
+        for char in char_remov:
+            data_set = data_set.replace(char, "")
+            cur_t.execute('''UPDATE settings SET setting_value = ? WHERE setting_id = ?''', (data_set, 'oc.enable',))
+
+        conn_t.commit()
+        
+        cur_p.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('oc.token',))
+        data = cur_p.fetchone()
+        data_set = str(data)
+        
+        for char in char_remov:
+            data_set = data_set.replace(char, "")
+            cur_t.execute('''UPDATE settings SET setting_value = ? WHERE setting_id = ?''', (data_set, 'oc.token',))
+
+        conn_t.commit()
+        cur_t.close()
+        cur_p.close()
+    except:
+        xbmc.log('%s: Databit_db Restore NXTFlix Light Offcloud Failed!' % var.amgr, xbmc.LOGINFO)
+        pass
+    
+############################ Revoke Offcloud ############################
+def revoke_nxtflixlt_oc():
+    try:
+        # Create database connection
+        conn = create_conn(var.nxtflixlt_settings_db)
+        with conn:
+            connect_oc(conn, ('false', 'oc.enabled'))
+            connect_oc(conn, ('empty_setting', 'oc.token'))
+    except:
+        xbmc.log('%s: Databit_db Revoke NXTFlix Light Offcloud Failed!' % var.amgr, xbmc.LOGINFO)
+        pass
+    
+############################ Backup Offcloud ############################
+def backup_nxtflixlt_oc():
+    if os.path.exists(os.path.join(var.nxtflixlt_settings_db)) and os.path.exists(os.path.join(var.offc_backup)):
+        try:
+            xbmcvfs.copy(os.path.join(var.nxtflixlt_settings_db), os.path.join(var.offc_backup_nxtflixlt))
+        except:
+            xbmc.log('%s: Databit_db Backup NXTFlix Light Offcloud Failed!' % var.amgr, xbmc.LOGINFO)
+            pass
+
+############################ Delete Offcloud Backup ############################
+#def delete_nxtflixlt_oc():
+#    if os.path.exists(os.path.join(var.offc_backup_nxtflixlt)):
+#        try:
+#            os.unlink(os.path.join(var.offc_backup_nxtflixlt))
+#        except OSError:
+#            xbmc.log('%s: Databit_db Delete NXTFlix Light Offcloud Failed!' % var.amgr, xbmc.LOGINFO)
+#            pass
+
 
 
 
@@ -1101,7 +1393,7 @@ def revoke_nxtflixlt_easy():
         # Create database connection
         conn = create_conn(var.nxtflixlt_settings_db)
         with conn:
-            connect_easy(conn, ('empty_setting', 'provider.easynews'))
+            connect_easy(conn, ('false', 'provider.easynews'))
             connect_easy(conn, ('empty_setting', 'easynews_user'))
             connect_easy(conn, ('empty_setting', 'easynews_password'))
     except:
@@ -1128,84 +1420,84 @@ def backup_nxtflixlt_easy():
 
 
 
+'''##########################################################################
 ##########################################################################
-##########################################################################
-########################### afFENity Easynews ############################
+########################### afnxtflixity Easynews ############################
     
 ############################ Restore Easynews ############################
-def restore_affen_easy():
+def restore_afnxtflix_easy():
     try:
-        conn_p = create_conn(var.easy_backup_affen)
-        conn_t = create_conn(var.affen_settings_db)
+        conn_p = create_conn(var.easy_backup_afnxtflix)
+        conn_t = create_conn(var.afnxtflix_settings_db)
 
         cur_p = conn_p.cursor()
         cur_t = conn_t.cursor()
 
-        cur_p.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('provider.easynews',))
+        cur_p.execute(''''''SELECT setting_value FROM settings WHERE setting_id = ?'''''', ('provider.easynews',))
         data = cur_p.fetchone()
         data_set = str(data)
         
         for char in char_remov:
             data_set = data_set.replace(char, "")
-            cur_t.execute('''UPDATE settings SET setting_value = ? WHERE setting_id = ?''', (data_set, 'provider.easynews',))
+            cur_t.execute(''''''UPDATE settings SET setting_value = ? WHERE setting_id = ?'''''', (data_set, 'provider.easynews',))
 
         conn_t.commit()
         
-        cur_p.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('easynews_user',))
+        cur_p.execute(''''''SELECT setting_value FROM settings WHERE setting_id = ?'''''', ('easynews_user',))
         data = cur_p.fetchone()
         data_set = str(data)
         
         for char in char_remov:
             data_set = data_set.replace(char, "")
-            cur_t.execute('''UPDATE settings SET setting_value = ? WHERE setting_id = ?''', (data_set, 'easynews_user',))
+            cur_t.execute(''''''UPDATE settings SET setting_value = ? WHERE setting_id = ?'''''', (data_set, 'easynews_user',))
 
         conn_t.commit()
 
-        cur_p.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('easynews_password',))
+        cur_p.execute(''''''SELECT setting_value FROM settings WHERE setting_id = ?'''''', ('easynews_password',))
         data = cur_p.fetchone()
         data_set = str(data)
         
         for char in char_remov:
             data_set = data_set.replace(char, "")
-            cur_t.execute('''UPDATE settings SET setting_value = ? WHERE setting_id = ?''', (data_set, 'easynews_password',))
+            cur_t.execute(''''''UPDATE settings SET setting_value = ? WHERE setting_id = ?'''''', (data_set, 'easynews_password',))
 
         conn_t.commit()
         cur_t.close()
         cur_p.close()
     except:
-        xbmc.log('%s: Databit_db Restore afFENity Easynews Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Databit_db Restore afnxtflixity Easynews Failed!' % var.amgr, xbmc.LOGINFO)
         pass
     
 ############################ Revoke Easynews ############################
-def revoke_affen_easy():
+def revoke_afnxtflix_easy():
     try:
         # Create database connection
-        conn = create_conn(var.affen_settings_db)
+        conn = create_conn(var.afnxtflix_settings_db)
         with conn:
             connect_easy(conn, ('empty_setting', 'provider.easynews'))
             connect_easy(conn, ('empty_setting', 'easynews_user'))
             connect_easy(conn, ('empty_setting', 'easynews_password'))
     except:
-        xbmc.log('%s: Databit_db Revoke afFENity Easynews Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Databit_db Revoke afnxtflixity Easynews Failed!' % var.amgr, xbmc.LOGINFO)
         pass
     
 ############################ Backup Easynews ############################
-def backup_affen_easy():
-    if os.path.exists(os.path.join(var.affen_settings_db)) and os.path.exists(os.path.join(var.easy_backup)):
+def backup_afnxtflix_easy():
+    if os.path.exists(os.path.join(var.afnxtflix_settings_db)) and os.path.exists(os.path.join(var.easy_backup)):
         try:
-            xbmcvfs.copy(os.path.join(var.affen_settings_db), os.path.join(var.easy_backup_affen))
+            xbmcvfs.copy(os.path.join(var.afnxtflix_settings_db), os.path.join(var.easy_backup_afnxtflix))
         except:
-            xbmc.log('%s: Databit_db Backup afFENity Easynews Failed!' % var.amgr, xbmc.LOGINFO)
+            xbmc.log('%s: Databit_db Backup afnxtflixity Easynews Failed!' % var.amgr, xbmc.LOGINFO)
             pass
 
 ############################ Delete Easynews Backup ############################
-#def delete_affen_easy():
-#    if os.path.exists(os.path.join(var.easy_backup_affen)):
+#def delete_afnxtflix_easy():
+#    if os.path.exists(os.path.join(var.easy_backup_afnxtflix)):
 #        try:
-#            os.unlink(os.path.join(var.easy_backup_affen))
+#            os.unlink(os.path.join(var.easy_backup_afnxtflix))
 #        except OSError:
-#            xbmc.log('%s: Databit_db Delete afFENity Easynews Failed!' % var.amgr, xbmc.LOGINFO)
-#            pass
+#            xbmc.log('%s: Databit_db Delete afnxtflixity Easynews Failed!' % var.amgr, xbmc.LOGINFO)
+#            pass'''
 
 
 
@@ -1281,60 +1573,141 @@ def backup_nxtflixlt_meta():
 
 
 
+'''##########################################################################
 ##########################################################################
-##########################################################################
-########################### afFENity Metadata ############################
+########################### afnxtflixity Metadata ############################
     
 ############################ Restore Metadata ############################
-def restore_affen_meta():
+def restore_afnxtflix_meta():
     try:
-        conn_p = create_conn(var.meta_backup_affen)
-        conn_t = create_conn(var.affen_settings_db)
+        conn_p = create_conn(var.meta_backup_afnxtflix)
+        conn_t = create_conn(var.afnxtflix_settings_db)
 
         cur_p = conn_p.cursor()
         cur_t = conn_t.cursor()
 
-        cur_p.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('omdb_api',))
+        cur_p.execute(''''''SELECT setting_value FROM settings WHERE setting_id = ?'''''', ('omdb_api',))
         data = cur_p.fetchone()
         data_set = str(data)
         
         for char in char_remov:
             data_set = data_set.replace(char, "")
-            cur_t.execute('''UPDATE settings SET setting_value = ? WHERE setting_id = ?''', (data_set, 'omdb_api',))
+            cur_t.execute(''''''UPDATE settings SET setting_value = ? WHERE setting_id = ?'''''', (data_set, 'omdb_api',))
 
         conn_t.commit()
         cur_t.close()
         cur_p.close()
     except:
-        xbmc.log('%s: Databit_db Restore afFENity Metadata Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Databit_db Restore afnxtflixity Metadata Failed!' % var.amgr, xbmc.LOGINFO)
         pass
     
 ############################ Revoke Metadata ############################
-def revoke_affen_meta():
+def revoke_afnxtflix_meta():
     try:
         # Create database connection
-        conn = create_conn(var.affen_settings_db)
+        conn = create_conn(var.afnxtflix_settings_db)
         with conn:
             connect_meta(conn, ('empty_setting', 'omdb_api'))
     except:
-        xbmc.log('%s: Databit_db Revoke afFENity Metadata Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Databit_db Revoke afnxtflixity Metadata Failed!' % var.amgr, xbmc.LOGINFO)
         pass
     
 ############################ Backup Metadata ############################
-def backup_affen_meta():
-    if os.path.exists(os.path.join(var.affen_settings_db)) and os.path.exists(os.path.join(var.meta_backup)):
+def backup_afnxtflix_meta():
+    if os.path.exists(os.path.join(var.afnxtflix_settings_db)) and os.path.exists(os.path.join(var.meta_backup)):
         try:
-            xbmcvfs.copy(os.path.join(var.affen_settings_db), os.path.join(var.meta_backup_affen))
+            xbmcvfs.copy(os.path.join(var.afnxtflix_settings_db), os.path.join(var.meta_backup_afnxtflix))
         except:
-            xbmc.log('%s: Databit_db Backup afFENity Metadata Failed!' % var.amgr, xbmc.LOGINFO)
+            xbmc.log('%s: Databit_db Backup afnxtflixity Metadata Failed!' % var.amgr, xbmc.LOGINFO)
             pass
 
 ############################ Delete Metadata ############################
-#def delete_affen_meta():
-#    if os.path.exists(os.path.join(var.meta_backup_affen)):
+#def delete_afnxtflix_meta():
+#    if os.path.exists(os.path.join(var.meta_backup_afnxtflix)):
 #        try:
-#            os.unlink(os.path.join(var.meta_backup_affen))
+#            os.unlink(os.path.join(var.meta_backup_afnxtflix))
 #        except OSError:
-#            xbmc.log('%s: Databit_db Delete afFENity Metadata Failed!' % var.amgr, xbmc.LOGINFO)
+#            xbmc.log('%s: Databit_db Delete afnxtflixity Metadata Failed!' % var.amgr, xbmc.LOGINFO)
+#            pass'''
+
+
+
+#######################################################################################
+#######################################################################################
+########################### NXTFlix Light External Providers ##############################
+    
+############################ Restore External Providers ###############################
+def restore_nxtflixlt_ext():
+    try:
+        conn_p = create_conn(var.ext_backup_nxtflixlt)
+        conn_t = create_conn(var.nxtflixlt_settings_db)
+
+        cur_p = conn_p.cursor()
+        cur_t = conn_t.cursor()
+
+        cur_p.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('provider.external',))
+        data = cur_p.fetchone()
+        data_set = str(data)
+        
+        for char in char_remov:
+            data_set = data_set.replace(char, "")
+            cur_t.execute('''UPDATE settings SET setting_value = ? WHERE setting_id = ?''', (data_set, 'provider.external',))
+
+        conn_t.commit()
+        
+        cur_p.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('external_scraper.name',))
+        data = cur_p.fetchone()
+        data_set = str(data)
+        
+        for char in char_remov:
+            data_set = data_set.replace(char, "")
+            cur_t.execute('''UPDATE settings SET setting_value = ? WHERE setting_id = ?''', (data_set, 'external_scraper.name',))
+
+        conn_t.commit()
+
+        cur_p.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('external_scraper.module',))
+        data = cur_p.fetchone()
+        data_set = str(data)
+        
+        for char in char_remov:
+            data_set = data_set.replace(char, "")
+            cur_t.execute('''UPDATE settings SET setting_value = ? WHERE setting_id = ?''', (data_set, 'external_scraper.module',))
+
+        conn_t.commit()
+        cur_t.close()
+        cur_p.close()
+    except:
+        xbmc.log('%s: Databit_db Restore NXTFlix Light Ext Providers Failed!' % var.amgr, xbmc.LOGINFO)
+        pass
+    
+######################### Revoke NXTFlix Light External Provider ###########################
+def revoke_nxtflixlt_ext():
+    try:
+        # Create database connection
+        conn = create_conn(var.nxtflixlt_settings_db)
+        with conn:
+            connect_ext(conn, ('false', 'provider.external'))
+            connect_ext(conn, ('empty_setting', 'external_scraper.name'))
+            connect_ext(conn, ('empty_setting', 'external_scraper.module'))
+    except:
+        xbmc.log('%s: Ext_db Revoke NXTFlix Light Failed!' % var.amgr, xbmc.LOGINFO)
+        pass
+    
+############################ Backup External Providers ##################################
+def backup_nxtflixlt_ext():
+    if os.path.exists(os.path.join(var.nxtflixlt_settings_db)) and os.path.exists(os.path.join(var.ext_backup)):
+        try:
+            xbmcvfs.copy(os.path.join(var.nxtflixlt_settings_db), os.path.join(var.ext_backup_nxtflixlt))
+        except:
+            xbmc.log('%s: Databit_db Backup NXTFlix Light Ext Providers Failed!' % var.amgr, xbmc.LOGINFO)
+            pass
+
+############################ Delete External Providers Backup ############################
+#def delete_nxtflixlt_ext():
+#    if os.path.exists(os.path.join(var.ext_backup_nxtflixlt)):
+#        try:
+#            os.unlink(os.path.join(var.ext_backup_nxtflixlt))
+#        except OSError:
+#            xbmc.log('%s: Databit_db Delete NXTFlix Light Ext Providers Failed!' % var.amgr, xbmc.LOGINFO)
 #            pass
 

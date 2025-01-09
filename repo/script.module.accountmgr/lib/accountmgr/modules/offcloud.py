@@ -19,14 +19,18 @@ joinPath = os.path.join
 session = requests.Session()
 session.mount('https://offcloud.com/api', HTTPAdapter(max_retries=1, pool_maxsize=100))
 apikey = control.setting('offcloud.token')
-username = control.setting('offcloud.user')
-password = control.setting('offcloud.pass')
+#username = control.setting('offcloud.user')
+#password = control.setting('offcloud.pass')
 offcloud_icon = joinPath(os.path.join(addon.getAddonInfo('path'), 'resources', 'icons'), 'offcloud.png')
 
 class Offcloud:               
 
         def auth(self):
                 #Get USERID
+                username = xbmcgui.Dialog().input('Enter Offcloud Username:')
+                control.setSetting('offcloud.user', username)
+                password = xbmcgui.Dialog().input('Enter Offcloud Password:')
+                control.setSetting('offcloud.pass', password)
                 data = {'username': username, 'password': password}
                 r = session.request('post', 'https://offcloud.com/api/login', data=data)
                 try:
@@ -55,9 +59,10 @@ class Offcloud:
 
                 if not api_key:
                         control.notification(message="OffCloud Authorization Failed", icon=offcloud_icon)
+                        pass
                 else:
                         control.setSetting('offcloud.token', api_key)
-                control.notification_offcloud(title='OffCloud', message='OffCloud Successfully Authorized', icon=offcloud_icon) #Authorization complete. Start sync process
+                        control.notification_offcloud(title='OffCloud', message='OffCloud Successfully Authorized', icon=offcloud_icon) #Authorization complete. Start sync process
 
         def revoke(self):
                 if not control.okDialog():

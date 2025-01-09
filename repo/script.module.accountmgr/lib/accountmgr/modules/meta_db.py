@@ -24,34 +24,45 @@ def create_conn(db_file):
         xbmc.log('%s: Meta_db Connect Failed!' % var.amgr, xbmc.LOGINFO)
         pass
 
-########################## NXTFlix Light Metadata #########################
-def connect_meta_nxtflixlt(conn, setting):
+########################## NXTFlix Light OMDb Metadata #########################
+def connect_omdb_nxtflixlt(conn, setting):
     try:
         # Update settings database
         omdb_api = ''' UPDATE settings
-                  SET setting_value = ?
-                  WHERE setting_id = ?'''
-
-        tmdb_api = ''' UPDATE settings
                   SET setting_value = ?
                   WHERE setting_id = ?'''
         
         cur = conn.cursor()
         cur.execute(omdb_api, setting)
+        conn.commit()
+        cur.close()
+    except:
+        xbmc.log('%s: Meta_db OMDb Auth Failed!' % var.amgr, xbmc.LOGINFO)
+        pass
+
+########################## NXTFlix Light TMDb Metadata #########################
+def connect_tmdb_nxtflixlt(conn, setting):
+    try:
+        # Update settings database
+        tmdb_api = ''' UPDATE settings
+                  SET setting_value = ?
+                  WHERE setting_id = ?'''
+        
+        cur = conn.cursor()
         cur.execute(tmdb_api, setting)
         conn.commit()
         cur.close()
     except:
-        xbmc.log('%s: Meta_db Auth Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Meta_db TMDb Auth Failed!' % var.amgr, xbmc.LOGINFO)
         pass
     
-########################## Affenity Metadata #########################
-def connect_meta_affen(conn, setting):
+'''########################## Afnxtflixity Metadata #########################
+def connect_meta_afnxtflix(conn, setting):
     try:
         # Update settings database
-        omdb_api = ''' UPDATE settings
+        omdb_api = '''''' UPDATE settings
                   SET setting_value = ?
-                  WHERE setting_id = ?'''
+                  WHERE setting_id = ?''''''
 
         cur = conn.cursor()
         cur.execute(omdb_api, setting)
@@ -59,30 +70,39 @@ def connect_meta_affen(conn, setting):
         cur.close()
     except:
         xbmc.log('%s: Meta_db Auth Failed!' % var.amgr, xbmc.LOGINFO)
-        pass
+        pass'''
 
     
-#################### Auth NXTFlix Light Metadata ###################
-def auth_nxtflixlt_meta():
+#################### Auth NXTFlix Light OMDb Metadata ###################
+def auth_nxtflixlt_omdb():
     try:
         # Create database connection
         conn = create_conn(var.nxtflixlt_settings_db)
         with conn:
-            connect_meta_nxtflixlt(conn, (your_omdb_api, 'omdb_api'))
-            connect_meta_nxtflixlt(conn, (your_tmdb_api, 'tmdb_api'))
+            connect_omdb_nxtflixlt(conn, (your_omdb_api, 'omdb_api'))
     except:
-        xbmc.log('%s: Meta_db NXTFlix Light Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Meta_db OMDb NXTFlix Light Failed!' % var.amgr, xbmc.LOGINFO)
         pass
 
-
-
-#################### Auth afFENityt Metadata ###################
-def auth_affen_meta():
+#################### Auth NXTFlix Light TMDb Metadata ###################
+def auth_nxtflixlt_tmdb():
     try:
         # Create database connection
-        conn = create_conn(var.affen_settings_db)
+        conn = create_conn(var.nxtflixlt_settings_db)
         with conn:
-            connect_meta_affen(conn, (your_omdb_api, 'omdb_api'))
+            connect_tmdb_nxtflixlt(conn, (your_tmdb_api, 'tmdb_api'))
     except:
-        xbmc.log('%s: Meta_db afFENity Failed!' % var.amgr, xbmc.LOGINFO)
+        xbmc.log('%s: Meta_db TMDb NXTFlix Light Failed!' % var.amgr, xbmc.LOGINFO)
         pass
+
+
+'''#################### Auth afnxtflixityt Metadata ###################
+    def auth_afnxtflix_meta():
+    try:
+        # Create database connection
+        conn = create_conn(var.afnxtflix_settings_db)
+        with conn:
+            connect_meta_afnxtflix(conn, (your_omdb_api, 'omdb_api'))
+    except:
+        xbmc.log('%s: Meta_db afnxtflixity Failed!' % var.amgr, xbmc.LOGINFO)
+        pass'''

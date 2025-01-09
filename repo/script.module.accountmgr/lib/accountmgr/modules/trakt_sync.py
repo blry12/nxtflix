@@ -47,32 +47,7 @@ class Auth:
                 xbmc.log('%s: Seren Trakt Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
 
-    #Fen
-        try:
-                if xbmcvfs.exists(var.chk_fen) and xbmcvfs.exists(var.chkset_fen):
-                        chk_auth_fen = xbmcaddon.Addon('plugin.video.fen').getSetting("trakt.token")
-                        if not str(var.chk_accountmgr_tk) == str(chk_auth_fen) or str(chk_auth_fen) == '':
-                        
-                                    with open(var.path_fen,'r') as f:
-                                        data = f.read()
-
-                                    client = data.replace(var.fen_client,var.client_am).replace(var.fen_secret,var.secret_am)
-
-                                    with open(var.path_fen,'w') as f:
-                                        f.write(client) 
-
-                                    addon = xbmcaddon.Addon("plugin.video.fen")
-                                    addon.setSetting("trakt.token", your_token)
-                                    addon.setSetting("trakt.user", your_username)
-                                    addon.setSetting("trakt.refresh", your_refresh)
-                                    addon.setSetting("trakt.expires", your_expires)
-                                    addon.setSetting("trakt.indicators_active", 'true')
-                                    addon.setSetting("watched_indicators", '1')
-        except:
-                xbmc.log('%s: Fen Trakt Failed!' % var.amgr, xbmc.LOGINFO)
-                pass
-                
-    #NXTFlix
+    #nxtflix
         try:
                 if xbmcvfs.exists(var.chk_nxtflix) and xbmcvfs.exists(var.chkset_nxtflix):
                         chk_auth_nxtflix = xbmcaddon.Addon('plugin.video.nxtflix').getSetting("trakt.token")
@@ -94,8 +69,8 @@ class Auth:
                                     addon.setSetting("trakt.indicators_active", 'true')
                                     addon.setSetting("watched_indicators", '1')
         except:
-                xbmc.log('%s: NXTFlix Trakt Failed!' % var.amgr, xbmc.LOGINFO)
-                pass                
+                xbmc.log('%s: nxtflix Trakt Failed!' % var.amgr, xbmc.LOGINFO)
+                pass
 
     #NXTFlix Light
         try:
@@ -111,6 +86,7 @@ class Auth:
                         cursor.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('trakt.token',))
                         auth_trakt = cursor.fetchone()
                         chk_auth_nxtflixlt = str(auth_trakt)
+                        cursor.close()
                         
                         #Clean up database results
                         for char in char_remov:
@@ -121,42 +97,43 @@ class Auth:
                             #Write settings to database
                             from accountmgr.modules import trakt_db
                             trakt_db.auth_nxtflixlt_trakt()
-                        cursor.close()
+                            var.remake_settings()
         except:
                 xbmc.log('%s: NXTFlix Light Trakt Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
 
-    #afFENity
-        try:
-                if xbmcvfs.exists(var.chk_affen) and xbmcvfs.exists(var.chkset_affen):
-                    with open(var.path_affen,'r') as f:
+    #afnxtflixity
+        '''try:
+                if xbmcvfs.exists(var.chk_afnxtflix) and xbmcvfs.exists(var.chkset_afnxtflix):
+                    with open(var.path_afnxtflix,'r') as f:
                         data = f.read()
 
-                    client = data.replace(var.affen_client,var.client_am).replace(var.affen_secret,var.secret_am)
+                    client = data.replace(var.afnxtflix_client,var.client_am).replace(var.afnxtflix_secret,var.secret_am)
 
-                    with open(var.path_affen,'w') as f:
+                    with open(var.path_afnxtflix,'w') as f:
                         f.write(client)
 
                     from accountmgr.modules import trakt_db
-                    conn = trakt_db.create_conn(var.affen_settings_db)
+                    conn = trakt_db.create_conn(var.afnxtflix_settings_db)
 
                     with conn:
                         cursor = conn.cursor()
-                        cursor.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('trakt.token',))
+                        cursor.execute(''''''SELECT setting_value FROM settings WHERE setting_id = ?'''''', ('trakt.token',))
                         auth_trakt = cursor.fetchone()
-                        chk_auth_affen = str(auth_trakt)
+                        chk_auth_afnxtflix = str(auth_trakt)
+                        cursor.close()
 
                         for char in char_remov:
-                            chk_auth_affen = chk_auth_affen.replace(char, "")
+                            chk_auth_afnxtflix = chk_auth_afnxtflix.replace(char, "")
                             
-                        if not str(var.chk_accountmgr_tk) == chk_auth_affen:
+                        if not str(var.chk_accountmgr_tk) == chk_auth_afnxtflix:
 
                             from accountmgr.modules import trakt_db
-                            trakt_db.auth_affen_trakt()
-                        cursor.close()
+                            trakt_db.auth_afnxtflix_trakt()
+                            var.remake_settings()
         except:
-                xbmc.log('%s: afFENity Trakt Failed!' % var.amgr, xbmc.LOGINFO)
-                pass
+                xbmc.log('%s: afnxtflixity Trakt Failed!' % var.amgr, xbmc.LOGINFO)
+                pass'''
 
      #Coalition
         try:

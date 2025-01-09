@@ -50,6 +50,20 @@ def startup_sync():
 
 def startup_nondebrid_sync():
         try:    
+                if str(var.chk_accountmgr_tb) != '': #Skip sync if no data is available to sync
+                        from accountmgr.modules import torbox_sync
+                        torbox_sync.Auth().torbox.auth() #Sync Torbox Data
+        except:
+                xbmc.log('%s: Startup Torbox Sync Failed!' % var.amgr, xbmc.LOGINFO)
+                pass
+        try:    
+                if str(var.chk_accountmgr_ed) != '': #Skip sync if no data is available to sync
+                        from accountmgr.modules import easydebrid_sync
+                        easydebrid_sync.Auth().easydebrid.auth() #Sync Easy Debrid Data
+        except:
+                xbmc.log('%s: Startup Easy Debrid Sync Failed!' % var.amgr, xbmc.LOGINFO)
+                pass
+        try:    
                 if str(var.chk_accountmgr_offc) != '': #Skip sync if no data is available to sync
                         from accountmgr.modules import offcloud_sync
                         offcloud_sync.Auth().offcloud.auth() #Sync OffCloud Data
@@ -79,6 +93,15 @@ def startup_meta_sync():
                         meta_sync.Auth().meta_auth() #Sync Metadata
         except:
                 xbmc.log('%s: Startup Meta Sync Failed!' % var.amgr, xbmc.LOGINFO)
+                pass
+
+def startup_extp_sync():
+        try:    
+                if str(var.chk_accountmgr_ext) != '' and xbmcvfs.exists(var.chk_coco): #Skip sync if no data is available to sync
+                        from accountmgr.modules import ext_sync
+                        ext_sync.Auth().ext_auth() #Sync External Provider Data
+        except:
+                xbmc.log('%s: Startup External Provider Sync Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
         
 def dradis_sync():
@@ -193,39 +216,39 @@ def check_api():
                                 xbmc.log('%s: Seren API Failed!' % var.amgr, xbmc.LOGINFO)
                                 pass
 
-                if var.setting('api.service')=='true' and xbmcvfs.exists(var.chk_fen) and xbmcvfs.exists(var.chkset_fen) and str(var.chk_accountmgr_tk) != '':
+                if var.setting('api.service')=='true' and xbmcvfs.exists(var.chk_nxtflix) and xbmcvfs.exists(var.chkset_nxtflix) and str(var.chk_accountmgr_tk) != '':
                         try:
-                                with open(var.path_fen) as f:
+                                with open(var.path_nxtflix) as f:
                                         if var.chk_api in f.read():
                                                 pass
                                         else:   
-                                                with open(var.path_fen,'r') as f:
+                                                with open(var.path_nxtflix,'r') as f:
                                                     data = f.read()
 
-                                                client = data.replace(var.fen_client,var.client_am).replace(var.fen_secret,var.secret_am)
+                                                client = data.replace(var.nxtflix_client,var.client_am).replace(var.nxtflix_secret,var.secret_am)
 
-                                                with open(var.path_fen,'w') as f:
+                                                with open(var.path_nxtflix,'w') as f:
                                                     f.write(client) 
                         except:
-                                xbmc.log('%s: Fen API Failed!' % var.amgr, xbmc.LOGINFO)
+                                xbmc.log('%s: nxtflix API Failed!' % var.amgr, xbmc.LOGINFO)
                                 pass
                         
-                if var.setting('api.service')=='true' and xbmcvfs.exists(var.chk_affen) and xbmcvfs.exists(var.chkset_affen) and str(var.chk_accountmgr_tk) != '':
+                '''if var.setting('api.service')=='true' and xbmcvfs.exists(var.chk_afnxtflix) and xbmcvfs.exists(var.chkset_afnxtflix) and str(var.chk_accountmgr_tk) != '':
                         try:
-                                with open(var.path_affen) as f:
+                                with open(var.path_afnxtflix) as f:
                                         if var.chk_api in f.read():
                                                 pass
                                         else:   
-                                                with open(var.path_affen,'r') as f:
+                                                with open(var.path_afnxtflix,'r') as f:
                                                     data = f.read()
 
-                                                client = data.replace(var.affen_client,var.client_am).replace(var.affen_secret,var.secret_am)
+                                                client = data.replace(var.afnxtflix_client,var.client_am).replace(var.afnxtflix_secret,var.secret_am)
 
-                                                with open(var.path_affen,'w') as f:
+                                                with open(var.path_afnxtflix,'w') as f:
                                                     f.write(client)
                         except:
-                                xbmc.log('%s: afFENity API Failed!' % var.amgr, xbmc.LOGINFO)
-                                pass
+                                xbmc.log('%s: afnxtflixity API Failed!' % var.amgr, xbmc.LOGINFO)
+                                pass'''
 
                 if var.setting('api.service')=='true' and xbmcvfs.exists(var.chk_umb) and xbmcvfs.exists(var.chkset_umb) and str(var.chk_accountmgr_tk) != '':
                         try:
@@ -243,7 +266,7 @@ def check_api():
 
                 if var.setting('api.service')=='true' and xbmcvfs.exists(var.chk_infinity) and xbmcvfs.exists(var.chkset_infinity) and str(var.chk_accountmgr_tk) != '':
                         try:
-                                chk_auth_infen = xbmcaddon.Addon('plugin.video.infinity').getSetting("trakt.user.token")
+                                chk_auth_innxtflix = xbmcaddon.Addon('plugin.video.infinity').getSetting("trakt.user.token")
                                 chk_client = xbmcaddon.Addon('plugin.video.infinity').getSetting("trakt.clientid")
                                 
                                 if not str(chk_client) == str(var.chk_api) and str(var.chk_accountmgr_tk) == str(chk_auth_infinity):
@@ -590,17 +613,17 @@ def restore_api():
                 xbmc.log('%s: Restore API Seren Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
 
-        if xbmcvfs.exists(var.chk_fen):
+        if xbmcvfs.exists(var.chk_nxtflix):
             try:
-                with open(var.path_fen,'r') as f:
+                with open(var.path_nxtflix,'r') as f:
                     data = f.read()
 
-                client = data.replace(var.fen_client,var.client_am).replace(var.fen_secret,var.secret_am)
+                client = data.replace(var.nxtflix_client,var.client_am).replace(var.nxtflix_secret,var.secret_am)
 
-                with open(var.path_fen,'w') as f:
+                with open(var.path_nxtflix,'w') as f:
                     f.write(client)
             except:
-                xbmc.log('%s: Restore API Fen Failed!' % var.amgr, xbmc.LOGINFO)
+                xbmc.log('%s: Restore API nxtflix Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
         
         if xbmcvfs.exists(var.chk_coal):
@@ -862,6 +885,11 @@ else:
 
 if var.setting('sync.metaservice')=='true': #Check if service is enabled
         startup_meta_sync() #Start service
+else:
+        pass
+
+if var.setting('sync.extservice')=='true': #Check if service is enabled
+        startup_extp_sync() #Start service
 else:
         pass
 

@@ -1,6 +1,9 @@
 import xbmc
 import xbmcaddon
 import xbmcgui
+import os.path
+import xbmcvfs
+import json
 import os
 import time
 import sqlite3
@@ -11,12 +14,12 @@ from resources.libs.common.config import CONFIG
 from resources.libs.common import logging
 from resources.libs.common import tools
 from resources.libs.common import var
+translatePath = xbmcvfs.translatePath
+addons = translatePath('special://home/addons/')
 
 ORDER = ['seren',
-         'fen',
-         'nxtflix',         
+         'nxtflix',
          'nxtflixlt',
-         'affen',
          'coal',
          'pov',
          'umb',
@@ -33,6 +36,7 @@ ORDER = ['seren',
          'aliunde',
          'nightlite',
          'otaku',
+         'realx',
          'acctmgr',
          'allact',
          'myact',
@@ -53,22 +57,8 @@ DEBRIDID = {
         'default_ad'  : 'alldebrid.username',
         'data'     : [],
         'activate' : 'Addon.OpenSettings(plugin.video.seren)'},
-    'fen': {
-        'name'     : 'Fen',
-        'plugin'   : 'plugin.video.fen',
-        'saved'    : 'fen',
-        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.fen'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.fen/resources/media/', 'fen_icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.fen/resources/media/', 'fen_fanart.png'),
-        'file'     : os.path.join(CONFIG.DEBRIDFOLD, 'fen'),
-        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.fen', 'settings.xml'),
-        'default_rd'  : 'rd.account_id',
-        'default_pm'  : 'pm.account_id',
-        'default_ad'  : 'ad.account_id',
-        'data'     : [],
-        'activate' : 'Addon.OpenSettings(plugin.video.fen)'},
     'nxtflix': {
-        'name'     : 'NXTFlix',
+        'name'     : 'nxtflix',
         'plugin'   : 'plugin.video.nxtflix',
         'saved'    : 'nxtflix',
         'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix'),
@@ -80,14 +70,14 @@ DEBRIDID = {
         'default_pm'  : 'pm.account_id',
         'default_ad'  : 'ad.account_id',
         'data'     : [],
-        'activate' : 'Addon.OpenSettings(plugin.video.nxtflix)'},        
+        'activate' : 'Addon.OpenSettings(plugin.video.nxtflix)'},
     'nxtflixlt': {
         'name'     : 'NXTFlix Light',
         'plugin'   : 'plugin.video.nxtflixlight',
         'saved'    : 'nxtflixlt',
         'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight/resources/media/', 'fenlight_icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight/resources/media/', 'fenlight_fanart.png'),
+        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight/resources/media/', 'nxtflixlight_icon.png'),
+        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflixlight/resources/media/', 'nxtflixlight_fanart2.jpg'),
         'file'     : os.path.join(CONFIG.DEBRIDFOLD, 'nxtflixlt'),
         'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.nxtflixlight/databases', 'settings.db'),
         'default_rd'  : 'rd.account_id',
@@ -95,20 +85,6 @@ DEBRIDID = {
         'default_ad'  : 'ad.account_id',
         'data'     : [],
         'activate' : 'Addon.OpenSettings(plugin.video.nxtflixlight)'},
-    'affen': {
-        'name'     : 'afFENity',
-        'plugin'   : 'plugin.video.affenity',
-        'saved'    : 'affen',
-        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.affenity'),
-        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.affenity/resources/media/', 'affenity_icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.affenity/resources/media/', 'affenity_fanart.png'),
-        'file'     : os.path.join(CONFIG.DEBRIDFOLD, 'affen'),
-        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.affenity/databases', 'settings.db'),
-        'default_rd'  : 'rd.account_id',
-        'default_pm'  : 'pm.account_id',
-        'default_ad'  : 'ad.account_id',
-        'data'     : [],
-        'activate' : 'Addon.OpenSettings(plugin.video.affenity)'},
     'coal': {
         'name'     : 'The Coalition',
         'plugin'   : 'plugin.video.coalition',
@@ -157,7 +133,7 @@ DEBRIDID = {
         'saved'    : 'infinity',
         'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.infinity'),
         'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.infinity/resources/media/', 'icon.png'),
-        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.infinity', 'fanart.jpg'),
+        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.infinity/resources/media', 'fanart.png'),
         'file'     : os.path.join(CONFIG.DEBRIDFOLD, 'infinity'),
         'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.infinity', 'settings.xml'),
         'default_rd'  : 'realdebridusername',
@@ -333,6 +309,18 @@ DEBRIDID = {
         'default_ad'  : 'alldebrid.username',
         'data'     : [],
         'activate' : 'Addon.OpenSettings(plugin.video.otaku)'},
+    'realx': {
+        'name'     : 'Realizer',
+        'plugin'   : 'plugin.video.realizerx',
+        'saved'    : 'realx',
+        'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.realizerx'),
+        'icon'     : os.path.join(CONFIG.ADDONS, 'plugin.video.realizerx', 'icon.png'),
+        'fanart'   : os.path.join(CONFIG.ADDONS, 'plugin.video.realizerx', 'fanart.png'),
+        'file'     : os.path.join(CONFIG.DEBRIDFOLD_RD, 'realx'),
+        'settings' : os.path.join(CONFIG.ADDON_DATA, 'plugin.video.realizerx', 'rdauth.json'),
+        'default'  : '',
+        'data'     : [],
+        'activate' : 'Addon.OpenSettings(plugin.video.realizerx)'},
     'acctmgr': {
         'name'     : 'Account Manager',
         'plugin'   : 'script.module.accountmgr',
@@ -426,12 +414,12 @@ def debrid_user_rd(who):
             except:
                 xbmc.log('%s: Debridit_all_rd NXTFlix Light Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
-        elif os.path.exists(DEBRIDID[who]['path']) and name == 'afFENity':
+            '''elif os.path.exists(DEBRIDID[who]['path']) and name == 'afnxtflixity':
             try:
-                conn = create_conn(var.affen_settings_db)
+                conn = create_conn(var.afnxtflix_settings_db)
                 with conn:
                     cur = conn.cursor()
-                    cur.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('rd.token',))
+                    cur.execute(''''''SELECT setting_value FROM settings WHERE setting_id = ?'''''', ('rd.token',))
                     auth = cur.fetchone()
                     user_data = str(auth)
 
@@ -441,13 +429,25 @@ def debrid_user_rd(who):
                         user_rd = user_data
                     cur.close()
             except:
-                xbmc.log('%s: Debridit_all_rd afFENity Failed!' % var.amgr, xbmc.LOGINFO)
-                pass
+                xbmc.log('%s: Debridit_all_rd afnxtflixity Failed!' % var.amgr, xbmc.LOGINFO)
+                pass'''
+        elif os.path.exists(DEBRIDID[who]['path']) and name == 'Realizer':
+            try:
+                with open(var.chkset_realx_json) as r:
+                    data = json.load(r)
+                    chk_auth_realx = data['token']
+                    if not str(var.chk_accountmgr_tk_rd) == str(chk_auth_realx) or str(chk_auth_realx) == '':
+                        user_rd = None
+                    else:
+                        user_rd = str(chk_auth_realx)
+            except:
+                xbmc.log('%s: Debridit_all_rd Realizer Failed!' % var.amgr, xbmc.LOGINFO)
+                pass 
         else:
             if os.path.exists(DEBRIDID[who]['path']):
                 try:
                     add = tools.get_addon_by_id(DEBRIDID[who]['plugin'])
-                    user_rd = add.getSetting(DEBRIDID[who]['default'])
+                    user_rd = add.getSetting(DEBRIDID[who]['default_rd'])
                 except:
                     pass
     return user_rd
@@ -474,9 +474,9 @@ def debrid_user_pm(who):
             except:
                 xbmc.log('%s: Debridit_all_pm NXTFlix Light Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
-        elif os.path.exists(DEBRIDID[who]['path']) and name == 'afFENity':
+        elif os.path.exists(DEBRIDID[who]['path']) and name == 'afnxtflixity':
             try:
-                conn = create_conn(var.affen_settings_db)
+                conn = create_conn(var.afnxtflix_settings_db)
                 with conn:
                     cur = conn.cursor()
                     cur.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('pm.token',))
@@ -489,13 +489,13 @@ def debrid_user_pm(who):
                         user_pm = user_data
                     cur.close()
             except:
-                xbmc.log('%s: Debridit_all_rd afFENity Failed!' % var.amgr, xbmc.LOGINFO)
+                xbmc.log('%s: Debridit_all_rd afnxtflixity Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
         else:
             if os.path.exists(DEBRIDID[who]['path']):
                 try:
                     add = tools.get_addon_by_id(DEBRIDID[who]['plugin'])
-                    user_pm = add.getSetting(DEBRIDID[who]['default'])
+                    user_pm = add.getSetting(DEBRIDID[who]['default_pm'])
                 except:
                     pass
     return user_pm
@@ -522,9 +522,9 @@ def debrid_user_ad(who):
             except:
                 xbmc.log('%s: Debridit_all_ad NXTFlix Light Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
-        elif os.path.exists(DEBRIDID[who]['path']) and name == 'afFENity':
+        elif os.path.exists(DEBRIDID[who]['path']) and name == 'afnxtflixity':
             try:
-                conn = create_conn(var.affen_settings_db)
+                conn = create_conn(var.afnxtflix_settings_db)
                 with conn:
                     cur = conn.cursor()
                     cur.execute('''SELECT setting_value FROM settings WHERE setting_id = ?''', ('ad.token',))
@@ -537,13 +537,13 @@ def debrid_user_ad(who):
                         user_ad = user_data
                     cur.close()
             except:
-                xbmc.log('%s: Debridit_all_rd afFENity Failed!' % var.amgr, xbmc.LOGINFO)
+                xbmc.log('%s: Debridit_all_rd afnxtflixity Failed!' % var.amgr, xbmc.LOGINFO)
                 pass
         else:
             if os.path.exists(DEBRIDID[who]['path']):
                 try:
                     add = tools.get_addon_by_id(DEBRIDID[who]['plugin'])
-                    user_ad = add.getSetting(DEBRIDID[who]['default'])
+                    user_ad = add.getSetting(DEBRIDID[who]['default_ad'])
                 except:
                     pass
     return user_ad
@@ -597,28 +597,31 @@ def update_debrid(do, who):
     icon = DEBRIDID[who]['icon']
 
     if do == 'update':
-        if not user == '':
-            try:
-                root = ElementTree.Element(saved)
-                
-                for setting in data:
-                    debrid = ElementTree.SubElement(root, 'debrid')
-                    id = ElementTree.SubElement(debrid, 'id')
-                    id.text = setting
-                    value = ElementTree.SubElement(debrid, 'value')
-                    value.text = addonid.getSetting(setting)
-                  
-                tree = ElementTree.ElementTree(root)
-                tree.write(file)
-                
-                user = addonid.getSetting(default)
-                CONFIG.set_setting(saved, user)
-                
-                logging.log('Debrid Info Saved for {0}'.format(name), level=xbmc.LOGINFO)
-            except Exception as e:
-                logging.log("[Debrid Info] Unable to Update {0} ({1})".format(who, str(e)), level=xbmc.LOGERROR)
+        if name == 'NXTFlix Light':
+            pass
         else:
-            logging.log('Debrid Info Not Registered for {0}'.format(name))
+            if not user == '':
+                try:
+                    root = ElementTree.Element(saved)
+                    
+                    for setting in data:
+                        debrid = ElementTree.SubElement(root, 'debrid')
+                        id = ElementTree.SubElement(debrid, 'id')
+                        id.text = setting
+                        value = ElementTree.SubElement(debrid, 'value')
+                        value.text = addonid.getSetting(setting)
+                      
+                    tree = ElementTree.ElementTree(root)
+                    tree.write(file)
+                    
+                    user = addonid.getSetting(default)
+                    CONFIG.set_setting(saved, user)
+                    
+                    logging.log('Debrid Info Saved for {0}'.format(name), level=xbmc.LOGINFO)
+                except Exception as e:
+                    logging.log("[Debrid Info] Unable to Update {0} ({1})".format(who, str(e)), level=xbmc.LOGERROR)
+            else:
+                logging.log('Debrid Info Not Registered for {0}'.format(name))
     elif do == 'restore':
         if os.path.exists(file):
             tree = ElementTree.parse(file)
@@ -729,7 +732,12 @@ def import_list(who):
             logging.log_notify("[COLOR {0}]{1}[/COLOR]".format(CONFIG.COLOR1, name),
                        '[COLOR {0}]Debrid Info: Imported![/COLOR]'.format(CONFIG.COLOR2))
 
-def open_settings_debrid(who):
+def settings(who):
+    user = None
+    user = DEBRIDID[who]['name']
+    return user
+
+def open_settings(who):
     addonid = tools.get_addon_by_id(DEBRIDID[who]['plugin'])
     addonid.openSettings()
 
