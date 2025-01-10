@@ -200,6 +200,8 @@
 	<requires>
 		<import addon="xbmc.python" version="3.0.0" />
 		<import addon="script.module.requests" optional="true" />
+		<import addon="script.module.accountmgr" optional="true" />		
+		<import addon="script.module.acctview" optional="true" />			
 	</requires>
 	<extension point="xbmc.python.pluginsource" library="addon.py">
 		<provides>executable</provides>
