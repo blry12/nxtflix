@@ -68,7 +68,7 @@ DEBRIDID = {
         'data'     : ['tmdb.apikey', 'tvdb.apikey', 'omdb.apikey', 'fanart.apikey'],
         'activate' : 'Addon.OpenSettings(plugin.video.seren)'},
     'nxtflix': {
-        'name'     : 'nxtflix',
+        'name'     : 'NXTFlix',
         'plugin'   : 'plugin.video.nxtflix',
         'saved'    : 'nxtflix',
         'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix'),

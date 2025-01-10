@@ -56,7 +56,7 @@ DEBRIDID = {
         'data'     : ['rd.auth', 'rd.client_id', 'rd.expiry', 'rd.refresh', 'rd.secret', 'rd.username', 'realdebrid.enabled'],
         'activate' : 'Addon.OpenSettings(plugin.video.seren)'},
     'nxtflixrd': {
-        'name'     : 'nxtflix',
+        'name'     : 'NXTFlix',
         'plugin'   : 'plugin.video.nxtflix',
         'saved'    : 'nxtflixrd',
         'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix'),

@@ -52,7 +52,7 @@ DEBRIDID = {
         'data'     : ['alldebrid.enabled', 'alldebrid.username', 'alldebrid.apikey'],
         'activate' : 'Addon.OpenSettings(plugin.video.seren)'},
     'nxtflixad': {
-        'name'     : 'nxtflix',
+        'name'     : 'NXTFlix',
         'plugin'   : 'plugin.video.nxtflix',
         'saved'    : 'nxtflixad',
         'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix'),

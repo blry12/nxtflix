@@ -1,10 +1,10 @@
 {
-    "Trakt And Debrid Settings": {
+    "[COLOR chartreuse]>>> Authorize Debrid and Trakt Services <<<": {
         "icon": "https://the666mafia.com/pics/authpics/all.png",
         "items": [			
             {
-                "name": "[COLOR lightgreen]Authenticate Real Debrid",
-                "url": "RunScript(script.module.accountmgr, action=realdebridAuth)"
+                "name": "[COLOR lightgreen]Authenticate Real Debrid",					
+                "url": "RunScript(script.module.accountmgr, action=realdebridAuth)"			
             },
             {
                 "name": "[COLOR orange]Authenticate Premiumize",
@@ -19,15 +19,15 @@
                 "url": "RunScript(script.module.accountmgr, action=traktAuth)"
             },	
             {
-                "name": "[COLOR green]Authenticate TorBox",
-                "url": "RunScript(script.module.accountmgr, action=torboxAuth)"
-            },		
-            {
-                "name": "[COLOR blue]Authenticate Easy Debrid",
+                "name": "[COLOR blue]Authenticate Easy Debrid (NXTFlix  Light Only)",
                 "url": "RunScript(script.module.accountmgr, action=easydebridAuth)"
-            },				
+            },			
             {
-                "name": "[COLOR lightblue]Authenticate Offcloud",
+                "name": "[COLOR green]Authenticate TorBox (NXTFlix  Light Only)",
+                "url": "RunScript(script.module.accountmgr, action=torboxAuth)"
+            },						
+            {
+                "name": "[COLOR lightblue]Authenticate Offcloud (NXTFlix  Light Only)",
                 "url": "RunScript(script.module.accountmgr, action=offcloudAuth)"
 			},				
             {
@@ -37,7 +37,16 @@
             {
                 "name": "[COLOR red]Re-Sync TRAKT Accounts",
                 "url": "RunScript(script.module.accountmgr, action=traktReSync)"
-            },				
+            },
+            {
+                "name": "[COLOR teal]Open Account Manager",
+                "url": "addon.opensettings(script.module.accountmgr)"
+            }			
+		]
+	 },
+	"View Logins": {
+        "icon": "https://the666mafia.com/pics/authpics/all.png",
+        "items": [		
             {
                 "name": "[COLOR lightgreen]View Real Debrid logins",
                 "url": "ActivateWindow(10001,plugin://script.module.acctview/?mode=realdebrid,return)"
@@ -65,38 +74,133 @@
             {
                 "name": "[COLOR lightblue]View OffCloud Logins",
                 "url": "ActivateWindow(10001,plugin://script.module.acctview/?mode=offcloud,return)"
-            },		
-			{
-                "name": "[COLOR grey]Revoke Real Debrid",
-                "url": "RunScript(script.module.accountmgr, action=realdebridRevoke)"
             },
-			{
-                "name": "[COLOR grey]Revoke Premiumize",
-                "url": "RunScript(script.module.accountmgr, action=premiumizeRevoke)"
-            },
-			{
-                "name": "[COLOR grey]Revoke All Debrid",
-                "url": "RunScript(script.module.accountmgr, action=alldebridRevoke)"
-            },
-			{
-                "name": "[COLOR grey]Revoke Trakt",
-                "url": "RunScript(script.module.accountmgr, action=traktRevoke)"
-            },
-			{
-                "name": "[COLOR grey]Revoke TorBox",
-                "url": "RunScript(script.module.accountmgr, action=torboxRevoke)"
-            },	
-			{
-                "name": "[COLOR grey]Revoke Easy Debrid",
-                "url": "RunScript(script.module.accountmgr, action=easydebridRevoke)"
-            },
-			{
-                "name": "[COLOR grey]Revoke Offcloud Debrid",
-                "url": "RunScript(script.module.accountmgr, action=offcloudRevoke)"
-            },			
             {
                 "name": "[COLOR teal]Open Account Manager",
                 "url": "addon.opensettings(script.module.accountmgr)"
+            }			
+		]
+	 },
+	"[COLOR lightgreen]Revoke Real Debrid Logins": {
+        "icon": "https://the666mafia.com/pics/authpics/realdebrid.rev.png",
+        "items": [		
+			{
+                "name": "Revoke NXTFlix",	
+                "url": "RunPlugin(plugin://plugin.video.nxtflix/?mode=real_debrid.revoke_authentication)"			
+            },
+			{
+                "name": "Revoke NXTFlix Light",	
+                "url": "RunPlugin(plugin://plugin.video.nxtflixlight/?mode=real_debrid.revoke_authentication)"			
+            },	
+			{
+                "name": "Revoke Resolve URL",	
+                "url": "RunPlugin(plugin://script.module.resolveurl/?mode=reset_rd)" 				
+            },	
+			{			
+                "name": "Revoke Account Manager",	
+                "url": "RunScript(script.module.accountmgr, action=realdebridRevoke)"            
+            }			
+		]
+	 },
+	"[COLOR orange]Revoke Premiumize Logins": {
+        "icon": "https://the666mafia.com/pics/authpics/premiumize.rev.png",
+        "items": [			
+			{
+                "name": "Revoke NXTFlix",
+                "url": "RunPlugin(plugin://plugin.video.nxtflix/?mode=premiumize.revoke_authentication)"
+            },
+			{
+                "name": "Revoke NXTFlix Light",
+                "url": "RunPlugin(plugin://plugin.video.nxtflixlight/?action=pm_Revoke)"
+            },	
+			{
+                "name": "Revoke Resolve URL",	
+                "url": "RunPlugin(plugin://script.module.resolveurl/?mode=reset_pm)" 				
+            },				
+			{			
+                "name": "Revoke Account Manager",	
+                "url": "RunScript(script.module.accountmgr, action=premiumizeRevoke)"            
+            }			
+		]
+	 },
+	"[COLOR yellow]Revoke All Debrid Logins": {
+        "icon": "https://the666mafia.com/pics/authpics/alldebrid.rev.png",
+        "items": [
+			{
+                "name": "Revoke NXTFlix",
+                "url": "RunPlugin(plugin://plugin.video.nxtflix/?mode=alldebrid.revoke_authentication)"
+            },
+			{
+                "name": "Revoke NXTFlix Light",
+                "url": "RunPlugin(plugin://plugin.video.nxtflixlight/?mode=alldebrid.revoke_authentication)"
+            },
+			{
+                "name": "Revoke Resolve URL",	
+                "url": "RunPlugin(plugin://script.module.resolveurl/?mode=reset_ad)"
+            },				
+			{			
+                "name": "Revoke Account Manager",	
+                "url": "RunScript(script.module.accountmgr, action=premiumizeRevoke)"            
+            }				
+		]
+	 },
+	"[COLOR violet]Revoke Trakt Logins": {
+        "icon": "https://the666mafia.com/pics/authpics/trakt.rev.png",
+        "items": [
+			{
+                "name": "Revoke NXTFlix",	
+                "url": "RunPlugin(plugin://plugin.video.nxtflix/?mode=trakt.trakt_revoke_authentication)"
+            },
+			{
+                "name": "Revoke NXTFlix Light",	
+                "url": "RunPlugin(plugin://plugin.video.nxtflixlight/?mode=trakt.trakt_revoke_authentication)"
+            },		
+			{
+                "name": "Revoke TMDB Helper",	
+                "url": "RunScript(plugin.video.themoviedb.helper,revoke_trakt)"
+            },				
+			{			
+                "name": "Revoke Account Manager",	
+                "url": "RunScript(script.module.accountmgr, action=traktRevoke)"            
+            }			
+		]
+	 },
+	"[COLOR blue]Revoke Easy Debrid Logins (NXTFlix  Light Only)": {
+        "icon": "https://the666mafia.com/pics/authpics/easydebrid.rev.png",
+        "items": [
+			{
+                "name": "Revoke NXTFlix Light",
+                "url": "RunPlugin(plugin://plugin.video.nxtflixlight/?mode=easydebrid.revoke_authentication)"
+            },		
+			{
+                "name": "Revoke Account Manager",
+                "url": "RunScript(script.module.accountmgr, action=easydebridRevoke)"
+            }			
+		]
+	 },
+	"[COLOR springgreen]Revoke TorBox Logins (NXTFlix Light Only)": {
+        "icon": "https://the666mafia.com/pics/authpics/torbox.rev.png",
+        "items": [
+			{
+                "name": "Revoke NXTFlix Light",
+                "url": "RunPlugin(plugin://plugin.video.nxtflixlight/?mode=torbox.revoke_authentication)"
+            },		
+			{
+                "name": "Revoke Account Manager",
+                "url": "RunScript(script.module.accountmgr, action=torboxRevoke)"
+            }			
+		]		
+	 },
+	"[COLOR lightblue]Revoke Off Cloud Logins (NXTFlix Light Only)": {
+        "icon": "https://the666mafia.com/pics/authpics/offcloud.rev.png",
+        "items": [
+			{
+                "name": "Revoke NXTFlix Light",
+                "url": "RunPlugin(plugin://plugin.video.nxtflixlight/?mode=offcloud.revoke_authentication)"
+            },		
+			{
+                "name": "Revoke Account Manager",
+                "url": "RunScript(script.module.accountmgr, action=offcloudRevoke)"
             }
         ]
     }

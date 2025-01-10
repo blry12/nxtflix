@@ -53,7 +53,7 @@ DEBRIDID = {
         'data'     : ['premiumize.enabled', 'premiumize.username', 'premiumize.token'],
         'activate' : 'Addon.OpenSettings(plugin.video.seren)'},
     'nxtflixpm': {
-        'name'     : 'nxtflix',
+        'name'     : 'NXTFlix',
         'plugin'   : 'plugin.video.nxtflix',
         'saved'    : 'nxtflixpm',
         'path'     : os.path.join(CONFIG.ADDONS, 'plugin.video.nxtflix'),

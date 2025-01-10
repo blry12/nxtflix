@@ -1,3 +1,2 @@
-1.1 - Added TorBox, Offcloud, Easy Debrid. 
-	- Added Revoke options
+1.1 - Modified Authorization Section and added Torbox, Easy Debrid and Offcloud
 1.0 - Initial Release
