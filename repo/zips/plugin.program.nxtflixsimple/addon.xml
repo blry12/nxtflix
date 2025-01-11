@@ -4,7 +4,7 @@
 		<import addon="xbmc.python" version="3.0.0"/>
 		<import addon="script.module.requests" optional="true" />
 		<import addon="script.module.accountmgr" version="0.0.1"/>
-		<import addon="script.module.acctviewn" version="0.0.1"/>		
+		<import addon="script.module.acctview" version="0.0.1"/>		
 	</requires>
 	<extension point="xbmc.python.pluginsource" library="addon.py">
 		<provides>executable</provides>
