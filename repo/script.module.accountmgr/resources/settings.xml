@@ -33,9 +33,11 @@
 		<setting id="traktuserkey.enabled" type="bool" visible="eq(-1,false)" label="40090" default="false" />
 		<setting id="trakt.client.id" type="text" visible="eq(-1,true) + eq(4,)" label="40089" default="" />
 		<setting id="trakt.client.secret" type="text" visible="eq(-2,true)+ eq(3,)" label="40088" default="" />
-		<setting type="action" label="Authorize" option="close" action="RunScript(script.module.accountmgr, action=traktAuth)" visible="eq(1,)" />
-		<setting id="trakt.username" type="text" default="" label="40062" enable="false" visible="!eq(-8,)" />
-		<setting type="action" label="32316" option="close" action="RunScript(script.module.accountmgr, action=traktAcct)" visible="!eq(-1,)" />
+		<setting id="trakt.synclist" type="text" visible="false" label="" default="false" />
+		<setting type="action" label="Edit Sync List" option="close" action="RunScript(script.module.accountmgr, action=traktReSyncList)" visible="!eq(-8,) + eq(-1,true)" />
+		<setting type="action" label="Authorize" option="close" action="RunScript(script.module.accountmgr, action=traktAuth)" visible="eq(-9,) + eq(-2,false)" />
+		<setting id="trakt.username" type="text" default="" label="40062" enable="false" visible="!eq(-10,)" />
+		<setting type="action" label="32316" option="close" action="RunScript(script.module.accountmgr, action=traktAcct)" visible="!eq(-11,)" />
 
 		<setting type="lsep" label="TorBox" />
 		<setting id="torbox.enabled" type="bool" visible="true" label="Enable" default="false" />
@@ -266,6 +268,7 @@
 		<setting id="ext_backup_date" type="text" default="Date: 0000-00-00   Time: 00:00" label="40117" enable="false" visible="eq(-13,true)" />
 	</category>
 	<category label="Configure Backup">
+		<setting type="lsep" label="Auto-Backup Services After Authorization" />
 		<setting id="backupenable" type="bool" visible="true" label="Enable Auto-Backup" default="false" />
 		<setting type="lsep" label="40105" />
 		<setting type="lsep" label="Set Backup Directory" />
@@ -274,19 +277,25 @@
 		<setting type="lsep" label="Set Custom Backup Directory" />
         	<setting id="backupfolder" type="text" label="-" default="special://profile/addon_data/script.module.accountmgr/" visible="true" />
 	</category>
-	<category label="Advanced">
-		<setting type="lsep" label="Startup Services" />
+	<category label="Startup">
+		<setting type="lsep" label="Account Manager Update Notifications" />
 		<setting id="checkAddonUpdates" type="bool" label="Update Notification Service" default="true" />
-		<setting type="lsep" label="40092" />
+		<setting type="lsep" label="Auto-Sync Supported Add-ons" />
+		<setting label="40108" type="action" action="RunScript(script.module.accountmgr, action=ShowHelpServiceSync)" visible="true" />
       		<setting id="api.service" type="bool" visible="false" label="" default="" />
-      		<setting id="sync.service"  type="bool" label="Trakt & Debrid Auto-Sync Service" default="true"/>
-		<setting type="lsep" label="40094" />
-      		<setting id="sync.nondebrid.service"  type="bool" label="TorBox/EasyDebrid/OffCloud/Easynews/FilePursuit Auto-Sync" default="false"/>
-		<setting type="lsep" label="40094" />
-      		<setting id="sync.metaservice" type="bool" label="Metadata Auto-Sync Service" default="false"/>
-		<setting type="lsep" label="40094" />
-      		<setting id="sync.extservice" type="bool" label="External Scraper Auto-Sync Service" default="false"/>
-		<setting type="lsep" label="40094" />
+      		<setting id="sync.tk.service"  type="bool" label="Trakt" visible="true" default="false"/>
+      		<setting id="sync.rd.service"  type="bool" label="Real-Debrid" visible="true" default="false"/>
+      		<setting id="sync.pm.service"  type="bool" label="Premiumize" visible="true" default="false"/>
+      		<setting id="sync.ad.service"  type="bool" label="All-Debrid" visible="true" default="false"/>
+      		<setting id="sync.torbox.service"  type="bool" label="TorBox" visible="true" default="false"/>
+      		<setting id="sync.easyd.service"  type="bool" label="Easy Debrid" visible="true" default="false"/>
+      		<setting id="sync.offc.service"  type="bool" label="OffCloud" visible="true" default="false"/>
+      		<setting id="sync.easy.service"  type="bool" label="Easynews" visible="true" default="false"/>
+      		<setting id="sync.filep.service"  type="bool" label="Filepursuit" visible="true" default="false"/>
+      		<setting id="sync.meta.service" type="bool" label="Metadata" visible="true" default="false"/>
+      		<setting id="sync.ext.service" type="bool" label="External Scrapers" visible="true" default="false"/>
+	</category>
+	<category label="Advanced">
 		<setting type="lsep" label="Persistent Trakt Keys For Builders" />
 		<setting id="traktuserkey.enabled" type="bool" visible="false" label="" default="false" />
 		<setting id="devuserkey.enabled" type="bool" visible="eq(-1,false)" label="40107" default="false" />
@@ -298,7 +307,7 @@
         	<setting label="40108" type="action" action="RunScript(script.module.accountmgr, action=ShowHelpRestore)" visible="true" />
 	</category>
 	<category label="Info">
-		<setting type="lsep" label="Supported Add-ons & Providers" />
+		<setting type="lsep" label="Supported Add-ons & Scrapers" />
 		<setting label="40099" type="action" action="RunScript(script.module.accountmgr, action=ShowSupported_Debrid)" />
 		<setting label="40098" type="action" action="RunScript(script.module.accountmgr, action=ShowSupported_Trakt)" />
 		<setting label="40120" type="action" action="RunScript(script.module.accountmgr, action=ShowSupported_Torbox)" />

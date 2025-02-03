@@ -8,7 +8,6 @@ addon = xbmcaddon.Addon(addon_id)
 setting = addon.getSetting
 
 translatePath = xbmcvfs.translatePath
-#home = translatePath('special://home/')
 xmls = translatePath('special://home/addons/script.module.accountmgr/resources/xmls/')
 addons = translatePath('special://home/addons/')
 addon_data = translatePath('special://profile/addon_data/')
@@ -32,20 +31,44 @@ def traktSecret():
                 traktSecret = str(setting('dev.client.secret'))
         return traktSecret
 
-def rm_traktcache():
-        if setting('rm_traktcache')=='true':
-                if os.path.exists(os.path.join(nxtflixlt_trakt_db)):
-                        try:
-                                os.unlink(os.path.join(nxtflixlt_trakt_db))
-                        except OSError:
-                                pass
-                #if os.path.exists(os.path.join(afnxtflix_trakt_db)):
-                        #try:
-                                #os.unlink(os.path.join(afnxtflix_trakt_db))
-                        #except OSError:
-                                #pass
-                addon.setSetting("rm_traktcache", 'false')
+#Trakt Sync List Paths
+synclist_file = os.path.join(user_path, 'addon_data/script.module.accountmgr/trakt_sync_list.json')
+synclist_backup = translatePath(backup_path + 'trakt/trakt_sync_list.json')
 
+#Backup Trakt Sync List
+def backup_synclist():
+    if os.path.exists(os.path.join(synclist_file)) and os.path.exists(os.path.join(trakt_backup)):
+        try:
+                xbmcvfs.copy(synclist_file, synclist_backup)
+        except:
+            pass
+
+#Restore Trakt Sync List
+def restore_synclist():
+    if os.path.exists(os.path.join(synclist_backup)):
+        try:
+                xbmcvfs.copy(synclist_backup, synclist_file)
+        except:
+            pass
+
+#Delete Trakt Sync List
+def delete_synclist():
+    if os.path.exists(os.path.join(synclist_file)):
+        try:
+                os.unlink(synclist_file)
+        except:
+            pass
+
+#Acctview Open Add-on Settings
+def open_settings(who):
+    addonid = tools.get_addon_by_id(script.module.accountmgr)
+    addonid.openSettings()
+    xbmc.executebuiltin('Container.Refresh()')
+    
+def open_settings_nxtflixlt():
+    xbmc.executebuiltin('PlayMedia(plugin://plugin.video.nxtflixlight/?mode=open_settings)')
+    
+#Remake Settings Cache
 def remake_settings():
         if not xbmcvfs.exists(chk_nxtflixlt):
         #if not xbmcvfs.exists(chk_nxtflixlt) or xbmcvfs.exists(chk_afnxtflix):
@@ -57,14 +80,6 @@ def remake_settings():
                 #if xbmcvfs.exists(chk_afnxtflix):
                         #xbmc.executebuiltin('PlayMedia(plugin://plugin.video.afnxtflixity/?mode=sync_settings&silent=true)')
                         #xbmc.sleep(1000)
-
-def open_settings(who):
-    addonid = tools.get_addon_by_id(script.module.accountmgr)
-    addonid.openSettings()
-    xbmc.executebuiltin('Container.Refresh()')
-    
-def open_settings_nxtflixlt():
-    xbmc.executebuiltin('PlayMedia(plugin://plugin.video.nxtflixlight/?mode=open_settings)')
         
 #Account Mananger Trakt API Keys
 client_am = traktID()
@@ -113,9 +128,9 @@ meta_backup = translatePath(backup_path) + 'meta/'
 ext_backup = translatePath(backup_path) + 'extproviders/'
 
 #NXTFlix Light Database Paths
-nxtflix_lt_path = os.path.join(user_path, 'addon_data/plugin.video.nxtflixlight/databases')
+nxtflix_lt_path = os.path.join(user_path, 'addon_data/plugin.video.nxtflixlight/databases/')
 nxtflixlt_settings_db = os.path.join(nxtflix_lt_path,'settings.db')
-nxtflixlt_traktcache = os.path.join(user_path, 'addon_data/plugin.video.nxtflixlight/databases')
+nxtflixlt_traktcache = os.path.join(user_path, 'addon_data/plugin.video.nxtflixlight/databases/')
 nxtflixlt_trakt_db = os.path.join(nxtflixlt_traktcache,'traktcache.db')
 
 #NXTFlix Light Backup Paths
@@ -364,9 +379,11 @@ path_trakt = addons + translatePath('script.trakt/resources/lib/traktapi.py')
 seren_client = '0c9a30819e4af6ffaf3b954cbeae9b54499088513863c03c02911de00ac2de79'
 seren_secret = 'bf02417f27b514cee6a8d135f2ddc261a15eecfb6ed6289c36239826dcdd1842'
 nxtflix_client = '793fda23d5ab3f352dc5856e5aa3a43c150402406cadf81a419bce23fab15e46'
-nxtflix_secret = '2cc8aaac698563a9ad5d3be4cceb2a02543fc12b600c191d37565acfb2b5fdc2'
-nxtflixlt_client = '793fda23d5ab3f352dc5856e5aa3a43c150402406cadf81a419bce23fab15e46'
-nxtflixlt_secret = '2cc8aaac698563a9ad5d3be4cceb2a02543fc12b600c191d37565acfb2b5fdc2'
+nxtflix_secret = '422a282ef5fe4b5c47bc60425c009ac3047ebd10a7f6af790303875419f18f98'
+nxtflixlt_client = 'a8a38e1b0d249c49eeef923ba37d85f73bda92318f5b9851d07a056a26392b34'
+nxtflixlt_secret = '913d645e6af4e7b4a0a9620d144fd4450169067a250672bd8c9de18cd65b9d96'
+#afnxtflix_client = 'd4161a7a106424551add171e5470112e4afdaf2438e6ef2fe0548edc75924868'
+#afnxtflix_secret = 'b5fcd7cb5d9bb963784d11bbf8535bc0d25d46225016191eb48e50792d2155c0'
 coal_client = '19849909a0f8c9dc632bc5f5c7ccafd19f3e452e2e44fee05b83fd5dc1e77675'
 coal_secret = 'b5fcd7cb5d9bb963784d11bbf8535bc0d25d46225016191eb48e50792d2155c0'
 pov_client = '6bc29124c3d9466e06a3ed19a7b5976fcb28311008401e1ce04cf08196f8b16a'
@@ -408,8 +425,8 @@ trakt_secret = 'b5fcd7cb5d9bb963784d11bbf8535bc0d25d46225016191eb48e50792d2155c0
 
 #Metadata API Keys
 nxtflix_fan = 'fa836e1c874ba95ab08a14ee88e05565'
-nxtflix_tmdb = 'b370b60447737762ca34857bd77579b3'
-nxtflixlt_tmdb = 'b370b60447737762ca34857bd77579b3'
+nxtflix_tmdb = '76067629fab243b989a68881eb1f63ef'
+nxtflixlt_tmdb = '76067629fab243b989a68881eb1f63ef'
 coal_fan = '598515b970d81280063107d49d0e2558"'
 coal_tmdb = '74f3ce931d65ebda1f77ef24eac2625f'
 pov_fan = 'fe073550acf157bdb8a4217f215c0882'

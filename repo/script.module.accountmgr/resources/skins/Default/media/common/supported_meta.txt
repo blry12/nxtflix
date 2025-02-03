@@ -5,7 +5,7 @@
 4.  The Coalition
 5.  POV                   
 6.  Umbrella
-7.  Infinity9
+7.  Infinity
 8.  Dradis
 9.  The Crew 
 10. Homelander 
@@ -14,15 +14,14 @@
 13. Shazam
 14. Nightwing Lite
 15. Alvin
-16. TheLab
-17. Moria
-18. Absolution
-19. Nine Lives
-20. TMDb Helper
-21. Embuary Info
-22. Metahandler
-23. PVR Artwork Module
-24. All Accounts
-25. My Accounts
-26. nxtflixtastic Skin
-27. Nimbus Skin
+16. Moria
+17. Absolution
+18. Nine Lives
+19. TMDb Helper
+20. Embuary Info
+21. Metahandler
+22. PVR Artwork Module
+23. All Accounts
+24. My Accounts
+25. nxtflixtastic Skin
+26. Nimbus Skin
