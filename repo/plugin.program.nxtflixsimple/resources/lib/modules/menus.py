@@ -4,7 +4,7 @@ import xbmc
 import xbmcgui
 import xbmcplugin
 from .utils import add_dir
-from uservar import buildfile, videos_url
+from uservar import buildfile, videos_url, changelog_dir
 from .parser import XmlParser, TextParser, get_page
 from .addonvar import addon_name, setting, addon_icon, addon_fanart, local_string, authorize, kodi_ver, kodi_versions, UPDATE_VERSION, CURRENT_BUILD, BUILD_VERSION
 from .colors import colors
@@ -33,7 +33,7 @@ def main_menu():
     
     add_dir(COLOR2(local_string(30026)),'',10,addon_icon,addon_fanart,COLOR2(local_string(30026)))  # Authorize Debrid Services
 
-    if CURRENT_BUILD not in ['No Build Installed', 'No Build']:
+    if changelog_dir not in ['', 'http://', 'http://CHANGEME/'] and CURRENT_BUILD not in ['No Build Installed', 'No Build']:
         add_dir(COLOR2(f'View Build Changelog'), '', 101, addon_icon, addon_fanart, COLOR2(local_string(30109)), isFolder=False)  # View Build Changelog
     
     add_dir(COLOR2(local_string(30013)), '', 100, addon_icon, addon_fanart, COLOR2(local_string(30014)), isFolder=False)  # View Notification
@@ -88,22 +88,22 @@ def build_menu():
             add_dir(COLOR2(f'{name}'), url, '', icon, fanart, description, name2=name, isFolder=False) # K22 Build Menu Separators
             
         elif '20' in kodi_ver and kodiversion == 'K20':
-            add_dir(COLOR2(f'{name}  (v{version})'), url, 3, icon, fanart, description, name2=name, version=version, kodi=kodiversion, isFolder=False) # K20 Build Menu
+            add_dir(COLOR2(f'{name}  ({version})'), url, 3, icon, fanart, description, name2=name, version=version, kodi=kodiversion, isFolder=False) # K20 Build Menu
             if preview not in (None, '', 'http://', 'https://'):
                 add_dir(COLOR1(local_string(30021) + ' ' + name + ' ' + local_string(30020) + ' ' + version), preview, 2, icon, fanart, COLOR2(description), name2=name, version=version, isFolder=False)  # Video Previews
                 
         elif '21' in kodi_ver and kodiversion == 'K21':
-            add_dir(COLOR2(f'{name}  (v{version})'), url, 3, icon, fanart, description, name2=name, version=version, kodi=kodiversion, isFolder=False) # K21 Build Menu
+            add_dir(COLOR2(f'{name}  ({version})'), url, 3, icon, fanart, description, name2=name, version=version, kodi=kodiversion, isFolder=False) # K21 Build Menu
             if preview not in (None, '', 'http://', 'https://'):
                 add_dir(COLOR1(local_string(30021) + ' ' + name + ' ' + local_string(30020) + ' ' + version), preview, 2, icon, fanart, COLOR2(description), name2=name, version=version, isFolder=False)  # Video Previews
                 
         elif '22' in kodi_ver and kodiversion == 'K22':
-            add_dir(COLOR2(f'{name}  (v{version})'), url, 3, icon, fanart, description, name2=name, version=version, kodi=kodiversion, isFolder=False) # K22 Build Menu
+            add_dir(COLOR2(f'{name}  ({version})'), url, 3, icon, fanart, description, name2=name, version=version, kodi=kodiversion, isFolder=False) # K22 Build Menu
             if preview not in (None, '', 'http://', 'https://'):
                 add_dir(COLOR1(local_string(30021) + ' ' + name + ' ' + local_string(30020) + ' ' + version), preview, 2, icon, fanart, COLOR2(description), name2=name, version=version, isFolder=False)  # Video Previews
 
         elif kodiversion == None or not any(x in kodiversion for x in kodi_versions):
-            add_dir(COLOR2(f'{name} (v{version})'), url, 3, icon, fanart, description, name2=name, version=version, isFolder=False)  # Standard Build Menu
+            add_dir(COLOR2(f'{name} ({version})'), url, 3, icon, fanart, description, name2=name, version=version, isFolder=False)  # Standard Build Menu
             if preview not in (None, '', 'http://', 'https://'):
                 add_dir(COLOR1(local_string(30021) + ' ' + name + ' ' + local_string(30020) + ' ' + version), preview, 2, icon, fanart, COLOR2(description), name2=name, version=version, isFolder=False) 
 

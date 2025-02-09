@@ -196,7 +196,7 @@
 				<screenshot />
 		</assets>
   </extension>
-</addon><addon id="plugin.program.nxtflixsimple" name="[COLOR skyblue]NXTFlix Simple Wizard[/COLOR]" version="1.2" provider-name="BLRY12">
+</addon><addon id="plugin.program.nxtflixsimple" name="[COLOR skyblue]NXTFlix Simple Wizard[/COLOR]" version="1.2.1" provider-name="BLRY12">
 	<requires>
 		<import addon="xbmc.python" version="3.0.0" />
 		<import addon="script.module.requests" optional="true" />

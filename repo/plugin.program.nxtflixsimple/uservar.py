@@ -8,7 +8,7 @@ videos_url = 'http://CHANGEME'
 notify_url  = 'https://the666mafia.com/nxtflix/txt/wizard_notify.txt'
 
 '''#####-----Changelog Directory-----#####'''
-changelog_dir  = 'http://CHANGEME'
+changelog_dir  = 'https://the666mafia.com/nxtflix/txt/changelog/'
 
 '''#####-----Excludes-----#####'''
 excludes  = ['plugin.video.whatever']
