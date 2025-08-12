@@ -7,7 +7,7 @@ SET_LIST = 'INSERT OR REPLACE INTO navigator VALUES (?, ?, ?)'
 DELETE_LIST = 'DELETE FROM navigator WHERE list_name=? and list_type=?'
 GET_FOLDERS = 'SELECT list_name, list_contents FROM navigator WHERE list_type = ?'
 GET_FOLDER_CONTENTS = 'SELECT list_contents FROM navigator WHERE list_name = ? AND list_type = ?'
-prop_dict = {'default': 'NXTFlix_%s_default', 'edited': 'NXTFlix_%s_edited', 'shortcut_folder': 'NXTFlix_%s_shortcut_folder'}
+prop_dict = {'default': 'nxtflix_%s_default', 'edited': 'nxtflix_%s_edited', 'shortcut_folder': 'nxtflix_%s_shortcut_folder'}
 timeout = 60
 
 root_list = [
@@ -223,7 +223,7 @@ tvshow_list = [
 
 default_menu_items = ('RootList', 'MovieList', 'TVShowList')
 main_menus = {'RootList': root_list, 'MovieList': movie_list, 'TVShowList': tvshow_list}
-main_menu_items = {'RootList': {'name': 32457, 'iconImage': 'NXTFlix', 'mode': 'navigator.main', 'action': 'RootList'},
+main_menu_items = {'RootList': {'name': 32457, 'iconImage': 'nxtflix', 'mode': 'navigator.main', 'action': 'RootList'},
 					'MovieList': root_list[0],
 					'TVShowList': root_list[1]}
 

@@ -21,7 +21,7 @@ adjust_premiered_date_function, jsondate_to_datetime_function = adjust_premiered
 date_difference_function, make_day_function, title_key_function, get_datetime_function = date_difference, make_day, title_key, get_datetime
 get_progress_percent, get_watched_status, get_watched_info, get_bookmarks = ws.get_progress_percent, ws.get_watched_status_episode, ws.get_watched_info_tv, ws.get_bookmarks
 get_in_progress_episodes, get_next_episodes, get_recently_watched = ws.get_in_progress_episodes, ws.get_next_episodes, ws.get_recently_watched
-string, NXTFlix_str, trakt_str, watched_str, unwatched_str, season_str, episodes_str =  str, ls(32036), ls(32037), ls(32642), ls(32643), ls(32537), ls(32506)
+string, nxtflix_str, trakt_str, watched_str, unwatched_str, season_str, episodes_str =  str, ls(32036), ls(32037), ls(32642), ls(32643), ls(32537), ls(32506)
 extras_str, options_str, clearprog_str, refr_widg_str, play_options_str = ls(32645), ls(32646), ls(32651), '[B]%s[/B]' % ls(32611), '[B]%s...[/B]' % ls(32187)
 poster_empty, fanart_empty = kodi_utils.empty_poster, kodi_utils.addon_fanart
 run_plugin, unaired_label, tmdb_poster_prefix = 'RunPlugin(%s)', '[COLOR red][I]%s[/I][/COLOR]', 'https://image.tmdb.org/t/p/'
@@ -85,7 +85,7 @@ def build_episode_list(params):
 						cm_append((clearprog_str, run_plugin % clearprog_params))
 				if is_external:
 					cm_append((refr_widg_str, run_plugin % build_url({'mode': 'kodi_refresh'})))
-					set_properties({'NXTFlix.external': 'true'})
+					set_properties({'nxtflix.external': 'true'})
 				info_tag = listitem.getVideoInfoTag()
 				info_tag.setMediaType('episode')
 				info_tag.setTitle(display)
@@ -119,8 +119,8 @@ def build_episode_list(params):
 				listitem.setArt({'poster': show_poster, 'fanart': show_fanart, 'thumb': thumb, 'icon':thumb, 'banner': show_banner, 'clearart': show_clearart,
 								'clearlogo': show_clearlogo, 'landscape': show_landscape, 'season.poster': season_poster, 'tvshow.poster': show_poster,
 								'tvshow.clearart': show_clearart, 'tvshow.clearlogo': show_clearlogo, 'tvshow.landscape': show_landscape, 'tvshow.banner': show_banner})
-				set_properties({'NXTFlix.extras_params': extras_params, 'NXTFlix.options_params': options_params, 'NXTFlix.unwatched_params': unwatched_params,
-								'NXTFlix.watched_params': watched_params, 'NXTFlix.clearprog_params': clearprog_params, 'episode_type': episode_type})
+				set_properties({'nxtflix.extras_params': extras_params, 'nxtflix.options_params': options_params, 'nxtflix.unwatched_params': unwatched_params,
+								'nxtflix.watched_params': watched_params, 'nxtflix.clearprog_params': clearprog_params, 'episode_type': episode_type})
 				yield (url_params, listitem, False)
 			except: pass
 	handle, is_external, category_name = int(sys.argv[1]), external(), episodes_str
@@ -128,7 +128,7 @@ def build_episode_list(params):
 	append = item_list.append		
 	meta_user_info, watched_indicators, show_unaired, adjust_hours = metadata_user_info(), watched_indicators_info(), show_unaired_info(), date_offset_info()
 	current_date, watched_info, bookmarks = get_datetime_function(), get_watched_info(watched_indicators), get_bookmarks(watched_indicators, 'episode')
-	watched_title = trakt_str if watched_indicators == 1 else NXTFlix_str
+	watched_title = trakt_str if watched_indicators == 1 else nxtflix_str
 	fanart_enabled, hide_watched = meta_user_info['extra_fanart_enabled'], is_external and meta_user_info['widget_hide_watched']
 	meta = tv_meta_function('tmdb_id', params.get('tmdb_id'), meta_user_info, current_date)
 	meta_get = meta.get
@@ -242,7 +242,7 @@ def build_single_episode(list_type, params={}):
 			else: seas_ep = ''
 			if list_type_starts_with('next_'):
 				display_premiered = make_day_function(current_date, episode_date, date_format) if episode_date else 'UNKNOWN'
-				if nextep_include_airdate: airdate = '[COLOR %s][%s][/COLOR] ' % (NXTFlix_highlight, display_premiered)
+				if nextep_include_airdate: airdate = '[COLOR %s][%s][/COLOR] ' % (nxtflix_highlight, display_premiered)
 				else: airdate = ''
 				highlight_color = nextep_unwatched_color if unwatched else nextep_unaired_color if unaired else ''
 				italics_open, italics_close = ('[I]', '[/I]') if highlight_color else ('', '')
@@ -255,9 +255,9 @@ def build_single_episode(list_type, params={}):
 				display = '[%s] %s%s%s' % (display_premiered, upper(title_string), seas_ep, ep_name)
 				if unaired:
 					displays = display.split(']')
-					display = '[COLOR %s]%s][/COLOR]%s' % (NXTFlix_highlight, displays[0], displays[1])
+					display = '[COLOR %s]%s][/COLOR]%s' % (nxtflix_highlight, displays[0], displays[1])
 			else:
-				color_tags = ('[COLOR %s]' % NXTFlix_highlight, '[/COLOR]') if unaired else ('', '')
+				color_tags = ('[COLOR %s]' % nxtflix_highlight, '[/COLOR]') if unaired else ('', '')
 				display = '%s%s%s%s%s' % (upper(title_string), color_tags[0], seas_ep, ep_name, color_tags[1])
 			if not item_get('duration'): item['duration'] = meta_get('duration')
 			options_params = build_url({'mode': 'options_menu_choice', 'content': list_type, 'tmdb_id': tmdb_id, 'season': season, 'episode': episode,
@@ -285,7 +285,7 @@ def build_single_episode(list_type, params={}):
 					cm_append((clearprog_str, run_plugin % clearprog_params))
 			if is_external:
 				cm_append((refr_widg_str, run_plugin % build_url({'mode': 'kodi_refresh'})))
-				set_properties({'NXTFlix.external': 'true'})
+				set_properties({'nxtflix.external': 'true'})
 			info_tag = listitem.getVideoInfoTag()
 			info_tag.setMediaType('episode')
 			info_tag.setTitle(display)
@@ -319,19 +319,19 @@ def build_single_episode(list_type, params={}):
 			listitem.setArt({'poster': show_poster, 'fanart': show_fanart, 'thumb': thumb, 'icon':thumb, 'banner': show_banner, 'clearart': show_clearart, 'clearlogo': show_clearlogo,
 							'landscape': show_landscape, 'season.poster': season_poster, 'tvshow.poster': show_poster, 'tvshow.clearart': show_clearart,
 							'tvshow.clearlogo': show_clearlogo, 'tvshow.landscape': show_landscape, 'tvshow.banner': show_banner})
-			set_properties({'NXTFlix.extras_params': extras_params, 'NXTFlix.options_params': options_params, 'NXTFlix.unwatched_params': unwatched_params,
-							'NXTFlix.watched_params': watched_params, 'NXTFlix.clearprog_params': clearprog_params, 'episode_type': episode_type})
+			set_properties({'nxtflix.extras_params': extras_params, 'nxtflix.options_params': options_params, 'nxtflix.unwatched_params': unwatched_params,
+							'nxtflix.watched_params': watched_params, 'nxtflix.clearprog_params': clearprog_params, 'episode_type': episode_type})
 			item_list_append({'list_items': (url_params, listitem, False), 'first_aired': premiered, 'name': '%s - %sx%s' % (title, str_season_zfill2, str_episode_zfill2),
 							'unaired': unaired, 'last_played': ep_data_get('last_played', resinsert), 'sort_order': string(_position)})
 		except: pass
 	handle, is_external, category_name = int(sys.argv[1]), external(), episodes_str
 	item_list, unwatched = [], []
-	resinsert, NXTFlix_highlight = '', get_property('NXTFlix.main_highlight')
+	resinsert, nxtflix_highlight = '', get_property('nxtflix.main_highlight')
 	item_list_append = item_list.append
 	display_title, date_format, art_keys, all_episodes = single_ep_display_title(), single_ep_format(), get_art_provider(), default_all_episodes()
 	meta_user_info, watched_indicators, show_unaired = metadata_user_info(), watched_indicators_info(), show_unaired_info()
 	current_date, adjust_hours, ignore_articles_setting = get_datetime_function(), date_offset_info(), ignore_articles()
-	watched_info, bookmarks, watched_title = get_watched_info(watched_indicators), get_bookmarks(watched_indicators, 'episode'), trakt_str if watched_indicators == 1 else NXTFlix_str
+	watched_info, bookmarks, watched_title = get_watched_info(watched_indicators), get_bookmarks(watched_indicators, 'episode'), trakt_str if watched_indicators == 1 else nxtflix_str
 	fanart_enabled, hide_watched, show_all_episodes = meta_user_info['extra_fanart_enabled'], is_external and meta_user_info['widget_hide_watched'], all_episodes in (1, 2)
 	poster_main, poster_backup, fanart_main, fanart_backup, clearlogo_main, clearlogo_backup = art_keys
 	fanart_default = poster_main == 'poster2'
@@ -347,7 +347,7 @@ def build_single_episode(list_type, params={}):
 			list_type = 'episode.next_trakt'
 		else:
 			resformat, resinsert = '%Y-%m-%d %H:%M:%S', '2000-01-01 00:00:00'
-			list_type = 'episode.next_NXTFlix'
+			list_type = 'episode.next_nxtflix'
 		hidden_data = get_hidden_progress_items(watched_indicators)
 		data = [i for i in data if not i['media_ids']['tmdb'] in hidden_data]
 		if include_unwatched != 0:

@@ -5,7 +5,7 @@ from modules.settings import get_art_provider, avoid_episode_spoilers
 # from modules.kodi_utils import logger
 
 pause_time_before_end, hold_pause_time = 10, 900
-episode_flag_base = 'NXTFlix_flags/episodes/%s.png'
+episode_flag_base = 'nxtflix_flags/episodes/%s.png'
 button_actions = {10: 'close', 11: 'play', 12: 'cancel'}
 episode_status_dict = {
 'season_premiere': 'b30385b5',

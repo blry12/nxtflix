@@ -23,7 +23,7 @@ def imdb_build_user_lists(params):
 				listitem.setArt({'icon': default_imdb_icon, 'poster': default_imdb_icon, 'thumb': default_imdb_icon, 'fanart': fanart, 'banner': default_imdb_icon})
 				info_tag = listitem.getVideoInfoTag()
 				info_tag.setPlot(' ')
-				listitem.setProperty('NXTFlix.context_main_menu_params', build_url({'mode': 'menu_editor.edit_menu_external', 'name': title, 'iconImage': 'imdb'}))
+				listitem.setProperty('nxtflix.context_main_menu_params', build_url({'mode': 'menu_editor.edit_menu_external', 'name': title, 'iconImage': 'imdb'}))
 				yield (url, listitem, True)
 			except: pass
 	handle = int(sys.argv[1])
@@ -49,7 +49,7 @@ def imdb_build_keyword_results(params):
 				cm_append((ls(32730),'RunPlugin(%s)' % build_url({'mode': 'menu_editor.add_external', 'name': name, 'iconImage': 'imdb'})))
 				cm_append((ls(32731),'RunPlugin(%s)' % build_url({'mode': 'menu_editor.shortcut_folder_add_item', 'name': name, 'iconImage': 'imdb'})))
 				listitem.addContextMenuItems(cm)
-				listitem.setProperty('NXTFlix.context_main_menu_params', build_url({'mode': 'menu_editor.edit_menu_external', 'name': name, 'iconImage': 'imdb'}))
+				listitem.setProperty('nxtflix.context_main_menu_params', build_url({'mode': 'menu_editor.edit_menu_external', 'name': name, 'iconImage': 'imdb'}))
 				listitem.setLabel('%02d | %s' % (count, keyword.upper()))
 				listitem.setArt({'icon': default_imdb_icon, 'poster': default_imdb_icon, 'thumb': default_imdb_icon, 'fanart': fanart, 'banner': default_imdb_icon})
 				info_tag = listitem.getVideoInfoTag()

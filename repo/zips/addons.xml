@@ -225,13 +225,12 @@
 				<screenshot />
 		</assets>
 	</extension>
-</addon><addon id="plugin.video.nxtflix" name="NXTFlix Media" provider-name="blry12" version="1.4">
+</addon><addon id="plugin.video.nxtflix" name="NXTFlix" provider-name="Blry12, Tikipeter, [COLOR red]The Red Wizard[/COLOR]" version="1.5">
     <requires>
         <import addon="xbmc.python" version="3.0.0" />
         <import addon="script.module.requests" version="2.19.1" />
-		<import addon="script.module.cocoscrapers" version="0.0.1" />		
     </requires>
-    <extension library="resources/lib/NXTFlix.py" point="xbmc.python.pluginsource">
+    <extension library="resources/lib/nxtflix.py" point="xbmc.python.pluginsource">
         <provides>video</provides>
     </extension>
     <extension library="resources/lib/service.py" point="xbmc.service" />
@@ -244,10 +243,10 @@
 		<disclaimer lang="en">The author of this addon does not host any of the content which is found and has no affiliation with any of the content providers.</disclaimer>
         <license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
         <assets>
-            <icon>resources/media/NXTFlix_icon.png</icon>
-            <fanart>resources/media/NXTFlix_fanart.png</fanart>
+            <icon>resources/media/nxtflix_icon.png</icon>
+            <fanart>resources/media/nxtflix_fanart.png</fanart>
         </assets>
-        <news>INFO: For latest changes see Changelog within Tools of add-on.</news>
+        <news>Unofficial updates by [COLOR red]The Red Wizard[/COLOR]. For the latest changes, see the Changelog in NXTFlix &gt; Tools.</news>
     </extension>
 </addon><addon id="plugin.video.nxtflixlight" name="NXTFlix Light" provider-name="blry12" version="1.0">
     <requires>

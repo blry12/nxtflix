@@ -193,5 +193,5 @@ class Images():
 		delete_file(self.params['thumb_url'])
 		delete_file(self.params['image_url'])
 		hide_busy_dialog()
-		set_property('NXTFlix.delete_image_finished', 'true')
+		set_property('nxtflix.delete_image_finished', 'true')
 

@@ -37,11 +37,11 @@ class MainCache(BaseCache):
 	def delete_all_folderscrapers(self):
 		dbcon = self.connect_database()
 		dbcur = self.set_PRAGMAS(dbcon)
-		dbcur.execute(like_select % "'NXTFlix_FOLDERSCRAPER_%'")
+		dbcur.execute(like_select % "'nxtflix_FOLDERSCRAPER_%'")
 		remove_list = [str(i[0]) for i in dbcur.fetchall()]
 		if not remove_list: return
 		try:
-			dbcur.execute(like_delete % "'NXTFlix_FOLDERSCRAPER_%'")
+			dbcur.execute(like_delete % "'nxtflix_FOLDERSCRAPER_%'")
 			dbcon.execute('VACUUM')
 			for item in remove_list: self.delete_memory_cache(str(item))
 		except: pass

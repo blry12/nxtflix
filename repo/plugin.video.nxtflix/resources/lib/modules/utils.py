@@ -280,7 +280,7 @@ def sort_list(sort_key, sort_direction, list_data, ignore_articles):
 
 def imdb_sort_list():
 	# From Exodus code
-	sort, sort_order = int(get_setting('NXTFlix.imdb_lists.sort_type', '0')), int(get_setting('NXTFlix.imdb_lists.sort_direction', '0'))
+	sort, sort_order = int(get_setting('nxtflix.imdb_lists.sort_type', '0')), int(get_setting('nxtflix.imdb_lists.sort_direction', '0'))
 	if sort == 0: imdb_sort = 'list_order' # Default
 	elif sort == 1: imdb_sort = 'alpha' # Alphabetical
 	elif sort == 2: imdb_sort = 'user_rating' # IMDb Rating

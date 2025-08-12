@@ -102,7 +102,7 @@
             <align>left</align>
             <aligny>top</aligny>
             <aspectratio aligny="top">keep</aspectratio>
-            <texture colordiffuse="B3CCCCCC">common/NXTFlix.png</texture>
+            <texture colordiffuse="B3CCCCCC">common/nxtflix.png</texture>
         </control>
     </controls>
 </window>
