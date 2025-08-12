@@ -18,7 +18,7 @@ ports = ('443', '444', '445', '446', '447', '448')
 
 def import_easynews():
 	''' API version setting currently disabled '''
-	# if get_setting('nxtflix.easynews.api_version') == '0': return EasyNewsAPI()
+	# if get_setting('NXTFlix.easynews.api_version') == '0': return EasyNewsAPI()
 	# else: return EasyNewsAPIv3()
 	return EasyNewsAPI()
 
@@ -28,8 +28,8 @@ class EasyNewsAPI:
 		self.search_link = '/2.0/search/solr-search/advanced'
 		self.account_link = 'https://account.easynews.com/editinfo.php'
 		self.usage_link = 'https://account.easynews.com/usageview.php'
-		self.username = get_setting('nxtflix.easynews_user')
-		self.password = get_setting('nxtflix.easynews_password')
+		self.username = get_setting('NXTFlix.easynews_user')
+		self.password = get_setting('NXTFlix.easynews_password')
 		self.auth = self._get_auth()
 		self.auth_quoted = quote(self.auth)
 		self.base_get = self._get
@@ -44,7 +44,7 @@ class EasyNewsAPI:
 
 	def search(self, query, expiration=48):
 		url, self.params = self._translate_search(query)
-		string = 'nxtflix_EASYNEWS_SEARCH_' + urlencode(self.params)
+		string = 'NXTFlix_EASYNEWS_SEARCH_' + urlencode(self.params)
 		return cache_object(self._process_search, string, url, json=False, expiration=expiration)
 
 	def account(self):
@@ -109,7 +109,7 @@ class EasyNewsAPI:
 
 	def get_farm_and_port(self, files):
 		dl_farm, dl_port = files.get('dlFarm'), files.get('dlPort')
-		if get_setting('nxtflix.easynews.use_custom_farm', 'False') == 'True': dl_farm, dl_port = get_setting('nxtflix.easynews.farm', dl_farm), get_setting('nxtflix.easynews.port', dl_port)
+		if get_setting('NXTFlix.easynews.use_custom_farm', 'False') == 'True': dl_farm, dl_port = get_setting('NXTFlix.easynews.farm', dl_farm), get_setting('NXTFlix.easynews.port', dl_port)
 		return dl_farm, dl_port
 
 	def _process_files_v3(self, results):
@@ -205,11 +205,11 @@ def clear_media_results_database():
 	dbcur = dbcon.cursor()
 	dbcur.execute('''PRAGMA synchronous = OFF''')
 	dbcur.execute('''PRAGMA journal_mode = OFF''')
-	dbcur.execute("SELECT id FROM maincache WHERE id LIKE 'nxtflix_EASYNEWS_SEARCH_%'")
+	dbcur.execute("SELECT id FROM maincache WHERE id LIKE 'NXTFlix_EASYNEWS_SEARCH_%'")
 	easynews_results = [str(i[0]) for i in dbcur.fetchall()]
 	if not easynews_results: return 'success'
 	try:
-		dbcur.execute("DELETE FROM maincache WHERE id LIKE 'nxtflix_EASYNEWS_SEARCH_%'")
+		dbcur.execute("DELETE FROM maincache WHERE id LIKE 'NXTFlix_EASYNEWS_SEARCH_%'")
 		for i in easynews_results: clear_property(i)
 		return 'success'
 	except: return 'failed'

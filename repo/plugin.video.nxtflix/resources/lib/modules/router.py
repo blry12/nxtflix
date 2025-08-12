@@ -42,8 +42,8 @@ def routing(sys):
 			from modules.sources import Sources
 			return Sources().playback_prep(params)
 		if mode == 'playback.video':
-			from modules.player import NXTFlixPlayer
-			return NXTFlixPlayer().run(_get('url', None), _get('obj', None))
+			from modules.player import nxtflixPlayer
+			return nxtflixPlayer().run(_get('url', None), _get('obj', None))
 	if 'choice' in mode:
 		from indexers import dialogs
 		return exec('dialogs.%s(params)' % mode)

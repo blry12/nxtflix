@@ -19,7 +19,7 @@ years_movies, years_tvshows, movie_genres, tvshow_genres = meta_lists.years_movi
 languages, regions, movie_certifications, networks = meta_lists.languages, meta_lists.regions, meta_lists.movie_certifications, meta_lists.networks
 inc_str, ex_str, heading_base = '%s %s' % (ls(32188), '%s'), '%s %s' % (ls(32189), '%s'), '%s - %s' % (ls(32451), '%s')
 add_menu_str, add_folder_str, remove_str, clear_str = ls(32730), ls(32731), ls(32698), ls(32699)
-base_str, window_prop = '[B]%s:[/B]  [I]%s[/I]', 'nxtflix.%s_discover_params'
+base_str, window_prop = '[B]%s:[/B]  [I]%s[/I]', 'NXTFlix.%s_discover_params'
 lower_certs = ('PG', 'PG-13', 'R', 'NC-17')
 position = {'recommended': 0, 'year_start': 2, 'year_end': 3, 'with_genres': 4, 'without_genres': 5, 'with_keywords': 6, 'without_keywords': 7, 'language': 8,
 			'region': 9, 'network': 9, 'companies': 10, 'rating': 10, 'certification': 11, 'rating_votes': 11, 'rating_movie': 12, 'sort_by': 12, 'rating_votes_movie': 13,
@@ -347,12 +347,12 @@ class Discover:
 					cm_append((add_menu_str, 'RunPlugin(%s)'% build_url({'mode': 'menu_editor.add_external', 'name': name, 'iconImage': 'discover'})))
 					cm_append((add_folder_str, 'RunPlugin(%s)' % build_url({'mode': 'menu_editor.shortcut_folder_add_item', 'name': name, 'iconImage': 'discover'})))
 					listitem.addContextMenuItems(cm)
-					listitem.setProperty('nxtflix.context_main_menu_params', build_url({'mode': 'menu_editor.edit_menu_external', 'name': name, 'iconImage': default_icon}))
+					listitem.setProperty('NXTFlix.context_main_menu_params', build_url({'mode': 'menu_editor.edit_menu_external', 'name': name, 'iconImage': default_icon}))
 					yield (url, listitem, True)
 				except: pass
 		handle = int(sys.argv[1])
 		media_type = media_type if media_type else self.media_type
-		string = 'nxtflix_discover_%s_%%' % media_type
+		string = 'NXTFlix_discover_%s_%%' % media_type
 		dbcon = database.connect(maincache_db, timeout=40.0, isolation_level=None)
 		dbcur = dbcon.cursor()
 		dbcur.execute('''PRAGMA synchronous = OFF''')
@@ -539,7 +539,7 @@ class Discover:
 		notification(32576)
 
 def set_history(media_type, name, query):
-	string = 'nxtflix_discover_%s_%s' % (media_type, query)
+	string = 'NXTFlix_discover_%s_%s' % (media_type, query)
 	cache = main_cache.get(string)
 	if cache: return
 	if media_type == 'movie': mode, action = 'build_movie_list', 'tmdb_movies_discover'

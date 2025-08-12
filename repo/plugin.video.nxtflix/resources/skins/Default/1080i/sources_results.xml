@@ -8,7 +8,7 @@
                 <top>0</top>
                 <width>1920</width>
                 <height>1080</height>
-                <texture colordiffuse="FF000000">nxtflix_common/white.png</texture>
+                <texture colordiffuse="FF000000">NXTFlix_common/white.png</texture>
             </control>
             <control type="image">
                 <left>0</left>
@@ -30,7 +30,7 @@
                     <width>60</width>
                     <height>60</height>
                     <aspectratio aligny="top">keep</aspectratio>
-                    <texture>nxtflix_common/nxtflix.png</texture>
+                    <texture>NXTFlix_common/NXTFlix.png</texture>
                 </control>
                 <control type="label">
                     <left>70</left>
@@ -41,7 +41,7 @@
                     <textcolor>FFFFFFFF</textcolor>
                     <align>left</align>
                     <aligny>center</aligny>
-                    <label>[B]$INFO[Window.Property(total_results)][/B] [UPPERCASE]$ADDON[plugin.video.nxtflix 32139] [COLOR $INFO[Window(10000).Property(nxtflix.main_highlight)]]$INFO[Window.Property(filters_ignored)][/COLOR][/UPPERCASE]</label>
+                    <label>[B]$INFO[Window.Property(total_results)][/B] [UPPERCASE]$ADDON[plugin.video.nxtflix 32139] [COLOR $INFO[Window(10000).Property(NXTFlix.main_highlight)]]$INFO[Window.Property(filters_ignored)][/COLOR][/UPPERCASE]</label>
                     <animation effect="slide" start="0,0" end="0,-15" time="0" center="auto" condition="String.StartsWith(Window.Property(window_format),media) + !String.IsEmpty(Window.Property(clearlogo))">Conditional</animation>
                 </control>
                 <control type="label">
@@ -89,7 +89,7 @@
                     <width>650</width>
                     <height>950</height>
                     <aspectratio aligny="top">stretch</aspectratio>
-                    <texture diffuse="nxtflix_diffuse/poster_w217_h320.png" />
+                    <texture diffuse="NXTFlix_diffuse/poster_w217_h320.png" />
                 </control>
                 <control type="fixedlist" id="2000">
                     <pagecontrol>2060</pagecontrol>
@@ -111,7 +111,7 @@
                             <top>15</top>
                             <width>1180</width>
                             <height>110</height>
-                            <texture colordiffuse="FF1F2020" border="30">nxtflix_common/circle.png</texture>
+                            <texture colordiffuse="FF1F2020" border="30">NXTFlix_common/circle.png</texture>
                         </control>
                         <control type="group">
                             <height max="100">auto</height>
@@ -183,7 +183,7 @@
                                 <left>60</left>
                                 <align>left</align>
                                 <aligny>top</aligny>
-                                <texture colordiffuse="FF9c9a9b">nxtflix_common/info.png</texture>
+                                <texture colordiffuse="FF9c9a9b">NXTFlix_common/info.png</texture>
                             </control>
                             <control type="label">
                                 <top>50</top>
@@ -208,11 +208,11 @@
                                 <animation effect="fade" start="100" end="60" time="0" condition="!Control.HasFocus(2000)">Conditional</animation>
                                 <control type="image">
                                     <width>1180</width>
-                                    <texture colordiffuse="FFCCCCCC" border="30">nxtflix_common/circle.png</texture>
+                                    <texture colordiffuse="FFCCCCCC" border="30">NXTFlix_common/circle.png</texture>
                                 </control>
                                 <control type="image">
                                     <width>200</width>
-                                    <texture colordiffuse="$INFO[ListItem.Property(highlight)]" border="30">nxtflix_common/left-circle.png</texture>
+                                    <texture colordiffuse="$INFO[ListItem.Property(highlight)]" border="30">NXTFlix_common/left-circle.png</texture>
                                 </control>
                             </control>
                             <control type="group">
@@ -284,7 +284,7 @@
                                     <left>60</left>
                                     <align>left</align>
                                     <aligny>top</aligny>
-                                    <texture colordiffuse="FF1F2020">nxtflix_common/info.png</texture>
+                                    <texture colordiffuse="FF1F2020">NXTFlix_common/info.png</texture>
                                 </control>
                                 <control type="label">
                                     <top>50</top>
@@ -308,13 +308,13 @@
                                 <control type="image">
                                     <width>1180</width>
                                     <height>110</height>
-                                    <texture colordiffuse="FF1F2020" border="30">nxtflix_common/circle.png</texture>
+                                    <texture colordiffuse="FF1F2020" border="30">NXTFlix_common/circle.png</texture>
                                     <animation effect="fade" start="100" end="30" time="0" condition="!Control.HasFocus(2000)">Conditional</animation>
                                 </control>
                                 <control type="image">
                                     <width>1180</width>
                                     <height>110</height>
-                                    <texture colordiffuse="$INFO[ListItem.Property(highlight)]" border="30">nxtflix_common/circle.png</texture>
+                                    <texture colordiffuse="$INFO[ListItem.Property(highlight)]" border="30">NXTFlix_common/circle.png</texture>
                                     <animation effect="fade" start="100" end="30" time="0" condition="true">Conditional</animation>
                                 </control>
                             </control>
@@ -385,7 +385,7 @@
                                     <left>60</left>
                                     <align>left</align>
                                     <aligny>top</aligny>
-                                    <texture colordiffuse="FFFFFFFF">nxtflix_common/info.png</texture>
+                                    <texture colordiffuse="FFFFFFFF">NXTFlix_common/info.png</texture>
                                 </control>
                                 <control type="label">
                                     <top>50</top>
@@ -408,7 +408,7 @@
                     <top>0</top>
                     <width>1920</width>
                     <height>1080</height>
-                    <texture colordiffuse="FF000000">nxtflix_common/white.png</texture>
+                    <texture colordiffuse="FF000000">NXTFlix_common/white.png</texture>
                     <visible>Control.HasFocus(2060) | Control.HasFocus(2100)</visible>
                     <animation effect="fade" start="0" end="60" time="200" tween="sine">Visible</animation>
                 </control>
@@ -431,9 +431,9 @@
                     <height>945</height>
                     <onleft>2000</onleft>
                     <onright>2000</onright>
-                    <texturesliderbackground colordiffuse="FF302F2F">nxtflix_common/white.png</texturesliderbackground>
-                    <texturesliderbar colordiffuse="FF555556">nxtflix_common/white.png</texturesliderbar>
-                    <texturesliderbarfocus colordiffuse="FFB7B4BB">nxtflix_common/white.png</texturesliderbarfocus>
+                    <texturesliderbackground colordiffuse="FF302F2F">NXTFlix_common/white.png</texturesliderbackground>
+                    <texturesliderbar colordiffuse="FF555556">NXTFlix_common/white.png</texturesliderbar>
+                    <texturesliderbarfocus colordiffuse="FFB7B4BB">NXTFlix_common/white.png</texturesliderbarfocus>
                     <showonepage>false</showonepage>
                     <orientation>vertical</orientation>
                     <visible>Control.IsVisible(2000)</visible>
@@ -472,7 +472,7 @@
                         <control type="image">
                             <width>770</width>
                             <height>825</height>
-                            <texture colordiffuse="FF1F2020" border="30">nxtflix_common/circle.png</texture>
+                            <texture colordiffuse="FF1F2020" border="30">NXTFlix_common/circle.png</texture>
                         </control>
                         <control type="image">
                             <left>-40</left>
@@ -594,7 +594,7 @@
                         <left>250</left>
                         <align>left</align>
                         <aligny>top</aligny>
-                        <texture>nxtflix_common/info.png</texture>
+                        <texture>NXTFlix_common/info.png</texture>
                         <visible>!String.IsEmpty(ListItem.Property(perform_full_search))</visible>
                     </control>
                 </control>
@@ -618,7 +618,7 @@
                             <top>15</top>
                             <width>1030</width>
                             <height>110</height>
-                            <texture colordiffuse="FF1F2020" border="30">nxtflix_common/circle.png</texture>
+                            <texture colordiffuse="FF1F2020" border="30">NXTFlix_common/circle.png</texture>
                         </control>
                         <control type="group">
                             <visible>String.IsEmpty(ListItem.Property(perform_full_search))</visible>
@@ -689,7 +689,7 @@
                                 <left>45</left>
                                 <align>left</align>
                                 <aligny>top</aligny>
-                                <texture colordiffuse="FF9c9a9b">nxtflix_common/info.png</texture>
+                                <texture colordiffuse="FF9c9a9b">NXTFlix_common/info.png</texture>
                             </control>
                             <control type="label">
                                 <top>50</top>
@@ -712,11 +712,11 @@
                                 <height>110</height>
                                 <control type="image">
                                     <width>1030</width>
-                                    <texture colordiffuse="FFCCCCCC" border="30">nxtflix_common/circle.png</texture>
+                                    <texture colordiffuse="FFCCCCCC" border="30">NXTFlix_common/circle.png</texture>
                                 </control>
                                 <control type="image">
                                     <width>175</width>
-                                    <texture colordiffuse="$INFO[ListItem.Property(highlight)]" border="30">nxtflix_common/left-circle.png</texture>
+                                    <texture colordiffuse="$INFO[ListItem.Property(highlight)]" border="30">NXTFlix_common/left-circle.png</texture>
                                 </control>
                             </control>
                             <control type="group">
@@ -788,7 +788,7 @@
                                     <left>45</left>
                                     <align>left</align>
                                     <aligny>top</aligny>
-                                    <texture colordiffuse="FF1F2020">nxtflix_common/info.png</texture>
+                                    <texture colordiffuse="FF1F2020">NXTFlix_common/info.png</texture>
                                 </control>
                                 <control type="label">
                                     <top>50</top>
@@ -812,13 +812,13 @@
                                 <control type="image">
                                     <width>1030</width>
                                     <height>110</height>
-                                    <texture colordiffuse="FF1F2020" border="30">nxtflix_common/circle.png</texture>
+                                    <texture colordiffuse="FF1F2020" border="30">NXTFlix_common/circle.png</texture>
                                     <animation effect="fade" start="100" end="30" time="0" condition="!Control.HasFocus(2001)">Conditional</animation>
                                 </control>
                                 <control type="image">
                                     <width>1030</width>
                                     <height>110</height>
-                                    <texture colordiffuse="$INFO[ListItem.Property(highlight)]" border="30">nxtflix_common/circle.png</texture>
+                                    <texture colordiffuse="$INFO[ListItem.Property(highlight)]" border="30">NXTFlix_common/circle.png</texture>
                                     <animation effect="fade" start="100" end="30" time="0" condition="true">Conditional</animation>
                                 </control>
                             </control>
@@ -889,7 +889,7 @@
                                     <left>45</left>
                                     <align>left</align>
                                     <aligny>top</aligny>
-                                    <texture colordiffuse="FFFFFFFF">nxtflix_common/info.png</texture>
+                                    <texture colordiffuse="FFFFFFFF">NXTFlix_common/info.png</texture>
                                 </control>
                                 <control type="label">
                                     <top>50</top>
@@ -911,7 +911,7 @@
                     <top>0</top>
                     <width>1920</width>
                     <height>1080</height>
-                    <texture colordiffuse="FF000000">nxtflix_common/white.png</texture>
+                    <texture colordiffuse="FF000000">NXTFlix_common/white.png</texture>
                     <visible>Control.HasFocus(2061) | Control.HasFocus(2100)</visible>
                     <animation effect="fade" start="0" end="60" time="200" tween="sine">Visible</animation>
                 </control>
@@ -934,9 +934,9 @@
                     <height>825</height>
                     <onleft>2001</onleft>
                     <onright>2001</onright>
-                    <texturesliderbackground colordiffuse="FF302F2F">nxtflix_common/white.png</texturesliderbackground>
-                    <texturesliderbar colordiffuse="FF555556">nxtflix_common/white.png</texturesliderbar>
-                    <texturesliderbarfocus colordiffuse="FFB7B4BB">nxtflix_common/white.png</texturesliderbarfocus>
+                    <texturesliderbackground colordiffuse="FF302F2F">NXTFlix_common/white.png</texturesliderbackground>
+                    <texturesliderbar colordiffuse="FF555556">NXTFlix_common/white.png</texturesliderbar>
+                    <texturesliderbarfocus colordiffuse="FFB7B4BB">NXTFlix_common/white.png</texturesliderbarfocus>
                     <showonepage>false</showonepage>
                     <orientation>vertical</orientation>
                     <visible>Control.IsVisible(2001)</visible>
@@ -975,7 +975,7 @@
                     <width>650</width>
                     <height>1000</height>
                     <aspectratio aligny="top">stretch</aspectratio>
-                    <texture diffuse="nxtflix_diffuse/poster_w217_h320.png" />
+                    <texture diffuse="NXTFlix_diffuse/poster_w217_h320.png" />
                 </control>
                 <control type="fixedlist" id="2002">
                     <pagecontrol>2062</pagecontrol>
@@ -997,7 +997,7 @@
                             <top>15</top>
                             <width>1180</width>
                             <height>110</height>
-                            <texture colordiffuse="FF1F2020" border="30">nxtflix_common/circle.png</texture>
+                            <texture colordiffuse="FF1F2020" border="30">NXTFlix_common/circle.png</texture>
                         </control>
                         <control type="group">
                             <height max="100">auto</height>
@@ -1069,7 +1069,7 @@
                                 <left>60</left>
                                 <align>left</align>
                                 <aligny>top</aligny>
-                                <texture colordiffuse="FF9c9a9b">nxtflix_common/info.png</texture>
+                                <texture colordiffuse="FF9c9a9b">NXTFlix_common/info.png</texture>
                             </control>
                             <control type="label">
                                 <top>50</top>
@@ -1094,11 +1094,11 @@
                                 <animation effect="fade" start="100" end="60" time="0" condition="!Control.HasFocus(2002)">Conditional</animation>
                                 <control type="image">
                                     <width>1180</width>
-                                    <texture colordiffuse="FFCCCCCC" border="30">nxtflix_common/circle.png</texture>
+                                    <texture colordiffuse="FFCCCCCC" border="30">NXTFlix_common/circle.png</texture>
                                 </control>
                                 <control type="image">
                                     <width>200</width>
-                                    <texture colordiffuse="$INFO[ListItem.Property(highlight)]" border="30">nxtflix_common/left-circle.png</texture>
+                                    <texture colordiffuse="$INFO[ListItem.Property(highlight)]" border="30">NXTFlix_common/left-circle.png</texture>
                                 </control>
                             </control>
                             <control type="group">
@@ -1170,7 +1170,7 @@
                                     <left>60</left>
                                     <align>left</align>
                                     <aligny>top</aligny>
-                                    <texture colordiffuse="FF1F2020">nxtflix_common/info.png</texture>
+                                    <texture colordiffuse="FF1F2020">NXTFlix_common/info.png</texture>
                                 </control>
                                 <control type="label">
                                     <top>50</top>
@@ -1194,13 +1194,13 @@
                                 <control type="image">
                                     <width>1180</width>
                                     <height>110</height>
-                                    <texture colordiffuse="FF1F2020" border="30">nxtflix_common/circle.png</texture>
+                                    <texture colordiffuse="FF1F2020" border="30">NXTFlix_common/circle.png</texture>
                                     <animation effect="fade" start="100" end="30" time="0" condition="!Control.HasFocus(2002)">Conditional</animation>
                                 </control>
                                 <control type="image">
                                     <width>1180</width>
                                     <height>110</height>
-                                    <texture colordiffuse="$INFO[ListItem.Property(highlight)]" border="30">nxtflix_common/circle.png</texture>
+                                    <texture colordiffuse="$INFO[ListItem.Property(highlight)]" border="30">NXTFlix_common/circle.png</texture>
                                     <animation effect="fade" start="100" end="30" time="0" condition="true">Conditional</animation>
                                 </control>
                             </control>
@@ -1271,7 +1271,7 @@
                                     <left>60</left>
                                     <align>left</align>
                                     <aligny>top</aligny>
-                                    <texture colordiffuse="FFFFFFFF">nxtflix_common/info.png</texture>
+                                    <texture colordiffuse="FFFFFFFF">NXTFlix_common/info.png</texture>
                                 </control>
                                 <control type="label">
                                     <top>50</top>
@@ -1294,7 +1294,7 @@
                     <top>-20</top>
                     <width>1920</width>
                     <height>1080</height>
-                    <texture colordiffuse="FF000000">nxtflix_common/white.png</texture>
+                    <texture colordiffuse="FF000000">NXTFlix_common/white.png</texture>
                     <visible>Control.HasFocus(2062) | Control.HasFocus(2100)</visible>
                     <animation effect="fade" start="0" end="60" time="200" tween="sine">Visible</animation>
                 </control>
@@ -1317,9 +1317,9 @@
                     <height>705</height>
                     <onleft>2002</onleft>
                     <onright>2002</onright>
-                    <texturesliderbackground colordiffuse="FF302F2F">nxtflix_common/white.png</texturesliderbackground>
-                    <texturesliderbar colordiffuse="FF555556">nxtflix_common/white.png</texturesliderbar>
-                    <texturesliderbarfocus colordiffuse="FFB7B4BB">nxtflix_common/white.png</texturesliderbarfocus>
+                    <texturesliderbackground colordiffuse="FF302F2F">NXTFlix_common/white.png</texturesliderbackground>
+                    <texturesliderbar colordiffuse="FF555556">NXTFlix_common/white.png</texturesliderbar>
+                    <texturesliderbarfocus colordiffuse="FFB7B4BB">NXTFlix_common/white.png</texturesliderbarfocus>
                     <showonepage>false</showonepage>
                     <orientation>vertical</orientation>
                     <visible>Control.IsVisible(2002)</visible>
@@ -1369,7 +1369,7 @@
                             <top>15</top>
                             <width>925</width>
                             <height>110</height>
-                            <texture colordiffuse="FF1F2020" border="30">nxtflix_common/circle.png</texture>
+                            <texture colordiffuse="FF1F2020" border="30">NXTFlix_common/circle.png</texture>
                         </control>
                         <control type="group">
                             <visible>String.IsEmpty(ListItem.Property(perform_full_search))</visible>
@@ -1440,7 +1440,7 @@
                                 <left>45</left>
                                 <align>left</align>
                                 <aligny>top</aligny>
-                                <texture colordiffuse="FF9c9a9b">nxtflix_common/info.png</texture>
+                                <texture colordiffuse="FF9c9a9b">NXTFlix_common/info.png</texture>
                             </control>
                             <control type="label">
                                 <top>50</top>
@@ -1465,11 +1465,11 @@
                                 <height>110</height>
                                 <control type="image">
                                     <width>925</width>
-                                    <texture colordiffuse="FFCCCCCC" border="30">nxtflix_common/circle.png</texture>
+                                    <texture colordiffuse="FFCCCCCC" border="30">NXTFlix_common/circle.png</texture>
                                 </control>
                                 <control type="image">
                                     <width>175</width>
-                                    <texture colordiffuse="$INFO[ListItem.Property(highlight)]" border="30">nxtflix_common/left-circle.png</texture>
+                                    <texture colordiffuse="$INFO[ListItem.Property(highlight)]" border="30">NXTFlix_common/left-circle.png</texture>
                                 </control>
                             </control>
                             <control type="group">
@@ -1541,7 +1541,7 @@
                                     <left>45</left>
                                     <align>left</align>
                                     <aligny>top</aligny>
-                                    <texture colordiffuse="FF1F2020">nxtflix_common/info.png</texture>
+                                    <texture colordiffuse="FF1F2020">NXTFlix_common/info.png</texture>
                                 </control>
                                 <control type="label">
                                     <top>50</top>
@@ -1567,13 +1567,13 @@
                                 <control type="image">
                                     <width>925</width>
                                     <height>110</height>
-                                    <texture colordiffuse="FF1F2020" border="30">nxtflix_common/circle.png</texture>
+                                    <texture colordiffuse="FF1F2020" border="30">NXTFlix_common/circle.png</texture>
                                     <animation effect="fade" start="100" end="30" time="0" condition="!Control.HasFocus(2003)">Conditional</animation>
                                 </control>
                                 <control type="image">
                                     <width>925</width>
                                     <height>110</height>
-                                    <texture colordiffuse="$INFO[ListItem.Property(highlight)]" border="30">nxtflix_common/circle.png</texture>
+                                    <texture colordiffuse="$INFO[ListItem.Property(highlight)]" border="30">NXTFlix_common/circle.png</texture>
                                     <animation effect="fade" start="100" end="30" time="0" condition="true">Conditional</animation>
                                 </control>
                             </control>
@@ -1644,7 +1644,7 @@
                                     <left>45</left>
                                     <align>left</align>
                                     <aligny>top</aligny>
-                                    <texture colordiffuse="FFFFFFFF">nxtflix_common/info.png</texture>
+                                    <texture colordiffuse="FFFFFFFF">NXTFlix_common/info.png</texture>
                                 </control>
                                 <control type="label">
                                     <top>50</top>
@@ -1667,7 +1667,7 @@
                     <top>0</top>
                     <width>1920</width>
                     <height>1080</height>
-                    <texture colordiffuse="FF000000">nxtflix_common/white.png</texture>
+                    <texture colordiffuse="FF000000">NXTFlix_common/white.png</texture>
                     <visible>Control.HasFocus(2063) | Control.HasFocus(2100)</visible>
                     <animation effect="fade" start="0" end="60" time="200" tween="sine">Visible</animation>
                 </control>
@@ -1690,9 +1690,9 @@
                     <height>825</height>
                     <onleft>2003</onleft>
                     <onright>2003</onright>
-                    <texturesliderbackground colordiffuse="FF302F2F">nxtflix_common/white.png</texturesliderbackground>
-                    <texturesliderbar colordiffuse="FF555556">nxtflix_common/white.png</texturesliderbar>
-                    <texturesliderbarfocus colordiffuse="FFB7B4BB">nxtflix_common/white.png</texturesliderbarfocus>
+                    <texturesliderbackground colordiffuse="FF302F2F">NXTFlix_common/white.png</texturesliderbackground>
+                    <texturesliderbar colordiffuse="FF555556">NXTFlix_common/white.png</texturesliderbar>
+                    <texturesliderbarfocus colordiffuse="FFB7B4BB">NXTFlix_common/white.png</texturesliderbarfocus>
                     <showonepage>false</showonepage>
                     <orientation>vertical</orientation>
                     <visible>Control.IsVisible(2003)</visible>
@@ -1744,7 +1744,7 @@
                             <top>15</top>
                             <width>1700</width>
                             <height>110</height>
-                            <texture colordiffuse="FF1F2020" border="30">nxtflix_common/circle.png</texture>
+                            <texture colordiffuse="FF1F2020" border="30">NXTFlix_common/circle.png</texture>
                         </control>
                         <control type="group">
                             <visible>String.IsEmpty(ListItem.Property(perform_full_search))</visible>
@@ -1803,7 +1803,7 @@
                                 <left>55</left>
                                 <align>left</align>
                                 <aligny>top</aligny>
-                                <texture colordiffuse="FF9c9a9b">nxtflix_common/info.png</texture>
+                                <texture colordiffuse="FF9c9a9b">NXTFlix_common/info.png</texture>
                             </control>
                             <control type="label">
                                 <top>50</top>
@@ -1827,11 +1827,11 @@
                                 <height>110</height>
                                 <control type="image">
                                     <width>1700</width>
-                                    <texture colordiffuse="FFCCCCCC" border="30">nxtflix_common/circle.png</texture>
+                                    <texture colordiffuse="FFCCCCCC" border="30">NXTFlix_common/circle.png</texture>
                                 </control>
                                 <control type="image">
                                     <width>200</width>
-                                    <texture colordiffuse="$INFO[ListItem.Property(highlight)]" border="30">nxtflix_common/left-circle.png</texture>
+                                    <texture colordiffuse="$INFO[ListItem.Property(highlight)]" border="30">NXTFlix_common/left-circle.png</texture>
                                 </control>
                             </control>
                             <control type="group">
@@ -1891,7 +1891,7 @@
                                     <left>55</left>
                                     <align>left</align>
                                     <aligny>top</aligny>
-                                    <texture colordiffuse="FF1F2020">nxtflix_common/info.png</texture>
+                                    <texture colordiffuse="FF1F2020">NXTFlix_common/info.png</texture>
                                 </control>
                                 <control type="label">
                                     <top>50</top>
@@ -1915,13 +1915,13 @@
                                 <control type="image">
                                     <width>1700</width>
                                     <height>110</height>
-                                    <texture colordiffuse="FF1F2020" border="30">nxtflix_common/circle.png</texture>
+                                    <texture colordiffuse="FF1F2020" border="30">NXTFlix_common/circle.png</texture>
                                     <animation effect="fade" start="100" end="30" time="0" condition="!Control.HasFocus(2004)">Conditional</animation>
                                 </control>
                                 <control type="image">
                                     <width>1700</width>
                                     <height>110</height>
-                                    <texture colordiffuse="$INFO[ListItem.Property(highlight)]" border="30">nxtflix_common/circle.png</texture>
+                                    <texture colordiffuse="$INFO[ListItem.Property(highlight)]" border="30">NXTFlix_common/circle.png</texture>
                                     <animation effect="fade" start="100" end="30" time="0" condition="true">Conditional</animation>
                                 </control>
                             </control>
@@ -1980,7 +1980,7 @@
                                     <left>55</left>
                                     <align>left</align>
                                     <aligny>top</aligny>
-                                    <texture colordiffuse="FFFFFFFF">nxtflix_common/info.png</texture>
+                                    <texture colordiffuse="FFFFFFFF">NXTFlix_common/info.png</texture>
                                 </control>
                                 <control type="label">
                                     <top>50</top>
@@ -2002,7 +2002,7 @@
                     <top>0</top>
                     <width>1920</width>
                     <height>1080</height>
-                    <texture colordiffuse="FF000000">nxtflix_common/white.png</texture>
+                    <texture colordiffuse="FF000000">NXTFlix_common/white.png</texture>
                     <visible>Control.HasFocus(2064) | Control.HasFocus(2100)</visible>
                     <animation effect="fade" start="0" end="60" time="200" tween="sine">Visible</animation>
                 </control>
@@ -2025,9 +2025,9 @@
                     <height>945</height>
                     <onleft>2004</onleft>
                     <onright>2004</onright>
-                    <texturesliderbackground colordiffuse="FF302F2F">nxtflix_common/white.png</texturesliderbackground>
-                    <texturesliderbar colordiffuse="FF555556">nxtflix_common/white.png</texturesliderbar>
-                    <texturesliderbarfocus colordiffuse="FFB7B4BB">nxtflix_common/white.png</texturesliderbarfocus>
+                    <texturesliderbackground colordiffuse="FF302F2F">NXTFlix_common/white.png</texturesliderbackground>
+                    <texturesliderbar colordiffuse="FF555556">NXTFlix_common/white.png</texturesliderbar>
+                    <texturesliderbarfocus colordiffuse="FFB7B4BB">NXTFlix_common/white.png</texturesliderbarfocus>
                     <showonepage>false</showonepage>
                     <orientation>vertical</orientation>
                     <visible>Control.IsVisible(2004)</visible>
@@ -2054,19 +2054,19 @@
                 <top>321</top>
                 <width>54</width>
                 <height>160</height>
-                <texture colordiffuse="FFCCCCCC" border="30" flipx="true">nxtflix_common/left-circle.png</texture>
+                <texture colordiffuse="FFCCCCCC" border="30" flipx="true">NXTFlix_common/left-circle.png</texture>
             </control>
             <control type="image">
                 <left>-2</left>
                 <top>-2</top>
                 <width>782</width>
                 <height>807</height>
-                <texture colordiffuse="FFCCCCCC" border="30">nxtflix_common/circle.png</texture>
+                <texture colordiffuse="FFCCCCCC" border="30">NXTFlix_common/circle.png</texture>
             </control>
             <control type="image">
                 <width>778</width>
                 <height>803</height>
-                <texture colordiffuse="FF1F2020" border="30">nxtflix_common/circle.png</texture>
+                <texture colordiffuse="FF1F2020" border="30">NXTFlix_common/circle.png</texture>
             </control>
             <control type="image">
                 <left>10</left>
@@ -2076,7 +2076,7 @@
                 <align>left</align>
                 <aligny>top</aligny>
                 <aspectratio aligny="top">keep</aspectratio>
-                <texture colordiffuse="FFCCCCCC">nxtflix_common/nxtflix.png</texture>
+                <texture colordiffuse="FFCCCCCC">NXTFlix_common/NXTFlix.png</texture>
             </control>
             <control type="label">
                 <width max="580">auto</width>
@@ -2094,7 +2094,7 @@
                 <left>760</left>
                 <width>54</width>
                 <height>158</height>
-                <texture colordiffuse="FF1F2020" border="30" flipx="true">nxtflix_common/left-circle.png</texture>
+                <texture colordiffuse="FF1F2020" border="30" flipx="true">NXTFlix_common/left-circle.png</texture>
             </control>
             <control type="image">
                 <visible>!Control.HasFocus(2100)</visible>
@@ -2102,7 +2102,7 @@
                 <left>788</left>
                 <width>15</width>
                 <height>30</height>
-                <texture colordiffuse="FFCCCCCC">nxtflix_common/arrow_left.png</texture>
+                <texture colordiffuse="FFCCCCCC">NXTFlix_common/arrow_left.png</texture>
             </control>
             <control type="image">
                 <visible>Control.HasFocus(2100)</visible>
@@ -2110,7 +2110,7 @@
                 <left>788</left>
                 <width>15</width>
                 <height>30</height>
-                <texture colordiffuse="FFCCCCCC" flipx="true">nxtflix_common/arrow_left.png</texture>
+                <texture colordiffuse="FFCCCCCC" flipx="true">NXTFlix_common/arrow_left.png</texture>
             </control>
             <!-- Filter List -->
             <control type="fixedlist" id="2100">
@@ -2144,7 +2144,7 @@
                     <control type="image">
                         <animation effect="fade" start="100" end="50" time="0" condition="!Control.HasFocus(2100)">Conditional</animation>
                         <width>750</width>
-                        <texture colordiffuse="FFCCCCCC" border="30">nxtflix_common/circle.png</texture>
+                        <texture colordiffuse="FFCCCCCC" border="30">NXTFlix_common/circle.png</texture>
                     </control>
                     <control type="label">
                         <left>70</left>

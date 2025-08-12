@@ -33,8 +33,8 @@ addon_path = addon_info('path')
 userdata_path = translatePath(addon_info('profile'))
 addon_settings = path_join(addon_path, 'resources', 'settings.xml')
 user_settings = path_join(userdata_path, 'settings.xml')
-addon_icon = path_join(addon_path, 'resources', 'media', 'nxtflix_icon.png')
-addon_fanart = addon_object.getSetting('addon_fanart') or path_join(addon_path, 'resources', 'media', 'nxtflix_fanart.png')
+addon_icon = path_join(addon_path, 'resources', 'media', 'NXTFlix_icon.png')
+addon_fanart = addon_object.getSetting('addon_fanart') or path_join(addon_path, 'resources', 'media', 'NXTFlix_fanart.png')
 databases_path = path_join(userdata_path, 'databases/')
 colorpalette_path = path_join(userdata_path, 'color_palette2/')
 colorpalette_zip_path = path_join(addon_path,'resources', 'media', 'color_palette2.zip')
@@ -55,10 +55,10 @@ empty_poster, item_jump, nextpage = img_url % icons.box_office, img_url % icons.
 nextpage_landscape, item_jump_landscape = img_url % icons.nextpage_landscape, img_url % icons.item_jump_landscape
 tmdb_default_api, fanarttv_default_api = 'b370b60447737762ca38457bd77579b3', 'fa836e1c874ba95ab08a14ee88e05565'
 current_dbs = ('navigator.db', 'watched.db', 'favourites.db', 'traktcache4.db', 'maincache.db', 'metacache2.db', 'debridcache.db', 'providerscache2.db', 'settings.db')
-int_window_prop, pause_services_prop, suppress_sett_dict_prop, highlight_prop = 'nxtflix.internal_results.%s', 'nxtflix.pause_services', 'nxtflix.suppress_settings_dict', 'nxtflix.main_highlight'
-custom_context_main_menu_prop, custom_context_prop, sett_addoninfo_active_prop = 'nxtflix.custom_context_main_menu', 'nxtflix.custom_context_menu', 'nxtflix.setting_addoninfo_active'
-pause_settings_prop, use_skin_fonts_prop, custom_info_prop = 'nxtflix.pause_settings', 'nxtflix.use_skin_fonts', 'nxtflix.custom_info_dialog'
-current_skin_prop, current_font_prop = 'nxtflix.current_skin', 'nxtflix.current_font'
+int_window_prop, pause_services_prop, suppress_sett_dict_prop, highlight_prop = 'NXTFlix.internal_results.%s', 'NXTFlix.pause_services', 'NXTFlix.suppress_settings_dict', 'NXTFlix.main_highlight'
+custom_context_main_menu_prop, custom_context_prop, sett_addoninfo_active_prop = 'NXTFlix.custom_context_main_menu', 'NXTFlix.custom_context_menu', 'NXTFlix.setting_addoninfo_active'
+pause_settings_prop, use_skin_fonts_prop, custom_info_prop = 'NXTFlix.pause_settings', 'NXTFlix.use_skin_fonts', 'NXTFlix.custom_info_dialog'
+current_skin_prop, current_font_prop = 'NXTFlix.current_skin', 'NXTFlix.current_font'
 myvideos_db_paths = {19: '119', 20: '121', 21: '124'}
 sort_method_dict = {'episodes': 24, 'files': 5, 'label': 2}
 playlist_type_dict = {'music': 0, 'video': 1}
@@ -141,13 +141,13 @@ def set_category(handle, label):
 	setCategory(handle, label)
 
 def end_directory(handle, cacheToDisc=None):
-	if cacheToDisc == None: cacheToDisc = get_setting('nxtflix.kodi_menu_cache') == 'true'
+	if cacheToDisc == None: cacheToDisc = get_setting('NXTFlix.kodi_menu_cache') == 'true'
 	endOfDirectory(handle, cacheToDisc=cacheToDisc)
 
 def set_view_mode(view_type, content='files', is_external=None):
 	if is_external == None: is_external = external()
 	if is_external: return
-	setting_query = 'nxtflix.%s' % view_type
+	setting_query = 'NXTFlix.%s' % view_type
 	view_id = get_setting(setting_query) or None
 	try:
 		hold = 0
@@ -271,7 +271,7 @@ def run_addon(addon='plugin.video.nxtflix', block=False):
 	return execute_builtin('RunAddon(%s)' % addon, block)
 
 def external():
-	return 'nxtflix' not in get_infolabel('Container.PluginName')
+	return 'NXTFlix' not in get_infolabel('Container.PluginName')
 
 def home():
 	return getCurrentWindowId() == 10000
@@ -430,7 +430,7 @@ def choose_view(view_type, content):
 def set_view(view_type):
 	view_id = str(current_window_object().getFocusId())
 	set_setting(view_type, view_id)
-	set_property('nxtflix.%s' % view_type, view_id)
+	set_property('NXTFlix.%s' % view_type, view_id)
 	notification(get_infolabel('Container.Viewmode').upper(), time=500)
 
 def set_temp_highlight(temp_highlight):
@@ -455,9 +455,9 @@ def timeIt(func):
 def volume_checker():
 	# 0% == -60db, 100% == 0db
 	try:
-		if get_setting('nxtflix.playback.volumecheck_enabled', 'false') == 'false' or get_visibility('Player.Muted'): return
+		if get_setting('NXTFlix.playback.volumecheck_enabled', 'false') == 'false' or get_visibility('Player.Muted'): return
 		from modules.utils import string_alphanum_to_num
-		max_volume = min(int(get_setting('nxtflix.playback.volumecheck_percent', '50')), 100)
+		max_volume = min(int(get_setting('NXTFlix.playback.volumecheck_percent', '50')), 100)
 		if int(100 - (float(string_alphanum_to_num(get_infolabel('Player.Volume').split('.')[0]))/60)*100) > max_volume: execute_builtin('SetVolume(%d)' % max_volume)
 	except: pass
 
@@ -488,7 +488,7 @@ def toggle_language_invoker():
 	close_all_dialog()
 	sleep(100)
 	addon_xml = translate_path('special://home/addons/plugin.video.nxtflix/addon.xml')
-	current_addon_setting = get_setting('nxtflix.reuse_language_invoker', 'true')
+	current_addon_setting = get_setting('NXTFlix.reuse_language_invoker', 'true')
 	new_value = invoker_switch_dict[current_addon_setting]
 	if not confirm_dialog(text=local_string(33018) % (current_addon_setting.upper(), new_value.upper())): return
 	if new_value == 'true' and not confirm_dialog(text=33019): return
@@ -555,7 +555,7 @@ def open_settings(query, addon='plugin.video.nxtflix'):
 
 def external_scraper_settings():
 	try:
-		external = get_setting('nxtflix.external_scraper.module', None)
+		external = get_setting('NXTFlix.external_scraper.module', None)
 		if not external: return
 		execute_builtin('Addon.OpenSettings(%s)' % external)
 	except: pass
@@ -564,7 +564,7 @@ def set_setting(setting_id, value):
 	addon_object.setSetting(setting_id, value)
 
 def get_setting(setting_id, fallback=''):
-	return get_property(setting_id) or addon_object.getSetting(setting_id.replace('nxtflix.', '')) or fallback
+	return get_property(setting_id) or addon_object.getSetting(setting_id.replace('NXTFlix.', '')) or fallback
 
 def manage_settings_reset(cancel=False):
 	if cancel: clear_property(pause_settings_prop); make_settings_props()
@@ -579,7 +579,7 @@ def make_settings_props():
 		sleep(1000)
 	try:
 		if not path_exists(userdata_path): make_directories(userdata_path)
-		for item in all_settings(): set_property('nxtflix.%s' % item[0], item[1])
+		for item in all_settings(): set_property('NXTFlix.%s' % item[0], item[1])
 	except Exception as e: logger('error in make_settings_props', str(e))
 	clear_property(sett_addoninfo_active_prop)
 

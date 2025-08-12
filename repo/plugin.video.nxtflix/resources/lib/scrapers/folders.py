@@ -90,7 +90,7 @@ class source:
 		folder_results = []
 		scrape_results_append = self.scrape_results.append
 		folder_results_append = folder_results.append
-		string = 'nxtflix_FOLDERSCRAPER_%s_%s' % (self.scrape_provider, folder_name)
+		string = 'NXTFlix_FOLDERSCRAPER_%s_%s' % (self.scrape_provider, folder_name)
 		folder_files = cache_object(self._make_dirs, string, (folder_name, assigned_content), json=False, expiration=4)
 		folder_threads = list(make_thread_list(_process, folder_files))
 		[i.join() for i in folder_threads]

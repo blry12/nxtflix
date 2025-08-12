@@ -46,7 +46,7 @@ def search_trakt_lists(params):
 				info_tag = listitem.getVideoInfoTag()
 				info_tag.setPlot(' ')
 				listitem.addContextMenuItems(cm)
-				listitem.setProperty('nxtflix.context_main_menu_params', build_url({'mode': 'menu_editor.edit_menu_external', 'name': editor_display, 'iconImage': 'trakt'}))
+				listitem.setProperty('NXTFlix.context_main_menu_params', build_url({'mode': 'menu_editor.edit_menu_external', 'name': editor_display, 'iconImage': 'trakt'}))
 				yield (url, listitem, True)
 			except: pass
 	handle, search_title = int(sys.argv[1]), ''
@@ -92,7 +92,7 @@ def get_trakt_lists(params):
 				info_tag = listitem.getVideoInfoTag()
 				info_tag.setPlot(' ')
 				listitem.addContextMenuItems(cm)
-				listitem.setProperty('nxtflix.context_main_menu_params', build_url({'mode': 'menu_editor.edit_menu_external', 'name': editor_display, 'iconImage': 'trakt'}))
+				listitem.setProperty('NXTFlix.context_main_menu_params', build_url({'mode': 'menu_editor.edit_menu_external', 'name': editor_display, 'iconImage': 'trakt'}))
 				yield (url, listitem, True)
 			except: pass
 	handle = int(sys.argv[1])
@@ -135,7 +135,7 @@ def get_trakt_trending_popular_lists(params):
 				listitem.setArt({'icon': trakt_icon, 'poster': trakt_icon, 'thumb': trakt_icon, 'fanart': fanart, 'banner': trakt_icon})
 				info_tag = listitem.getVideoInfoTag()
 				info_tag.setPlot(' ')
-				listitem.setProperty('nxtflix.context_main_menu_params', build_url({'mode': 'menu_editor.edit_menu_external', 'name': editor_display, 'iconImage': 'trakt'}))
+				listitem.setProperty('NXTFlix.context_main_menu_params', build_url({'mode': 'menu_editor.edit_menu_external', 'name': editor_display, 'iconImage': 'trakt'}))
 				yield (url, listitem, True)
 			except: pass
 	handle = int(sys.argv[1])
@@ -169,7 +169,7 @@ def build_trakt_list(params):
 		item_list_extend = item_list.extend
 		user, slug, list_type = params.get('user'), params.get('slug'), params.get('list_type')
 		page_no, paginate_start = int(params.get('new_page', '1')), int(params.get('paginate_start', '0'))
-		if page_no == 1 and not is_external: set_property('nxtflix.exit_params', folder_path())
+		if page_no == 1 and not is_external: set_property('NXTFlix.exit_params', folder_path())
 		with_auth = list_type == 'my_lists'
 		result = get_trakt_list_contents(list_type, user, slug, with_auth)
 		process_list, all_pages, total_pages, paginate_start = _paginate_list(result, page_no, paginate_start)

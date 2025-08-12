@@ -49,16 +49,16 @@ def create_window(import_info, skin_xml, **kwargs):
 def window_manager(obj):
 	def close():
 		obj.close()
-		clear_property('nxtflix.window_loaded')
-		clear_property('nxtflix.window_stack')
+		clear_property('NXTFlix.window_loaded')
+		clear_property('NXTFlix.window_stack')
 	def monitor():
 		timer = 0
-		while not get_property('nxtflix.window_loaded') == 'true' and timer <= 5:
+		while not get_property('NXTFlix.window_loaded') == 'true' and timer <= 5:
 			sleep(50)
 			timer += 0.05
 		hide_busy_dialog()
 		obj.close()
-		clear_property('nxtflix.window_loaded')
+		clear_property('NXTFlix.window_loaded')
 	def runner(params):
 		try:
 			mode = params['mode']
@@ -71,19 +71,19 @@ def window_manager(obj):
 			else: close()
 		except: close()
 	def get_stack():
-		try: window_stack = json.loads(get_property('nxtflix.window_stack'))
+		try: window_stack = json.loads(get_property('NXTFlix.window_stack'))
 		except: window_stack = []
 		return window_stack
 	def add_to_stack(params):
 		window_stack.append(params)
-		set_property('nxtflix.window_stack', json.dumps(window_stack))
+		set_property('NXTFlix.window_stack', json.dumps(window_stack))
 	def remove_from_stack():
 		previous_params = window_stack.pop()
-		set_property('nxtflix.window_stack', json.dumps(window_stack))
+		set_property('NXTFlix.window_stack', json.dumps(window_stack))
 		return previous_params
 	show_busy_dialog()
 	try:
-		clear_property('nxtflix.window_loaded')
+		clear_property('NXTFlix.window_loaded')
 		current_params = obj.current_params
 		new_params = obj.new_params
 		window_stack = get_stack()
@@ -103,12 +103,12 @@ def window_manager(obj):
 def window_player(obj):
 	def monitor():
 		timer = 0
-		while not get_property('nxtflix.window_loaded') == 'true' and timer <= 5:
+		while not get_property('NXTFlix.window_loaded') == 'true' and timer <= 5:
 			sleep(50)
 			timer += 0.05
 		hide_busy_dialog()
 		obj.close()
-		clear_property('nxtflix.window_loaded')
+		clear_property('NXTFlix.window_loaded')
 	def runner(params):
 		try:
 			mode = params['mode']
@@ -123,7 +123,7 @@ def window_player(obj):
 		window_player_url = obj.window_player_url
 		if 'plugin.video.youtube' in window_player_url:
 			if not addon_installed('plugin.video.youtube') or not addon_enabled('plugin.video.youtube'): return
-		clear_property('nxtflix.window_loaded')
+		clear_property('NXTFlix.window_loaded')
 		current_params = obj.current_params
 		player.play(window_player_url)
 		sleep(2000)
@@ -156,12 +156,12 @@ class BaseDialog(window_xml_dialog):
 
 	def highlight_var(self, force=False):
 		custom_var = highlight_var_dict.get(self.current_skin(), None)
-		if not custom_var: return get_infolabel('Window(10000).Property(nxtflix.main_highlight)')
+		if not custom_var: return get_infolabel('Window(10000).Property(NXTFlix.main_highlight)')
 		if 'Custom' in self.args[1]: var = custom_var
 		elif force:
 			if use_custom_skins(): var = custom_var
-			else: var = 'Window(10000).Property(nxtflix.main_highlight)'
-		else: var = 'Window(10000).Property(nxtflix.main_highlight)'
+			else: var = 'Window(10000).Property(NXTFlix.main_highlight)'
+		else: var = 'Window(10000).Property(NXTFlix.main_highlight)'
 		result = get_infolabel(var)
 		return result
 
@@ -232,10 +232,10 @@ class BaseDialog(window_xml_dialog):
 		return translate_path(path)
 
 	def set_home_property(self, prop, value):
-		set_property('nxtflix.%s' % prop, value)
+		set_property('NXTFlix.%s' % prop, value)
 
 	def get_home_property(self, prop):
-		return get_property('nxtflix.%s' % prop)
+		return get_property('NXTFlix.%s' % prop)
 
 	def get_attribute(self, obj, attribute):
 		return getattr(obj, attribute)

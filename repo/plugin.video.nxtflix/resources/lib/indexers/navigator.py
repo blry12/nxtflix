@@ -15,7 +15,7 @@ vid_str, fl_str, se_str, acc_str, dl_str, people_str, keywords_str, add_cont_str
 tools_str, changelog_str, source_str, cl_dbs_str, langinv_str, shortcut_manager_str, ext_str = ls(32456), ls(32508), ls(32515), ls(32512), ls(33017), ls(32514), ls(32118)
 user_str, ml_str, ll_str, rec_str, cal_str, lv_str, lu_str, k_str, genre_select_str = ls(32065), ls(32454), ls(32502), ls(32503), ls(32081), ls(32509), ls(32853), ls(32538), ls(32847)
 recent_added_str, recently_aired_str, random_str, episodes_str, settings_str, res_serv_str, upd_str = ls(32498), ls(32505), ls(32504), ls(32506), ls(32247), ls(32680), ls(32789)
-log_utils_str, tips_use_str, views_str, updates_str, nxtflix_str, all_str, cache_str, clean_str = ls(32777), ls(32518), ls(32510), ls(32196), ls(32036), ls(32129), ls(32524), ls(32526)
+log_utils_str, tips_use_str, views_str, updates_str, NXTFlix_str, all_str, cache_str, clean_str = ls(32777), ls(32518), ls(32510), ls(32196), ls(32036), ls(32129), ls(32524), ls(32526)
 discover_str, history_str, help_str, furk_str, easy_str, rd_str, pm_str, ad_str = ls(32451), ls(32486), ls(32487), ls(32069), ls(32070), ls(32054), ls(32061), ls(32063)
 cloud_str, clca_str, trakt_str, imdb_str, coll_str, wlist_str, ls_str, fav_str = ls(32496), ls(32497), ls(32037), ls(32064), ls(32499), ls(32500), ls(32501), ls(32453)
 root_str, season_str, images_str, make_short_str, delete_str, mcol_str, res_hc, progman_str = ls(32457), ls(32537), ls(32798), ls(32702), ls(32703), ls(33080), ls(33107), ls(32599)
@@ -119,7 +119,7 @@ class Navigator:
 		self.favorites()
 
 	def my_content(self):
-		if get_setting('nxtflix.trakt.user', ''):
+		if get_setting('NXTFlix.trakt.user', ''):
 			self.add({'mode': 'navigator.trakt_collections'}, my_content_trakt_ins % coll_str, 'trakt')
 			self.add({'mode': 'navigator.trakt_watchlists'}, my_content_trakt_ins % wlist_str, 'trakt')
 			self.add({'mode': 'trakt.list.get_trakt_lists', 'list_type': 'my_lists', 'build_list': 'true', 'category_name': ml_str}, trakt_lists_ins % ml_str, 'trakt')
@@ -130,7 +130,7 @@ class Navigator:
 		self.add({'mode': 'trakt.list.get_trakt_trending_popular_lists', 'list_type': 'trending', 'category_name': tu_str}, trakt_lists_ins % tu_str, 'trakt')
 		self.add({'mode': 'trakt.list.get_trakt_trending_popular_lists', 'list_type': 'popular', 'category_name': pu_str}, trakt_lists_ins % pu_str, 'trakt')
 		self.add({'mode': 'get_search_term', 'search_type': 'trakt_lists', 'isFolder': 'false'}, trakt_lists_ins % sea_str, 'trakt')
-		if get_setting('nxtflix.imdb_user', ''):
+		if get_setting('NXTFlix.imdb_user', ''):
 			self.add({'mode': 'navigator.imdb_watchlists'}, my_content_imdb_ins % wlist_str, 'imdb')
 			self.add({'mode': 'navigator.imdb_lists'}, my_content_imdb_ins % ls_str, 'imdb')
 		self.end_directory()
@@ -198,8 +198,8 @@ class Navigator:
 		self.end_directory()
 
 	def tools(self):
-		self.add({'mode': 'open_settings', 'isFolder': 'false'}, settings_ins % nxtflix_str, 'settings')
-		if get_setting('nxtflix.external_scraper.module', None):
+		self.add({'mode': 'open_settings', 'isFolder': 'false'}, settings_ins % NXTFlix_str, 'settings')
+		if get_setting('NXTFlix.external_scraper.module', None):
 			self.add({'mode': 'open_external_scraper_settings', 'isFolder': 'false'}, settings_ins % ext_scr_str, 'settings')
 		self.add({'mode': 'navigator.tips'}, tools_ins % tips_use_str, 'settings2')
 		self.add({'mode': 'navigator.accounts_manager'}, tools_ins % man_acc_str, 'settings2')
@@ -210,12 +210,12 @@ class Navigator:
 		self.add({'mode': 'navigator.maintenance'}, tools_ins % cl_dbs_str, 'settings2')
 		self.add({'mode': 'default_highlight_colors_choice', 'isFolder': 'false'}, tools_ins % res_hc, 'settings2')
 		self.add({'mode': 'restart_services', 'isFolder': 'false'}, tools_ins % res_serv_str, 'settings')
-		# self.add({'mode': 'update_check', 'isFolder': 'false'}, tools_ins % upd_str, 'settings2')
+		self.add({'mode': 'update_check', 'isFolder': 'false'}, tools_ins % upd_str, 'settings2')
 		self.add({'mode': 'toggle_language_invoker', 'isFolder': 'false'}, tools_ins % langinv_str, 'settings2')
 		self.end_directory()
 
 	def accounts_manager(self):
-		trakt_active = get_setting('nxtflix.trakt.user') != ''
+		trakt_active = get_setting('NXTFlix.trakt.user') != ''
 		debrids = debrid_authed()
 		rd_active, pm_active, ad_active = 'Real-Debrid' in debrids, 'Premiumize.me' in debrids, 'AllDebrid' in debrids
 		folder_active = len([i for i in folder_info for media_type in ('movie', 'tvshow') if (source_folders_directory(media_type, i[0]) or '')]) > 0
@@ -259,9 +259,9 @@ class Navigator:
 		self.end_directory()
 
 	def changelog_utils(self):
-		nxtflix_clogpath = tp(log_path % 'plugin.video.nxtflix/resources/text')
-		mh_str = '[B]%s[/B]: %s  [I](v.%s)[/I]' % (changelog_str.upper(), nxtflix_str, addon().getAddonInfo('version'))
-		self.add({'mode': 'show_text', 'heading': mh_str, 'file': nxtflix_clogpath, 'font_size': 'large', 'isFolder': 'false'}, mh_str, 'lists', False)
+		NXTFlix_clogpath = tp(log_path % 'plugin.video.nxtflix/resources/text')
+		mh_str = '[B]%s[/B]: %s  [I](v.%s)[/I]' % (changelog_str.upper(), NXTFlix_str, addon().getAddonInfo('version'))
+		self.add({'mode': 'show_text', 'heading': mh_str, 'file': NXTFlix_clogpath, 'font_size': 'large', 'isFolder': 'false'}, mh_str, 'lists', False)
 		self.add({'mode': 'show_text', 'heading': klv_h_str, 'file': kl_loc, 'kodi_log': 'true', 'isFolder': 'false'}, klv_h_str, 'lists', False)
 		self.add({'mode': 'show_text', 'heading': klvo_h_str, 'file': klo_loc, 'kodi_log': 'true', 'isFolder': 'false'}, klvo_h_str, 'lists', False)
 		self.add({'mode': 'upload_logfile', 'isFolder': 'false'}, klu_h_str, 'lists', False)
@@ -334,7 +334,7 @@ class Navigator:
 					listitem.setArt({'fanart': fanart})
 					info_tag = listitem.getVideoInfoTag()
 					info_tag.setPlot(' ')
-					listitem.setProperty('nxtflix.context_main_menu_params', build_url({'mode': 'menu_editor.edit_menu_external', 'name': clean_title, 'iconImage': folder_icon,
+					listitem.setProperty('NXTFlix.context_main_menu_params', build_url({'mode': 'menu_editor.edit_menu_external', 'name': clean_title, 'iconImage': folder_icon,
 										'service': 'FOLDERS', 'id': link_id}))
 					yield (url, listitem, info[1])
 				except: pass
@@ -356,7 +356,7 @@ class Navigator:
 					listitem = make_listitem()
 					setting_id, default_name = item[0], item[1]
 					folder_path = source_folders_directory(media_type, setting_id) or ''
-					display_name = get_setting('nxtflix.%s.display_name' % setting_id)
+					display_name = get_setting('NXTFlix.%s.display_name' % setting_id)
 					if action == 'browse':
 						if not folder_path or not display_name: continue
 						display = '%s (%s)' % (display_name.upper(), media_type.upper())
@@ -401,8 +401,8 @@ class Navigator:
 					listitem.setArt({'icon': folder_icon, 'poster': folder_icon, 'thumb': folder_icon, 'fanart': fanart, 'banner': folder_icon})
 					info_tag = listitem.getVideoInfoTag()
 					info_tag.setPlot(' ')
-					listitem.setProperty('nxtflix.context_main_menu_params', build_url({'mode': 'menu_editor.edit_menu_external', 'name': name, 'iconImage': folder_icon}))
-					if self.is_home: listitem.setProperty('nxtflix.external', 'true')
+					listitem.setProperty('NXTFlix.context_main_menu_params', build_url({'mode': 'menu_editor.edit_menu_external', 'name': name, 'iconImage': folder_icon}))
+					if self.is_home: listitem.setProperty('NXTFlix.external', 'true')
 					yield (url, listitem, True)
 				except: pass
 		_make_new_item()
@@ -436,9 +436,9 @@ class Navigator:
 					info_tag = listitem.getVideoInfoTag()
 					info_tag.setPlot(' ')
 					listitem.addContextMenuItems(cm)
-					listitem.setProperty('nxtflix.context_main_menu_params', menu_editor_url)
+					listitem.setProperty('NXTFlix.context_main_menu_params', menu_editor_url)
 					isFolder = item.get('isFolder', 'true') == 'true'
-					if self.is_home: listitem.setProperty('nxtflix.external', 'true')
+					if self.is_home: listitem.setProperty('NXTFlix.external', 'true')
 					yield (build_url(item), listitem, isFolder)
 				except: pass
 		list_name = self.params_get('name')
@@ -448,7 +448,7 @@ class Navigator:
 		self.end_directory()
 
 	def exit_media_menu(self):
-		params = get_property('nxtflix.exit_params')
+		params = get_property('NXTFlix.exit_params')
 		if params: return container_refresh_input(params)
 
 	def tips(self):
@@ -497,8 +497,8 @@ class Navigator:
 				info_tag = listitem.getVideoInfoTag()
 				info_tag.setPlot(' ')
 				listitem.addContextMenuItems(cm)
-				listitem.setProperty('nxtflix.context_main_menu_params', menu_editor_url)
-				if self.is_home: listitem.setProperty('nxtflix.external', 'true')
+				listitem.setProperty('NXTFlix.context_main_menu_params', menu_editor_url)
+				if self.is_home: listitem.setProperty('NXTFlix.external', 'true')
 				yield (build_url(item), listitem, isFolder)
 			except: pass
 
@@ -519,8 +519,8 @@ class Navigator:
 			cm_append((add_menu_str, run_plugin % build_url({'mode': 'menu_editor.add_external', 'name': list_name, 'iconImage': iconImage})))
 			cm_append((s_folder_str, run_plugin % build_url({'mode': 'menu_editor.shortcut_folder_add_item', 'name': list_name, 'iconImage': iconImage})))
 			listitem.addContextMenuItems(cm)
-			listitem.setProperty('nxtflix.context_main_menu_params', build_url({'mode': 'menu_editor.edit_menu_external', 'name': list_name, 'iconImage': iconImage}))
-			if self.is_home: listitem.setProperty('nxtflix.external', 'true')
+			listitem.setProperty('NXTFlix.context_main_menu_params', build_url({'mode': 'menu_editor.edit_menu_external', 'name': list_name, 'iconImage': iconImage}))
+			if self.is_home: listitem.setProperty('NXTFlix.external', 'true')
 		add_item(int(sys.argv[1]), url, listitem, isFolder)
 
 	def end_directory(self):

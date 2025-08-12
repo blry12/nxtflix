@@ -2410,7 +2410,7 @@ msgid "Unwatched"
 msgstr ""
 
 msgctxt "#32804"
-msgid "Dropped"
+msgid "Hidden"
 msgstr ""
 
 msgctxt "#32805"

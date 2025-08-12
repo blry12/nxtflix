@@ -12,7 +12,7 @@ make_listitem, set_content, end_directory, set_view_mode = kodi_utils.make_listi
 get_icon, addon_fanart, random = kodi_utils.get_icon, kodi_utils.addon_fanart, kodi_utils.random
 ls, sys, build_url, json, notification = kodi_utils.local_string, kodi_utils.sys, kodi_utils.build_url, kodi_utils.json, kodi_utils.notification 
 watched_indicators, ignore_articles = settings.watched_indicators, settings.ignore_articles
-hidden_ind_str, hidden_str, heading, window_prop = ' [COLOR=red][B][%s][/B][/COLOR]', ls(32804).upper(), ls(32806), 'nxtflix.random_episode_history'
+hidden_ind_str, hidden_str, heading, window_prop = ' [COLOR=red][B][%s][/B][/COLOR]', ls(32804).upper(), ls(32806), 'NXTFlix.random_episode_history'
 
 class EpisodeTools:
 	def __init__(self, meta, nextep_settings=None):
