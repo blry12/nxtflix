@@ -22,7 +22,7 @@
                 <top>-2</top>
                 <height>482</height>
                 <width>782</width>
-                <texture border="16" colordiffuse="Window(10000).Property(NXTFlix.main_highlight)">NXTFlix_common/dialog.png</texture>
+                <texture border="16" colordiffuse="Window(10000).Property(nxtflix.main_highlight)">NXTFlix_common/dialog.png</texture>
             </control>
             <control type="image">
                 <height>478</height>
@@ -45,7 +45,7 @@
                 <left>110</left>
                 <height>20</height>
                 <font>LabelInfoSub</font> <!-- NXTFlix_26 -->
-                <textcolor>$INFO[Window(10000).Property(NXTFlix.main_highlight)]</textcolor>
+                <textcolor>$INFO[Window(10000).Property(nxtflix.main_highlight)]</textcolor>
                 <shadowcolor>FF000000</shadowcolor>
                 <align>center</align>
                 <label>[UPPERCASE][B]$INFO[Window.Property(heading)][/B][/UPPERCASE]</label>
