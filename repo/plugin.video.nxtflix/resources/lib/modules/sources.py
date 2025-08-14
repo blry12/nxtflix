@@ -4,7 +4,7 @@ from windows.base_window import open_window, create_window
 from scrapers import external, folders
 from modules import debrid, kodi_utils, settings, metadata, watched_status
 from modules.debrid import debrid_enabled
-from modules.player import NXTFlixPlayer
+from modules.player import nxtflixPlayer
 from modules.source_utils import get_cache_expiry, make_alias_dict
 from modules.utils import clean_file_name, string_to_float, safe_string, remove_accents, get_datetime, append_module_to_syspath, manual_function_import, manual_module_import
 # logger = kodi_utils.logger
@@ -558,7 +558,7 @@ class Sources():
 		link = chosen_result['url_dl']
 		name = chosen_result['name']
 		self._kill_progress_dialog()
-		return NXTFlixPlayer().run(link, 'video')
+		return nxtflixPlayer().run(link, 'video')
 
 	def debridPacks(self, debrid_provider, name, magnet_url, info_hash, download=False):
 		show_busy_dialog()
@@ -578,7 +578,7 @@ class Sources():
 		link = self.resolve_internal_sources(debrid_info, chosen_result['link'], '')
 		name = chosen_result['filename']
 		self._kill_progress_dialog()
-		return NXTFlixPlayer().run(link, 'video')
+		return nxtflixPlayer().run(link, 'video')
 
 	def play_file(self, results, source={}):
 		self.playback_successful, self.cancel_all_playback = None, False
@@ -633,7 +633,7 @@ class Sources():
 						sleep(self.playback_attempt_pause)
 						try: del player
 						except: pass
-					player = NXTFlixPlayer()
+					player = nxtflixPlayer()
 					url, self.playback_successful, self.cancel_all_playback = None, None, False
 					self.playing_filename = item['name']
 					try:

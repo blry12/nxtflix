@@ -20,56 +20,56 @@ make_directories, path_exists, update_action, update_delay = kodi_utils.make_dir
 get_setting, set_setting, external, make_settings_props = kodi_utils.get_setting, kodi_utils.set_setting, kodi_utils.external, kodi_utils.make_settings_props
 logger, run_addon, confirm_dialog, close_dialog = kodi_utils.logger, kodi_utils.run_addon, kodi_utils.confirm_dialog, kodi_utils.close_dialog
 get_property, set_property, clear_property, get_visibility = kodi_utils.get_property, kodi_utils.set_property, kodi_utils.clear_property, kodi_utils.get_visibility
-trakt_sync_interval, trakt_sync_refresh_widgets, auto_start_nxtflix = settings.trakt_sync_interval, settings.trakt_sync_refresh_widgets, settings.auto_start_nxtflix
+trakt_sync_interval, trakt_sync_refresh_widgets, auto_start_NXTFlix = settings.trakt_sync_interval, settings.trakt_sync_refresh_widgets, settings.auto_start_NXTFlix
 kodi_refresh, list_dirs, delete_file = kodi_utils.kodi_refresh, kodi_utils.list_dirs, kodi_utils.delete_file
 current_skin_prop, use_skin_fonts_prop, notification, ok_dialog = kodi_utils.current_skin_prop, kodi_utils.use_skin_fonts_prop, kodi_utils.notification, kodi_utils.ok_dialog
 pause_settings_prop, enabled_debrids_check = kodi_utils.pause_settings_prop, settings.enabled_debrids_check
-nxtflix_str, window_top_str, listitem_property_str = ls(32036), 'Window.IsTopMost(%s)', 'ListItem.Property(%s)'
+NXTFlix_str, window_top_str, listitem_property_str = ls(32036), 'Window.IsTopMost(%s)', 'ListItem.Property(%s)'
 movieinformation_str, contextmenu_str = 'movieinformation', 'contextmenu'
 media_windows = (10000, 10025, 11121)
 
 class InitializeDatabases:
 	def run(self):
-		logger(nxtflix_str, 'InitializeDatabases Service Starting')
+		logger(NXTFlix_str, 'InitializeDatabases Service Starting')
 		check_databases()
-		return logger(nxtflix_str, 'InitializeDatabases Service Finished')
+		return logger(NXTFlix_str, 'InitializeDatabases Service Finished')
 
 class CheckSettings:
 	def run(self):
-		logger(nxtflix_str, 'CheckSettingsFile Service Starting')
+		logger(NXTFlix_str, 'CheckSettingsFile Service Starting')
 		if not path_exists(userdata_path): make_directories(userdata_path)
 		addon_object.setSetting('dummy_setting', 'foo')
-		return logger(nxtflix_str, 'CheckSettingsFile Service Finished')
+		return logger(NXTFlix_str, 'CheckSettingsFile Service Finished')
 
 class DatabaseMaintenance:
 	def run(self):
-		logger(nxtflix_str, 'Database Maintenance Service Starting')
+		logger(NXTFlix_str, 'Database Maintenance Service Starting')
 		time = datetime.datetime.now()
 		current_time = self._get_timestamp(time)
-		due_clean = int(get_setting('nxtflix.database.maintenance.due', '0'))
+		due_clean = int(get_setting('NXTFlix.database.maintenance.due', '0'))
 		if due_clean == 0:
 			next_clean = str(int(self._get_timestamp(time + datetime.timedelta(days=3))))
 			set_setting('database.maintenance.due', next_clean)
-			return logger(nxtflix_str, 'Database Maintenance Service First Run - Skipping')
+			return logger(NXTFlix_str, 'Database Maintenance Service First Run - Skipping')
 		if current_time >= due_clean:
 			clean_databases(current_time, database_check=False, silent=True)
 			next_clean = str(int(self._get_timestamp(time + datetime.timedelta(days=3))))
 			set_setting('database.maintenance.due', next_clean)
-			return logger(nxtflix_str, 'Database Maintenance Service Finished')
-		else: return logger(nxtflix_str, 'Database Maintenance Service Finished - Not Run')
+			return logger(NXTFlix_str, 'Database Maintenance Service Finished')
+		else: return logger(NXTFlix_str, 'Database Maintenance Service Finished - Not Run')
 
 	def _get_timestamp(self, date_time):
 		return int(time.mktime(date_time.timetuple()))
 
 class FirstRunActions:
 	def run(self):
-		logger(nxtflix_str, 'FirstRunActions Service Starting')
+		logger(NXTFlix_str, 'FirstRunActions Service Starting')
 		if kodi_version() < 20:
-			ok_dialog(nxtflix_str, 'Kodi 20 or above required[CR]Please update Kodi or uninstall NXTFlix')
-			return logger(nxtflix_str, 'FirstRunActions Service Finished - Running on Incompatible Kodi Version')
+			ok_dialog(NXTFlix_str, 'Kodi 20 or above required[CR]Please update Kodi or uninstall NXTFlix')
+			return logger(NXTFlix_str, 'FirstRunActions Service Finished - Running on Incompatible Kodi Version')
 		addon_version, settings_version =  self.remove_alpha(addon_object.getAddonInfo('version')), self.remove_alpha(addon_object.getSetting('version_number'))
 		if addon_version != settings_version:
-			logger(nxtflix_str, 'FirstRunActions Running Update Actions....')
+			logger(NXTFlix_str, 'FirstRunActions Running Update Actions....')
 			addon_object.setSetting('version_number', addon_version)
 			self.update_action(addon_version)
 		if get_setting('first_use', 'false') == 'true':
@@ -83,7 +83,7 @@ class FirstRunActions:
 				heading = '%s - %s/5.' % (ls(32522), count)
 				ok_dialog(heading, line, button_label)
 			set_setting('first_use', 'false')
-		return logger(nxtflix_str, 'FirstRunActions Service Finished')
+		return logger(NXTFlix_str, 'FirstRunActions Service Finished')
 
 	def update_action(self, addon_version):
 		''' Put code that needs to run once on update here'''
@@ -96,26 +96,26 @@ class FirstRunActions:
 
 class ReuseLanguageInvokerCheck:
 	def run(self):
-		logger(nxtflix_str, 'ReuseLanguageInvokerCheck Service Starting')
+		logger(NXTFlix_str, 'ReuseLanguageInvokerCheck Service Starting')
 		addon_xml = translate_path('special://home/addons/plugin.video.nxtflix/addon.xml')
-		current_addon_setting = get_setting('nxtflix.reuse_language_invoker', None)
-		if current_addon_setting is None: return logger(nxtflix_str, 'ReuseLanguageInvokerCheck Service Error. No current setting detected. Finished')
+		current_addon_setting = get_setting('NXTFlix.reuse_language_invoker', None)
+		if current_addon_setting is None: return logger(NXTFlix_str, 'ReuseLanguageInvokerCheck Service Error. No current setting detected. Finished')
 		root = mdParse(addon_xml)
 		invoker_instance = root.getElementsByTagName('reuselanguageinvoker')[0].firstChild
 		if invoker_instance.data != current_addon_setting:
 			invoker_instance.data = current_addon_setting
 			new_xml = str(root.toxml()).replace('<?xml version="1.0" ?>', '')
 			with open(addon_xml, 'w') as f: f.write(new_xml)
-			if not get_setting('nxtflix.auto_invoker_fix') == 'true' and not confirm_dialog(text='%s[CR]%s' % (ls(33021), ls(33020))):
-				return logger(nxtflix_str, 'ReuseLanguageInvokerCheck Service Finished')
+			if not get_setting('NXTFlix.auto_invoker_fix') == 'true' and not confirm_dialog(text='%s[CR]%s' % (ls(33021), ls(33020))):
+				return logger(NXTFlix_str, 'ReuseLanguageInvokerCheck Service Finished')
 			execute_builtin('ActivateWindow(Home)', True)
 			update_local_addons()
 			disable_enable_addon()
-		return logger(nxtflix_str, 'ReuseLanguageInvokerCheck Service Finished')
+		return logger(NXTFlix_str, 'ReuseLanguageInvokerCheck Service Finished')
 
 class TraktMonitor:
 	def run(self):
-		logger(nxtflix_str, 'TraktMonitor Service Starting')
+		logger(NXTFlix_str, 'TraktMonitor Service Starting')
 		monitor, player = xbmc_monitor(), xbmc_player()
 		wait_for_abort, is_playing = monitor.waitForAbort, player.isPlayingVideo
 		trakt_service_string = 'TraktMonitor Service Update %s - %s'
@@ -129,24 +129,24 @@ class TraktMonitor:
 				next_update_string = update_string % sync_interval
 				status = trakt_sync_activities()
 				if status in ('success', 'no account'):
-					logger(nxtflix_str, trakt_service_string % ('Success', success_line_dict[status]))
+					logger(NXTFlix_str, trakt_service_string % ('Success', success_line_dict[status]))
 					if trakt_sync_refresh_widgets():
 						kodi_refresh()
-						logger(nxtflix_str, trakt_service_string % ('Widgets Refresh', 'Setting Activated. Widget Refresh Performed'))
-					else: logger(nxtflix_str, trakt_service_string % ('Widgets Refresh', 'Setting Disabled. Skipping Widget Refresh'))
-				elif status == 'failed': logger(nxtflix_str, trakt_service_string % ('Failed. Error from Trakt', next_update_string))
-				else: logger(nxtflix_str, trakt_service_string % ('Success. No Changes Needed', next_update_string))# 'not needed'
-			except Exception as e: logger(nxtflix_str, trakt_service_string % ('Failed', 'The following Error Occured: %s' % str(e)))
+						logger(NXTFlix_str, trakt_service_string % ('Widgets Refresh', 'Setting Activated. Widget Refresh Performed'))
+					else: logger(NXTFlix_str, trakt_service_string % ('Widgets Refresh', 'Setting Disabled. Skipping Widget Refresh'))
+				elif status == 'failed': logger(NXTFlix_str, trakt_service_string % ('Failed. Error from Trakt', next_update_string))
+				else: logger(NXTFlix_str, trakt_service_string % ('Success. No Changes Needed', next_update_string))# 'not needed'
+			except Exception as e: logger(NXTFlix_str, trakt_service_string % ('Failed', 'The following Error Occured: %s' % str(e)))
 			wait_for_abort(wait_time)
 		try: del monitor
 		except: pass
 		try: del player
 		except: pass
-		return logger(nxtflix_str, 'TraktMonitor Service Finished')
+		return logger(NXTFlix_str, 'TraktMonitor Service Finished')
 
 class CustomActions:
 	def run(self):
-		logger(nxtflix_str, 'CustomActions Service Starting')
+		logger(NXTFlix_str, 'CustomActions Service Starting')
 		monitor, player = xbmc_monitor(), xbmc_player()
 		self.wait_for_abort, abort_requested, is_playing = monitor.waitForAbort, monitor.abortRequested, player.isPlayingVideo
 		while not abort_requested():
@@ -158,11 +158,11 @@ class CustomActions:
 				if not any([custom_context, custom_main_context, custom_info]): self.wait_for_abort(5); continue
 				if not get_window_id() in media_windows: self.wait_for_abort(2); continue
 				if get_property(pause_services_prop) == 'true' or is_playing(): self.wait_for_abort(2); continue
-				if not external() or get_infolabel(listitem_property_str % 'nxtflix.external') == 'true':
+				if not external() or get_infolabel(listitem_property_str % 'NXTFlix.external') == 'true':
 					run_custom = True
-					custom_context_params = get_infolabel(listitem_property_str % 'nxtflix.options_params')
-					custom_main_context_params = get_infolabel(listitem_property_str % 'nxtflix.context_main_menu_params')
-					custom_info_params = get_infolabel(listitem_property_str % 'nxtflix.extras_params')
+					custom_context_params = get_infolabel(listitem_property_str % 'NXTFlix.options_params')
+					custom_main_context_params = get_infolabel(listitem_property_str % 'NXTFlix.context_main_menu_params')
+					custom_info_params = get_infolabel(listitem_property_str % 'NXTFlix.extras_params')
 					self.wait_for_abort(0.25)
 				else:
 					run_custom = False
@@ -181,7 +181,7 @@ class CustomActions:
 		except: pass
 		try: del player
 		except: pass
-		return logger(nxtflix_str, 'CustomActions Service Finished')
+		return logger(NXTFlix_str, 'CustomActions Service Finished')
 
 	def run_custom_action(self, action, window):
 		close_dialog(window, True)
@@ -189,7 +189,7 @@ class CustomActions:
 
 class CustomFonts:
 	def run(self):
-		logger(nxtflix_str, 'CustomFonts Service Starting')
+		logger(NXTFlix_str, 'CustomFonts Service Starting')
 		monitor, player = xbmc_monitor(), xbmc_player()
 		wait_for_abort, is_playing = monitor.waitForAbort, player.isPlayingVideo
 		for item in (current_skin_prop, use_skin_fonts_prop): clear_property(item)
@@ -203,28 +203,28 @@ class CustomFonts:
 		except: pass
 		try: del player
 		except: pass
-		return logger(nxtflix_str, 'CustomFonts Service Finished')
+		return logger(NXTFlix_str, 'CustomFonts Service Finished')
 
 class ClearSubs:
 	def run(self):
-		logger(nxtflix_str, 'Clear Subtitles Service Starting')
+		logger(NXTFlix_str, 'Clear Subtitles Service Starting')
 		sub_formats = ('.srt', '.ssa', '.smi', '.sub', '.idx', '.nfo')
 		subtitle_path = 'special://temp/%s'
 		files = list_dirs(translate_path('special://temp/'))[1]
 		for i in files:
 			if i.startswith('NXTFlixSubs_') or i.endswith(sub_formats): delete_file(translate_path(subtitle_path % i))
-		return logger(nxtflix_str, 'Clear Subtitles Service Finished')
+		return logger(NXTFlix_str, 'Clear Subtitles Service Finished')
 
 class AutoRun:
 	def run(self):
-		logger(nxtflix_str, 'AutoRun Service Starting')
-		if auto_start_nxtflix(): run_addon()
-		return logger(nxtflix_str, 'AutoRun Service Finished')
+		logger(NXTFlix_str, 'AutoRun Service Starting')
+		if auto_start_NXTFlix(): run_addon()
+		return logger(NXTFlix_str, 'AutoRun Service Finished')
 
 class PremiumExpiryCheck:
 	def run(self):
 		if not check_premium(): return
-		logger(nxtflix_str, 'Premium Expiry Check Service Starting')
+		logger(NXTFlix_str, 'Premium Expiry Check Service Starting')
 		self.message, self.days_remaining = [], []
 		try:
 			self.run_check()
@@ -232,7 +232,7 @@ class PremiumExpiryCheck:
 			self.expired_premium = [i for i in self.days_remaining if i[1] == 0]
 			if self.expired_premium and confirm_dialog(heading='NXTFlix - Premium Accounts Expired', text='Disable Expired Accounts?', ok_label=32839, cancel_label=32840): self.revoke()
 		except: pass
-		logger(nxtflix_str, 'Premium Expiry Check Service Finished')
+		logger(NXTFlix_str, 'Premium Expiry Check Service Finished')
 
 	def run_check(self):
 		premium_check_function_dict = {'Real-Debrid': real_debrid.active_days, 'Premiumize.me': premiumize.active_days, 'AllDebrid': alldebrid.active_days,
@@ -267,7 +267,7 @@ class OnSettingsChangedActions:
 
 class UpdateCheck:
 	def run(self):
-		logger(nxtflix_str, 'UpdateCheck Service Starting')
+		logger(NXTFlix_str, 'UpdateCheck Service Starting')
 		monitor, player = xbmc_monitor(), xbmc_player()
 		wait_for_abort, is_playing = monitor.waitForAbort, player.isPlayingVideo
 		while not monitor.abortRequested():
@@ -279,7 +279,7 @@ class UpdateCheck:
 		except: pass
 		try: del player
 		except: pass
-		return logger(nxtflix_str, 'UpdateCheck Service Finished')
+		return logger(NXTFlix_str, 'UpdateCheck Service Finished')
 
 class OnNotificationActions:
 	def run(self, sender, method, data):

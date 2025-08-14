@@ -19,7 +19,7 @@ xbmc_actor = ku.xbmc_actor
 total_time_errors = ('0.0', '', 0.0, None)
 video_fullscreen_check = 'Window.IsActive(fullscreenvideo)'
 
-class NXTFlixPlayer(xbmc_player):
+class nxtflixPlayer(xbmc_player):
 	def __init__ (self):
 		xbmc_player.__init__(self)
 
@@ -380,7 +380,7 @@ class Subtitles(xbmc_player):
 		sleep(2500)
 		imdb_id = re.sub(r'[^0-9]', '', imdb_id)
 		subtitle_path = translate_path('special://temp/')
-		sub_filename = 'NXTFlixSubs_%s_%s_%s' % (imdb_id, season, episode) if season else 'NXTFlixSubs_%s' % imdb_id
+		sub_filename = 'nxtflixSubs_%s_%s_%s' % (imdb_id, season, episode) if season else 'nxtflixSubs_%s' % imdb_id
 		search_filename = sub_filename + '_%s.srt' % self.language
 		subtitle = _video_file_subs()
 		if subtitle: return

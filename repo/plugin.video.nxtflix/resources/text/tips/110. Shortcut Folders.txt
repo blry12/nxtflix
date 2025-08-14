@@ -3,7 +3,7 @@ NXTFlix offers the ability to make your own 'Folders' within the main menus (Roo
 
 To make a new Shortcut Folder, navigate to Tools->Shortcut Folders Manager and select 'Make New Shortcut Folder' to make a new folder. This folder will not yet be assigned to a list.
 
-Once you have made your new shortcut folder, you can select "Add Content" if within the shortcut folder, where you will then be able to browse the nxtflix folder structure and select a list item to place in the Shortcut Folder.
+Once you have made your new shortcut folder, you can select "Add Content" if within the shortcut folder, where you will then be able to browse the NXTFlix folder structure and select a list item to place in the Shortcut Folder.
 
 Alternately, you can browse through NXTFlix itself and find a menu item you wish to add to your shortcut folder. Bring up the context menu on that item, then select 'Edit' and then 'Add [menuitem] to a Shortcut Folder'. You then choose the name for the menu item, then the folder you wish to add it to, and finally it's position in the folder. For items outside of the main menus, you will see an option in the context menu to 'Add to a Shortcut Folder'.
 
