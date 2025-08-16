@@ -7,7 +7,7 @@ from modules import kodi_utils, settings
 from modules.metadata import movie_meta, movie_meta_external_id, tvshow_meta_external_id
 from modules.utils import sort_list, sort_for_article, make_thread_list, get_datetime, timedelta, replace_html_codes, copy2clip, title_key, jsondate_to_datetime as js2date
 
-CLIENT_ID, CLIENT_SECRET = '4a479b95c8224999eef8d418cfe6c7a4389e2837441672c48c9c8168ea42a407', '89d8f8f71b312985a9e1f91e9eb426e23050102734bb1fa36ec76cdc74452ab6'
+CLIENT_ID, CLIENT_SECRET = '4a479b95c8224999eef8d418cfe6c7a4389e2837441672c48c9c8168ea42a407', '2cc8aaac698563a9ad5d3be4cceb2a02543fc12b600c191d37565acfb2b5fdc2'
 ls, json, monitor, sleep, get_setting, set_setting = kodi_utils.local_string, kodi_utils.json, kodi_utils.monitor, kodi_utils.sleep, kodi_utils.get_setting, kodi_utils.set_setting
 logger, notification, player, confirm_dialog, get_property = kodi_utils.logger, kodi_utils.notification, kodi_utils.player, kodi_utils.confirm_dialog, kodi_utils.get_property
 dialog, unquote, addon_installed, addon_enabled, addon = kodi_utils.dialog, kodi_utils.unquote, kodi_utils.addon_installed, kodi_utils.addon_enabled, kodi_utils.addon
@@ -33,11 +33,11 @@ def call_trakt(path, params={}, data=None, is_delete=False, with_auth=True, meth
 		resp = None
 		if with_auth:
 			try:
-				try: expires_at = float(get_setting('NXTFlix.trakt.expires'))
+				try: expires_at = float(get_setting('nxtflix.trakt.expires'))
 				except: expires_at = 0.0
 				if time.time() > expires_at: trakt_refresh_token()
 			except: pass
-			token = get_setting('NXTFlix.trakt.token')
+			token = get_setting('nxtflix.trakt.token')
 			if token: headers['Authorization'] = 'Bearer ' + token
 		try:
 			if method:
@@ -124,13 +124,13 @@ def trakt_get_device_token(device_codes):
 def trakt_refresh_token():
 	data = {        
 		'client_id': CLIENT_ID, 'client_secret': CLIENT_SECRET, 'redirect_uri': 'urn:ietf:wg:oauth:2.0:oob',
-		'grant_type': 'refresh_token', 'refresh_token': get_setting('NXTFlix.trakt.refresh')}
+		'grant_type': 'refresh_token', 'refresh_token': get_setting('nxtflix.trakt.refresh')}
 	response = call_trakt("oauth/token", data=data, with_auth=False)
 	if response:
 		manage_settings_reset()
 		set_setting('trakt.token', response["access_token"])
 		set_setting('trakt.refresh', response["refresh_token"])
-		set_setting('trakt.expires', str(time.time() + 7776000))
+		set_setting('trakt.expires', str(time.time() + 86400))
 		manage_settings_reset(True)
 
 def trakt_authenticate(dummy=''):
@@ -140,7 +140,7 @@ def trakt_authenticate(dummy=''):
 		manage_settings_reset()
 		set_setting('trakt.token', token["access_token"])
 		set_setting('trakt.refresh', token["refresh_token"])
-		set_setting('trakt.expires', str(time.time() + 7776000))
+		set_setting('trakt.expires', str(time.time() + 86400))
 		set_setting('trakt.indicators_active', 'true')
 		set_setting('watched_indicators', '1')
 		manage_settings_reset(True)
@@ -156,7 +156,7 @@ def trakt_authenticate(dummy=''):
 	return False
 
 def trakt_revoke_authentication(dummy=''):
-	data = {'token': get_setting('NXTFlix.trakt.token'), 'client_id': CLIENT_ID, 'client_secret': CLIENT_SECRET}
+	data = {'token': get_setting('nxtflix.trakt.token'), 'client_id': CLIENT_ID, 'client_secret': CLIENT_SECRET}
 	response = call_trakt("oauth/revoke", data=data, with_auth=False)
 	manage_settings_reset()
 	set_setting('trakt.user', '')
@@ -677,8 +677,8 @@ def trakt_get_my_calendar(recently_aired, current_date):
 def trakt_calendar_days(recently_aired, current_date):
 	if recently_aired: start, finish = (current_date - timedelta(days=14)).strftime('%Y-%m-%d'), '14'
 	else:
-		previous_days = int(get_setting('NXTFlix.trakt.calendar_previous_days', '3'))
-		future_days = int(get_setting('NXTFlix.trakt.calendar_future_days', '7'))
+		previous_days = int(get_setting('nxtflix.trakt.calendar_previous_days', '3'))
+		future_days = int(get_setting('nxtflix.trakt.calendar_future_days', '7'))
 		start = (current_date - timedelta(days=previous_days)).strftime('%Y-%m-%d')
 		finish = str(previous_days + future_days)
 	return start, finish
@@ -714,7 +714,7 @@ def trakt_sync_activities(force_update=False):
 	clear_trakt_list_contents_data('user_lists')
 	clear_trakt_list_contents_data('liked_lists')
 	clear_trakt_list_contents_data('my_lists')
-	if not get_setting('NXTFlix.trakt.user', '') and not force_update: return 'no account'
+	if not get_setting('nxtflix.trakt.user', '') and not force_update: return 'no account'
 	try: latest = trakt_get_activity()
 	except: return 'failed'
 	cached = reset_activity(latest)

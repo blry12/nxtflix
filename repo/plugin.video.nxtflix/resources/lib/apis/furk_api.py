@@ -28,10 +28,10 @@ class FurkAPI:
 		return result.get('status', 'not_ok') == 'ok'
 
 	def get_api(self):
-		api_key = get_setting('NXTFlix.furk_api_key', '')
+		api_key = get_setting('nxtflix.furk_api_key', '')
 		if not api_key:
 			try:
-				user_name, user_pass = get_setting('NXTFlix.furk_login'), get_setting('NXTFlix.furk_password')
+				user_name, user_pass = get_setting('nxtflix.furk_login'), get_setting('nxtflix.furk_password')
 				if not user_name or not user_pass: return
 				url = base_url + login_url % (user_name, user_pass)
 				result = session.post(url, timeout=timeout)
@@ -46,21 +46,21 @@ class FurkAPI:
 		try:
 			search_in = '' if '@files' in query else '&attrs=name'
 			url = base_url + search_url % (self.api_key, query, 'extended', search_in)
-			string = 'NXTFlix_FURK_SEARCH_%s' % url
+			string = 'nxtflix_FURK_SEARCH_%s' % url
 			return cache_object(self._process_files, string, url, json=False, expiration=expiration)
 		except: return
 
 	def direct_search(self, query):
 		try:
 			url = base_url + search_direct_url % (self.api_key, query)
-			string = 'NXTFlix_FURK_SEARCH_DIRECT_%s' % url
+			string = 'nxtflix_FURK_SEARCH_DIRECT_%s' % url
 			return cache_object(self._process_files, string, url, json=False, expiration=48)
 		except: return
 
 	def t_files(self, file_id):
 		try:
 			url = base_url + tfile_url % (self.api_key, file_id)
-			string = 'NXTFlix_%s_%s' % ('FURK_T_FILE', file_id)
+			string = 'nxtflix_%s_%s' % ('FURK_T_FILE', file_id)
 			return cache_object(self._process_tfiles, string, url, json=False, expiration=168)
 		except: return
 
@@ -117,19 +117,19 @@ def clear_media_results_database():
 	dbcur = dbcon.cursor()
 	dbcur.execute('''PRAGMA synchronous = OFF''')
 	dbcur.execute('''PRAGMA journal_mode = OFF''')
-	dbcur.execute("SELECT id FROM maincache WHERE id LIKE 'NXTFlix_FURK_SEARCH_%'")
+	dbcur.execute("SELECT id FROM maincache WHERE id LIKE 'nxtflix_FURK_SEARCH_%'")
 	try:
 		furk_results = [str(i[0]) for i in dbcur.fetchall()]
 		if not furk_results: results.append('success')
-		dbcur.execute("DELETE FROM maincache WHERE id LIKE 'NXTFlix_FURK_SEARCH_%'")
+		dbcur.execute("DELETE FROM maincache WHERE id LIKE 'nxtflix_FURK_SEARCH_%'")
 		for i in furk_results: clear_property(i)
 		results.append('success')
 	except: results.append('failed')
-	dbcur.execute("SELECT id FROM maincache WHERE id LIKE 'NXTFlix_FURK_SEARCH_DIRECT_%'")
+	dbcur.execute("SELECT id FROM maincache WHERE id LIKE 'nxtflix_FURK_SEARCH_DIRECT_%'")
 	try:
 		furk_results = [str(i[0]) for i in dbcur.fetchall()]
 		if not furk_results: results.append('success')
-		dbcur.execute("DELETE FROM maincache WHERE id LIKE 'NXTFlix_FURK_SEARCH_DIRECT_%'")
+		dbcur.execute("DELETE FROM maincache WHERE id LIKE 'nxtflix_FURK_SEARCH_DIRECT_%'")
 		for i in furk_results: clear_property(i)
 		results.append('success')
 	except: results.append('failed')

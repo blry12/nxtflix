@@ -24,7 +24,7 @@ get_language, extras_enabled_menus, active_internal_scrapers, auto_play = settin
 extras_open_action, get_art_provider, fanarttv_default, ignore_articles = settings.extras_open_action, settings.get_art_provider, settings.fanarttv_default, settings.ignore_articles
 audio_filters, extras_enabled_ratings = settings.audio_filters, settings.extras_enabled_ratings
 quality_filter, watched_indicators, date_offset = settings.quality_filter, settings.watched_indicators, settings.date_offset
-single_ep_list = ('episode.progress', 'episode.recently_watched', 'episode.next_trakt', 'episode.next_NXTFlix', 'episode.trakt_recently_aired', 'episode.trakt_calendar')
+single_ep_list = ('episode.progress', 'episode.recently_watched', 'episode.next_trakt', 'episode.next_nxtflix', 'episode.trakt_recently_aired', 'episode.trakt_calendar')
 scraper_names = [ls(32118).upper(), ls(32069).upper(), ls(32070).upper(), ls(32098).upper(), ls(32097).upper(), ls(32099).upper(), ls(32108).upper()]
 network_str, created_by_str, last_aired_str, next_aired_str, seasons_str, episodes_str, favorites_str = ls(32480), ls(32633), ls(32634), ls(32635), ls(32636), ls(32506), ls(32453)
 studio_str, collection_str, homepage_str, status_str, type_str, classification_str, include_str = ls(32615), ls(32499), ls(32629), ls(32630), ls(32631), ls(32632), ls(32188)
@@ -220,7 +220,7 @@ def navigate_to_page_choice(params):
 				if i == 1 and widget_content: line1 = from_widget_str
 				elif jump_to == 0:
 					line1 = '%s %s' % (page_str, str(i))
-					if i == current_page: line1 = '[COLOR %s][B]%s   |   %s[/B][/COLOR]' % (NXTFlix_highlight, line1, current_page_str)
+					if i == current_page: line1 = '[COLOR %s][B]%s   |   %s[/B][/COLOR]' % (nxtflix_highlight, line1, current_page_str)
 				else:
 					page_contents = all_pages[i-1]
 					first_entry, last_entry = page_contents[0]['title'], page_contents[-1]['title']
@@ -229,14 +229,14 @@ def navigate_to_page_choice(params):
 					else: line_end = '%s - %s' % (first_alpha, last_alpha)
 					if jump_to == 1: line1 = line_end
 					else: line1 = '%s %s   |   %s' % (page_str, str(i), line_end)
-					if i == current_page: line1 = '[COLOR %s][B]%s   |   %s[/B][/COLOR]' % (NXTFlix_highlight, line1, current_page_str)
+					if i == current_page: line1 = '[COLOR %s][B]%s   |   %s[/B][/COLOR]' % (nxtflix_highlight, line1, current_page_str)
 			except: line1 = ''
 			yield {'line1': line1}
 	try:
 		total_pages, all_pages = int(params.get('total_pages')), json.loads(params.get('all_pages'))
 		if all_pages[0] == []: widget_content = True
 		else: widget_content = False
-		NXTFlix_highlight = get_property(highlight_prop)
+		nxtflix_highlight = get_property(highlight_prop)
 		start_list = [i for i in range(1, total_pages+1)]
 		ignore, jump_to, current_page = ignore_articles(), int(params.get('jump_to_enabled', '0')), int(params.get('current_page'))
 		list_items = list(_builder())
@@ -334,7 +334,7 @@ def random_choice(params):
 	exec('EpisodeTools(meta).%s()' % choice)
 
 def trakt_manager_choice(params):
-	if not get_setting('NXTFlix.trakt.user', ''): return notification(32760, 3500)
+	if not get_setting('nxtflix.trakt.user', ''): return notification(32760, 3500)
 	icon = params.get('icon', None) or get_icon('trakt')
 	choices = [('%s %s...' % (ls(32602), ls(32199)), 'Add'), ('%s %s...' % (ls(32603), ls(32199)), 'Remove')]
 	list_items = [{'line1': item[0], 'icon': icon} for item in choices]
@@ -456,7 +456,7 @@ def set_quality_choice(params):
 	icon = params.get('icon', None) or ''
 	dl = ['%s SD' % include_str, '%s 720p' % include_str, '%s 1080p' % include_str, '%s 4K' % include_str]
 	fl = ['SD', '720p', '1080p', '4K']
-	try: preselect = [fl.index(i) for i in get_setting('NXTFlix.%s' % quality_setting).split(', ')]
+	try: preselect = [fl.index(i) for i in get_setting('nxtflix.%s' % quality_setting).split(', ')]
 	except: preselect = []
 	list_items = [{'line1': item, 'icon': icon} for item in dl]
 	kwargs = {'items': json.dumps(list_items), 'multi_choice': 'true', 'preselect': preselect}
@@ -474,7 +474,7 @@ def extras_buttons_choice(params):
 			setting_id_base = 'extras.%s.button' % _type
 			for item in range(10, 18):
 				setting_id = setting_id_base + str(item)
-				button_action = get_setting('NXTFlix.%s' % setting_id)
+				button_action = get_setting('nxtflix.%s' % setting_id)
 				button_label = extras_button_label_values[_type][button_action]
 				button_dict[setting_id] = {'button_action': button_action, 'button_label': button_label, 'button_name': 'Button %s' % str(item - 9)}
 				orig_button_dict[setting_id] = {'button_action': button_action, 'button_label': button_label, 'button_name': 'Button %s' % str(item - 9)}
@@ -562,7 +562,7 @@ def set_language_filter_choice(params):
 	if include_none == 'false': lang_choices.pop('None')
 	dl = list(lang_choices.keys())
 	fl = list(lang_choices.values())
-	try: preselect = [fl.index(i) for i in get_setting('NXTFlix.%s' % filter_setting).split(', ')]
+	try: preselect = [fl.index(i) for i in get_setting('nxtflix.%s' % filter_setting).split(', ')]
 	except: preselect = []
 	list_items = [{'line1': item} for item in dl]
 	kwargs = {'items': json.dumps(list_items), 'multi_choice': multi_choice, 'preselect': preselect}
@@ -575,7 +575,7 @@ def set_language_filter_choice(params):
 
 def easynews_use_custom_farm_choice(params={}):
 	from apis.easynews_api import clear_media_results_database
-	new_setting = 'True' if get_setting('NXTFlix.easynews.use_custom_farm', 'False') == 'False' else 'False'
+	new_setting = 'True' if get_setting('nxtflix.easynews.use_custom_farm', 'False') == 'False' else 'False'
 	set_setting('easynews.use_custom_farm', new_setting)
 	clear_media_results_database()
 
@@ -588,7 +588,7 @@ def easynews_server_choice(params={}):
 	if not farm_choice: return notification(32736)
 	list_items = [{'line1': str(item)} for item in ports]
 	kwargs = {'items': json.dumps(list_items), 'heading': easy_serv_str, 'narrow_window': 'true'}
-	port_choice = select_dialog(ports, **kwargs) or get_setting('NXTFlix.easynews.port', '443')
+	port_choice = select_dialog(ports, **kwargs) or get_setting('nxtflix.easynews.port', '443')
 	server_name = '%s:%s' % (farm_choice['name'], port_choice)
 	manage_settings_reset()
 	set_setting('easynews.server_name', server_name)
@@ -598,7 +598,7 @@ def easynews_server_choice(params={}):
 	clear_media_results_database()
 
 def enable_scrapers_choice(params={}):
-	icon = params.get('icon', None) or get_icon('NXTFlix')
+	icon = params.get('icon', None) or get_icon('nxtflix')
 	scrapers = ['external', 'furk', 'easynews', 'rd_cloud', 'pm_cloud', 'ad_cloud', 'folders']
 	cloud_scrapers = {'rd_cloud': 'rd.enabled', 'pm_cloud': 'pm.enabled', 'ad_cloud': 'ad.enabled'}
 	preselect = [scrapers.index(i) for i in active_internal_scrapers()]
@@ -706,7 +706,7 @@ def favorites_choice(params):
 
 def scraper_quality_color_choice(params):
 	setting = params.get('setting')
-	current_setting = get_setting('NXTFlix.%s' % setting)
+	current_setting = get_setting('nxtflix.%s' % setting)
 	chosen_color = color_choice({'current_setting': current_setting})
 	if chosen_color:
 		manage_settings_reset()
@@ -728,7 +728,7 @@ def scraper_color_choice(params):
 				('scraper_flag', 'scraper_flag_identify_colour'),
 				('scraper_result', 'scraper_result_identify_colour')]
 	setting = [i[1] for i in choices if i[0] == setting][0]
-	current_setting = get_setting('NXTFlix.%s' % setting)
+	current_setting = get_setting('nxtflix.%s' % setting)
 	chosen_color = color_choice({'current_setting': current_setting})
 	if chosen_color:
 		manage_settings_reset()
@@ -737,7 +737,7 @@ def scraper_color_choice(params):
 		manage_settings_reset(True)
 
 def highlight_color_choice(params={}):
-	current_setting = get_setting('NXTFlix.main_highlight')
+	current_setting = get_setting('nxtflix.main_highlight')
 	chosen_color = color_choice({'current_setting': current_setting})
 	if chosen_color:
 		manage_settings_reset()
@@ -836,7 +836,7 @@ def options_menu_choice(params, meta=None):
 			listing_append((ls(32838), '%s %s' % (ls(32838), title), 'browse'))
 			listing_append((ls(32544).replace(' %s', ''), ls(32544) % (title, season), 'browse_season'))
 	if menu_type in ('movie', 'tvshow'):
-		if get_setting('NXTFlix.trakt.user', ''): listing_append((ls(32198), '', 'trakt_manager'))
+		if get_setting('nxtflix.trakt.user', ''): listing_append((ls(32198), '', 'trakt_manager'))
 		listing_append((ls(32197), '', 'favorites_choice'))
 		listing_append((ls(32503), ls(32004) % rootname, 'recommended'))
 		if menu_type == 'tvshow': listing_append((ls(32613), ls(32004) % rootname, 'random'))
