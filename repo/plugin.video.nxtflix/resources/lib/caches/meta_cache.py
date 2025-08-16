@@ -6,7 +6,7 @@ from modules.kodi_utils import get_property, set_property, clear_property, datab
 
 all_tables = ('metadata', 'season_metadata', 'function_cache')
 id_types = ('tmdb_id', 'imdb_id', 'tvdb_id')
-season_prop, media_prop = 'NXTFlix.meta_season_%s', 'NXTFlix.%s_%s_%s'
+season_prop, media_prop = 'nxtflix.meta_season_%s', 'nxtflix.%s_%s_%s'
 GET_MOVIE_SHOW = 'SELECT meta, expires FROM metadata WHERE db_type = ? AND %s = ?'
 GET_SEASON = 'SELECT meta, expires FROM season_metadata WHERE tmdb_id = ?'
 GET_FUNCTION = 'SELECT string_id, data, expires FROM function_cache WHERE string_id = ?'

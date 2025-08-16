@@ -2,7 +2,7 @@
 from modules import service_functions
 from modules.kodi_utils import Thread, xbmc_monitor, logger, local_string as ls
 
-NXTFlix_str = ls(32036).upper()
+nxtflix_str = ls(32036).upper()
 on_notification_actions = service_functions.OnNotificationActions()
 on_settings_changed_actions = service_functions.OnSettingsChangedActions()
 
@@ -29,7 +29,7 @@ class NXTFlixMonitor(xbmc_monitor):
 		try: service_functions.AutoRun().run()
 		except: pass
 		Thread(target=service_functions.DatabaseMaintenance().run).start()
-		service_functions.UpdateCheck().run()
+		# service_functions.UpdateCheck().run()
 
 	def onSettingsChanged(self):
 		on_settings_changed_actions.run()
@@ -37,8 +37,8 @@ class NXTFlixMonitor(xbmc_monitor):
 	def onNotification(self, sender, method, data):
 		on_notification_actions.run(sender, method, data)
 
-logger(NXTFlix_str, 'Main Monitor Service Starting')
-logger(NXTFlix_str, 'Settings Monitor Service Starting')
+logger(nxtflix_str, 'Main Monitor Service Starting')
+logger(nxtflix_str, 'Settings Monitor Service Starting')
 NXTFlixMonitor().waitForAbort()
-logger(NXTFlix_str, 'Settings Monitor Service Finished')
-logger(NXTFlix_str, 'Main Monitor Service Finished')
+logger(nxtflix_str, 'Settings Monitor Service Finished')
+logger(nxtflix_str, 'Main Monitor Service Finished')

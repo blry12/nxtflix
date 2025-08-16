@@ -1,8 +1,8 @@
 # Kodi Media Center language file
 # Addon Name: NXTFlix
 # Addon id: plugin.video.nxtflix
-# Addon Provider: Tiki
-# Translator English: Tiki
+# Addon Provider: Blry12
+# Translator English: Blry12
 msgid ""
 msgstr ""
 
@@ -2410,7 +2410,7 @@ msgid "Unwatched"
 msgstr ""
 
 msgctxt "#32804"
-msgid "Hidden"
+msgid "Dropped"
 msgstr ""
 
 msgctxt "#32805"

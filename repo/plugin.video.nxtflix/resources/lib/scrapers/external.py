@@ -32,8 +32,8 @@ class source:
 		self.sources, self.non_torrent_sources, self.final_sources, self.processed_internal_scrapers, self.processed_torrents, self.processed_hosters = [], [], [], [], [], []
 		self.processed_internal_scrapers_append = self.processed_internal_scrapers.append
 		self.sleep_time = 100
-		self.finish_early = get_setting('NXTFlix.search.finish.early') == 'true'
-		self.timeout = 60 if disabled_ext_ignored else int(get_setting('NXTFlix.results.timeout', '20'))
+		self.finish_early = get_setting('nxtflix.search.finish.early') == 'true'
+		self.timeout = 60 if disabled_ext_ignored else int(get_setting('nxtflix.results.timeout', '20'))
 		self.sources_total = self.sources_4k = self.sources_1080p = self.sources_720p = self.sources_sd = 0
 		self.final_total = self.final_4k = self.final_1080p = self.final_720p = self.final_sd = 0
 		self.count_tuple = (('sources_4k', '4K', self._quality_length), ('sources_1080p', '1080p', self._quality_length), ('sources_720p', '720p', self._quality_length),

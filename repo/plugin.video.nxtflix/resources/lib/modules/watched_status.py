@@ -12,15 +12,15 @@ sleep, progress_dialog, Thread, get_video_database_path = kodi_utils.sleep, kodi
 watched_indicators_function, lists_sort_order, ignore_articles = settings.watched_indicators, settings.lists_sort_order, settings.ignore_articles
 date_offset, metadata_user_info, tv_progress_location = settings.date_offset, settings.metadata_user_info, settings.tv_progress_location
 WATCHED_DB, TRAKT_DB = kodi_utils.watched_db, kodi_utils.trakt_db
-NXTFlix_str, trakt_str, watched_str, unwatched_str, season_str = ls(32036), ls(32037), ls(32642), ls(32643), ls(32537)
+nxtflix_str, trakt_str, watched_str, unwatched_str, season_str = ls(32036), ls(32037), ls(32642), ls(32643), ls(32537)
 indicators_dict = {0: WATCHED_DB, 1: TRAKT_DB}
 finished_show_check = ('Ended', 'Canceled')
-progress_db_string = 'NXTFlix_hidden_progress_items'
+progress_db_string = 'nxtflix_hidden_progress_items'
 
 def get_hidden_progress_items(watched_indicators):
 	try:
 		if watched_indicators == 0: return main_cache.get(progress_db_string) or []
-		else: return trakt_get_hidden_items('progress_watched')
+		else: return trakt_get_hidden_items('dropped')
 	except: return []
 
 def hide_unhide_progress_items(params):
@@ -286,7 +286,7 @@ def mark_tvshow(params):
 		if not trakt_watched_status_mark(action, 'shows', tmdb_id, tvdb_id): return notification(32574)
 		clear_trakt_collection_watchlist_data('watchlist', 'tvshow')
 		heading = heading % trakt_str
-	else: heading = heading % NXTFlix_str
+	else: heading = heading % nxtflix_str
 	progressDialog = progress_dialog(heading, icon)
 	sleep(200)
 	data_base = get_database(watched_indicators)
@@ -328,7 +328,7 @@ def mark_season(params):
 		if not trakt_watched_status_mark(action, 'season', tmdb_id, tvdb_id, season): return notification(32574)
 		clear_trakt_collection_watchlist_data('watchlist', 'tvshow')
 		heading = heading % trakt_str
-	else: heading = heading % NXTFlix_str
+	else: heading = heading % nxtflix_str
 	progressDialog = progress_dialog(heading, icon)
 	sleep(200)
 	data_base = get_database(watched_indicators)
