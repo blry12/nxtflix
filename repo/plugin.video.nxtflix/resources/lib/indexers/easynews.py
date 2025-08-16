@@ -54,7 +54,7 @@ def easynews_file_browser(files, handle):
 				listitem.setArt({'icon': thumbnail, 'poster': thumbnail, 'thumb': thumbnail, 'fanart': fanart, 'banner': default_easynews_icon})
 				info_tag = listitem.getVideoInfoTag()
 				info_tag.setPlot(' ')
-				listitem.setProperty('nxtflix.context_main_menu_params', build_url({'mode': 'menu_editor.edit_menu_external', 'name': name, 'iconImage': default_easynews_icon,
+				listitem.setProperty('NXTFlix.context_main_menu_params', build_url({'mode': 'menu_editor.edit_menu_external', 'name': name, 'iconImage': default_easynews_icon,
 									'action': 'cloud.easynews_direct'}))
 				yield (url, listitem, False)
 			except: pass

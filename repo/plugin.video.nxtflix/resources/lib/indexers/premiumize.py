@@ -39,7 +39,7 @@ def pm_torrent_cloud(folder_id=None, folder_name=None):
 					url_params = {'mode': 'playback.video', 'url': url_link, 'obj': 'video'}
 					down_file_params = {'mode': 'downloader', 'name': item['name'], 'url': url_link, 'action': 'cloud.premiumize', 'image': default_pm_icon}
 					cm_append((down_str, 'RunPlugin(%s)' % build_url(down_file_params)))
-					listitem.setProperty('nxtflix.context_main_menu_params', build_url({'mode': 'menu_editor.edit_menu_external', 'name': name, 'iconImage': default_pm_icon,
+					listitem.setProperty('NXTFlix.context_main_menu_params', build_url({'mode': 'menu_editor.edit_menu_external', 'name': name, 'iconImage': default_pm_icon,
 										'action': 'cloud.premiumize'}))
 				url = build_url(url_params)
 				listitem.setLabel(display)

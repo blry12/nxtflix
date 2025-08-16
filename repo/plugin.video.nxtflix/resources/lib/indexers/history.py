@@ -36,7 +36,7 @@ def search_history(params):
 				listitem.setArt({'icon': icon, 'poster': icon, 'thumb': icon, 'fanart': fanart, 'banner': icon})
 				info_tag = listitem.getVideoInfoTag()
 				info_tag.setPlot(' ')
-				listitem.setProperty('nxtflix.context_main_menu_params', build_url({'mode': 'menu_editor.edit_menu_external'}))
+				listitem.setProperty('NXTFlix.context_main_menu_params', build_url({'mode': 'menu_editor.edit_menu_external'}))
 				yield (url, listitem, False)
 			except: pass
 	handle = int(sys.argv[1])

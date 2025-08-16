@@ -38,7 +38,7 @@ def ad_torrent_cloud(folder_id=None):
 				listitem.setArt({'icon': default_ad_icon, 'poster': default_ad_icon, 'thumb': default_ad_icon, 'fanart': fanart, 'banner': default_ad_icon})
 				info_tag = listitem.getVideoInfoTag()
 				info_tag.setPlot(' ')
-				listitem.setProperty('nxtflix.context_main_menu_params', build_url({'mode': 'menu_editor.edit_menu_external', 'name': clean_folder_name, 'iconImage': default_ad_icon,
+				listitem.setProperty('NXTFlix.context_main_menu_params', build_url({'mode': 'menu_editor.edit_menu_external', 'name': clean_folder_name, 'iconImage': default_ad_icon,
 									'service': 'AD'}))
 				yield (url, listitem, True)
 			except: pass
@@ -71,7 +71,7 @@ def browse_ad_cloud(folder):
 				listitem.setArt({'icon': default_ad_icon, 'poster': default_ad_icon, 'thumb': default_ad_icon, 'fanart': fanart, 'banner': default_ad_icon})
 				info_tag = listitem.getVideoInfoTag()
 				info_tag.setPlot(' ')
-				listitem.setProperty('nxtflix.context_main_menu_params', build_url({'mode': 'menu_editor.edit_menu_external', 'name': name, 'iconImage': default_ad_icon,
+				listitem.setProperty('NXTFlix.context_main_menu_params', build_url({'mode': 'menu_editor.edit_menu_external', 'name': name, 'iconImage': default_ad_icon,
 									'action': 'cloud.alldebrid'}))
 				yield (url, listitem, False)
 			except: pass

@@ -15,7 +15,7 @@ extras_open_action, get_art_provider, default_all_episodes, page_limit = setting
 poster_empty, fanart_empty, include_year_in_title, set_property = kodi_utils.empty_poster, kodi_utils.addon_fanart, settings.include_year_in_title, kodi_utils.set_property
 nextpage_landscape = kodi_utils.nextpage_landscape
 max_threads, widget_hide_next_page = settings.max_threads, settings.widget_hide_next_page
-nxtflix_str, trakt_str, watched_str, unwatched_str, exit_str, nextpage_str, browse_str, jump2_str = ls(32036), ls(32037), ls(32642), ls(32643), ls(32650), ls(32799), ls(33137), ls(32964)
+NXTFlix_str, trakt_str, watched_str, unwatched_str, exit_str, nextpage_str, browse_str, jump2_str = ls(32036), ls(32037), ls(32642), ls(32643), ls(32650), ls(32799), ls(33137), ls(32964)
 extras_str, options_str, refr_widg_str = ls(32645), ls(32646), '[B]%s[/B]' % ls(32611)
 run_plugin, container_update = 'RunPlugin(%s)', 'Container.Update(%s)'
 tmdb_main = ('tmdb_tv_popular', 'tmdb_tv_popular_today', 'tmdb_tv_premieres', 'tmdb_tv_airing_today','tmdb_tv_on_the_air','tmdb_tv_upcoming')
@@ -50,7 +50,7 @@ class TVShows:
 			except: page_no = self.params_get('new_page')
 			if page_no == 1 and not self.is_external:
 				folderpath = folder_path()
-				if not any([x in folderpath for x in internal_nav_check]): set_property('nxtflix.exit_params', folderpath)
+				if not any([x in folderpath for x in internal_nav_check]): set_property('NXTFlix.exit_params', folderpath)
 			if self.action in personal: var_module, import_function = personal[self.action]
 			else: var_module, import_function = 'apis.%s_api' % self.action.split('_')[0], self.action
 			try: function = manual_function_import(var_module, import_function)
@@ -171,7 +171,7 @@ class TVShows:
 			set_properties({'watchedprogress': string(progress), 'totalepisodes': string(total_aired_eps), 'totalseasons': string(total_seasons)})
 			if self.is_external:
 				cm_append((refr_widg_str, run_plugin % build_url({'mode': 'kodi_refresh'})))
-				set_properties({'nxtflix.external': 'true'})
+				set_properties({'NXTFlix.external': 'true'})
 			else: cm_append((exit_str, run_plugin % build_url({'mode': 'navigator.exit_media_menu'})))
 			display = rootname if self.include_year else title
 			listitem.setLabel(display)
@@ -202,7 +202,7 @@ class TVShows:
 			info_tag.setDirectors(meta_get('director').split(', '))
 			info_tag.setCast([xbmc_actor(name=item['name'], role=item['role'], thumbnail=item['thumbnail']) for item in meta_get('cast', [])])
 			info_tag.setPlaycount(playcount)
-			set_properties({'nxtflix.extras_params': extras_params, 'nxtflix.options_params': options_params})
+			set_properties({'NXTFlix.extras_params': extras_params, 'NXTFlix.options_params': options_params})
 			self.append(((url_params, listitem, self.is_folder), _position))
 		except: pass
 
@@ -211,7 +211,7 @@ class TVShows:
 		self.meta_user_info, self.watched_indicators, self.include_year = metadata_user_info(), watched_indicators(), include_year_in_title('tvshow')
 		self.watched_info, self.all_episodes, self.open_extras = get_watched_info_function(self.watched_indicators), default_all_episodes(), extras_open_action('tvshow')
 		self.fanart_enabled, self.home_hide_watched = self.meta_user_info['extra_fanart_enabled'], self.is_home and self.meta_user_info['widget_hide_watched']
-		self.is_folder, self.watched_title = False if self.open_extras else True, trakt_str if self.watched_indicators == 1 else nxtflix_str
+		self.is_folder, self.watched_title = False if self.open_extras else True, trakt_str if self.watched_indicators == 1 else NXTFlix_str
 		self.poster_main, self.poster_backup, self.fanart_main, self.fanart_backup, self.clearlogo_main, self.clearlogo_backup = get_art_provider()
 		if self.custom_order:
 			threads = list(make_thread_list_multi_arg(self.build_tvshow_content, self.list, self.max_threads))

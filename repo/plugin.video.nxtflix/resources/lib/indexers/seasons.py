@@ -11,7 +11,7 @@ make_listitem, build_url, external, ls = kodi_utils.make_listitem, kodi_utils.bu
 adjust_premiered_date_function, get_datetime_function, get_watched_status, get_watched_info = adjust_premiered_date, get_datetime, get_watched_status_season, get_watched_info_tv
 get_art_provider, show_specials, use_season_title_info, date_offset_info = settings.get_art_provider, settings.show_specials, settings.use_season_title, settings.date_offset
 metadata_user_info, watched_indicators_info, show_unaired_info = settings.metadata_user_info, settings.watched_indicators, settings.show_unaired
-nxtflix_str, trakt_str, season_str, watched_str, unwatched_str, season_str = ls(32036), ls(32037), ls(32537), ls(32642), ls(32643), ls(32537)
+NXTFlix_str, trakt_str, season_str, watched_str, unwatched_str, season_str = ls(32036), ls(32037), ls(32537), ls(32642), ls(32643), ls(32537)
 extras_str, options_str, refr_widg_str = ls(32645), ls(32646), '[B]%s[/B]' % ls(32611)
 string, run_plugin, unaired_label, tmdb_poster_prefix = str, 'RunPlugin(%s)', '[COLOR red][I]%s[/I][/COLOR]', 'https://image.tmdb.org/t/p/'
 view_mode, content_type = 'view.seasons', 'seasons'
@@ -69,10 +69,10 @@ def build_season_list(params):
 					cm_append((unwatched_str % watched_title, run_plugin % build_url({'mode': 'watched_status.mark_season', 'action': 'mark_as_unwatched', 'title': show_title,
 																				'year': show_year, 'tmdb_id': tmdb_id, 'tvdb_id': tvdb_id, 'season': season_number, 'icon': poster})))
 				set_properties({'watchedepisodes': string(watched), 'unwatchedepisodes': string(unwatched)})
-				set_properties({'totalepisodes': string(episode_count), 'watchedprogress': string(progress), 'nxtflix.extras_params': extras_params, 'nxtflix.options_params': options_params})
+				set_properties({'totalepisodes': string(episode_count), 'watchedprogress': string(progress), 'NXTFlix.extras_params': extras_params, 'NXTFlix.options_params': options_params})
 				if is_external:
 					cm_append((refr_widg_str, run_plugin % build_url({'mode': 'kodi_refresh'})))
-					set_properties({'nxtflix.external': 'true'})
+					set_properties({'NXTFlix.external': 'true'})
 				info_tag = listitem.getVideoInfoTag()
 				info_tag.setMediaType('season')
 				info_tag.setTitle(title)
@@ -127,7 +127,7 @@ def build_season_list(params):
 
 	if not show_specials(): season_data = [i for i in season_data if not i['season_number'] == 0]
 	season_data.sort(key=lambda k: (k['season_number'] == 0, k['season_number']))
-	watched_title = trakt_str if watched_indicators == 1 else nxtflix_str
+	watched_title = trakt_str if watched_indicators == 1 else NXTFlix_str
 	add_items(handle, list(_process()))
 	category_name = show_title
 	set_content(handle, content_type)
