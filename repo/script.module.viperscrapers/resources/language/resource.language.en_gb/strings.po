@@ -540,7 +540,7 @@ msgid "NYAAIO (Pack capable Anime Plus)"
 msgstr ""
 
 msgctxt "#32145"
-msgid "MEDIAFUSION - Elfhosted (Pack Capable)"
+msgid "MEDIAFUSION (Pack Capable)"
 msgstr ""
 
 msgctxt "#32146"

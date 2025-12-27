@@ -929,7 +929,7 @@
       <icon>resources/icon.png</icon>
     </assets>
   </extension>
-</addon><addon id="script.module.viperscrapers" name="Viper Scrapers" version="1.4.3" provider-name="Jax">
+</addon><addon id="script.module.viperscrapers" name="Viper Scrapers" version="1.4.5" provider-name="Jax">
 	<requires>
 		<import addon="xbmc.python" version="3.0.0" />
 		<import addon="script.module.requests" />
@@ -951,7 +951,7 @@
 			<fanart>fanart.jpg</fanart>
 		</assets>
 		<news>
-- Updated AIOSTREAMS
+- 1.4.4 Removed dead providers
 		</news>
 	</extension>
 </addon></addons>

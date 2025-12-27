@@ -159,16 +159,16 @@
 					<default>false</default>
 					<control type="toggle"/>
 				</setting>
-				<setting id="provider.comet" type="boolean" label="32148" help="">
-					<level>0</level>
-					<default>false</default>
-					<control type="toggle"/>
-				</setting>		
 				<setting id="provider.mediafusion" type="boolean" label="32145" help="">
 					<level>0</level>
 					<default>false</default>
 					<control type="toggle"/>
-				</setting>				
+				</setting>	
+				<setting id="provider.comet" type="boolean" label="32148" help="">
+					<level>0</level>
+					<default>false</default>
+					<control type="toggle"/>
+				</setting>									
 				<setting id="provider.torz" type="boolean" label="32157" help="">
 					<level>0</level>
 					<default>false</default>
@@ -181,36 +181,16 @@
 				</setting>			
 			</group>	
 			<group id="3" label="32511">
-				<setting id="provider.1337x" type="boolean" label="32101" help="">
-					<level>0</level>
-					<default>false</default>
-					<control type="toggle"/>
-				</setting>
-				<setting id="provider.bitcq" type="boolean" label="32137" help="">
-					<level>0</level>
-					<default>false</default>
-					<control type="toggle"/>
-				</setting>
 				<setting id="provider.kickass2" type="boolean" label="32111" help="">
 					<level>0</level>
 					<default>false</default>
 					<control type="toggle"/>
 				</setting>				
-				<setting id="provider.knaben" type="boolean" label="32158" help="">
-					<level>0</level>
-					<default>false</default>
-					<control type="toggle"/>
-				</setting>
 				<setting id="provider.limetorrents" type="boolean" label="32112" help="">
 					<level>0</level>
 					<default>false</default>
 					<control type="toggle"/>
-				</setting>				
-				<setting id="provider.nyaa" type="boolean" label="32116" help="">
-					<level>0</level>
-					<default>false</default>
-					<control type="toggle"/>
-				</setting>
+				</setting>					
 				<setting id="provider.piratebay" type="boolean" label="32117" help="">
 					<level>0</level>
 					<default>false</default>
@@ -225,13 +205,13 @@
 					<level>0</level>
 					<default>false</default>
 					<control type="toggle"/>
-				</setting>				
-				<setting id="provider.torrentproject2" type="boolean" label="32136" help="">
+				</setting>	
+				<setting id="provider.torrentgalaxy" type="boolean" label="32125" help="">
 					<level>0</level>
 					<default>false</default>
 					<control type="toggle"/>
-				</setting>
-				<setting id="provider.ytsmx" type="boolean" label="32127" help="">
+				</setting>				
+				<setting id="provider.nyaa" type="boolean" label="32116" help="">
 					<level>0</level>
 					<default>false</default>
 					<control type="toggle"/>
