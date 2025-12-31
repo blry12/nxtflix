@@ -103,6 +103,37 @@
 			Rework for Seren 2.0
 		</news>
 	</extension>
+</addon><addon id="plugin.program.bradleysbuilds" name="[COLOR red]BRADLEYS BUILDS[/COLOR] Maintanance " version="1.1" provider-name="BLRY">
+	<requires>
+		<import addon="xbmc.python" version="3.0.1" />
+	</requires>
+	<extension point="xbmc.python.pluginsource" library="addon.py">
+		<provides>executable</provides>
+	</extension>
+	<extension point="xbmc.service" library="service.py" />
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en_GB">Simple Maintanance is a lightweight template for installing builds on Kodi 21 Omega. Has some code from Aftermath Maintanance by Surfacingx. Skin Switch by OpenELEQ. Base code by BYB. Credits to them and all others who contributed. Please report any bugs to @slamious on Telegram/Twitter.</summary>
+		<description lang="en_GB">Kodi Maintanance</description>
+		<disclaimer lang="en_GB">This Addon contains no content</disclaimer>
+		<language>en</language>
+		<platform>all</platform>
+		<license>GPL-2.0-or-later</license>
+		<forum />
+		<website /> 
+		<email />
+		<source />
+		<news>
+		1.1 - URL Fixes		
+		1.0 - Initial Release
+		</news>
+		<assets>
+				<icon>resources/icon.png</icon>
+				<fanart>resources/fanart.jpg</fanart>
+				<banner />
+				<clearlogo />
+				<screenshot />
+		</assets>
+	</extension>
 </addon><addon id="plugin.program.maxql" name="MaxQL" version="1.1.7" provider-name="Zaxxon709">
 	<requires>
 		<import addon="xbmc.python" version="3.0.0" />
