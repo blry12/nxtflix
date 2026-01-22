@@ -1,8 +1,8 @@
 # Kodi Media Center language file
 # Addon Name: NXTFlix
 # Addon id: plugin.video.nxtflix
-# Addon Provider: Blry12
-# Translator English: Blry12
+# Addon Provider: Tiki
+# Translator English: Tiki
 msgid ""
 msgstr ""
 
@@ -1591,7 +1591,7 @@ msgid "Currently"
 msgstr ""
 
 msgctxt "#32599"
-msgid "TV Shows Progress Manager"
+msgid "TV Shows Progress"
 msgstr ""
 
 msgctxt "#32600"
@@ -2418,7 +2418,7 @@ msgid "Accounts Manager"
 msgstr ""
 
 msgctxt "#32806"
-msgid "Select TV Show to Hide/Unhide from Progress:"
+msgid "Drop/Undrop in Trakt app or website->Shows"
 msgstr ""
 
 msgctxt "#32807"

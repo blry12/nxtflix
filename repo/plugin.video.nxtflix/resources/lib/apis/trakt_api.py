@@ -140,7 +140,7 @@ def trakt_authenticate(dummy=''):
 		manage_settings_reset()
 		set_setting('trakt.token', token["access_token"])
 		set_setting('trakt.refresh', token["refresh_token"])
-		set_setting('trakt.expires', str(time.time() + 86400))
+		set_setting('trakt.expires', str(time.time() + 7776000))
 		set_setting('trakt.indicators_active', 'true')
 		set_setting('watched_indicators', '1')
 		manage_settings_reset(True)
@@ -376,7 +376,7 @@ def remove_from_collection(data):
 def hide_unhide_progress_items(params):
 	action, media_type, media_id, list_type = params['action'], params['media_type'], params['media_id'], params['section']
 	media_type = 'movies' if media_type in ('movie', 'movies') else 'shows'
-	url = 'users/hidden/%s' % list_type if action == 'hide' else 'users/hidden/%s/remove' % list_type
+	url = 'users/hidden/%s' % list_type if action == 'drop' else 'users/hidden/%s/remove' % list_type
 	data = {media_type: [{'ids': {'tmdb': media_id}}]}
 	call_trakt(url, data=data)
 	trakt_sync_activities()
@@ -731,7 +731,7 @@ def trakt_sync_activities(force_update=False):
 	if _compare(latest_episodes['collected_at'], cached_episodes['collected_at']): clear_trakt_collection_watchlist_data('collection', 'tvshow')
 	if _compare(latest_movies['watchlisted_at'], cached_movies['watchlisted_at']): clear_trakt_collection_watchlist_data('watchlist', 'movie')
 	if _compare(latest_shows['watchlisted_at'], cached_shows['watchlisted_at']): clear_trakt_collection_watchlist_data('watchlist', 'tvshow')
-	if _compare(latest_shows['hidden_at'], cached_shows['hidden_at']): clear_trakt_hidden_data('progress_watched')
+	if _compare(latest_shows['dropped_at'], cached_shows['dropped_at']): clear_trakt_hidden_data('progress_watched')
 	if _compare(latest_movies['watched_at'], cached_movies['watched_at']): trakt_indicators_movies()
 	if _compare(latest_episodes['watched_at'], cached_episodes['watched_at']): trakt_indicators_tv()
 	if _compare(latest_movies['paused_at'], cached_movies['paused_at']): refresh_movies_progress = True

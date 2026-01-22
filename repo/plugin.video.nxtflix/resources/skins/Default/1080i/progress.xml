@@ -37,7 +37,7 @@
                 <align>right</align>
                 <aligny>top</aligny>
                 <aspectratio aligny="top">keep</aspectratio>
-                <texture colordiffuse="FFCCCCCC">nxtflix_common/NXTFlix.png</texture>
+                <texture colordiffuse="FFCCCCCC">nxtflix_common/nxtflix.png</texture>
             </control>
             <control type="group">
                 <left>5</left>
@@ -47,7 +47,7 @@
                     <left>0</left>
                     <width>1035</width>
                     <height>5</height>
-                    <font>Tiny44</font> <!-- NXTFlix_21 -->
+                    <font>font10</font> <!-- NXTFlix_21 -->
                     <align>left</align>
                     <aligny>bottom</aligny>
                     <textcolor>B3CCCCCC</textcolor>
@@ -66,7 +66,7 @@
                     <left>5</left>
                     <height>20</height>
                     <align>center</align>
-                    <font>LabelInfoSub</font> <!-- NXTFlix_26 -->
+                    <font>font12</font> <!-- NXTFlix_26 -->
                     <textcolor>FFCCCCCC</textcolor>
                 </control>
                 <control type="textbox" id="2001">

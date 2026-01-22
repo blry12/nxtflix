@@ -20,14 +20,14 @@
                     <width>60</width>
                     <height>60</height>
                     <aspectratio aligny="top">keep</aspectratio>
-                    <texture colordiffuse="B3CCCCCC">nxtflix_common/NXTFlix.png</texture>
+                    <texture colordiffuse="B3CCCCCC">nxtflix_common/nxtflix.png</texture>
                 </control>
                 <control type="label">
                     <left>70</left>
                     <top>13</top>
                     <width max="1160">auto</width>
                     <height>20</height>
-                    <font>Tiny44</font> <!-- NXTFlix_21 -->
+                    <font>font10</font> <!-- NXTFlix_21 -->
                     <textcolor>B3CCCCCC</textcolor>
                     <label>[UPPERCASE]$ADDON[plugin.video.nxtflix 33138][/UPPERCASE]</label>
                 </control>
@@ -39,7 +39,7 @@
                     <left>30</left>
                     <width>1820</width>
                     <height>20</height>
-                    <font>Tiny44</font> <!-- NXTFlix_21 -->
+                    <font>font10</font> <!-- NXTFlix_21 -->
                     <align>center</align>
                     <label>[COLOR B3CCCCCC][B]$INFO[Player.Time(hh:mm:ss)] / $INFO[Player.Duration(hh:mm:ss)][/B][/COLOR]</label>
                 </control>

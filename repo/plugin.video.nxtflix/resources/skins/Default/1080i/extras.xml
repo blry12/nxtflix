@@ -26,7 +26,7 @@
                     <width>60</width>
                     <height>60</height>
                     <aspectratio aligny="top">keep</aspectratio>
-                    <texture>nxtflix_common/NXTFlix.png</texture>
+                    <texture>nxtflix_common/nxtflix.png</texture>
                 </control>
                 <control type="group">
                     <visible>!Control.HasFocus(2050) + !Control.HasFocus(2051) + !Control.HasFocus(2058) + !Control.HasFocus(2059) + !Control.HasFocus(2060) + !Control.HasFocus(2061) + !Control.HasFocus(2062) + !Control.HasFocus(2063)</visible>
@@ -35,7 +35,7 @@
                         <left>1590</left>
                         <width max="300">auto</width>
                         <height>20</height>
-                        <font>Medium</font> <!-- NXTFlix_38 -->
+                        <font>font37</font> <!-- NXTFlix_38 -->
                         <textcolor>FFCCCCCC</textcolor>
                         <align>right</align>
                         <aligny>center</aligny>
@@ -46,7 +46,7 @@
                         <left>1540</left>
                         <width max="350">auto</width>
                         <height>20</height>
-                        <font>Tiny44</font> <!-- NXTFlix_21 -->
+                        <font>font10</font> <!-- NXTFlix_21 -->
                         <textcolor>FFCCCCCC</textcolor>
                         <align>right</align>
                         <aligny>center</aligny>
@@ -68,7 +68,7 @@
                     <control type="label">
                         <width max="500">auto</width>
                         <height>20</height>
-                        <font>LabelInfoSub</font> <!-- NXTFlix_26 -->
+                        <font>font12</font> <!-- NXTFlix_26 -->
                         <textcolor>FFCCCCCC</textcolor>
                         <align>right</align>
                         <aligny>top</aligny>
@@ -78,7 +78,7 @@
                     <control type="label">
                         <width max="500">auto</width>
                         <height>20</height>
-                        <font>LabelInfoSub</font> <!-- NXTFlix_26 -->
+                        <font>font12</font> <!-- NXTFlix_26 -->
                         <textcolor>FFCCCCCC</textcolor>
                         <align>right</align>
                         <aligny>top</aligny>
@@ -88,7 +88,7 @@
                     <control type="label">
                         <width max="500">auto</width>
                         <height>20</height>
-                        <font>LabelInfoSub</font> <!-- NXTFlix_26 -->
+                        <font>font12</font> <!-- NXTFlix_26 -->
                         <textcolor>FFCCCCCC</textcolor>
                         <align>right</align>
                         <aligny>top</aligny>
@@ -122,7 +122,7 @@
                         <left>70</left>
                         <width max="1130">auto</width>
                         <height>30</height>
-                        <font>lyrics7s</font> <!-- NXTFlix_60_BOLD -->
+                        <font>font60</font> <!-- NXTFlix_60_BOLD -->
                         <textcolor>FFCCCCCC</textcolor>
                         <align>center</align>
                         <aligny>bottom</aligny>
@@ -140,7 +140,7 @@
                 <control type="label">
                     <width max="1150">auto</width>
                     <height>25</height>
-                    <font>Medium</font> <!-- NXTFlix_38 -->
+                    <font>font37</font> <!-- NXTFlix_38 -->
                     <textcolor>FFCCCCCC</textcolor>
                     <align>center</align>
                     <label>[I]$INFO[Window.Property(genre)][/I]</label>
@@ -150,7 +150,7 @@
                     <top>55</top>
                     <width max="1150">auto</width>
                     <height>25</height>
-                    <font>Medium</font> <!-- NXTFlix_38 -->
+                    <font>font37</font> <!-- NXTFlix_38 -->
                     <textcolor>FFCCCCCC</textcolor>
                     <align>center</align>
                 </control>
@@ -159,7 +159,7 @@
                     <top>105</top>
                     <width max="1150">auto</width>
                     <height>25</height>
-                    <font>Medium</font> <!-- NXTFlix_38 -->
+                    <font>font37</font> <!-- NXTFlix_38 -->
                     <textcolor>FFCCCCCC</textcolor>
                     <align>center</align>
                 </control>
@@ -438,7 +438,7 @@
                         <control type="label">
                             <width max="1160">auto</width>
                             <height>20</height>
-                            <font>Name1</font> <!-- NXTFlix_33 -->
+                            <font>font14</font> <!-- NXTFlix_33 -->
                             <textcolor>FFCCCCCC</textcolor>
                             <align>left</align>
                             <aligny>bottom</aligny>
@@ -489,7 +489,7 @@
                         <control type="label">
                             <width min="30" max="1160">auto</width>
                             <height>20</height>
-                            <font>Name1</font> <!-- NXTFlix_33 -->
+                            <font>font14</font> <!-- NXTFlix_33 -->
                             <textcolor>FFCCCCCC</textcolor>
                             <label>[B]$ADDON[plugin.video.nxtflix 32664][COLOR $INFO[Window(10000).Property(nxtflix.main_highlight)]] $INFO[Window.Property(cast.number)][/COLOR][/B]</label>
                             <visible>!Control.HasFocus(2050)</visible>
@@ -497,7 +497,7 @@
                         <control type="label">
                             <width min="30" max="1160">auto</width>
                             <height>20</height>
-                            <font>Name1</font> <!-- NXTFlix_33 -->
+                            <font>font14</font> <!-- NXTFlix_33 -->
                             <textcolor>FFCCCCCC</textcolor>
                             <label>[B]$ADDON[plugin.video.nxtflix 32664][COLOR $INFO[Window(10000).Property(nxtflix.main_highlight)]] | [/COLOR][/B]$INFO[Container(2050).ListItem.Property(name)][COLOR $INFO[Window(10000).Property(nxtflix.main_highlight)]] • [/COLOR]$INFO[Container(2050).ListItem.Property(role)]</label>
                             <visible>Control.HasFocus(2050)</visible>
@@ -591,7 +591,7 @@
                         <control type="label">
                             <width min="30" max="1160">auto</width>
                             <height>20</height>
-                            <font>Name1</font> <!-- NXTFlix_33 -->
+                            <font>font14</font> <!-- NXTFlix_33 -->
                             <textcolor>FFCCCCCC</textcolor>
                             <label>[B]$ADDON[plugin.video.nxtflix 32503][COLOR $INFO[Window(10000).Property(nxtflix.main_highlight)]] $INFO[Window.Property(recommended.number)][/COLOR][/B]</label>
                             <visible>!Control.HasFocus(2051)</visible>
@@ -599,7 +599,7 @@
                         <control type="label">
                             <width min="30" max="1160">auto</width>
                             <height>20</height>
-                            <font>Name1</font> <!-- NXTFlix_33 -->
+                            <font>font14</font> <!-- NXTFlix_33 -->
                             <textcolor>FFCCCCCC</textcolor>
                             <label>[B]$ADDON[plugin.video.nxtflix 32503][COLOR $INFO[Window(10000).Property(nxtflix.main_highlight)]] | [/COLOR][/B]$INFO[Container(2051).ListItem.Property(name)][COLOR $INFO[Window(10000).Property(nxtflix.main_highlight)]] • [/COLOR]$INFO[Container(2051).ListItem.Property(release_date)][COLOR $INFO[Window(10000).Property(nxtflix.main_highlight)]] • [/COLOR]$INFO[Container(2051).ListItem.Property(vote_average)]</label>
                             <visible>Control.HasFocus(2051)</visible>
@@ -693,7 +693,7 @@
                         <control type="label">
                             <width max="1160">auto</width>
                             <height>20</height>
-                            <font>Name1</font> <!-- NXTFlix_33 -->
+                            <font>font14</font> <!-- NXTFlix_33 -->
                             <textcolor>FFCCCCCC</textcolor>
                             <align>left</align>
                             <aligny>bottom</aligny>
@@ -719,7 +719,7 @@
                                     <left>15</left>
                                     <width>540</width>
                                     <height>308</height>
-                                    <font>LabelInfoSub</font> <!-- NXTFlix_26 -->
+                                    <font>font12</font> <!-- NXTFlix_26 -->
                                     <align>center</align>
                                     <aligny>top</aligny>
                                     <textcolor>FFCCCCCC</textcolor>
@@ -738,7 +738,7 @@
                                     <left>15</left>
                                     <width>540</width>
                                     <height>308</height>
-                                    <font>LabelInfoSub</font> <!-- NXTFlix_26 -->
+                                    <font>font12</font> <!-- NXTFlix_26 -->
                                     <align>center</align>
                                     <aligny>top</aligny>
                                     <textcolor>FF1F2020</textcolor>
@@ -785,7 +785,7 @@
                         <control type="label">
                             <width max="1160">auto</width>
                             <height>20</height>
-                            <font>Name1</font> <!-- NXTFlix_33 -->
+                            <font>font14</font> <!-- NXTFlix_33 -->
                             <textcolor>FFCCCCCC</textcolor>
                             <align>left</align>
                             <aligny>bottom</aligny>
@@ -811,7 +811,7 @@
                                     <left>15</left>
                                     <width>540</width>
                                     <height>308</height>
-                                    <font>LabelInfoSub</font> <!-- NXTFlix_26 -->
+                                    <font>font12</font> <!-- NXTFlix_26 -->
                                     <align>center</align>
                                     <aligny>top</aligny>
                                     <textcolor>FFCCCCCC</textcolor>
@@ -830,7 +830,7 @@
                                     <left>15</left>
                                     <width>540</width>
                                     <height>308</height>
-                                    <font>LabelInfoSub</font> <!-- NXTFlix_26 -->
+                                    <font>font12</font> <!-- NXTFlix_26 -->
                                     <align>center</align>
                                     <aligny>top</aligny>
                                     <textcolor>FF1F2020</textcolor>
@@ -877,7 +877,7 @@
                         <control type="label">
                             <width max="1160">auto</width>
                             <height>20</height>
-                            <font>Name1</font> <!-- NXTFlix_33 -->
+                            <font>font14</font> <!-- NXTFlix_33 -->
                             <textcolor>FFCCCCCC</textcolor>
                             <align>left</align>
                             <aligny>bottom</aligny>
@@ -903,7 +903,7 @@
                                     <left>15</left>
                                     <width>540</width>
                                     <height>308</height>
-                                    <font>LabelInfoSub</font> <!-- NXTFlix_26 -->
+                                    <font>font12</font> <!-- NXTFlix_26 -->
                                     <align>center</align>
                                     <aligny>top</aligny>
                                     <textcolor>FFCCCCCC</textcolor>
@@ -922,7 +922,7 @@
                                     <left>15</left>
                                     <width>540</width>
                                     <height>308</height>
-                                    <font>LabelInfoSub</font> <!-- NXTFlix_26 -->
+                                    <font>font12</font> <!-- NXTFlix_26 -->
                                     <align>center</align>
                                     <aligny>top</aligny>
                                     <textcolor>FF1F2020</textcolor>
@@ -969,7 +969,7 @@
                         <control type="label">
                             <width max="1160">auto</width>
                             <height>20</height>
-                            <font>Name1</font> <!-- NXTFlix_33 -->
+                            <font>font14</font> <!-- NXTFlix_33 -->
                             <textcolor>FFCCCCCC</textcolor>
                             <align>left</align>
                             <aligny>bottom</aligny>
@@ -995,7 +995,7 @@
                                     <left>15</left>
                                     <width>540</width>
                                     <height>308</height>
-                                    <font>LabelInfoSub</font> <!-- NXTFlix_26 -->
+                                    <font>font12</font> <!-- NXTFlix_26 -->
                                     <align>center</align>
                                     <aligny>top</aligny>
                                     <textcolor>FFCCCCCC</textcolor>
@@ -1014,7 +1014,7 @@
                                     <left>15</left>
                                     <width>540</width>
                                     <height>308</height>
-                                    <font>LabelInfoSub</font> <!-- NXTFlix_26 -->
+                                    <font>font12</font> <!-- NXTFlix_26 -->
                                     <align>center</align>
                                     <aligny>top</aligny>
                                     <textcolor>FF1F2020</textcolor>
@@ -1061,7 +1061,7 @@
                         <control type="label">
                             <width max="1160">auto</width>
                             <height>20</height>
-                            <font>Name1</font> <!-- NXTFlix_33 -->
+                            <font>font14</font> <!-- NXTFlix_33 -->
                             <textcolor>FFCCCCCC</textcolor>
                             <align>left</align>
                             <aligny>bottom</aligny>
@@ -1094,7 +1094,7 @@
                                     <top>6</top>
                                     <width>224</width>
                                     <height>75</height>
-                                    <font>LabelInfoSub</font> <!-- NXTFlix_26 -->
+                                    <font>font12</font> <!-- NXTFlix_26 -->
                                     <align>center</align>
                                     <aligny>center</aligny>
                                     <textcolor>FFCCCCCC</textcolor>
@@ -1106,7 +1106,7 @@
                                     <top>280</top>
                                     <width>224</width>
                                     <height>75</height>
-                                    <font>LabelInfoSub</font> <!-- NXTFlix_26 -->
+                                    <font>font12</font> <!-- NXTFlix_26 -->
                                     <align>center</align>
                                     <aligny>center</aligny>
                                     <textcolor>FFCCCCCC</textcolor>
@@ -1133,7 +1133,7 @@
                                     <top>6</top>
                                     <width>224</width>
                                     <height>75</height>
-                                    <font>LabelInfoSub</font> <!-- NXTFlix_26 -->
+                                    <font>font12</font> <!-- NXTFlix_26 -->
                                     <align>center</align>
                                     <aligny>center</aligny>
                                     <textcolor>FF1F2020</textcolor>
@@ -1145,7 +1145,7 @@
                                     <top>280</top>
                                     <width>224</width>
                                     <height>75</height>
-                                    <font>LabelInfoSub</font> <!-- NXTFlix_26 -->
+                                    <font>font12</font> <!-- NXTFlix_26 -->
                                     <align>center</align>
                                     <aligny>center</aligny>
                                     <textcolor>FF1F2020</textcolor>
@@ -1164,7 +1164,7 @@
                         <control type="label">
                             <width min="30" max="1160">auto</width>
                             <height>20</height>
-                            <font>Name1</font> <!-- NXTFlix_33 -->
+                            <font>font14</font> <!-- NXTFlix_33 -->
                             <textcolor>FFCCCCCC</textcolor>
                             <label>[B]$ADDON[plugin.video.nxtflix 33032][COLOR $INFO[Window(10000).Property(nxtflix.main_highlight)]] $INFO[Window.Property(imdb_videos.number)][/COLOR][/B]</label>
                             <visible>!Control.HasFocus(2057)</visible>
@@ -1172,7 +1172,7 @@
                         <control type="label">
                             <width min="30" max="1160">auto</width>
                             <height>20</height>
-                            <font>Name1</font> <!-- NXTFlix_33 -->
+                            <font>font14</font> <!-- NXTFlix_33 -->
                             <textcolor>FFCCCCCC</textcolor>
                             <label>[B]$ADDON[plugin.video.nxtflix 33032][COLOR $INFO[Window(10000).Property(nxtflix.main_highlight)]] | [/COLOR][/B]$INFO[Container(2057).ListItem.Property(name)]</label>
                             <visible>Control.HasFocus(2057)</visible>
@@ -1265,7 +1265,7 @@
                         <control type="label">
                             <width max="1160">auto</width>
                             <height>20</height>
-                            <font>Name1</font> <!-- NXTFlix_33 -->
+                            <font>font14</font> <!-- NXTFlix_33 -->
                             <textcolor>FFCCCCCC</textcolor>
                             <align>left</align>
                             <aligny>bottom</aligny>
@@ -1360,7 +1360,7 @@
                         <control type="label">
                             <width max="1160">auto</width>
                             <height>20</height>
-                            <font>Name1</font> <!-- NXTFlix_33 -->
+                            <font>font14</font> <!-- NXTFlix_33 -->
                             <textcolor>FFCCCCCC</textcolor>
                             <align>left</align>
                             <aligny>bottom</aligny>
@@ -1453,7 +1453,7 @@
                         <control type="label">
                             <width min="30" max="1160">auto</width>
                             <height>20</height>
-                            <font>Name1</font> <!-- NXTFlix_33 -->
+                            <font>font14</font> <!-- NXTFlix_33 -->
                             <textcolor>FFCCCCCC</textcolor>
                             <label>[B]$ADDON[plugin.video.nxtflix 32612] $ADDON[plugin.video.nxtflix 32543][COLOR $INFO[Window(10000).Property(nxtflix.main_highlight)]] $INFO[Window.Property(more_from_year.number)][/COLOR][/B]</label>
                             <visible>!Control.HasFocus(2060)</visible>
@@ -1461,7 +1461,7 @@
                         <control type="label">
                             <width min="30" max="1160">auto</width>
                             <height>20</height>
-                            <font>Name1</font> <!-- NXTFlix_33 -->
+                            <font>font14</font> <!-- NXTFlix_33 -->
                             <textcolor>FFCCCCCC</textcolor>
                             <label>[B]$ADDON[plugin.video.nxtflix 32612] $ADDON[plugin.video.nxtflix 32543][COLOR $INFO[Window(10000).Property(nxtflix.main_highlight)]] | [/COLOR][/B]$INFO[Container(2060).ListItem.Property(name)][COLOR $INFO[Window(10000).Property(nxtflix.main_highlight)]] • [/COLOR]$INFO[Container(2060).ListItem.Property(release_date)][COLOR $INFO[Window(10000).Property(nxtflix.main_highlight)]] • [/COLOR]$INFO[Container(2060).ListItem.Property(vote_average)]</label>
                             <visible>Control.HasFocus(2060)</visible>
@@ -1555,7 +1555,7 @@
                         <control type="label">
                             <width min="30" max="1160">auto</width>
                             <height>20</height>
-                            <font>Name1</font> <!-- NXTFlix_33 -->
+                            <font>font14</font> <!-- NXTFlix_33 -->
                             <textcolor>FFCCCCCC</textcolor>
                             <label>[B]$ADDON[plugin.video.nxtflix 32612] $ADDON[plugin.video.nxtflix 32470][COLOR $INFO[Window(10000).Property(nxtflix.main_highlight)]] $INFO[Window.Property(more_from_genres.number)][/COLOR][/B]</label>
                             <visible>!Control.HasFocus(2061)</visible>
@@ -1563,7 +1563,7 @@
                         <control type="label">
                             <width min="30" max="1160">auto</width>
                             <height>20</height>
-                            <font>Name1</font> <!-- NXTFlix_33 -->
+                            <font>font14</font> <!-- NXTFlix_33 -->
                             <textcolor>FFCCCCCC</textcolor>
                             <label>[B]$ADDON[plugin.video.nxtflix 32612] $ADDON[plugin.video.nxtflix 32470][COLOR $INFO[Window(10000).Property(nxtflix.main_highlight)]] | [/COLOR][/B]$INFO[Container(2061).ListItem.Property(name)][COLOR $INFO[Window(10000).Property(nxtflix.main_highlight)]] • [/COLOR]$INFO[Container(2061).ListItem.Property(release_date)][COLOR $INFO[Window(10000).Property(nxtflix.main_highlight)]] • [/COLOR]$INFO[Container(2061).ListItem.Property(vote_average)]</label>
                             <visible>Control.HasFocus(2061)</visible>
@@ -1657,7 +1657,7 @@
                         <control type="label">
                             <width min="30" max="1160">auto</width>
                             <height>20</height>
-                            <font>Name1</font> <!-- NXTFlix_33 -->
+                            <font>font14</font> <!-- NXTFlix_33 -->
                             <textcolor>FFCCCCCC</textcolor>
                             <label>[B]$ADDON[plugin.video.nxtflix 32612] $ADDON[plugin.video.nxtflix 32480][COLOR $INFO[Window(10000).Property(nxtflix.main_highlight)]] $INFO[Window.Property(more_from_networks.number)][/COLOR][/B]</label>
                             <visible>!Control.HasFocus(2062)</visible>
@@ -1665,7 +1665,7 @@
                         <control type="label">
                             <width min="30" max="1160">auto</width>
                             <height>20</height>
-                            <font>Name1</font> <!-- NXTFlix_33 -->
+                            <font>font14</font> <!-- NXTFlix_33 -->
                             <textcolor>FFCCCCCC</textcolor>
                             <label>[B]$ADDON[plugin.video.nxtflix 32612] $ADDON[plugin.video.nxtflix 32480][COLOR $INFO[Window(10000).Property(nxtflix.main_highlight)]] | [/COLOR][/B]$INFO[Container(2062).ListItem.Property(name)][COLOR $INFO[Window(10000).Property(nxtflix.main_highlight)]] • [/COLOR]$INFO[Container(2062).ListItem.Property(release_date)][COLOR $INFO[Window(10000).Property(nxtflix.main_highlight)]] • [/COLOR]$INFO[Container(2062).ListItem.Property(vote_average)]</label>
                             <visible>Control.HasFocus(2062)</visible>
@@ -1759,7 +1759,7 @@
                         <control type="label">
                             <width min="30" max="1160">auto</width>
                             <height>20</height>
-                            <font>Name1</font> <!-- NXTFlix_33 -->
+                            <font>font14</font> <!-- NXTFlix_33 -->
                             <textcolor>FFCCCCCC</textcolor>
                             <label>[B]$INFO[Window.Property(more_from_collection.name)][COLOR $INFO[Window(10000).Property(nxtflix.main_highlight)]] $INFO[Window.Property(more_from_collection.number)][/COLOR][/B]</label>
                             <visible>!Control.HasFocus(2063)</visible>
@@ -1767,7 +1767,7 @@
                         <control type="label">
                             <width min="30" max="1160">auto</width>
                             <height>20</height>
-                            <font>Name1</font> <!-- NXTFlix_33 -->
+                            <font>font14</font> <!-- NXTFlix_33 -->
                             <textcolor>FFCCCCCC</textcolor>
                             <label>[B]$INFO[Window.Property(more_from_collection.name)][COLOR $INFO[Window(10000).Property(nxtflix.main_highlight)]] | [/COLOR][/B]$INFO[Container(2063).ListItem.Property(name)][COLOR $INFO[Window(10000).Property(nxtflix.main_highlight)]] • [/COLOR]$INFO[Container(2063).ListItem.Property(release_date)][COLOR $INFO[Window(10000).Property(nxtflix.main_highlight)]] • [/COLOR]$INFO[Container(2063).ListItem.Property(vote_average)]</label>
                             <visible>Control.HasFocus(2063)</visible>
@@ -1799,7 +1799,7 @@
                                 <top>6</top>
                                 <width>218</width>
                                 <height>348</height>
-                                <font>LabelInfoSub</font> <!-- NXTFlix_26 -->
+                                <font>font12</font> <!-- NXTFlix_26 -->
                                 <align>center</align>
                                 <aligny>center</aligny>
                                 <textcolor>FFB7B4BB</textcolor>

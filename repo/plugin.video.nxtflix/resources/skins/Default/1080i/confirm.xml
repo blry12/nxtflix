@@ -37,14 +37,14 @@
                 <align>left</align>
                 <aligny>top</aligny>
                 <aspectratio aligny="top">keep</aspectratio>
-                <texture colordiffuse="FFCCCCCC">nxtflix_common/NXTFlix.png</texture>
+                <texture colordiffuse="FFCCCCCC">nxtflix_common/nxtflix.png</texture>
             </control>
             <control type="label">
                 <width max="560">auto</width>
                 <top>10</top>
                 <left>110</left>
                 <height>20</height>
-                <font>LabelInfoSub</font> <!-- NXTFlix_26 -->
+                <font>font12</font> <!-- NXTFlix_26 -->
                 <textcolor>$INFO[Window(10000).Property(nxtflix.main_highlight)]</textcolor>
                 <shadowcolor>FF000000</shadowcolor>
                 <align>center</align>
@@ -70,7 +70,7 @@
                 <onleft>11</onleft>
                 <onright>11</onright>
                 <label>$INFO[Window.Property(ok_label)]</label>
-                <font>LabelInfoSub</font> <!-- NXTFlix_26 -->
+                <font>font12</font> <!-- NXTFlix_26 -->
                 <textcolor>FFCCCCCC</textcolor>
                 <focusedcolor>FF1F2020</focusedcolor>
                 <texturefocus colordiffuse="FFCCCCCC" border="30">nxtflix_common/circle.png</texturefocus>
@@ -86,7 +86,7 @@
                 <onleft>10</onleft>
                 <onright>10</onright>
                 <label>$INFO[Window.Property(cancel_label)]</label>
-                <font>LabelInfoSub</font> <!-- NXTFlix_26 -->
+                <font>font12</font> <!-- NXTFlix_26 -->
                 <textcolor>FFCCCCCC</textcolor>
                 <focusedcolor>FF1F2020</focusedcolor>
                 <texturefocus colordiffuse="FFCCCCCC" border="30">nxtflix_common/circle.png</texturefocus>

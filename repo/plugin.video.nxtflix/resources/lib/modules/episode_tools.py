@@ -114,9 +114,9 @@ def build_next_episode_manager():
 		try:
 			listitem = make_listitem()
 			tmdb_id, title = item['media_ids']['tmdb'], item['title']
-			if tmdb_id in hidden_list: display, action = title + hidden_ind_str % hidden_str, 'unhide'
-			else: display, action = title, 'hide'
-			url_params = {'mode': mode, 'action': action, 'media_type': 'shows', 'media_id': tmdb_id, 'section': 'progress_watched'}
+			if int(tmdb_id) in hidden_list: display, action = 'Undrop [B]%s[/B] [COLOR=red][DROPPED][/COLOR]' % title, 'undrop'
+			else: display, action = 'Drop [B]%s[/B]' % title, 'drop'
+			url_params = {'mode': mode, 'action': action, 'media_type': 'shows', 'media_id': tmdb_id, 'section': 'dropped'}
 			url = build_url(url_params)
 			listitem.setLabel(display)
 			listitem.setArt({'poster': icon, 'fanart': addon_fanart, 'icon': icon})

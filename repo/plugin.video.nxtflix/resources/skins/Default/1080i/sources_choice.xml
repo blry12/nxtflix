@@ -37,7 +37,7 @@
                 <align>left</align>
                 <aligny>top</aligny>
                 <aspectratio aligny="top">keep</aspectratio>
-                <texture colordiffuse="FFCCCCCC">nxtflix_common/NXTFlix.png</texture>
+                <texture colordiffuse="FFCCCCCC">nxtflix_common/nxtflix.png</texture>
             </control>
             <control type="image">
                 <top>70</top>
@@ -54,7 +54,7 @@
                 <top>10</top>
                 <left>60</left>
                 <height>20</height>
-                <font>LabelInfoSub</font> <!-- NXTFlix_26 -->
+                <font>font12</font> <!-- NXTFlix_26 -->
                 <textcolor>FFCCCCCC</textcolor>
                 <shadowcolor>FF000000</shadowcolor>
                 <align>center</align>
@@ -78,7 +78,7 @@
                         <left>70</left>
                         <width max="440">auto</width>
                         <height>90</height>
-                        <font>LabelInfoSub</font> <!-- NXTFlix_26 -->
+                        <font>font12</font> <!-- NXTFlix_26 -->
                         <textcolor>FFCCCCCC</textcolor>
                         <align>left</align>
                         <aligny>center</aligny>
@@ -98,7 +98,7 @@
                         <left>70</left>
                         <width max="440">auto</width>
                         <height>90</height>
-                        <font>LabelInfoSub</font> <!-- NXTFlix_26 -->
+                        <font>font12</font> <!-- NXTFlix_26 -->
                         <textcolor>FF1F2020</textcolor>
                         <align>left</align>
                         <aligny>center</aligny>
