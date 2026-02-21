@@ -384,7 +384,7 @@ msgid "ETTV"
 msgstr ""
 
 msgctxt "#32106"
-msgid "EXTRATORRENT (Pack capable)"
+msgid "DMM"
 msgstr ""
 
 msgctxt "#32107"
@@ -420,7 +420,7 @@ msgid "TORRENTQUEST"
 msgstr ""
 
 msgctxt "#32115"
-msgid "MOVIEMAGNET"
+msgid "METEOR"
 msgstr ""
 
 msgctxt "#32116"
@@ -508,7 +508,7 @@ msgid "TORRENTPROJECT2 (Pack capable)"
 msgstr ""
 
 msgctxt "#32137"
-msgid "BITCQ (Pack capable)"
+msgid "BITMAGNET"
 msgstr ""
 
 msgctxt "#32138"
