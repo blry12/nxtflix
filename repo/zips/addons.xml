@@ -899,7 +899,7 @@
         <reuselanguageinvoker>false</reuselanguageinvoker>
         <source>https://</source>
     </extension>
-</addon><addon id="script.module.blackscrapers" name="Blackscrapers Module" version="1.00.35g" provider-name="janedoe">
+</addon><addon id="script.module.blackscrapers" name="Blackscrapers Module" version="1.00.37g" provider-name="janedoe">
     <requires>
         <import addon="script.module.beautifulsoup4" />
         <import addon="script.module.requests" />
