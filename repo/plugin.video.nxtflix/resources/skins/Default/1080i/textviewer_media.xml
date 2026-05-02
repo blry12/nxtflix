@@ -48,7 +48,7 @@
                     <align>right</align>
                     <aligny>top</aligny>
                     <aspectratio aligny="top">keep</aspectratio>
-                    <texture colordiffuse="FFCCCCCC">nxtflix_common/nxtflix.png</texture>
+                    <texture colordiffuse="FFCCCCCC">nxtflix_common/NXTFlix.png</texture>
                 </control>
                 <control type="textbox" id="2001">
                     <top>50</top>

@@ -31,7 +31,7 @@
                     <align>left</align>
                     <aligny>top</aligny>
                     <aspectratio aligny="top">keep</aspectratio>
-                    <texture colordiffuse="dialog_fg_70">common/nxtflix.png</texture>
+                    <texture colordiffuse="dialog_fg_70">common/NXTFlix.png</texture>
                 </control>
                 <control type="label">
                     <top>40</top>

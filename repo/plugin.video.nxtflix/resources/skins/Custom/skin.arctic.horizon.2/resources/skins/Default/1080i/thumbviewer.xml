@@ -29,7 +29,7 @@
                     <width>60</width>
                     <height>60</height>
                     <aspectratio aligny="top">keep</aspectratio>
-                    <texture>common/nxtflix.png</texture>
+                    <texture>common/NXTFlix.png</texture>
                 </control>
                 <control type="label">
                     <top>20</top>

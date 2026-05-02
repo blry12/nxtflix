@@ -27,7 +27,7 @@
                     <width>60</width>
                     <height>60</height>
                     <aspectratio aligny="top">keep</aspectratio>
-                    <texture>nxtflix_common/nxtflix.png</texture>
+                    <texture>nxtflix_common/NXTFlix.png</texture>
                 </control>
                 <control type="group">
                     <visible>!Control.HasFocus(2050) + !Control.HasFocus(2051) + !Control.HasFocus(2054)</visible>

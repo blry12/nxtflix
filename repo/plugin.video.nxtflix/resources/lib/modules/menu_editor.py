@@ -45,7 +45,7 @@ class MenuEditor:
 		append((fol_add_str % menu_name_translated_display, self.shortcut_folder_add_item))
 		append((orig_add_str % list_name, self.add_original))
 		append((fol_menu_str % list_name, self.shortcut_folder_add_to_main_menu))
-		if get_setting('nxtflix.trakt.user', ''): append((trak_add_str % list_name, self.add_trakt))
+		if get_setting('NXTFlix.trakt.user', ''): append((trak_add_str % list_name, self.add_trakt))
 		append((res_str % list_name, self.restore))
 		append((upd_str % list_name, self.check_update_list))
 		if not external_list_item: append((reload_str % menu_name_translated_display, self.reload_menu_item))

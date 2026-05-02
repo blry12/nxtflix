@@ -157,12 +157,12 @@ def display_uncached_torrents():
 	return get_setting('nxtflix.torrent.display.uncached', 'false') == 'true'
 
 def trakt_sync_interval():
-	setting = get_setting('nxtflix.trakt.sync_interval', '25')
+	setting = get_setting('NXTFlix.trakt.sync_interval', '25')
 	interval = int(setting) * 60
 	return setting, interval
 
 def trakt_sync_refresh_widgets():
-	return get_setting('nxtflix.trakt.sync_refresh_widgets', 'true') == 'true'
+	return get_setting('NXTFlix.trakt.sync_refresh_widgets', 'true') == 'true'
 
 def lists_sort_order(setting):
 	return int(get_setting('nxtflix.sort.%s' % setting, '0'))
@@ -331,7 +331,7 @@ def show_specials():
 	return get_setting('nxtflix.show_specials', 'false') == 'true'
 
 def calendar_sort_order():
-	return int(get_setting('nxtflix.trakt.calendar_sort_order', '0'))
+	return int(get_setting('NXTFlix.trakt.calendar_sort_order', '0'))
 
 def ignore_articles():
 	return get_setting('nxtflix.ignore_articles', 'false') == 'true'
@@ -376,7 +376,7 @@ def fanarttv_client_key():
 	return get_setting('nxtflix.fanart_client_key', fanarttv_default_api)
 
 def watched_indicators():
-	if get_setting('nxtflix.trakt.user') == '': return 0
+	if get_setting('NXTFlix.trakt.user') == '': return 0
 	return int(get_setting('nxtflix.watched_indicators', '0'))
 
 def fanarttv_default():

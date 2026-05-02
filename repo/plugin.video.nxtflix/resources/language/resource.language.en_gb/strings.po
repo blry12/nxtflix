@@ -1591,7 +1591,7 @@ msgid "Currently"
 msgstr ""
 
 msgctxt "#32599"
-msgid "TV Shows Progress"
+msgid "TV Shows Progress Manager"
 msgstr ""
 
 msgctxt "#32600"
@@ -2418,7 +2418,7 @@ msgid "Accounts Manager"
 msgstr ""
 
 msgctxt "#32806"
-msgid "Drop/Undrop in Trakt app or website->Shows"
+msgid "Select TV Show to Hide/Unhide from Progress:"
 msgstr ""
 
 msgctxt "#32807"

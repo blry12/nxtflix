@@ -7,7 +7,7 @@ from modules import kodi_utils, settings
 from modules.metadata import movie_meta, movie_meta_external_id, tvshow_meta_external_id
 from modules.utils import sort_list, sort_for_article, make_thread_list, get_datetime, timedelta, replace_html_codes, copy2clip, title_key, jsondate_to_datetime as js2date
 
-CLIENT_ID, CLIENT_SECRET = '793fda23d5ab3f352dc5856e5aa3a43c150402406cadf81a419bce23fab15e46', '2cc8aaac698563a9ad5d3be4cceb2a02543fc12b600c191d37565acfb2b5fdc2'
+CLIENT_ID, CLIENT_SECRET = '793fda23d5ab3f352dc5856e5aa3a43c150402406cadf81a419bce23fab15e46', '422a282ef5fe4b5c47bc60425c009ac3047ebd10a7f6af790303875419f18f98'
 ls, json, monitor, sleep, get_setting, set_setting = kodi_utils.local_string, kodi_utils.json, kodi_utils.monitor, kodi_utils.sleep, kodi_utils.get_setting, kodi_utils.set_setting
 logger, notification, player, confirm_dialog, get_property = kodi_utils.logger, kodi_utils.notification, kodi_utils.player, kodi_utils.confirm_dialog, kodi_utils.get_property
 dialog, unquote, addon_installed, addon_enabled, addon = kodi_utils.dialog, kodi_utils.unquote, kodi_utils.addon_installed, kodi_utils.addon_enabled, kodi_utils.addon
@@ -33,11 +33,11 @@ def call_trakt(path, params={}, data=None, is_delete=False, with_auth=True, meth
 		resp = None
 		if with_auth:
 			try:
-				try: expires_at = float(get_setting('nxtflix.trakt.expires'))
+				try: expires_at = float(get_setting('NXTFlix.trakt.expires'))
 				except: expires_at = 0.0
 				if time.time() > expires_at: trakt_refresh_token()
 			except: pass
-			token = get_setting('nxtflix.trakt.token')
+			token = get_setting('NXTFlix.trakt.token')
 			if token: headers['Authorization'] = 'Bearer ' + token
 		try:
 			if method:
@@ -124,13 +124,13 @@ def trakt_get_device_token(device_codes):
 def trakt_refresh_token():
 	data = {        
 		'client_id': CLIENT_ID, 'client_secret': CLIENT_SECRET, 'redirect_uri': 'urn:ietf:wg:oauth:2.0:oob',
-		'grant_type': 'refresh_token', 'refresh_token': get_setting('nxtflix.trakt.refresh')}
+		'grant_type': 'refresh_token', 'refresh_token': get_setting('NXTFlix.trakt.refresh')}
 	response = call_trakt("oauth/token", data=data, with_auth=False)
 	if response:
 		manage_settings_reset()
 		set_setting('trakt.token', response["access_token"])
 		set_setting('trakt.refresh', response["refresh_token"])
-		set_setting('trakt.expires', str(time.time() + 86400))
+		set_setting('trakt.expires', str(time.time() + 7776000))
 		manage_settings_reset(True)
 
 def trakt_authenticate(dummy=''):
@@ -156,7 +156,7 @@ def trakt_authenticate(dummy=''):
 	return False
 
 def trakt_revoke_authentication(dummy=''):
-	data = {'token': get_setting('nxtflix.trakt.token'), 'client_id': CLIENT_ID, 'client_secret': CLIENT_SECRET}
+	data = {'token': get_setting('NXTFlix.trakt.token'), 'client_id': CLIENT_ID, 'client_secret': CLIENT_SECRET}
 	response = call_trakt("oauth/revoke", data=data, with_auth=False)
 	manage_settings_reset()
 	set_setting('trakt.user', '')
@@ -376,7 +376,7 @@ def remove_from_collection(data):
 def hide_unhide_progress_items(params):
 	action, media_type, media_id, list_type = params['action'], params['media_type'], params['media_id'], params['section']
 	media_type = 'movies' if media_type in ('movie', 'movies') else 'shows'
-	url = 'users/hidden/%s' % list_type if action == 'drop' else 'users/hidden/%s/remove' % list_type
+	url = 'users/hidden/%s' % list_type if action == 'hide' else 'users/hidden/%s/remove' % list_type
 	data = {media_type: [{'ids': {'tmdb': media_id}}]}
 	call_trakt(url, data=data)
 	trakt_sync_activities()
@@ -677,8 +677,8 @@ def trakt_get_my_calendar(recently_aired, current_date):
 def trakt_calendar_days(recently_aired, current_date):
 	if recently_aired: start, finish = (current_date - timedelta(days=14)).strftime('%Y-%m-%d'), '14'
 	else:
-		previous_days = int(get_setting('nxtflix.trakt.calendar_previous_days', '3'))
-		future_days = int(get_setting('nxtflix.trakt.calendar_future_days', '7'))
+		previous_days = int(get_setting('NXTFlix.trakt.calendar_previous_days', '3'))
+		future_days = int(get_setting('NXTFlix.trakt.calendar_future_days', '7'))
 		start = (current_date - timedelta(days=previous_days)).strftime('%Y-%m-%d')
 		finish = str(previous_days + future_days)
 	return start, finish
@@ -714,7 +714,7 @@ def trakt_sync_activities(force_update=False):
 	clear_trakt_list_contents_data('user_lists')
 	clear_trakt_list_contents_data('liked_lists')
 	clear_trakt_list_contents_data('my_lists')
-	if not get_setting('nxtflix.trakt.user', '') and not force_update: return 'no account'
+	if not get_setting('NXTFlix.trakt.user', '') and not force_update: return 'no account'
 	try: latest = trakt_get_activity()
 	except: return 'failed'
 	cached = reset_activity(latest)
@@ -731,7 +731,7 @@ def trakt_sync_activities(force_update=False):
 	if _compare(latest_episodes['collected_at'], cached_episodes['collected_at']): clear_trakt_collection_watchlist_data('collection', 'tvshow')
 	if _compare(latest_movies['watchlisted_at'], cached_movies['watchlisted_at']): clear_trakt_collection_watchlist_data('watchlist', 'movie')
 	if _compare(latest_shows['watchlisted_at'], cached_shows['watchlisted_at']): clear_trakt_collection_watchlist_data('watchlist', 'tvshow')
-	if _compare(latest_shows['dropped_at'], cached_shows['dropped_at']): clear_trakt_hidden_data('progress_watched')
+	if _compare(latest_shows['hidden_at'], cached_shows['hidden_at']): clear_trakt_hidden_data('progress_watched')
 	if _compare(latest_movies['watched_at'], cached_movies['watched_at']): trakt_indicators_movies()
 	if _compare(latest_episodes['watched_at'], cached_episodes['watched_at']): trakt_indicators_tv()
 	if _compare(latest_movies['paused_at'], cached_movies['paused_at']): refresh_movies_progress = True

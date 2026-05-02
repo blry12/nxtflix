@@ -119,7 +119,7 @@ class Navigator:
 		self.favorites()
 
 	def my_content(self):
-		if get_setting('nxtflix.trakt.user', ''):
+		if get_setting('NXTFlix.trakt.user', ''):
 			self.add({'mode': 'navigator.trakt_collections'}, my_content_trakt_ins % coll_str, 'trakt')
 			self.add({'mode': 'navigator.trakt_watchlists'}, my_content_trakt_ins % wlist_str, 'trakt')
 			self.add({'mode': 'trakt.list.get_trakt_lists', 'list_type': 'my_lists', 'build_list': 'true', 'category_name': ml_str}, trakt_lists_ins % ml_str, 'trakt')
@@ -215,7 +215,7 @@ class Navigator:
 		self.end_directory()
 
 	def accounts_manager(self):
-		trakt_active = get_setting('nxtflix.trakt.user') != ''
+		trakt_active = get_setting('NXTFlix.trakt.user') != ''
 		debrids = debrid_authed()
 		rd_active, pm_active, ad_active = 'Real-Debrid' in debrids, 'Premiumize.me' in debrids, 'AllDebrid' in debrids
 		folder_active = len([i for i in folder_info for media_type in ('movie', 'tvshow') if (source_folders_directory(media_type, i[0]) or '')]) > 0
