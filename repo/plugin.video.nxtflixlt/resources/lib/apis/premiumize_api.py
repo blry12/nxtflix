@@ -19,21 +19,21 @@ class PremiumizeAPI:
 	def auth(self):
 		self.token = ''
 		line = '%s[CR]%s[CR]%s'
-		data = {'response_type': 'device_code', 'client_id': '888228107'}
+		data = {'response_type': 'device_code', 'client_id': '751712187'}
 		url = 'https://www.premiumize.me/token'
 		response = self._post(url, data)
 		user_code = response['user_code']
 		auth_url = response.get('verification_uri')
 		qr_code = make_qrcode(auth_url) or ''
 		copy2clip(auth_url)
-		content = 'Authorize Debrid Services[CR]Navigate to: [B]%s[/B][CR]Enter the following code: [B]%s[/B]' % (auth_url, user_code)
+		content = 'Please Scan the QR Code[CR]Full link copied to clipboard[CR]OR visit: [B]%s[/B][CR]AND Enter this Code: [B]%s[/B]' % (auth_url, user_code)
 		progressDialog = progress_dialog('Premiumize Authorize', qr_code)
 		progressDialog.update(content, 0)
 		device_code = response['device_code']
 		expires_in = int(response['expires_in'])
 		sleep_interval = int(response['interval'])
 		poll_url = 'https://www.premiumize.me/token'
-		data = {'grant_type': 'device_code', 'client_id': '888228107', 'code': device_code}
+		data = {'grant_type': 'device_code', 'client_id': '751712187', 'code': device_code}
 		start, time_passed = time.time(), 0
 		while not progressDialog.iscanceled() and time_passed < expires_in and not self.token:
 			sleep(1000 * sleep_interval)
@@ -190,7 +190,7 @@ class PremiumizeAPI:
 		return url + '|' + urlencode(self.headers())
 
 	def headers(self):
-		return {'User-Agent': 'NXTFlix Light for Kodi', 'Authorization': 'Bearer %s' % self.token}
+		return {'User-Agent': 'NXTFlix Light', 'Authorization': 'Bearer %s' % self.token}
 
 	def _get(self, url, data={}):
 		if self.token in ('empty_setting', ''): return None

@@ -86,40 +86,24 @@ def language_invoker_choice(params):
 
 def addon_icon_choice(params):
 	import os
-	import requests
-	import shutil
-	import urllib.request
 	from xml.dom.minidom import parse as mdParse
-	large_image_url = 'https://repo.redwizard.xyz/images/fenlam/media/%s'
-	small_image_url = large_image_url % '/minis/%s'
-	set_icon = params.get('set_icon')
-	if set_icon: new_name = set_icon
-	else:
-		try:
-			results = kodi_utils.get_all_addon_icons()
-			all_icons = [{'line1': i['name'], 'icon': large_image_url % i['name']} for i in results if i['type'] == 'file']
-			if not all_icons: kodi_utils.ok_dialog(heading='NXTFlix Light Icon Images', text='Error Fetching Icon Images')
-			all_icons.sort(key=lambda k: k['line1'])
-			kwargs = {'items': json.dumps(all_icons), 'heading': 'Choose New Icon Image'}
-			new_icon = kodi_utils.select_dialog(all_icons, **kwargs)
-			if new_icon == None: return
-			if not kodi_utils.confirm_dialog(text='Set New Icon?'): return
-			new_name = new_icon['line1']
-		except: return kodi_utils.ok_dialog(heading='NXTFlix Light Icon Images', text='Error Fetching Addon Icon Images') 
-	large_image_folder = os.path.join(kodi_utils.addon_path(), 'resources', 'media', 'addon_icons')
-	small_image_folder = os.path.join(large_image_folder, 'minis')
-	for item in [(large_image_folder, large_image_url), (small_image_folder, small_image_url)]:
-		urllib.request.urlretrieve(item[1] % new_name, kodi_utils.translate_path(os.path.join(item[0], new_name)))
-	new_icon_path = 'resources/media/addon_icons/%s' % new_name
 	addon_xml = kodi_utils.translate_path('special://home/addons/plugin.video.nxtflixlt/addon.xml')
 	root = mdParse(addon_xml)
 	icon_instance = root.getElementsByTagName('icon')[0].firstChild
+	icons_path = 'special://home/addons/plugin.video.nxtflixlt/resources/media/addon_icons'
+	all_icons = kodi_utils.list_dirs(kodi_utils.translate_path(icons_path))[1]
+	all_icons.sort()
+	list_items = [{'line1': i, 'icon': kodi_utils.translate_path(os.path.join(icons_path, i))} for i in all_icons]
+	kwargs = {'items': json.dumps(list_items), 'heading': 'Choose New Icon Image'}
+	new_icon = kodi_utils.select_dialog(all_icons, **kwargs)
+	if new_icon == None: return
+	new_icon_path = 'resources/media/addon_icons/%s' % new_icon
+	if not kodi_utils.confirm_dialog(text='Set New Icon?'): return
 	icon_instance.data = new_icon_path
 	new_xml = str(root.toxml()).replace('<?xml version="1.0" ?>', '')
 	with open(addon_xml, 'w') as f: f.write(new_xml)
 	set_setting('addon_icon_choice', new_icon_path)
-	set_setting('addon_icon_choice_name', new_name)
-	if set_icon: return
+	set_setting('addon_icon_choice_name', new_icon)
 	kodi_utils.execute_builtin('ActivateWindow(Home)', True)
 	kodi_utils.update_local_addons()
 	kodi_utils.disable_enable_addon()
@@ -240,10 +224,22 @@ def personallists_manager_choice(params):
 	if action == 'remove' and any([kodi_utils.path_check(list_name) or kodi_utils.external()]): kodi_utils.kodi_refresh()
 
 def tmdblists_manager_choice(params):
+	try:
+		return _tmdblists_manager_choice(params)
+	except Exception as e:
+		from modules.kodi_utils import logger
+		logger('tmdblists_manager_choice', str(e))
+		return kodi_utils.notification(kodi_utils.LIST_ITEM_NOT_IN_LIST, 3000, settle_ms=300)
+
+def _tmdblists_manager_choice(params):
 	from caches.tmdb_lists import tmdb_lists_cache
 	from indexers.tmdb_lists import get_all_tmdb_lists, make_new_tmdb_list, add_to_tmdb_list, remove_from_tmdb_list, check_item_status, check_item_status_watchfav, add_remove_watchfavs
 	icon = params.get('icon', None) or kodi_utils.get_icon('tmdb')
 	media_type, tmdb_id = params['media_type'], params['tmdb_id']
+	if media_type in ('movie', 'movies'): media_type = 'movie'
+	else: media_type = 'tv'
+	try: tmdb_id = int(tmdb_id)
+	except: return kodi_utils.notification('Error', 3000)
 	choices = [('Add To TMDb List...', 'list_add'), ('Remove From TMDb List...', 'list_remove'), ('Add To [B]NEW[/B] TMDb List...', 'list_add_new'),
 				('Add To [B]Watchlist[/B]', 'watchlist_add'), ('Remove From [B]Watchlist[/B]', 'watchlist_remove'),
 				('Add To [B]Favorites[/B]', 'favorites_add'), ('Remove From [B]Favorites[/B]', 'favorites_remove')]
@@ -257,35 +253,44 @@ def tmdblists_manager_choice(params):
 		status = True if 'add' in action else False
 		item_in_list = check_item_status_watchfav(list_id, media_type, tmdb_id)
 		if item_in_list and status: return kodi_utils.notification('Item already in %s' % list_id.capitalize())
-		if not item_in_list and not status: return kodi_utils.notification('Item not in %s' % list_id.capitalize())
+		if not item_in_list and not status: return kodi_utils.notification(kodi_utils.LIST_ITEM_NOT_IN_LIST, 3000)
 		success = add_remove_watchfavs(media_type, tmdb_id, list_id, status)
 		tmdb_lists_cache.clear_watchfavrecs(list_id, media_type)
+		if not success: return
+		kodi_utils.notification('Success', 3000)
+		return
+	from indexers.tmdb_lists import get_all_tmdb_lists, make_new_tmdb_list, add_to_tmdb_list, remove_from_tmdb_list, check_item_status
+	all_lists = get_all_tmdb_lists('0') or []
+	item_in_list = False
+	if not all_lists and action == 'list_remove':
+		return kodi_utils.notification(kodi_utils.LIST_ITEM_NOT_IN_LIST, 3000, settle_ms=300)
+	if not all_lists: action = 'list_add_new'
+	if action == 'list_add_new':
+		list_id = make_new_tmdb_list({'external_creation': 'true'})
+		if not list_id: return kodi_utils.notification('Error Creating List')
+		action, item_in_list = 'list_add', False
 	else:
-		from indexers.tmdb_lists import get_all_tmdb_lists, make_new_tmdb_list, add_to_tmdb_list, remove_from_tmdb_list, check_item_status
-		all_lists = get_all_tmdb_lists('0')
-		if not all_lists: action = 'list_add_new'
-		if action == 'list_add_new':
-			list_id = make_new_tmdb_list({'external_creation': 'true'})
-			if not list_id: return kodi_utils.notification('Error Creating List')
-			action, item_in_list = 'list_add', False
-		else:
-			choices = [('%s [I](x%02d)[/I]' % (i['name'], i['number_of_items']), i['id']) for i in all_lists]
-			list_items = [{'line1': i[0]} for i in choices]
-			kwargs = {'items': json.dumps(list_items), 'narrow_window': 'true'}
-			list_id = kodi_utils.select_dialog([i[1] for i in choices], **kwargs)
-			if list_id == None: return
-			item_in_list = check_item_status(list_id, media_type, tmdb_id)
-		new_contents = {'items': [{'media_type': media_type, 'media_id': tmdb_id}]}
-		if action == 'list_add':
-			if item_in_list: return kodi_utils.notification('Item already in List')
-			success = add_to_tmdb_list(list_id, new_contents)
-		elif action == 'list_remove':
-			if not item_in_list: return kodi_utils.notification('Item not in List')
-			success = remove_from_tmdb_list(list_id, new_contents)
+		choices = [('%s [I](x%02d)[/I]' % (i.get('name') or '', int(i.get('number_of_items') or 0)), i['id']) for i in all_lists if i.get('id')]
+		if not choices: return kodi_utils.notification('Error', 3000)
+		list_items = [{'line1': i[0]} for i in choices]
+		kwargs = {'items': json.dumps(list_items), 'narrow_window': 'true'}
+		list_id = kodi_utils.select_dialog([i[1] for i in choices], **kwargs)
+		if list_id == None: return
+		if action == 'list_add': item_in_list = check_item_status(list_id, media_type, tmdb_id)
+	new_contents = {'items': [{'media_type': media_type, 'media_id': tmdb_id}]}
+	if action == 'list_add':
+		if item_in_list: return kodi_utils.notification('Item already in List')
+		success = add_to_tmdb_list(list_id, new_contents)
 		tmdb_lists_cache.clear_list(list_id)
 		tmdb_lists_cache.clear_all_lists()
-	kodi_utils.notification('Success' if success else 'Failed', 3000)
-	if 'remove' in action and any([kodi_utils.path_check(str(list_id)) or kodi_utils.external()]): kodi_utils.kodi_refresh()
+		kodi_utils.notification('Success' if success else 'Failed', 3000)
+	elif action == 'list_remove':
+		remove_from_tmdb_list(list_id, new_contents)
+		tmdb_lists_cache.clear_list(list_id)
+		tmdb_lists_cache.clear_all_lists()
+	if 'remove' in action and any([kodi_utils.path_check(str(list_id)) or kodi_utils.external()]):
+		kodi_utils.sleep(500)
+		kodi_utils.kodi_refresh()
 
 def favorites_manager_choice(params):
 	from caches.favorites_cache import favorites_cache
@@ -1054,7 +1059,7 @@ def options_menu_choice(params, meta=None):
 	if choice == 'favorites_manager_choice':
 		return favorites_manager_choice({'media_type': content if content in ('movie', 'tvshow') else 'tvshow', 'tmdb_id': tmdb_id, 'title': title})
 	if choice == 'tmdblists_manager_choice':
-		return tmdblists_manager_choice({'media_type': content if content in ('movie', 'movies') else 'tv', 'tmdb_id': tmdb_id, 'icon': poster})
+		return tmdblists_manager_choice({'media_type': 'movie' if content in ('movie', 'movies') else 'tv', 'tmdb_id': tmdb_id, 'icon': poster})
 	if choice == 'toggle_autoplay':
 		set_setting('auto_play_%s' % content, autoplay_toggle)
 	elif choice == 'toggle_autoplay_next':

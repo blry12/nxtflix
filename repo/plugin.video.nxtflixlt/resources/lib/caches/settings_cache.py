@@ -95,8 +95,12 @@ def sync_settings(params={}):
 			for item in obsoletesettings_ids: settings_cache.remove_setting(item)
 	except: pass
 	if currentsettings:
+		if currentsettings.get('update.username', '').replace('-', '').lower() == 'theredwizard' \
+				and currentsettings.get('update.username') != 'The-Red-Wizard':
+			set_setting('update.username', 'The-Red-Wizard')
+			currentsettings['update.username'] = 'The-Red-Wizard'
 		c_settings = currentsettings.items()
-		for k, v  in c_settings: settings_cache.set_memory_cache(k, v)
+		for k, v in c_settings: settings_cache.set_memory_cache(k, v)
 	for item in d_settings:
 		setting_id = item['setting_id']
 		if setting_id in currentsettings: continue
@@ -195,7 +199,7 @@ def default_settings():
 #===============================================================================#
 #==================== General
 {'setting_id': 'auto_start_nxtflixlt', 'setting_type': 'boolean', 'setting_default': 'false'},
-{'setting_id': 'addon_icon_choice', 'setting_type': 'string', 'setting_default': 'resources/media/addon_icons/nxtflixlt_icon_01.png'},
+{'setting_id': 'addon_icon_choice', 'setting_type': 'string', 'setting_default': 'resources/media/addon_icons/icon.png'},
 {'setting_id': 'default_addon_fanart', 'setting_type': 'path', 'setting_default': kodi_utils.addon_fanart(), 'browse_mode': '2'},
 {'setting_id': 'limit_concurrent_threads', 'setting_type': 'boolean', 'setting_default': 'false'},
 {'setting_id': 'max_threads', 'setting_type': 'action', 'setting_default': '60', 'min_value': '10', 'max_value': '250'},
@@ -205,8 +209,8 @@ def default_settings():
 #==================== Manage Updates
 {'setting_id': 'update.action', 'setting_type': 'action', 'setting_default': '0', 'settings_options': {'0': 'Prompt', '1': 'Automatic', '2': 'Notification', '3': 'Off'}},
 {'setting_id': 'update.delay', 'setting_type': 'action', 'setting_default': '10', 'min_value': '10', 'max_value': '300'},
-{'setting_id': 'update.username', 'setting_type': 'string', 'setting_default': 'nxtflixltAnonyMouse'},
-{'setting_id': 'update.location', 'setting_type': 'string', 'setting_default': 'nxtflixltAnonyMouse.github.io'},
+{'setting_id': 'update.username', 'setting_type': 'string', 'setting_default': 'The-Red-Wizard'},
+{'setting_id': 'update.location', 'setting_type': 'string', 'setting_default': 'TheRedWizard.github.io'},
 #==================== Watched Indicators
 {'setting_id': 'watched_indicators', 'setting_type': 'action', 'setting_default': '0', 'settings_options': {'0': 'NXTFlix Light', '1': 'Trakt'}},
 #======+============= Trakt Cache
@@ -331,9 +335,10 @@ def default_settings():
 #====================================META ACCOUNTS====================================#
 #=====================================================================================#
 #==================== Trakt
+#==================== Trakt
 {'setting_id': 'trakt.user', 'setting_type': 'string', 'setting_default': 'empty_setting'},
-{'setting_id': 'trakt.client', 'setting_type': 'string', 'setting_default': 'b4eed4a65c03dd88cfc6be80da19164b9527f7ed515f455d44d999f301f4bd4a'},
-{'setting_id': 'trakt.secret', 'setting_type': 'string', 'setting_default': '691239de44f2863b685e4f1459e0dac3fa56b4c824b4581db764aeda659e99ea'},
+{'setting_id': 'trakt.client', 'setting_type': 'string', 'setting_default': '30e6c73030cc41dbff996200ac3060cde689555ba207020e08a2175533b912c3'},
+{'setting_id': 'trakt.secret', 'setting_type': 'string', 'setting_default': '726f6b12a9f0079d5850a7bb0e15860725cd487cbfb54ce5471de217639465c5'},
 #==================== TMDb API
 {'setting_id': 'tmdb_api', 'setting_type': 'string', 'setting_default': 'a0bf207c5ff6c0caabac0327e39b1cd2'},
 #==================== TMDb Lists
@@ -406,7 +411,11 @@ def default_settings():
 {'setting_id': 'easynews_password', 'setting_type': 'string', 'setting_default': 'empty_setting'},
 {'setting_id': 'easynews.title_filter', 'setting_type': 'boolean', 'setting_default': 'true'},
 {'setting_id': 'easynews.filter_lang', 'setting_type': 'boolean', 'setting_default': 'false'},
-{'setting_id': 'easynews.lang_filters', 'setting_type': 'string', 'setting_default': '0'},
+{'setting_id': 'easynews.lang_filters', 'setting_type': 'string', 'setting_default': 'eng'},
+{'setting_id': 'easynews.refresh_credentials', 'setting_type': 'boolean', 'setting_default': 'true'},
+{'setting_id': 'easynews.lang_include_unknown', 'setting_type': 'boolean', 'setting_default': 'true'},
+{'setting_id': 'easynews.fallback_search', 'setting_type': 'boolean', 'setting_default': 'true'},
+{'setting_id': 'easynews.search_width', 'setting_type': 'action', 'setting_default': '0', 'settings_options': {'0': 'Focused', '1': 'Balanced', '2': 'Broad'}},
 {'setting_id': 'check.easynews', 'setting_type': 'boolean', 'setting_default': 'false'},
 {'setting_id': 'autoplay.easynews', 'setting_type': 'boolean', 'setting_default': 'false'},
 {'setting_id': 'en.priority', 'setting_type': 'action', 'setting_default': '7', 'min_value': '1', 'max_value': '10'},
@@ -525,7 +534,7 @@ def default_settings():
 {'setting_id': 'tmdb.session_id', 'setting_type': 'string', 'setting_default': 'empty_setting'},
 {'setting_id': 'tmdb.account_session_id', 'setting_type': 'string', 'setting_default': 'empty_setting'},
 {'setting_id': 'reuse_language_invoker', 'setting_type': 'string', 'setting_default': 'true'},
-{'setting_id': 'addon_icon_choice_name', 'setting_type': 'string', 'setting_default': 'nxtflixlt_icon_01.png'},
+{'setting_id': 'addon_icon_choice_name', 'setting_type': 'string', 'setting_default': 'icon.png'},
 {'setting_id': 'widget_refresh_timer_name', 'setting_type': 'string', 'setting_default': 'Off'},
 {'setting_id': 'mpaa_region_display_name', 'setting_type': 'string', 'setting_default': 'United States'},
 {'setting_id': 'lists_cache_duraton_display_name', 'setting_type': 'string', 'setting_default': '1 Day'},

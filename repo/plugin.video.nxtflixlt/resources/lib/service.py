@@ -56,38 +56,10 @@ class OnUpdateChanges:
 		except: pass
 		return kodi_utils.logger('NXTFlix Light', 'OnUpdateChanges Service Finished')
 
-	def refresh_addon_keys(self):
-		# For update 2.2.01 - 03
-		from caches.trakt_cache import clear_all_trakt_cache_data
-		from caches.tmdb_lists import tmdb_lists_cache
-		from caches.settings_cache import restore_setting_default
-		show_dialog = False
-		if get_setting('nxtflixlt.tmdb_api') == 'b370b60447737762ca38457bd77579b3':
-			restore_setting_default({'silent': 'true', 'setting_id': 'tmdb_api'})
-			set_setting('tmdb.token', 'empty_setting')
-			set_setting('tmdb.account_id', 'empty_setting')
-			set_setting('tmdb.username', 'empty_setting')
-			set_setting('tmdb.session_id', 'empty_setting')
-			set_setting('tmdb.account_session_id', 'empty_setting')
-			tmdb_lists_cache.clear_all()
-			show_dialog = True
-		if get_setting('nxtflixlt.trakt.client') == '1038ef327e86e7f6d39d80d2eb5479bff66dd8394e813c5e0e387af0f84d89fb':
-			restore_setting_default({'silent': 'true', 'setting_id': 'trakt.client'})
-			set_setting('trakt.user', 'empty_setting')
-			set_setting('trakt.expires', '0')
-			set_setting('trakt.token', '0')
-			set_setting('trakt.refresh', '0')
-			set_setting('trakt.next_daily_clear', '0')
-			set_setting('watched_indicators', '0')
-			clear_all_trakt_cache_data(silent=True, refresh=False)
-			show_dialog = True
-		if show_dialog:
-			text = 'The original developer of NXTFlix Light has revoked all keys (Trakt, TMDb) that have been used up until now '\
-			'within this addon, with permission, due to security concerns.'
-			kodi_utils.ok_dialog(heading='Addon Credentials Reset', text=text)
-			text = 'This unfortunately means you will need to re-authenticate your Trakt & TMDb accounts through NXTFlix Light AM  if you are currently using them. ' \
-			'My apologies, but with the previous keys being revoked, this is necessary.'
-			kodi_utils.ok_dialog(heading='Addon Credentials Reset', text=text)
+	def fix_media_github_username(self):
+		stored = get_setting('nxtflixlt.update.username', '')
+		if stored.replace('-', '').lower() == 'theredwizard' and stored != 'The-Red-Wizard':
+			set_setting('update.username', 'The-Red-Wizard')
 
 class CustomWindowsPrepare:
 	def run(self):
@@ -247,9 +219,9 @@ class AddonXMLCheck:
 
 	def reassign_addon_icon(self):
 		from indexers.dialogs import addon_icon_choice
-		addon_icon_choice({'set_icon': get_setting('addon_icon_choice_name', 'nxtflixlt_icon_01.png')})
+		addon_icon_choice({'set_icon': get_setting('addon_icon_choice_name', 'icon.png')})
 
-class nxtflixltMonitor(Monitor):
+class NXTFlixtLightMonitor(Monitor):
 	def __init__ (self):
 		Monitor.__init__(self)
 		self.startServices()
@@ -281,5 +253,5 @@ class nxtflixltMonitor(Monitor):
 			kodi_utils.logger('OnNotificationActions', 'UNPAUSING NXTFlix Light Services Due to Device Awake')
 
 kodi_utils.logger('NXTFlix Light', 'Main Monitor Service Starting')
-nxtflixltMonitor().waitForAbort()
+NXTFlixtLightMonitor().waitForAbort()
 kodi_utils.logger('NXTFlix Light', 'Main Monitor Service Finished')

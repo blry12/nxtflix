@@ -123,8 +123,8 @@ def resolve_rd(params):
 	url = params['url']
 	resolved_link = RealDebrid.unrestrict_link(url)
 	if params.get('play', 'false') != 'true' : return resolved_link
-	from modules.player import nxtflixltPlayer
-	nxtflixltPlayer().run(resolved_link, 'video')
+	from modules.player import NXTFlixtLightPlayer
+	NXTFlixtLightPlayer().run(resolved_link, 'video')
 
 def rd_account_info():
 	try:

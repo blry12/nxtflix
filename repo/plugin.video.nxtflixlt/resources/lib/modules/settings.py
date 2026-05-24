@@ -40,7 +40,6 @@ def authorized_debrid_check(debrid_service):
 	return True
 
 def playback_key():
-        #PB-FIX 2
 	return 'media'
 
 def playback_settings():
@@ -280,6 +279,18 @@ def easynews_language_filter():
 	if enabled: filters = get_setting('nxtflixlt.easynews.lang_filters').split(', ')
 	else: filters = []
 	return enabled, filters
+
+def easynews_refresh_credentials():
+	return get_setting('nxtflixlt.easynews.refresh_credentials', 'true') == 'true'
+
+def easynews_lang_include_unknown():
+	return get_setting('nxtflixlt.easynews.lang_include_unknown', 'true') == 'true'
+
+def easynews_fallback_search():
+	return get_setting('nxtflixlt.easynews.fallback_search', 'true') == 'true'
+
+def easynews_search_width():
+	return int(get_setting('nxtflixlt.easynews.search_width', '0'))
 
 def size_sort_weighted():
 	return get_setting('nxtflixlt.results.size_sort_weighted', 'false') == 'true'
