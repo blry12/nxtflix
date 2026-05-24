@@ -39,7 +39,7 @@
                 "url": "RunScript(script.module.acctmgr, action=traktReSync)"
             },
             {
-                "name": "[COLOR teal]Open Account Manager",
+                "name": "[COLOR teal]Open Account Manager Lite",
                 "url": "addon.opensettings(script.module.acctmgr)"
             }			
 		]
@@ -76,7 +76,7 @@
                 "url": "ActivateWindow(10001,plugin://script.module.acctvwr/?mode=offcloud,return)"
             },
             {
-                "name": "[COLOR teal]Open Account Manager",
+                "name": "[COLOR teal]Open Account Manager Lite",
                 "url": "addon.opensettings(script.module.acctmgr)"
             }			
 		]
@@ -97,7 +97,7 @@
                 "url": "RunPlugin(plugin://script.module.resolveurl/?mode=reset_rd)" 				
             },	
 			{			
-                "name": "Revoke Account Manager",	
+                "name": "Revoke Account Manager Lite",	
                 "url": "RunScript(script.module.acctmgr, action=realdebridRevoke)"            
             }			
 		]
@@ -118,7 +118,7 @@
                 "url": "RunPlugin(plugin://script.module.resolveurl/?mode=reset_pm)" 				
             },				
 			{			
-                "name": "Revoke Account Manager",	
+                "name": "Revoke Account Manager Lite",	
                 "url": "RunScript(script.module.acctmgr, action=premiumizeRevoke)"            
             }			
 		]
@@ -139,7 +139,7 @@
                 "url": "RunPlugin(plugin://script.module.resolveurl/?mode=reset_ad)"
             },				
 			{			
-                "name": "Revoke Account Manager",	
+                "name": "Revoke Account Manager Lite",	
                 "url": "RunScript(script.module.acctmgr, action=premiumizeRevoke)"            
             }				
 		]
@@ -160,7 +160,7 @@
                 "url": "RunScript(plugin.video.themoviedb.helper,revoke_trakt)"
             },				
 			{			
-                "name": "Revoke Account Manager",	
+                "name": "Revoke Account Manager Lite",	
                 "url": "RunScript(script.module.acctmgr, action=traktRevoke)"            
             }			
 		]
@@ -173,7 +173,7 @@
                 "url": "RunPlugin(plugin://plugin.video.nxtflixlt/?mode=easydebrid.revoke_authentication)"
             },		
 			{
-                "name": "Revoke Account Manager",
+                "name": "Revoke Account Manager Lite",
                 "url": "RunScript(script.module.acctmgr, action=easydebridRevoke)"
             }			
 		]
@@ -186,7 +186,7 @@
                 "url": "RunPlugin(plugin://plugin.video.nxtflixlt/?mode=torbox.revoke_authentication)"
             },		
 			{
-                "name": "Revoke Account Manager",
+                "name": "Revoke Account Manager Lite",
                 "url": "RunScript(script.module.acctmgr, action=torboxRevoke)"
             }			
 		]		
@@ -199,7 +199,7 @@
                 "url": "RunPlugin(plugin://plugin.video.nxtflixlt/?mode=offcloud.revoke_authentication)"
             },		
 			{
-                "name": "Revoke Account Manager",
+                "name": "Revoke Account Manager Lite",
                 "url": "RunScript(script.module.acctmgr, action=offcloudRevoke)"
             }
         ]
