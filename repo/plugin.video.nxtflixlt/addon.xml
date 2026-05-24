@@ -4,7 +4,7 @@
         <import addon="script.module.pil" version="1.1.7"/>
         <import addon="script.module.requests" version="2.19.1"/>
     </requires>
-    <extension point="xbmc.python.pluginsource" library="resources/lib/nxtflixlt.py">
+    <extension point="xbmc.python.pluginsource" library="resources/lib/fenlight.py">
         <provides>video</provides>
     </extension>
     <extension point="xbmc.service" library="resources/lib/service.py"/>
@@ -20,5 +20,8 @@
             <icon>resources/media/addon_icons/nxtflixlt_icon_01.png</icon>
             <fanart>resources/media/nxtflixlt_fanart_01.jpg</fanart>
         </assets>
+        <news>
+		NXTFlix Light
+		</news>
     </extension>
 </addon>
