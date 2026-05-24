@@ -4,7 +4,7 @@
         <import addon="script.module.pil" version="1.1.7"/>
         <import addon="script.module.requests" version="2.19.1"/>
     </requires>
-    <extension point="xbmc.python.pluginsource" library="resources/lib/redlight.py">
+    <extension point="xbmc.python.pluginsource" library="resources/lib/nxtflixlt.py">
         <provides>video</provides>
     </extension>
     <extension point="xbmc.service" library="resources/lib/service.py"/>
