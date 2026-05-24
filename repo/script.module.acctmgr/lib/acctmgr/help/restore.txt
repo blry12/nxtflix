@@ -1,0 +1,4 @@
+
+
+
+This action will revoke all authorizations applied using NXTFlix Light. Once the above actions are complete, all settings applied by NXTFlix Light will be completely removed from your system. You can now safely uninstall NXTFlix Light.

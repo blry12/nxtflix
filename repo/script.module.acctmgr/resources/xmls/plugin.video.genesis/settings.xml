@@ -1,0 +1,64 @@
+<settings version="2">
+    <setting id="current_ua" default="true" />
+    <setting id="last_ua_create" default="true">0</setting>
+    <setting id="appearance" default="true">GOne</setting>
+    <setting id="fanart">true</setting>
+    <setting id="infoLang" default="true">en</setting>
+    <setting id="sources_timeout_40">30</setting>
+    <setting id="movie_widget">1</setting>
+    <setting id="tv_alt_widget">3</setting>
+    <setting id="tv_widget">1</setting>
+    <setting id="calendar_widget" default="true">0</setting>
+    <setting id="playback_quality" default="true">0</setting>
+    <setting id="host_select">1</setting>
+    <setting id="playback_captcha_hosts">true</setting>
+    <setting id="playback_1080p_hosts">true</setting>
+    <setting id="playback_720p_hosts">true</setting>
+    <setting id="autoplay" default="true">false</setting>
+    <setting id="autoplay_library" default="true">false</setting>
+    <setting id="playback_auto_sd" default="true">false</setting>
+    <setting id="resume_playback">true</setting>
+    <setting id="playback_info" default="true">false</setting>
+    <setting id="torrent_1337x">true</setting>
+    <setting id="torrent_tgx">true</setting>
+    <setting id="torrent_yts">true</setting>
+    <setting id="torrent_tpb">true</setting>
+    <setting id="torrent_1337x_tv">true</setting>
+    <setting id="torrent_tgx_tv">true</setting>
+    <setting id="torrent_eztv_tv">true</setting>
+    <setting id="torrent_tpb_tv">true</setting>
+    <setting id="trakt.user" default="true" />
+    <setting id="trakt.token" default="true" />
+    <setting id="trakt.refresh" default="true" />
+    <setting id="realdebrid_auth" default="true" />
+    <setting id="realdebrid_token" default="true" />
+    <setting id="realdebrid_refresh" default="true" />
+    <setting id="realdebrid_client_id" default="true" />
+    <setting id="realdebrid_client_secret" default="true" />
+    <setting id="realdebrid_tokenExpireIn" default="true" />
+    <setting id="premiumize_auth" default="true" />
+    <setting id="premiumize_token" default="true" />
+    <setting id="premiumize_user" default="true" />
+    <setting id="alldebrid_auth" default="true" />
+    <setting id="alldebrid_api_key" default="true" />
+    <setting id="alldebrid_username" default="true" />
+    <setting id="torbox_auth" default="true" />
+    <setting id="torbox_api_key" default="true" />
+    <setting id="imdb_user" default="true">0</setting>
+    <setting id="movie_library" default="true">special://userdata/addon_data/plugin.video.genesis/Movies</setting>
+    <setting id="tv_library" default="true">special://userdata/addon_data/plugin.video.genesis/TVShows</setting>
+    <setting id="service_update">true</setting>
+    <setting id="service_notification">true</setting>
+    <setting id="update_library">true</setting>
+    <setting id="check_library">true</setting>
+    <setting id="check_movie_link" default="true">false</setting>
+    <setting id="check_episode_link" default="true">false</setting>
+    <setting id="movie_downloads" default="true" />
+    <setting id="tv_downloads" default="true" />
+    <setting id="subtitles" default="true">false</setting>
+    <setting id="autoconvert_utf8" default="true">false</setting>
+    <setting id="sublang1" default="true">English</setting>
+    <setting id="sublang2" default="true">English</setting>
+    <setting id="OSuser" default="true" />
+    <setting id="OSpass" default="true" />
+</settings>

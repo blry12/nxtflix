@@ -1,0 +1,54 @@
+<settings version="2">
+    <setting id="scraper_mode" default="true">0</setting>
+    <setting id="orionoid_enabled">true</setting>
+    <setting id="torrentio_enabled">true</setting>
+    <setting id="mediafusion_enabled" default="true">false</setting>
+    <setting id="jackettio_enabled" default="true">false</setting>
+    <setting id="coco_1337x">true</setting>
+    <setting id="coco_torrentdownloads">true</setting>
+    <setting id="coco_rarbg">true</setting>
+    <setting id="orionoid_authorize" default="true" />
+    <setting id="orionoid_api_key" default="true" />
+    <setting id="orionoid_status" default="true">Not Authorized</setting>
+    <setting id="mediafusion_configure" default="true" />
+    <setting id="mediafusion_manifest" default="true" />
+    <setting id="mediafusion_status" default="true">Not Configured</setting>
+    <setting id="jackettio_configure" default="true" />
+    <setting id="jackettio_manifest" default="true" />
+    <setting id="jackettio_status" default="true">Not Configured</setting>
+    <setting id="rd_enabled">true</setting>
+    <setting id="rd_authorize" default="true" />
+    <setting id="rd_qr_auth" default="true" />
+    <setting id="rd_token" default="true" />
+    <setting id="rd_refresh" default="true" />
+    <setting id="rd_client_id" default="true" />
+    <setting id="rd_client_secret" default="true" />
+    <setting id="pm_enabled" default="true">false</setting>
+    <setting id="pm_authorize" default="true" />
+    <setting id="pm_qr_auth" default="true" />
+    <setting id="pm_token" default="true" />
+    <setting id="ad_enabled" default="true">false</setting>
+    <setting id="ad_authorize" default="true" />
+    <setting id="ad_qr_auth" default="true" />
+    <setting id="ad_token" default="true" />
+    <setting id="tb_enabled" default="true">false</setting>
+    <setting id="tb_authorize" default="true" />
+    <setting id="tb_token" default="true" />
+    <setting id="trakt_enabled" default="true">false</setting>
+    <setting id="trakt_authorize" default="true" />
+    <setting id="trakt_qr_auth" default="true" />
+    <setting id="trakt_token" default="true" />
+    <setting id="trakt_refresh" default="true" />
+    <setting id="preferred_quality" default="true">0</setting>
+    <setting id="auto_play">true</setting>
+    <setting id="auto_next_episode">true</setting>
+    <setting id="debrid_priority" default="true">0</setting>
+    <setting id="use_resolveurl">true</setting>
+    <setting id="save_history">true</setting>
+    <setting id="history_limit">100</setting>
+    <setting id="clear_history" default="true" />
+    <setting id="clear_favorites" default="true" />
+    <setting id="cache_enabled">true</setting>
+    <setting id="cache_hours">24</setting>
+    <setting id="clear_cache" default="true" />
+</settings>

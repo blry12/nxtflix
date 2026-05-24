@@ -1,0 +1,31 @@
+<settings version="2">
+    <setting id="trakt_auth_done" default="true">false</setting>
+    <setting id="trakt_access_token" default="true" />
+    <setting id="trakt_refresh_token" default="true" />
+    <setting id="auth_trakt" default="true" />
+    <setting id="revoke_trakt" default="true" />
+    <setting id="rd_auth_done" default="true">false</setting>
+    <setting id="rd_access_token" default="true" />
+    <setting id="rd_refresh_token" default="true" />
+    <setting id="rd_client_id" default="true" />
+    <setting id="rd_client_secret" default="true" />
+    <setting id="auth_rd" default="true" />
+    <setting id="revoke_rd" default="true" />
+    <setting id="ad_auth_done" default="true">false</setting>
+    <setting id="ad_api_key" default="true" />
+    <setting id="auth_ad" default="true" />
+    <setting id="revoke_ad" default="true" />
+    <setting id="pm_auth_done" default="true">false</setting>
+    <setting id="pm_access_token" default="true" />
+    <setting id="auth_pm" default="true" />
+    <setting id="revoke_pm" default="true" />
+    <setting id="tb_auth_done" default="true">false</setting>
+    <setting id="tb_api_key" default="true" />
+    <setting id="auth_tb" default="true" />
+    <setting id="revoke_tb" default="true" />
+    <setting id="preferred_quality" default="true">0</setting>
+    <setting id="enable_scrobble">true</setting>
+    <setting id="enable_upnext">true</setting>
+    <setting id="tmdb_api_key" default="true" />
+    <setting id="tmdb_key_prompted">true</setting>
+</settings>

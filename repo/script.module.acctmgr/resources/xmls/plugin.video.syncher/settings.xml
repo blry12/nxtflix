@@ -1,0 +1,53 @@
+<settings version="2">
+    <setting id="autoplay" default="true">false</setting>
+    <setting id="host_select" default="true">0</setting>
+    <setting id="fanart">true</setting>
+    <setting id="timeout">30</setting>
+    <setting id="info_lang" default="true">en</setting>
+    <setting id="emergent_key" default="true" />
+    <setting id="trakt.user" default="true" />
+    <setting id="trakt.token" default="true" />
+    <setting id="trakt.refresh" default="true" />
+    <setting id="rd.enabled" default="true">false</setting>
+    <setting id="rd_auth" default="true" />
+    <setting id="rd.token" default="true" />
+    <setting id="rd.refresh" default="true" />
+    <setting id="rd.client_id" default="true" />
+    <setting id="rd.secret" default="true" />
+    <setting id="rd.expiry" default="true" />
+    <setting id="pm.enabled" default="true">false</setting>
+    <setting id="pm_auth" default="true" />
+    <setting id="pm.token" default="true" />
+    <setting id="ad.enabled" default="true">false</setting>
+    <setting id="ad_auth" default="true" />
+    <setting id="ad.apikey" default="true" />
+    <setting id="tb.enabled" default="true">false</setting>
+    <setting id="tb_auth" default="true" />
+    <setting id="tb.apikey" default="true" />
+    <setting id="rapidrar.enabled" default="true">false</setting>
+    <setting id="rapidrar.user" default="true" />
+    <setting id="rapidrar.pass" default="true" />
+    <setting id="psa.user" default="true" />
+    <setting id="psa.pass" default="true" />
+    <setting id="rapidmoviez.user" default="true" />
+    <setting id="rapidmoviez.pass" default="true" />
+    <setting id="tfpdl.user" default="true" />
+    <setting id="tfpdl.pass" default="true" />
+    <setting id="watchseries.user" default="true" />
+    <setting id="watchseries.pass" default="true" />
+    <setting id="scraper.rapidrar">true</setting>
+    <setting id="scraper.psa">true</setting>
+    <setting id="scraper.rapidmoviez">true</setting>
+    <setting id="scraper.tfpdl">true</setting>
+    <setting id="scraper.watchseries">true</setting>
+    <setting id="scraper.rlsbb">true</setting>
+    <setting id="scraper.ddlvalley">true</setting>
+    <setting id="scraper.scenesource">true</setting>
+    <setting id="scraper.sportvideo">true</setting>
+    <setting id="scraper.fullmatchshows">true</setting>
+    <setting id="scraper.footballorgin">true</setting>
+    <setting id="scraper.basketballvideo">true</setting>
+    <setting id="quality.max" default="true">0</setting>
+    <setting id="prefer.hoster" default="true">0</setting>
+    <setting id="auto_sd" default="true">false</setting>
+</settings>

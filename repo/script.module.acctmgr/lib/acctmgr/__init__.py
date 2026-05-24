@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 '''
-	Account Manager
+	NXTFlix Light
 '''
 
-from accountmgr.modules import control
+from acctmgr.modules import control
 
 
 def getAll():
@@ -127,12 +127,12 @@ def getOrro():
 
 
 def traktRefreshToken():
-	from accountmgr.modules.trakt import Trakt
+	from acctmgr.modules.trakt import Trakt
 	Trakt().refresh_token()
 
 
 def realdebridRefreshToken():
-	from accountmgr.modules.realdebrid import RealDebrid
+	from acctmgr.modules.realdebrid import RealDebrid
 	RealDebrid().refresh_token()
 
 

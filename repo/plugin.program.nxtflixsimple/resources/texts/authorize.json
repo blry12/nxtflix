@@ -4,43 +4,43 @@
         "items": [			
             {
                 "name": "[COLOR lightgreen]Authenticate Real Debrid",					
-                "url": "RunScript(script.module.accountmgr, action=realdebridAuth)"			
+                "url": "RunScript(script.module.acctmgr, action=realdebridAuth)"			
             },
             {
                 "name": "[COLOR orange]Authenticate Premiumize",
-                "url": "RunScript(script.module.accountmgr, action=premiumizeAuth)"
+                "url": "RunScript(script.module.acctmgr, action=premiumizeAuth)"
             },
             {
                 "name": "[COLOR yellow]Authenticate All Debrid",
-                "url": "RunScript(script.module.accountmgr, action=alldebridAuth)"
+                "url": "RunScript(script.module.acctmgr, action=alldebridAuth)"
             },
             {
                 "name": "[COLOR red]Authenticate TRAKT",
-                "url": "RunScript(script.module.accountmgr, action=traktAuth)"
+                "url": "RunScript(script.module.acctmgr, action=traktAuth)"
             },	
             {
-                "name": "[COLOR blue]Authenticate Easy Debrid (NXTFlix  Light Only)",
-                "url": "RunScript(script.module.accountmgr, action=easydebridAuth)"
+                "name": "[COLOR blue]Authenticate Easy Debrid (NXTFlix Light Only)",
+                "url": "RunScript(script.module.acctmgr, action=easydebridAuth)"
             },			
             {
-                "name": "[COLOR green]Authenticate TorBox (NXTFlix  Light Only)",
-                "url": "RunScript(script.module.accountmgr, action=torboxAuth)"
+                "name": "[COLOR green]Authenticate TorBox (NXTFlix Light Only)",
+                "url": "RunScript(script.module.acctmgr, action=torboxAuth)"
             },						
             {
-                "name": "[COLOR lightblue]Authenticate Offcloud (NXTFlix  Light Only)",
-                "url": "RunScript(script.module.accountmgr, action=offcloudAuth)"
+                "name": "[COLOR lightblue]Authenticate Offcloud (NXTFlix Light Only)",
+                "url": "RunScript(script.module.acctmgr, action=offcloudAuth)"
 			},				
             {
                 "name": "[COLOR lightgreen]Re-Sync Debrid Accounts",
-                "url": "RunScript(script.module.accountmgr, action=ReSyncAll)"
+                "url": "RunScript(script.module.acctmgr, action=ReSyncAll)"
             },	
             {
                 "name": "[COLOR red]Re-Sync TRAKT Accounts",
-                "url": "RunScript(script.module.accountmgr, action=traktReSync)"
+                "url": "RunScript(script.module.acctmgr, action=traktReSync)"
             },
             {
                 "name": "[COLOR teal]Open Account Manager",
-                "url": "addon.opensettings(script.module.accountmgr)"
+                "url": "addon.opensettings(script.module.acctmgr)"
             }			
 		]
 	 },
@@ -49,35 +49,35 @@
         "items": [		
             {
                 "name": "[COLOR lightgreen]View Real Debrid logins",
-                "url": "ActivateWindow(10001,plugin://script.module.acctview/?mode=realdebrid,return)"
+                "url": "ActivateWindow(10001,plugin://script.module.acctvwr/?mode=realdebrid,return)"
             },
             {
                 "name": "[COLOR orange]View Premiumize logins",
-                "url": "ActivateWindow(10001,plugin://script.module.acctview/?mode=premiumize,return)"
+                "url": "ActivateWindow(10001,plugin://script.module.acctvwr/?mode=premiumize,return)"
             },
             {
                 "name": "[COLOR yellow]View All-Debrid Logins",
-                "url": "ActivateWindow(10001,plugin://script.module.acctview/?mode=alldebrid,return)"
+                "url": "ActivateWindow(10001,plugin://script.module.acctvwr/?mode=alldebrid,return)"
             },
             {
                 "name": "[COLOR red]View Trakt Logins",
-                "url": "ActivateWindow(10001,plugin://script.module.acctview/?mode=trakt,return)"
+                "url": "ActivateWindow(10001,plugin://script.module.acctvwr/?mode=trakt,return)"
             },	
             {
                 "name": "[COLOR green]View TorBox Logins",
-                "url": "ActivateWindow(10001,plugin://script.module.acctview/?mode=torbox,return)"
+                "url": "ActivateWindow(10001,plugin://script.module.acctvwr/?mode=torbox,return)"
             },	
             {
                 "name": "[COLOR blue]View Easy Debrid Logins",
-                "url": "ActivateWindow(10001,plugin://script.module.acctview/?mode=easydebrid,return)"
+                "url": "ActivateWindow(10001,plugin://script.module.acctvwr/?mode=easydebrid,return)"
             },				
             {
                 "name": "[COLOR lightblue]View OffCloud Logins",
-                "url": "ActivateWindow(10001,plugin://script.module.acctview/?mode=offcloud,return)"
+                "url": "ActivateWindow(10001,plugin://script.module.acctvwr/?mode=offcloud,return)"
             },
             {
                 "name": "[COLOR teal]Open Account Manager",
-                "url": "addon.opensettings(script.module.accountmgr)"
+                "url": "addon.opensettings(script.module.acctmgr)"
             }			
 		]
 	 },
@@ -90,7 +90,7 @@
             },
 			{
                 "name": "Revoke NXTFlix Light",	
-                "url": "RunPlugin(plugin://plugin.video.nxtflixlight/?mode=real_debrid.revoke_authentication)"			
+                "url": "RunPlugin(plugin://plugin.video.nxtflixlt/?mode=real_debrid.revoke_authentication)"			
             },	
 			{
                 "name": "Revoke Resolve URL",	
@@ -98,7 +98,7 @@
             },	
 			{			
                 "name": "Revoke Account Manager",	
-                "url": "RunScript(script.module.accountmgr, action=realdebridRevoke)"            
+                "url": "RunScript(script.module.acctmgr, action=realdebridRevoke)"            
             }			
 		]
 	 },
@@ -111,7 +111,7 @@
             },
 			{
                 "name": "Revoke NXTFlix Light",
-                "url": "RunPlugin(plugin://plugin.video.nxtflixlight/?action=pm_Revoke)"
+                "url": "RunPlugin(plugin://plugin.video.nxtflixlt/?action=pm_Revoke)"
             },	
 			{
                 "name": "Revoke Resolve URL",	
@@ -119,7 +119,7 @@
             },				
 			{			
                 "name": "Revoke Account Manager",	
-                "url": "RunScript(script.module.accountmgr, action=premiumizeRevoke)"            
+                "url": "RunScript(script.module.acctmgr, action=premiumizeRevoke)"            
             }			
 		]
 	 },
@@ -132,7 +132,7 @@
             },
 			{
                 "name": "Revoke NXTFlix Light",
-                "url": "RunPlugin(plugin://plugin.video.nxtflixlight/?mode=alldebrid.revoke_authentication)"
+                "url": "RunPlugin(plugin://plugin.video.nxtflixlt/?mode=alldebrid.revoke_authentication)"
             },
 			{
                 "name": "Revoke Resolve URL",	
@@ -140,7 +140,7 @@
             },				
 			{			
                 "name": "Revoke Account Manager",	
-                "url": "RunScript(script.module.accountmgr, action=premiumizeRevoke)"            
+                "url": "RunScript(script.module.acctmgr, action=premiumizeRevoke)"            
             }				
 		]
 	 },
@@ -153,7 +153,7 @@
             },
 			{
                 "name": "Revoke NXTFlix Light",	
-                "url": "RunPlugin(plugin://plugin.video.nxtflixlight/?mode=trakt.trakt_revoke_authentication)"
+                "url": "RunPlugin(plugin://plugin.video.nxtflixlt/?mode=trakt.trakt_revoke_authentication)"
             },		
 			{
                 "name": "Revoke TMDB Helper",	
@@ -161,7 +161,7 @@
             },				
 			{			
                 "name": "Revoke Account Manager",	
-                "url": "RunScript(script.module.accountmgr, action=traktRevoke)"            
+                "url": "RunScript(script.module.acctmgr, action=traktRevoke)"            
             }			
 		]
 	 },
@@ -170,11 +170,11 @@
         "items": [
 			{
                 "name": "Revoke NXTFlix Light",
-                "url": "RunPlugin(plugin://plugin.video.nxtflixlight/?mode=easydebrid.revoke_authentication)"
+                "url": "RunPlugin(plugin://plugin.video.nxtflixlt/?mode=easydebrid.revoke_authentication)"
             },		
 			{
                 "name": "Revoke Account Manager",
-                "url": "RunScript(script.module.accountmgr, action=easydebridRevoke)"
+                "url": "RunScript(script.module.acctmgr, action=easydebridRevoke)"
             }			
 		]
 	 },
@@ -183,11 +183,11 @@
         "items": [
 			{
                 "name": "Revoke NXTFlix Light",
-                "url": "RunPlugin(plugin://plugin.video.nxtflixlight/?mode=torbox.revoke_authentication)"
+                "url": "RunPlugin(plugin://plugin.video.nxtflixlt/?mode=torbox.revoke_authentication)"
             },		
 			{
                 "name": "Revoke Account Manager",
-                "url": "RunScript(script.module.accountmgr, action=torboxRevoke)"
+                "url": "RunScript(script.module.acctmgr, action=torboxRevoke)"
             }			
 		]		
 	 },
@@ -196,11 +196,11 @@
         "items": [
 			{
                 "name": "Revoke NXTFlix Light",
-                "url": "RunPlugin(plugin://plugin.video.nxtflixlight/?mode=offcloud.revoke_authentication)"
+                "url": "RunPlugin(plugin://plugin.video.nxtflixlt/?mode=offcloud.revoke_authentication)"
             },		
 			{
                 "name": "Revoke Account Manager",
-                "url": "RunScript(script.module.accountmgr, action=offcloudRevoke)"
+                "url": "RunScript(script.module.acctmgr, action=offcloudRevoke)"
             }
         ]
     }

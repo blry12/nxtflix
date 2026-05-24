@@ -1,0 +1,107 @@
+<window type="dialog">
+	<defaultcontrol always="true">3000</defaultcontrol>
+	<coordinates>
+		<system>1</system>
+		<left>0</left>
+		<top>0</top>
+	</coordinates>
+	<controls>
+		<control type="group">
+			<posx>430</posx>
+			<posy>185</posy>
+			<!-- Background -->
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>1060</width>
+				<height>720</height>
+				<texture colordiffuse="FF003A70">$INFO[Window.Property(bg_image)]</texture>
+			</control>
+			<!-- Title -->
+			<control type="label">
+				<posx>0</posx>
+				<posy>45</posy>
+				<width>1060</width>
+				<height>70</height>
+				<align>center</align>
+				<font>font30_title</font>
+				<textcolor>FFFFC400</textcolor>
+				<label>TorBox Authorization</label>
+			</control>
+			<!-- QR Border -->
+			<control type="image">
+				<posx>60</posx>
+				<posy>155</posy>
+				<width>420</width>
+				<height>420</height>
+				<texture border="8" colordiffuse="FFFFC400">$INFO[Window.Property(bdr_image)]</texture>
+			</control>
+			<!-- QR Code -->
+			<control type="image">
+				<posx>70</posx>
+				<posy>165</posy>
+				<width>400</width>
+				<height>400</height>
+				<aspectratio>stretch</aspectratio>
+				<texture>$INFO[Window.Property(qr_image)]</texture>
+			</control>
+			<!-- Scan Text -->
+			<control type="label">
+				<posx>535</posx>
+				<posy>235</posy>
+				<width>470</width>
+				<height>40</height>
+				<font>font18</font>
+				<textcolor>FFFFFFFF</textcolor>
+				<label>Scan QR code or visit:</label>
+			</control>
+			<!-- URL -->
+			<control type="label">
+				<posx>535</posx>
+				<posy>300</posy>
+				<width>490</width>
+				<height>40</height>
+				<font>font18</font>
+				<textcolor>FFFFC400</textcolor>
+				<label>https://torbox.app/oauth/device</label>
+			</control>
+			<!-- PIN Label -->
+			<control type="label">
+				<posx>535</posx>
+				<posy>438</posy>
+				<width>470</width>
+				<height>40</height>
+				<font>font18</font>
+				<textcolor>FFFFFFFF</textcolor>
+				<label>Enter PIN:</label>
+			</control>
+			<!-- PIN Box Border -->
+			<control type="image">
+				<posx>705</posx>
+				<posy>422</posy>
+				<width>290</width>
+				<height>71</height>
+				<texture border="5" colordiffuse="FFFFC400">$INFO[Window.Property(bdr_image)]</texture>
+			</control>
+			<!-- PIN Box Fill -->
+			<control type="image">
+				<posx>711</posx>
+				<posy>427</posy>
+				<width>278</width>
+				<height>61</height>
+				<texture colordiffuse="FF003A70">$INFO[Window.Property(bdr_image)]</texture>
+			</control>
+			<!-- PIN -->
+			<control type="label">
+				<posx>680</posx>
+				<posy>438</posy>
+				<width>340</width>
+				<height>80</height>
+				<align>center</align>
+				<font>font18</font>
+				<textcolor>FFFFC400</textcolor>
+				<label>$INFO[Window.Property(user_code)]</label>
+			</control>
+		</control>
+	</controls>
+</window>
