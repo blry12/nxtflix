@@ -227,7 +227,7 @@
 				<screenshot />
 		</assets>
   </extension>
-</addon><addon id="plugin.program.nxtflixsimple" name="[COLOR skyblue]NXTFlix Simple Wizard[/COLOR]" version="1.4" provider-name="BLRY12">
+</addon><addon id="plugin.program.nxtflixsimple" name="[COLOR skyblue]NXTFlix Simple Wizard[/COLOR]" version="1.5" provider-name="BLRY12">
 	<requires>
 		<import addon="xbmc.python" version="3.0.0" />
 		<import addon="script.module.requests" optional="true" />
@@ -914,6 +914,29 @@
 			<fanart>fanart.png</fanart>
 		</assets>
 	</extension>
+</addon><addon id="script.module.acctmgr" version="1.1.0a" name="[COLOR FF32D3FE][B]Account Manager[/B][/COLOR] [COLOR gold][B]Lite[/B][/COLOR]" provider-name="Zaxxon709">
+	<requires>
+		<import addon="xbmc.python" version="3.0.0" />
+		<import addon="script.module.requests" version="2.19.1" />
+            	<import addon="script.module.acctvwr" version="1.0.9a" />
+	</requires>
+	<extension point="xbmc.service" library="lib/startup.py" start="startup" />
+	<extension point="xbmc.python.script" library="lib/default.py">
+		<provides>executable</provides>
+	</extension>
+	<extension point="xbmc.python.module" library="lib" />
+	<extension point="xbmc.addon.metadata">
+		<reuselanguageinvoker>false</reuselanguageinvoker>
+		<summary lang="en">NXTFlix Light</summary>
+		<description>A utility designed to centralize the authorization of various third-party streaming services across multiple Kodi add-ons.</description>
+		<platform>all</platform>
+		<license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
+		<disclaimer lang="en">The author is not responsible for the use of this addon. [CR]The author is in no way affiliated with Kodi, Team Kodi, or the XBMC Foundation.[CR]This is a Non-profit resource, organized solely for educational purposes which is protected under the Fair-Use doctrine of the Copyright Act, Specifically section 107, which does promote freedom of expression, by permitting the unlicensed use of copyright-protected works.</disclaimer>
+		<assets>
+			<icon>icon.png</icon>
+			<fanart>fanart.png</fanart>
+		</assets>
+	</extension>
 </addon><addon id="script.module.acctview" name="acctviewer" version="2.4.8" provider-name="Zaxxon709">
     <extension point="xbmc.python.pluginsource" library="default.py">
     </extension>
@@ -924,6 +947,21 @@
         <platform>all</platform>
         <reuselanguageinvoker>false</reuselanguageinvoker>
         <source>https://</source>
+    </extension>
+</addon><addon id="script.module.acctvwr" name="[COLOR FF32D3FE][B]Account[/B][/COLOR][COLOR gold] [B]Viewer[/B][/COLOR]" version="1.0.9a" provider-name="Zaxxon709">
+    <extension point="xbmc.python.pluginsource" library="default.py">
+    </extension>
+    <extension point="xbmc.python.module" library="resources" />
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en">View Authorized Accounts</summary>
+        <description lang="en">NXTFlix Light Dependency</description>
+        <platform>all</platform>
+        <reuselanguageinvoker>false</reuselanguageinvoker>
+        <source>https://</source>
+	<assets>
+		<icon>icon.png</icon>
+		<fanart>fanart.png</fanart>
+	</assets>
     </extension>
 </addon><addon id="script.module.blackscrapers" name="Blackscrapers Module" version="1.00.39g3" provider-name="janedoe">
     <requires>
