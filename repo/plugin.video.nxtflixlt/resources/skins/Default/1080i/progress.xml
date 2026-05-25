@@ -35,7 +35,7 @@
                     <left>0</left>
                     <width>1035</width>
                     <height>5</height>
-                    <font>Tiny44</font> <!-- NXTFLIXLIGHT_21 -->
+                    <font>font10</font> <!-- NXTFLIXLIGHT_21 -->
                     <align>left</align>
                     <aligny>bottom</aligny>
                     <textcolor>B3CCCCCC</textcolor>
@@ -54,7 +54,7 @@
                     <left>5</left>
                     <height>20</height>
                     <align>center</align>
-                    <font>LabelInfoSub</font> <!-- NXTFLIXLIGHT_26 -->
+                    <font>font12</font> <!-- NXTFLIXLIGHT_26 -->
                     <textcolor>FFCCCCCC</textcolor>
                 </control>
                 <control type="textbox" id="2001">

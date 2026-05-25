@@ -36,7 +36,7 @@
                     <top>22</top>
                     <left>0</left>
                     <height>20</height>
-                    <font>LabelInfoSub</font> <!-- NXTFLIXLIGHT_26 -->
+                    <font>font12</font> <!-- NXTFLIXLIGHT_26 -->
                     <textcolor>FFCCCCCC</textcolor>
                     <align>center</align>
                     <aligny>center</aligny>
@@ -66,7 +66,7 @@
                         <width>390</width>
                         <height>85</height>
                         <label>[UPPERCASE]$INFO[ListItem.Property(setting_label)][/UPPERCASE]</label>
-                        <font>LabelInfoSub</font> <!-- NXTFLIXLIGHT_26 -->
+                        <font>font12</font> <!-- NXTFLIXLIGHT_26 -->
                         <textcolor>FFCCCCCC</textcolor>
                         <aligny>center</aligny>
                     </control>
@@ -83,7 +83,7 @@
                         <width>390</width>
                         <height>85</height>
                         <label>[UPPERCASE]$INFO[ListItem.Property(setting_label)][/UPPERCASE]</label>
-                        <font>LabelInfoSub</font> <!-- NXTFLIXLIGHT_26 -->
+                        <font>font12</font> <!-- NXTFLIXLIGHT_26 -->
                         <textcolor>FF1F2020</textcolor>
                         <aligny>center</aligny>
                         <scroll>Control.HasFocus(2000)</scroll>
@@ -142,7 +142,7 @@
                             <width>630</width>
                             <height>85</height>
                             <label>[UPPERCASE]$INFO[ListItem.Property(setting_label)][/UPPERCASE]</label>
-                            <font>LabelInfoSub</font> <!-- NXTFLIXLIGHT_26 -->
+                            <font>font12</font> <!-- NXTFLIXLIGHT_26 -->
                             <textcolor>FFCCCCCC</textcolor>
                             <aligny>center</aligny>
                             <align>center</align>
@@ -171,7 +171,7 @@
                         <width>630</width>
                         <height>85</height>
                         <label>[UPPERCASE]$INFO[ListItem.Property(setting_label)][/UPPERCASE]</label>
-                        <font>LabelInfoSub</font> <!-- NXTFLIXLIGHT_26 -->
+                        <font>font12</font> <!-- NXTFLIXLIGHT_26 -->
                         <textcolor>FFCCCCCC</textcolor>
                         <aligny>center</aligny>
                         <scroll>false</scroll>
@@ -210,7 +210,7 @@
                             <width>425</width>
                             <height>85</height>
                             <label>[B]...[/B]</label>
-                            <font>LabelInfoSub</font> <!-- NXTFLIXLIGHT_26 -->
+                            <font>font12</font> <!-- NXTFLIXLIGHT_26 -->
                             <textcolor>FFCCCCCC</textcolor>
                             <align>right</align>
                             <aligny>center</aligny>
@@ -223,7 +223,7 @@
                             <width>425</width>
                             <height>85</height>
                             <label>[UPPERCASE][B]$INFO[ListItem.Property(setting_value)][/B][/UPPERCASE]</label>
-                            <font>LabelInfoSub</font> <!-- NXTFLIXLIGHT_26 -->
+                            <font>font12</font> <!-- NXTFLIXLIGHT_26 -->
                             <textcolor>FFCCCCCC</textcolor>
                             <align>right</align>
                             <aligny>center</aligny>
@@ -247,7 +247,7 @@
                             <width>630</width>
                             <height>85</height>
                             <label>[UPPERCASE]$INFO[ListItem.Property(setting_label)][/UPPERCASE]</label>
-                            <font>LabelInfoSub</font> <!-- NXTFLIXLIGHT_26 -->
+                            <font>font12</font> <!-- NXTFLIXLIGHT_26 -->
                             <textcolor>FFCCCCCC</textcolor>
                             <aligny>center</aligny>
                             <align>center</align>
@@ -278,7 +278,7 @@
                             <width>630</width>
                             <height>85</height>
                             <label>[UPPERCASE]$INFO[ListItem.Property(setting_label)][/UPPERCASE]</label>
-                            <font>LabelInfoSub</font> <!-- NXTFLIXLIGHT_26 -->
+                            <font>font12</font> <!-- NXTFLIXLIGHT_26 -->
                             <textcolor>FF1F2020</textcolor>
                             <aligny>center</aligny>
                             <scroll>Control.HasFocus(2100)</scroll>
@@ -289,7 +289,7 @@
                             <width>630</width>
                             <height>85</height>
                             <label>[UPPERCASE]$INFO[ListItem.Property(setting_label)][/UPPERCASE]</label>
-                            <font>LabelInfoSub</font> <!-- NXTFLIXLIGHT_26 -->
+                            <font>font12</font> <!-- NXTFLIXLIGHT_26 -->
                             <textcolor>FFCCCCCC</textcolor>
                             <aligny>center</aligny>
                             <scroll>false</scroll>
@@ -357,7 +357,7 @@
                                 <width>425</width>
                                 <height>85</height>
                                 <label>[B]...[/B]</label>
-                                <font>LabelInfoSub</font> <!-- NXTFLIXLIGHT_26 -->
+                                <font>font12</font> <!-- NXTFLIXLIGHT_26 -->
                                 <textcolor>FF1F2020</textcolor>
                                 <align>right</align>
                                 <aligny>center</aligny>
@@ -369,7 +369,7 @@
                                 <width>425</width>
                                 <height>85</height>
                                 <label>[B]...[/B]</label>
-                                <font>LabelInfoSub</font> <!-- NXTFLIXLIGHT_26 -->
+                                <font>font12</font> <!-- NXTFLIXLIGHT_26 -->
                                 <textcolor>FFCCCCCC</textcolor>
                                 <align>right</align>
                                 <aligny>center</aligny>
@@ -385,7 +385,7 @@
                                 <width>425</width>
                                 <height>85</height>
                                 <label>[UPPERCASE][B]$INFO[ListItem.Property(setting_value)][/B][/UPPERCASE]</label>
-                                <font>LabelInfoSub</font> <!-- NXTFLIXLIGHT_26 -->
+                                <font>font12</font> <!-- NXTFLIXLIGHT_26 -->
                                 <textcolor>FF1F2020</textcolor>
                                 <align>right</align>
                                 <aligny>center</aligny>
@@ -397,7 +397,7 @@
                                 <width>425</width>
                                 <height>85</height>
                                 <label>[UPPERCASE][B]$INFO[ListItem.Property(setting_value)][/B][/UPPERCASE]</label>
-                                <font>LabelInfoSub</font> <!-- NXTFLIXLIGHT_26 -->
+                                <font>font12</font> <!-- NXTFLIXLIGHT_26 -->
                                 <textcolor>FFCCCCCC</textcolor>
                                 <align>right</align>
                                 <aligny>center</aligny>
@@ -1464,7 +1464,7 @@
                       </item>
                       <item>
                           <visible>Container(2000).HasFocus(50)</visible>
-                          <visible>!String.IsEqual(Window(10000).Property(nxtflixlt.tmdb_api),b370b60447737762ca34857bd77579b3)</visible>
+                          <visible>!String.IsEqual(Window(10000).Property(nxtflixlt.tmdb_api),76067629fab243b989a68881eb1f63ef)</visible>
                           <property name="setting_label">    - Restore Default TMDb API Key</property>
                           <property name="setting_type">action</property>
                           <property name="setting_value">...</property>
@@ -1473,7 +1473,7 @@
                       </item>
                       <item>
                           <visible>Container(2000).HasFocus(50)</visible>
-                          <visible>!String.IsEqual(Window(10000).Property(nxtflixlt.tmdb_api),b370b60447737762ca34857bd77579b3)</visible>
+                          <visible>!String.IsEqual(Window(10000).Property(nxtflixlt.tmdb_api),76067629fab243b989a68881eb1f63ef)</visible>
                           <property name="setting_label">Test API Key...</property>
                           <property name="setting_type">action</property>
                           <property name="setting_value">...</property>
@@ -2965,7 +2965,7 @@
                     <left>30</left>
                     <width>200</width>
                     <height>20</height>
-                    <font>LabelInfoSub</font> <!-- NXTFLIXLIGHT_26 -->
+                    <font>font12</font> <!-- NXTFLIXLIGHT_26 -->
                     <textcolor>FFCCCCCC</textcolor>
                     <label>[UPPERCASE][B]INFO: [/B][/UPPERCASE]</label>
                     <align>left</align>
@@ -2977,7 +2977,7 @@
                     <width>1530</width>
                     <height>70</height>
                     <control type="textbox">
-                        <font>LabelInfoSub</font> <!-- NXTFLIXLIGHT_26 -->
+                        <font>font12</font> <!-- NXTFLIXLIGHT_26 -->
                         <align>left</align>
                         <aligny>center</aligny>
                         <textcolor>FFCCCCCC</textcolor>
@@ -2986,7 +2986,7 @@
                         <visible>Control.HasFocus(2100)</visible>
                     </control>
                     <control type="textbox">
-                        <font>LabelInfoSub</font> <!-- NXTFLIXLIGHT_26 -->
+                        <font>font12</font> <!-- NXTFLIXLIGHT_26 -->
                         <align>left</align>
                         <aligny>center</aligny>
                         <textcolor>FFCCCCCC</textcolor>
