@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+    <include name="TVShowWidgets">
+        <include content="WidgetListLandscape">
+            <param name="content_path" value="plugin://plugin.video.redlight/?name=Trending&amp;mode=build_tvshow_list&amp;action=trakt_tv_trending&amp;random_support=true&amp;iconImage=trending"/>
+            <param name="widget_header" value="Trending"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="22011"/>
+        </include>
+        <include content="WidgetListLandscape">
+            <param name="content_path" value="plugin://plugin.video.redlight/?name=Premieres&amp;mode=build_tvshow_list&amp;action=tmdb_tv_premieres&amp;random_support=true&amp;iconImage=fresh"/>
+            <param name="widget_header" value="Premieres"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="22012"/>
+        </include>
+        <include content="WidgetListLandscape">
+            <param name="content_path" value="plugin://plugin.video.redlight/?name=Most+Favorited&amp;mode=build_tvshow_list&amp;action=trakt_tv_most_favorited&amp;random_support=true&amp;iconImage=favorites"/>
+            <param name="widget_header" value="Most Favorited"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="22013"/>
+        </include>
+        <include content="WidgetListLandscape">
+            <param name="content_path" value="plugin://plugin.video.redlight/?name=In+Progress+Episodes&amp;mode=build_in_progress_episode&amp;iconImage=player"/>
+            <param name="widget_header" value="In Progress Episodes"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="22014"/>
+        </include>
+        <include content="WidgetListLandscape">
+            <param name="content_path" value="plugin://plugin.video.redlight/?name=Next+Episodes&amp;mode=build_next_episode&amp;iconImage=next_episodes"/>
+            <param name="widget_header" value="Next Episodes"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="22015"/>
+        </include>
+        <include content="WidgetListLandscape">
+            <param name="content_path" value="plugin://plugin.video.redlight/?name=In+Progress&amp;mode=build_tvshow_list&amp;action=in_progress_tvshows&amp;iconImage=in_progress_tvshow"/>
+            <param name="widget_header" value="In Progress TV Shows"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="22016"/>
+        </include>
+        <include content="WidgetListEpisodes">
+            <param name="content_path" value="plugin://plugin.video.redlight/?name=Because+You+Watched...&amp;mode=navigator.because_you_watched&amp;menu_type=tvshow&amp;iconImage=because_you_watched"/>
+            <param name="widget_header" value="Because You Watched..."/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="22017"/>
+        </include>
+        <include content="WidgetListEpisodes">
+            <param name="content_path" value="plugin://plugin.video.redlight/?name=Genres&amp;mode=navigator.genres&amp;menu_type=tvshow&amp;random_support=true&amp;iconImage=genres"/>
+            <param name="widget_header" value="Genres"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="22018"/>
+        </include>
+        <include content="WidgetListEpisodes">
+            <param name="content_path" value="plugin://plugin.video.redlight/?name=Years&amp;mode=navigator.years&amp;menu_type=tvshow&amp;random_support=true&amp;iconImage=calender"/>
+            <param name="widget_header" value="Years"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="22019"/>
+        </include>
+        <include content="WidgetListEpisodes">
+            <param name="content_path" value="plugin://plugin.video.redlight/?name=Networks&amp;mode=navigator.networks&amp;menu_type=tvshow&amp;random_support=true&amp;iconImage=networks"/>
+            <param name="widget_header" value="Networks"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="22020"/>
+        </include>
+    </include>
+</includes>

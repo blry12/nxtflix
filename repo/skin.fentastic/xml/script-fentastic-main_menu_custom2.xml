@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+    <include name="Custom2MainMenu">
+        <item>
+            <label>[COLOR red]Red[/COLOR] Tools</label>
+            <onclick>ActivateWindow(Videos,plugin://plugin.video.redlight/?name=Tools&amp;mode=navigator.tools&amp;iconImage=settings2,return)</onclick>
+            <property name="menu_id">$NUMBER[24000]</property>
+            <thumb>special://skin/extras/icons/swissarmy.png</thumb>
+            <property name="id">custom2</property>
+            <visible>Skin.HasSetting(HomeMenuNoCustom2Button)</visible>
+        </item>
+    </include>
+</includes>

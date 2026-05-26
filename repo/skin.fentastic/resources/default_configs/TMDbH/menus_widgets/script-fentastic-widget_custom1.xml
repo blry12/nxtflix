@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+    <include name="Custom1Widgets">
+        <include content="WidgetListBigPoster">
+            <param name="content_path" value="plugin://plugin.video.themoviedb.helper/?info=trakt_inprogress&amp;tmdb_type=movie&amp;list_name=Your+In-Progress"/>
+            <param name="widget_header" value="Your In-Progress Movies"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="23011"/>
+        </include>
+        <include content="WidgetListBigPoster">
+            <param name="content_path" value="plugin://plugin.video.themoviedb.helper/?info=trakt_inprogress&amp;tmdb_type=tv&amp;list_name=Your+In-Progress"/>
+            <param name="widget_header" value="Your In-Progress Shows"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="23012"/>
+        </include>
+        <include content="WidgetListEpisodes">
+            <param name="content_path" value="plugin://plugin.video.themoviedb.helper/?info=trakt_ondeck&amp;tmdb_type=tv"/>
+            <param name="widget_header" value="Your In-Progress Episodes"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="23013"/>
+        </include>
+        <include content="WidgetListEpisodes">
+            <param name="content_path" value="plugin://plugin.video.themoviedb.helper/?info=trakt_nextepisodes&amp;tmdb_type=tv"/>
+            <param name="widget_header" value="Your Next Episodes"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="23014"/>
+        </include>
+    </include>
+</includes>

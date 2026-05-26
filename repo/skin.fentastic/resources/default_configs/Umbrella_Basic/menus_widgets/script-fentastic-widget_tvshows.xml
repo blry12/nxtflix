@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+    <include name="TVShowWidgets">
+        <include content="WidgetListCategory">
+            <param name="content_path" value="plugin://plugin.video.umbrella/?action=tvGenres&amp;url=tmdb_genre&amp;folderName=Genres+%28TMDb%29"/>
+            <param name="widget_header" value="Genres"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="22011"/>
+        </include>
+        <include content="WidgetListBigPoster">
+            <param name="content_path" value="plugin://plugin.video.umbrella/?action=tvshows&amp;url=tmdbrecentweek&amp;folderName=Trending+this+Week+%28TMDB%29"/>
+            <param name="widget_header" value="Trending this Week"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="22012"/>
+        </include>
+        <include content="WidgetListBigPoster">
+            <param name="content_path" value="plugin://plugin.video.umbrella/?action=tvshows&amp;url=traktrecommendations&amp;folderName=Recommended+%28Trakt%29"/>
+            <param name="widget_header" value="Recommended"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="22013"/>
+        </include>
+        <include content="WidgetListCategory">
+            <param name="content_path" value="plugin://plugin.video.umbrella/?action=tvNetworks&amp;folderName=Networks+%28TMDb%29"/>
+            <param name="widget_header" value="Networks"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="22014"/>
+        </include>
+    </include>
+</includes>

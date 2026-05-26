@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+    <include name="MovieWidgets">
+        <include content="WidgetListCategory">
+            <param name="content_path" value="plugin://plugin.video.themoviedb.helper/?info=genres&amp;tmdb_type=movie"/>
+            <param name="widget_header" value="Genres"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="19011"/>
+        </include>
+        <include content="WidgetListBigPoster">
+            <param name="content_path" value="plugin://plugin.video.themoviedb.helper/?info=now_playing&amp;tmdb_type=movie"/>
+            <param name="widget_header" value="In Theatres"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="19012"/>
+        </include>
+        <include content="WidgetListBigPoster">
+            <param name="content_path" value="plugin://plugin.video.themoviedb.helper/?info=trending_week&amp;tmdb_type=movie"/>
+            <param name="widget_header" value="Trending This Week"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="19013"/>
+        </include>
+        <include content="WidgetListCategory">
+            <param name="content_path" value="plugin://plugin.video.themoviedb.helper/?info=watch_providers&amp;tmdb_type=movie"/>
+            <param name="widget_header" value="Streaming Services"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="19014"/>
+        </include>
+    </include>
+</includes>

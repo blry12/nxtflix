@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+    <include name="MovieWidgets">
+        <include content="WidgetListLandscape">
+            <param name="content_path" value="plugin://plugin.video.redlight/?name=Trending&amp;mode=build_movie_list&amp;action=trakt_movies_trending&amp;random_support=true&amp;iconImage=trending"/>
+            <param name="widget_header" value="Trending"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="19011"/>
+        </include>
+        <include content="WidgetListLandscape">
+            <param name="content_path" value="plugin://plugin.video.redlight/?name=Latest+Releases&amp;mode=build_movie_list&amp;action=tmdb_movies_latest_releases&amp;random_support=true&amp;iconImage=dvd"/>
+            <param name="widget_header" value="Latest Releases"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="19012"/>
+        </include>
+        <include content="WidgetListLandscape">
+            <param name="content_path" value="plugin://plugin.video.redlight/?name=Most+Favorited&amp;mode=build_movie_list&amp;action=trakt_movies_most_favorited&amp;random_support=true&amp;iconImage=favorites"/>
+            <param name="widget_header" value="Most Favorited"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="19013"/>
+        </include>
+        <include content="WidgetListLandscape">
+            <param name="content_path" value="plugin://plugin.video.redlight/?name=Blockbusters&amp;mode=build_movie_list&amp;action=tmdb_movies_blockbusters&amp;random_support=true&amp;iconImage=most_voted"/>
+            <param name="widget_header" value="Blockbusters"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="19014"/>
+        </include>
+        <include content="WidgetListLandscape">
+            <param name="content_path" value="plugin://plugin.video.redlight/?name=Oscar+Winners&amp;mode=build_movie_list&amp;action=tmdb_movies_oscar_winners&amp;random_support=true&amp;iconImage=oscar_winners"/>
+            <param name="widget_header" value="Oscar Winners"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="19015"/>
+        </include>
+        <include content="WidgetListLandscape">
+            <param name="content_path" value="plugin://plugin.video.redlight/?name=In+Progress&amp;mode=build_movie_list&amp;action=in_progress_movies&amp;iconImage=player"/>
+            <param name="widget_header" value="In Progress"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="19016"/>
+        </include>
+        <include content="WidgetListEpisodes">
+            <param name="content_path" value="plugin://plugin.video.redlight/?name=Because+You+Watched...&amp;iconImage=because_you_watched&amp;mode=navigator.because_you_watched&amp;menu_type=movie"/>
+            <param name="widget_header" value="Because You Watched..."/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="19017"/>
+        </include>
+        <include content="WidgetListEpisodes">
+            <param name="content_path" value="plugin://plugin.video.redlight/?name=Genres&amp;mode=navigator.genres&amp;menu_type=movie&amp;random_support=true&amp;iconImage=genres"/>
+            <param name="widget_header" value="Genres"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="19018"/>
+        </include>
+        <include content="WidgetListEpisodes">
+            <param name="content_path" value="plugin://plugin.video.redlight/?name=Years&amp;mode=navigator.years&amp;menu_type=movie&amp;random_support=true&amp;iconImage=calender"/>
+            <param name="widget_header" value="Years"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="19019"/>
+        </include>
+        <include content="WidgetListEpisodes">
+            <param name="content_path" value="plugin://plugin.video.redlight/?name=Providers&amp;mode=navigator.providers&amp;menu_type=movie&amp;random_support=true&amp;iconImage=providers"/>
+            <param name="widget_header" value="Providers"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="19020"/>
+        </include>
+    </include>
+</includes>

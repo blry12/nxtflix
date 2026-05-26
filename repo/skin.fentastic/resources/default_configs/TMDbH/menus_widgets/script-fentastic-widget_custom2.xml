@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+    <include name="Custom2Widgets">
+        <include content="WidgetListBigPoster">
+            <param name="content_path" value="plugin://plugin.video.themoviedb.helper/?info=random_genres&amp;tmdb_type=movie"/>
+            <param name="widget_header" value="Random Movies Genre"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="24011"/>
+        </include>
+        <include content="WidgetListBigPoster">
+            <param name="content_path" value="plugin://plugin.video.themoviedb.helper/?info=random_genres&amp;tmdb_type=tv"/>
+            <param name="widget_header" value="Random TV Show Genre"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="24012"/>
+        </include>
+    </include>
+</includes>

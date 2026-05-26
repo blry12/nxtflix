@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+    <include name="Custom1Widgets">
+        <include content="WidgetListCategory">
+            <param name="content_path" value="plugin://plugin.video.fenlight/?name=Providers&amp;iconImage=providers&amp;mode=navigator.providers&amp;menu_type=movie&amp;random_support=true"/>
+            <param name="widget_header" value="Movie Streaming Services"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="23011"/>
+        </include>
+        <include content="WidgetListBigPoster">
+            <param name="content_path" value="plugin://plugin.video.fenlight/?name=In+Progress&amp;iconImage=player&amp;mode=build_movie_list&amp;action=in_progress_movies"/>
+            <param name="widget_header" value="In Progress Movies"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="23012"/>
+        </include>
+        <include content="WidgetListBigPoster">
+            <param name="content_path" value="plugin://plugin.video.fenlight/?name=In+Progress&amp;action=in_progress_tvshows&amp;iconImage=in_progress_tvshow&amp;mode=build_tvshow_list"/>
+            <param name="widget_header" value="In Progress Shows"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="23013"/>
+        </include>
+        <include content="WidgetListCategory">
+            <param name="content_path" value="plugin://plugin.video.fenlight/?name=Providers&amp;iconImage=providers&amp;mode=navigator.providers&amp;menu_type=tvshow&amp;random_support=true"/>
+            <param name="widget_header" value="TV Streaming Services"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="23014"/>
+        </include>
+        <include content="WidgetListEpisodes">
+            <param name="content_path" value="plugin://plugin.video.fenlight/?name=In+Progress+Episodes&amp;iconImage=player&amp;mode=build_in_progress_episode"/>
+            <param name="widget_header" value="In Progress Episodes"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="23015"/>
+        </include>
+        <include content="WidgetListEpisodes">
+            <param name="content_path" value="plugin://plugin.video.fenlight/?name=Next+Episodes&amp;iconImage=next_episodes&amp;mode=build_next_episode"/>
+            <param name="widget_header" value="Next Episodes"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="23016"/>
+        </include>
+    </include>
+</includes>
