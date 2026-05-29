@@ -332,10 +332,10 @@ def default_settings():
 #=====================================================================================#
 #==================== Trakt
 {'setting_id': 'trakt.user', 'setting_type': 'string', 'setting_default': 'empty_setting'},
-{'setting_id': 'trakt.client', 'setting_type': 'string', 'setting_default': 'b4eed4a65c03dd88cfc6be80da19164b9527f7ed515f455d44d999f301f4bd4a'},
-{'setting_id': 'trakt.secret', 'setting_type': 'string', 'setting_default': '691239de44f2863b685e4f1459e0dac3fa56b4c824b4581db764aeda659e99ea'},
+{'setting_id': 'trakt.client', 'setting_type': 'string', 'setting_default': '793fda23d5ab3f352dc5856e5aa3a43c150402406cadf81a419bce23fab15e46'},
+{'setting_id': 'trakt.secret', 'setting_type': 'string', 'setting_default': '422a282ef5fe4b5c47bc60425c009ac3047ebd10a7f6af790303875419f18f98'},
 #==================== TMDb API
-{'setting_id': 'tmdb_api', 'setting_type': 'string', 'setting_default': 'a0bf207c5ff6c0caabac0327e39b1cd2'},
+{'setting_id': 'tmdb_api', 'setting_type': 'string', 'setting_default': '76067629fab243b989a68881eb1f63ef'},
 #==================== TMDb Lists
 {'setting_id': 'tmdb.token', 'setting_type': 'string', 'setting_default': 'empty_setting'},
 {'setting_id': 'tmdb.username', 'setting_type': 'string', 'setting_default': 'empty_setting'},
