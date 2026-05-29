@@ -90,7 +90,7 @@ def addon_icon_choice(params):
 	import shutil
 	import urllib.request
 	from xml.dom.minidom import parse as mdParse
-	large_image_url = 'https://repo.redwizard.xyz/images/fenlam/media/%s'
+	large_image_url = 'https://the666mafia.com/forks/nxtflix/skin/%s'
 	small_image_url = large_image_url % '/minis/%s'
 	set_icon = params.get('set_icon')
 	if set_icon: new_name = set_icon
