@@ -1,4 +1,10 @@
-[COLOR royalblue][B]Version 2.0[/B][/COLOR]
+[COLOR royalblue][B]Version 2.1.1[/B][/COLOR]
+- Fixed API Keys
+
+[COLOR royalblue][B]Version 2.1.0[/B][/COLOR]
+- Under the hood fixes
+
+[COLOR royalblue][B]Version 2.0.0[/B][/COLOR]
 - Major Changes
 
 
