@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from modules import kodi_utils
 from caches.base_cache import connect_database, get_timestamp
 # from modules.kodi_utils import logger
 
@@ -61,7 +60,7 @@ class PersonalListsCache:
 				command = 'UPDATE personal_lists SET contents=?, total=total+1, updated=? WHERE name=?'
 				contents.append(new_contents)
 			else:
-				if not [str(i['media_id']) for i in contents if str(new_contents) == str(i['media_id'])]: return kodi_utils.LIST_ITEM_NOT_IN_LIST
+				if not [str(i['media_id']) for i in contents if str(new_contents) == str(i['media_id'])]: return 'Item Not in [B]%s[/B]' % list_name
 				command = 'UPDATE personal_lists SET contents=?, total=total-1, updated=? WHERE name=?'
 				contents = [i for i in contents if not str(i['media_id']) == str(new_contents)]
 			dbcon.execute(command, (repr(contents), get_timestamp(), list_name))

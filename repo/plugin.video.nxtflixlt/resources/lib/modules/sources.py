@@ -7,7 +7,7 @@ from caches.episode_groups_cache import episode_groups_cache
 from caches.settings_cache import get_setting
 from scrapers import external, folders
 from modules import debrid, kodi_utils, settings, metadata, watched_status
-from modules.player import NXTFlixtLightPlayer
+from modules.player import nxtflixltPlayer
 from modules.source_utils import get_cache_expiry, make_alias_dict, include_exclude_filters
 from modules.utils import clean_file_name, string_to_float, safe_string, remove_accents, get_datetime, append_module_to_syspath, manual_function_import
 # logger = kodi_utils.logger
@@ -39,6 +39,8 @@ class Sources():
 		kodi_utils.hide_busy_dialog()
 		if params: self.params = params
 		params_get = self.params.get
+		#PB-FIX 3
+		#if not kodi_utils.external_playback_check(self.params): return
 		self.play_type = params_get('play_type', '')
 		self.background = params_get('background', 'false') == 'true'
 		self.prescrape = params_get('prescrape', self.prescrape) == 'true'
@@ -603,7 +605,7 @@ class Sources():
 		link = self.resolve_internal(debrid_info, chosen_result['link'], '')
 		name = chosen_result['filename']
 		self._kill_progress_dialog()
-		return NXTFlixtLightPlayer().run(link, 'video')
+		return nxtflixltPlayer().run(link, 'video')
 
 	def play_file(self, results, source={}):
 		self.playback_successful, self.cancel_all_playback = None, False
@@ -661,7 +663,7 @@ class Sources():
 					url, self.playback_successful, self.cancel_all_playback = None, None, False
 					self.playing_filename = item['name']
 					self.playing_item = item
-					player = NXTFlixtLightPlayer()
+					player = nxtflixltPlayer()
 					try:
 						if self.progress_dialog.iscanceled() or monitor.abortRequested(): break
 						url = self.resolve_sources(item)

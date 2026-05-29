@@ -37,18 +37,11 @@ class TMDbListAPI:
 				progressDialog.update('Please Scan the QR Code%s[CR]Confirm Access to your TMDb Account' % p_dialog_insert, count)
 				sleep(2500)
 			except: success = False
-		canceled = progressDialog.iscanceled()
 		progressDialog.close()
-		if canceled:
-			tmdb_lists_cache.clear_all()
-			return
-		if success is True:
+		if success:
 			success = self.add_tmdb3_to_session(response['access_token'], response['account_id'])
 		tmdb_lists_cache.clear_all()
-		if success is True:
-			notification('Success')
-		else:
-			notification('Failed')
+		notification('Success' if success else 'Failed')
 
 	def add_tmdb3_to_session(self, access_token, account_id):
 		import requests
@@ -91,9 +84,8 @@ class TMDbListAPI:
 			except: pass
 		def _process(dummy):
 			result = self.request_data(url % (self.base_url, account_id, 1))
-			if not result: return results
-			results_extend(result.get('results') or [])
-			total_pages = result.get('total_pages') or 1
+			results_extend(result['results'])
+			total_pages = result['total_pages']
 			if total_pages > 1:
 				threads = TaskPool().tasks(_process_multi, range(2, total_pages + 1), max_threads())
 				[i.join() for i in threads]
