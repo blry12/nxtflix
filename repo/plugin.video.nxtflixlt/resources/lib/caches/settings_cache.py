@@ -205,8 +205,8 @@ def default_settings():
 #==================== Manage Updates
 {'setting_id': 'update.action', 'setting_type': 'action', 'setting_default': '0', 'settings_options': {'0': 'Prompt', '1': 'Automatic', '2': 'Notification', '3': 'Off'}},
 {'setting_id': 'update.delay', 'setting_type': 'action', 'setting_default': '10', 'min_value': '10', 'max_value': '300'},
-{'setting_id': 'update.username', 'setting_type': 'string', 'setting_default': 'nxtflixltAnonyMouse'},
-{'setting_id': 'update.location', 'setting_type': 'string', 'setting_default': 'nxtflixltAnonyMouse.github.io'},
+{'setting_id': 'update.username', 'setting_type': 'string', 'setting_default': 'blry12'},
+{'setting_id': 'update.location', 'setting_type': 'string', 'setting_default': 'blry12.github.io/nxtflix'},
 #==================== Watched Indicators
 {'setting_id': 'watched_indicators', 'setting_type': 'action', 'setting_default': '0', 'settings_options': {'0': 'NXTFlix Light', '1': 'Trakt'}},
 #======+============= Trakt Cache

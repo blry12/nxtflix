@@ -284,6 +284,7 @@
     <requires>
         <import addon="xbmc.python" version="3.0.0" />
         <import addon="script.module.pil" version="1.1.7" />
+        <import addon="script.module.viperscrapers" version="0.0.1" />		
         <import addon="script.module.requests" version="2.19.1" />
     </requires>
     <extension point="xbmc.python.pluginsource" library="resources/lib/nxtflixlt.py">
@@ -1116,7 +1117,7 @@
       <icon>resources/icon.png</icon>
     </assets>
   </extension>
-</addon><addon id="script.module.viperscrapers" name="Viper Scrapers" version="1.5.2" provider-name="Jax">
+</addon><addon id="script.module.viperscrapers" name="Viper Scrapers" version="1.5.3" provider-name="Jax">
 	<requires>
 		<import addon="xbmc.python" version="3.0.0" />
 		<import addon="script.module.requests" />
@@ -1137,7 +1138,7 @@
 			<icon>icon.png</icon>
 			<fanart>fanart.jpg</fanart>
 		</assets>
-		<news>- 1.5.2 Patched Mediafusion</news>
+		<news>- 1.5.3 Patched Mediafusion</news>
 	</extension>
 </addon><addon id="skin.fentastic" version="200.0.30a" name="FENtastic Plus" provider-name="Ivar Brandt, Zaxxon709">
 	<requires>
